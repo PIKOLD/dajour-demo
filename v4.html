@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D'ajour — салон красоты в центре Перми</title>
+<meta name="description" content="Салон-школа красоты D'ajour, Пермь, Осинская, 8. Девять направлений красоты, запись онлайн и в мессенджерах.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+:root{--bg:#f7f4ef;--ink:#1d1b19;--mut:#8d867d;--line:rgba(29,27,25,.14)}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.7 Jost,sans-serif}
+h1,h2,h3,.cg{font-family:"Cormorant Garamond",serif;font-weight:300;line-height:1.02;letter-spacing:-.015em}
+i{font-style:italic}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.cap{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:14px;height:54px;padding:0 34px;border:1px solid var(--ink);border-radius:99px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;transition:background .4s,color .4s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.lk{border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s}
+.lk:hover{border-color:var(--ink)}
+header{position:absolute;inset:0 0 auto;z-index:10}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{font:400 28px "Cormorant Garamond",serif;letter-spacing:.02em}
+header nav{display:flex;gap:38px}
+header nav a{transition:color .3s}header nav a:hover{color:var(--ink)}
+/* первый экран */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hl{display:flex;flex-direction:column;justify-content:center;padding:120px 40px 60px max(40px,calc((100vw - 1280px)/2))}
+h1{font-size:clamp(56px,7.6vw,128px);margin:26px 0 30px}
+.hl p{max-width:400px;color:#5e5850;font-size:17px;margin-bottom:38px}
+.tl{margin-top:54px;padding-top:26px;border-top:1px solid var(--line);max-width:520px}
+.txt{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:14px}
+.txt .m{gap:8px;font-size:15px;padding-bottom:3px;border-bottom:1px solid var(--line)}
+.txt .m svg{font-size:1em;color:var(--mut);transition:color .3s}
+.txt .m:hover{border-color:var(--ink)}.txt .m:hover svg{color:var(--ink)}
+.hr{position:relative;overflow:hidden;margin:20px 20px 20px 0;animation:rev 1.6s cubic-bezier(.7,0,.2,1) both}
+@keyframes rev{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%;transform:scale(calc(1.14 - (var(--p,.5) - .5)*.24))}
+.hr span{position:absolute;right:22px;bottom:20px;color:var(--ink)}
+/* услуги */
+section{padding:clamp(90px,11vw,170px) 0}
+.sv{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,7vw,120px)}
+.sv h2{font-size:clamp(40px,5vw,76px);margin:20px 0 50px}
+.list a{display:grid;grid-template-columns:54px 1fr auto;align-items:baseline;gap:8px;padding:19px 0;border-top:1px solid var(--line);color:var(--mut);transition:color .4s,padding .4s}
+.list a:last-child{border-bottom:1px solid var(--line)}
+.list .n{font-size:12px;letter-spacing:.14em}
+.list .t{font:300 clamp(24px,2.5vw,38px)/1.1 "Cormorant Garamond",serif;transition:transform .4s}
+.list .d{display:none}
+.list .ar{opacity:0;transition:opacity .4s,transform .4s;transform:translateX(-8px)}
+.list a.on{color:var(--ink)}.list a.on .ar{opacity:1;transform:none}.list a.on .t{transform:translateX(10px)}
+.sr{position:sticky;top:9vh;align-self:start}
+.fr{position:relative;aspect-ratio:3/4;max-height:74vh;overflow:hidden;background:#e9e3da}
+.fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.fr img.on{opacity:1;transform:none}
+.sr p{margin-top:18px;display:flex;justify-content:space-between;gap:20px;color:#5e5850}
+/* о салоне */
+.ab{text-align:center}
+.ab .q{font:italic 300 clamp(32px,4.6vw,72px)/1.12 "Cormorant Garamond",serif;max-width:1000px;margin:26px auto 34px}
+.ab>p{max-width:560px;margin:0 auto 60px;color:#5e5850;font-size:17px}
+.st{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);text-align:center}
+.st div{padding:38px 12px;border-left:1px solid var(--line)}
+.st div:first-child{border:0}
+.st b{font:300 clamp(40px,4.6vw,70px)/1 "Cormorant Garamond",serif;display:block;margin-bottom:6px}
+.mood{display:grid;grid-template-columns:.42fr .58fr;gap:clamp(20px,5vw,90px);align-items:end;margin-top:clamp(70px,9vw,130px);text-align:left}
+.mood figure{overflow:hidden}
+.mood img{width:100%;aspect-ratio:3/4;object-fit:cover;transform:scale(1.12) translateY(calc((var(--p,.5) - .5)*-8%))}
+.mood figure:first-child{margin-bottom:12%}
+.mood figcaption{margin-top:14px}
+.mood h3{font-size:clamp(28px,3vw,44px);margin:14px 0 14px}
+.mood .tx{padding-bottom:6%}
+.mood .tx p{color:#5e5850;max-width:420px;margin-bottom:22px}
+/* контакты */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,120px)}
+.ct h2{font-size:clamp(44px,6vw,96px);margin:20px 0 40px}
+.big .m{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--line);font:300 clamp(26px,2.8vw,40px)/1.1 "Cormorant Garamond",serif;transition:padding .4s}
+.big .m:last-child{border-bottom:1px solid var(--line)}
+.big .m svg{order:2;font-size:.55em;color:var(--mut);transition:color .3s,transform .4s}
+.big .m:hover{padding-left:14px}.big .m:hover svg{color:var(--ink);transform:rotate(-10deg)}
+.ct dl{display:grid;grid-template-columns:110px 1fr;gap:12px 20px;font-size:17px;margin:0 0 30px}
+.ct dt{padding-top:5px}
+.map{margin-bottom:30px}
+.map iframe{height:340px;filter:grayscale(1) contrast(.95)}
+.code{border-bottom:1px dashed var(--ink);letter-spacing:.14em}
+footer{border-top:1px solid var(--line);padding:26px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.dock{background:var(--ink);color:var(--bg)}
+.dock .m{border:1px solid rgba(255,255,255,.22)}
+.dock .book{background:var(--bg);color:var(--ink);letter-spacing:.08em}
+@media(max-width:900px){
+  .wrap{padding:0 20px}header nav{display:none}header .wrap{height:64px}
+  .hero{grid-template-columns:1fr}.hl{padding:96px 20px 40px}h1{font-size:17vw;margin:18px 0 20px}.hr{margin:0 20px;height:118vw}.tl{margin-top:36px}
+  .sv,.ct{grid-template-columns:1fr}.sr{display:none}.sv h2{margin-bottom:30px}
+  .list a{grid-template-columns:1fr 62px;color:var(--ink);gap:4px 14px;align-items:center}.list .n,.list .ar{display:none}.list .d{display:block;font-size:14px;line-height:1.45;color:var(--mut);grid-column:1}.list a.on .t{transform:none}
+  .list img{grid-column:2;grid-row:1/3;width:62px;height:78px;object-fit:cover}
+  .st{grid-template-columns:1fr 1fr}.st div:nth-child(3){border-left:0}.st div:nth-child(n+3){border-top:1px solid var(--line)}
+  .mood{grid-template-columns:1fr 1fr;gap:14px}.mood .tx{grid-column:1/-1;order:3;padding:10px 0 0}.mood figure:first-child{margin-bottom:18%}
+}
+@media(min-width:901px){.list img{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#top">D’ajour</a>
+  <nav class="cap"><a href="#services">Услуги</a><a href="#about">О салоне</a><a href="#contacts">Контакты</a></nav>
+  <a class="cap lk" data-go="book" style="color:var(--ink)">Записаться</a></div></header>
+
+<main id="top">
+<div class="hero" data-p>
+  <div class="hl">
+    <span class="cap">Салон-школа красоты · Пермь · с 2007</span>
+    <h1 data-split>Заботься <i>о себе</i></h1>
+    <p>Вместе с командой чемпионов. Все любимые процедуры в одном месте — в самом центре города, каждый день с 8 до 22.</p>
+    <div><a class="btn" data-go="book">Записаться онлайн <i data-ic="arrow" style="font-style:normal"></i></a></div>
+    <div class="tl"><span class="cap">Написать администратору</span><div class="txt" data-msgr="wa tg max vk ig tel" data-label></div></div>
+  </div>
+  <div class="hr"><img src="img/pure.jpg" alt="Салон красоты D'ajour"></div>
+</div>
+
+<section id="services"><div class="wrap sv">
+  <div><span class="cap">Услуги</span><h2 data-split>Девять направлений — <i>один адрес</i></h2><div class="list" id="list"></div></div>
+  <div class="sr"><div class="fr" id="fr"></div><p><span id="sd"></span><span class="cap" id="sn" style="white-space:nowrap"></span></p></div>
+</div></section>
+
+<section id="about" style="padding-top:0"><div class="wrap ab">
+  <span class="cap">О салоне</span>
+  <p class="q" data-split>«В гармонии с природой — в гармонии с собой»</p>
+  <p class="rv">Принцип, которому мы следуем с 2007 года. Команда чемпионов международного уровня, сертифицированная продукция и цена, которая не меняется после записи.</p>
+  <div class="st rv" id="st"></div>
+  <div class="mood" data-p>
+    <figure><img src="img/coffee.jpg" alt="Кофе в салоне" loading="lazy"><figcaption class="cap">Кофе — пока мы работаем</figcaption></figure>
+    <figure><img src="img/hair2.jpg" alt="Уход за волосами" loading="lazy"></figure>
+    <div class="tx rv"><span class="cap">Школа D'ajour</span><h3>Обучение от топ-мастеров салона</h3><p>Более 200 выпускников. Видеокурсы — в любом регионе России, очные курсы — в Перми, с сертификатом.</p><a class="cap lk" data-go="school" style="color:var(--ink)">Узнать о курсах →</a></div>
+  </div>
+</div></section>
+
+<section id="contacts" style="padding-top:0"><div class="wrap ct">
+  <div><span class="cap">Контакты</span><h2 data-split>Напишите <i>нам</i></h2><div class="big rv" data-msgr="wa tg max vk ig" data-label></div></div>
+  <div class="rv"><div class="map"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
+    <dl><dt class="cap">Адрес</dt><dd>Пермь, ул. Осинская, 8</dd><dt class="cap">Часы</dt><dd>Ежедневно 08:00–22:00</dd><dt class="cap">Телефон</dt><dd><a data-go="tel">+7 952 656-44-84</a></dd><dt class="cap">Скидка</dt><dd>10% на первый визит, промокод <button class="code" data-copy="106606" title="Скопировать">106606</button></dd></dl>
+    <a class="btn" data-go="book">Записаться онлайн</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap cap"><span>© 2007–2026 D'ajour</span><span>Пермь, Осинская, 8</span></div></footer>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script>
+<script>
+fill('#list', SERVICES, (s, k) => `<a href="${LINKS.book}" target="_blank" rel="noopener" data-k="${k}"><span class="n">0${k + 1}</span><span class="t">${s.n}</span><span class="ar">→</span><span class="d">${s.d}</span><img src="img/${s.i}.jpg" alt="" loading="lazy"></a>`);
+fill('#fr', SERVICES, s => `<img src="img/${s.i}.jpg" alt="${s.n}" loading="lazy">`);
+fill('#st', STATS, s => `<div><b data-count>${s[0]}</b><span class="cap">${s[1]}</span></div>`);
+// активная услуга: строка подсвечивается, фото справа плавно меняется
+const rows = [...document.querySelectorAll('#list a')], pics = [...document.querySelectorAll('#fr img')];
+const act = k => { rows.forEach((r, i) => r.classList.toggle('on', i === k)); pics.forEach((p, i) => p.classList.toggle('on', i === k));
+  document.getElementById('sd').textContent = SERVICES[k].d; document.getElementById('sn').textContent = `0${k + 1} / 09`; };
+rows.forEach((r, k) => { r.addEventListener('mouseenter', () => act(k)); r.addEventListener('focus', () => act(k)); });
+act(0);
+</script>
+</body>
+</html>

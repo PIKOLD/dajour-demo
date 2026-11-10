@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Дом D'ajour — салон красоты в центре Перми</title>
+<meta name="description" content="Салон-школа красоты D'ajour, Пермь, Осинская, 8. Девять направлений красоты, запись онлайн и в мессенджерах.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+:root{--bg:#141610;--bg2:#1b1e17;--ink:#ece6d8;--mut:#98947f;--br:#b99c6b;--line:rgba(236,230,216,.14)}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.7 Jost,sans-serif}
+h1,h2,h3,.tn{font-family:"Tenor Sans",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.14em;line-height:1.2}
+.it{font:italic 300 1em/1.1 "Cormorant Garamond",serif;text-transform:none;letter-spacing:0;color:var(--br)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.cap{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--mut)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 38px;border:1px solid var(--br);color:var(--br);font-size:12px;letter-spacing:.3em;text-transform:uppercase;transition:background .4s,color .4s}
+.btn:hover{background:var(--br);color:var(--bg)}
+.rnd{display:flex;gap:10px;justify-content:center}
+.rnd .m{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);color:var(--br);font-size:16px}
+.rnd .m:hover{border-color:var(--br);background:var(--br);color:var(--bg)}
+/* первый экран */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 20px 60px;overflow:hidden}
+.lg{width:74px;opacity:.92}
+.side{position:absolute;top:50%;white-space:nowrap}
+.side.l{left:38px;transform:rotate(-90deg) translateX(-50%);transform-origin:0 0}
+.side.r{right:38px;transform:rotate(90deg) translateX(50%);transform-origin:100% 0}
+.ph{position:relative;width:min(350px,62vw);margin:5vh 0 0}
+.ph::before{content:"";position:absolute;inset:-14px;border:1px solid var(--br);opacity:.55;transform:scale(calc(.94 + min(var(--p,.5),.5)*.12))}
+.ph div{overflow:hidden;aspect-ratio:3/4}
+.ph img{width:100%;height:100%;object-fit:cover;transform:scale(calc(1.16 - (var(--p,.5) - .5)*.3))}
+h1{font-size:clamp(24px,4.3vw,62px);margin:-1.1em 0 18px;position:relative}
+h1 .it{display:block;font-size:1.25em;margin-top:.08em}
+.hero p{max-width:440px;color:#bdb7a5;margin-bottom:30px}
+.hero .btn{margin-bottom:26px}
+.ln{width:1px;height:90px;background:linear-gradient(var(--br),transparent);margin-top:34px}
+/* меню услуг */
+section{padding:clamp(80px,10vw,150px) 0}
+.hd{text-align:center;margin-bottom:60px}
+h2{font-size:clamp(24px,3.2vw,46px);margin-top:20px}
+h2 .it{font-size:1.3em}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 80px}
+.menu a{display:grid;grid-template-columns:auto 1fr auto;gap:4px 14px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);transition:color .4s}
+.menu .n{font-size:11px;letter-spacing:.2em;color:var(--br)}
+.menu .t{font:300 clamp(23px,2.3vw,32px)/1.15 "Cormorant Garamond",serif;display:flex;align-items:baseline;gap:14px}
+.menu .t::after{content:"";flex:1;border-bottom:1px dotted rgba(236,230,216,.3);transform:translateY(-.25em);min-width:20px}
+.menu .go{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);transition:color .4s}
+.menu .d{grid-column:2/4;font-size:14.5px;color:var(--mut);line-height:1.5}
+.menu a:hover{color:var(--br)}.menu a:hover .go{color:var(--br)}
+#pv{position:fixed;left:0;top:0;width:210px;height:210px;border-radius:50%;object-fit:cover;pointer-events:none;z-index:30;opacity:0;transition:opacity .3s;box-shadow:0 0 0 1px var(--br),0 20px 60px rgba(0,0,0,.5)}
+/* о салоне */
+.ab{background:var(--bg2);text-align:center}
+.q{font:italic 300 clamp(30px,4.4vw,66px)/1.14 "Cormorant Garamond",serif;max-width:920px;margin:24px auto 30px}
+.ab p.tx{max-width:540px;margin:0 auto;color:#bdb7a5}
+.tri{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:clamp(14px,3vw,44px);align-items:center;margin:clamp(60px,8vw,110px) 0}
+.tri div{overflow:hidden}
+.tri img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:saturate(.75) brightness(.9);transform:scale(1.14) translateY(calc((var(--p,.5) - .5)*var(--k,-8%)))}
+.tri div:nth-child(2) img{--k:8%}
+.st{display:grid;grid-template-columns:repeat(4,1fr)}
+.st div{padding:8px 12px;border-left:1px solid var(--line)}
+.st div:first-child{border:0}
+.st b{font:300 clamp(40px,4.6vw,68px)/1 "Cormorant Garamond",serif;color:var(--br);display:block;margin-bottom:8px}
+.sch{display:inline-block;margin-top:60px;color:var(--br);border-bottom:1px solid var(--line);padding-bottom:4px;transition:border-color .3s}
+.sch:hover{border-color:var(--br)}
+/* контакты */
+.ct{text-align:center}
+.info{display:grid;grid-template-columns:repeat(3,1fr);margin:50px 0;border-block:1px solid var(--line)}
+.info div{padding:30px 14px;border-left:1px solid var(--line)}
+.info div:first-child{border:0}
+.info b{display:block;font:300 clamp(22px,2.2vw,30px)/1.2 "Cormorant Garamond",serif;margin-top:10px}
+.lab{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:34px}
+.lab .m{height:50px;padding:0 24px;border:1px solid var(--line);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.lab .m svg{color:var(--br);transition:color .3s}
+.lab .m:hover{border-color:var(--br);background:var(--br);color:var(--bg)}.lab .m:hover svg{color:var(--bg)}
+.code{color:var(--br);border-bottom:1px dashed var(--br);letter-spacing:.16em}
+.map{margin-top:60px;border:1px solid var(--line)}
+.map iframe{height:400px;filter:grayscale(1) invert(.92) contrast(.86) brightness(.92) sepia(.15)}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center}
+.dock{background:#20231b;box-shadow:0 0 0 1px var(--line);color:var(--br)}
+.dock .m{border:1px solid var(--line)}
+.dock .book{background:var(--br);color:var(--bg);letter-spacing:.1em}
+@media(max-width:900px){
+  .wrap{padding:0 20px}.side{display:none}.ph{margin-top:4vh;width:min(300px,66vw)}h1{font-size:7vw}
+  .menu{grid-template-columns:1fr}.menu .go{display:none}.menu .t::after{display:none}.menu .d{grid-column:2}
+  .tri{grid-template-columns:1fr 1fr}.tri div:nth-child(3){display:none}
+  .st{grid-template-columns:1fr 1fr;gap:30px 0}.st div:nth-child(3){border-left:0}
+  .info{grid-template-columns:1fr}.info div{border-left:0;border-top:1px solid var(--line);padding:22px 10px}.info div:first-child{border-top:0}
+  .lab .m{flex:1 1 40%;padding:0 10px}.map iframe{height:320px}
+}
+</style>
+</head>
+<body>
+<main>
+<div class="hero" data-p>
+  <img class="lg" src="img/logo-light.png" alt="Дом D'ajour — салон красоты">
+  <span class="cap side l">Пермь — Осинская, 8</span><span class="cap side r">Ежедневно 08:00 — 22:00</span>
+  <div class="ph"><div><img src="img/olive.jpg" alt="Салон красоты D'ajour"></div></div>
+  <h1>Заботься о себе <span class="it">вместе с командой чемпионов</span></h1>
+  <p>Девять направлений красоты в одном месте — в самом центре Перми, с 2007 года.</p>
+  <a class="btn" data-go="book">Записаться онлайн</a>
+  <div class="rnd" data-msgr="wa tg max vk ig tel"></div>
+  <i class="ln"></i>
+</div>
+
+<section id="services"><div class="wrap">
+  <div class="hd"><span class="cap">Услуги</span><h2 data-split>Меню <span class="it">красоты</span></h2></div>
+  <div class="menu rv" id="menu"></div>
+</div></section>
+<img id="pv" alt="">
+
+<section class="ab" id="about"><div class="wrap">
+  <span class="cap">О салоне</span>
+  <p class="q" data-split>«В гармонии с природой — в гармонии с собой»</p>
+  <p class="tx rv">Принцип, которому мы следуем с 2007 года. Команда чемпионов международного уровня, сертифицированная продукция и цена, которая не меняется после записи.</p>
+  <div class="tri" data-p><div><img src="img/massage.jpg" alt="" loading="lazy"></div><div><img src="img/cosm.jpg" alt="" loading="lazy"></div><div><img src="img/hair.jpg" alt="" loading="lazy"></div></div>
+  <div class="st rv" id="st"></div>
+  <a class="cap sch" data-go="school">Школа D'ajour — обучение от топ-мастеров →</a>
+</div></section>
+
+<section class="ct" id="contacts"><div class="wrap">
+  <span class="cap">Контакты</span><h2 data-split>До <span class="it">встречи</span></h2>
+  <div class="info rv"><div><span class="cap">Адрес</span><b>Пермь, ул. Осинская, 8</b></div><div><span class="cap">Часы</span><b>Ежедневно 08:00–22:00</b></div><div><span class="cap">Телефон</span><b><a data-go="tel">+7 952 656-44-84</a></b></div></div>
+  <div class="lab rv" data-msgr="wa tg max vk ig" data-label></div>
+  <a class="btn" data-go="book">Записаться онлайн</a>
+  <p style="margin-top:26px;color:var(--mut)">Скидка 10% на первый визит по промокоду <button class="code" data-copy="106606" title="Скопировать">106606</button></p>
+  <div class="map rv"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
+</div></section>
+</main>
+
+<footer class="cap">© 2007–2026 Салон-школа красоты D'ajour</footer>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script>
+<script>
+fill('#menu', SERVICES, (s, k) => `<a href="${LINKS.book}" target="_blank" rel="noopener" data-i="img/${s.i}.jpg"><span class="n">0${k + 1}</span><span class="t">${s.n}</span><span class="go">Записаться</span><span class="d">${s.d}</span></a>`);
+fill('#st', STATS, s => `<div><b data-count>${s[0]}</b><span class="cap">${s[1]}</span></div>`);
+// круглое превью услуги рядом с курсором
+const pv = document.getElementById('pv');
+if (matchMedia('(hover:hover)').matches) document.querySelectorAll('#menu a').forEach(a => {
+  a.addEventListener('mouseenter', () => { pv.src = a.dataset.i; pv.style.opacity = 1; });
+  a.addEventListener('mouseleave', () => { pv.style.opacity = 0; });
+  a.addEventListener('mousemove', e => { pv.style.transform = `translate(${Math.min(e.clientX + 28, innerWidth - 240)}px,${e.clientY - 105}px)`; });
+});
+</script>
+</body>
+</html>

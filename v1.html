@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D'ajour — журнал о красоте. Салон-школа в центре Перми</title>
+<meta name="description" content="Салон-школа красоты D'ajour в центре Перми. Все процедуры в одном месте, запись онлайн и в любом мессенджере.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+:root{--bg:#f2ede4;--ink:#141110;--mut:#6d655d;--acc:#d43d1c;--line:rgba(20,17,16,.2)}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.55 Manrope,sans-serif}
+h1,h2,h3,.pf{font-family:"Playfair Display",serif;font-weight:400;letter-spacing:-.025em;line-height:1}
+em{font-style:italic;color:var(--acc)}
+.wrap{max-width:1400px;margin:0 auto;padding:0 32px}
+.cap{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 28px;background:var(--ink);color:var(--bg);font-weight:600;font-size:14px;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;transition:background .25s,transform .25s}
+.btn:hover{background:var(--acc);transform:translateY(-2px)}
+/* ───── обложка ───── */
+.cover{height:185vh}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--bg)}
+.issue{position:absolute;inset:18px 32px auto;display:flex;justify-content:space-between;gap:16px;z-index:6}
+.mast{position:absolute;left:0;right:0;top:7vh;text-align:center;font:400 19.4vw/.82 "Playfair Display",serif;letter-spacing:-.05em;white-space:nowrap;user-select:none;transform:translateY(calc(var(--p,0)*4vh))}
+.mast.back{z-index:1}
+.mast.front{z-index:3;color:transparent;-webkit-text-stroke:1.5px #fff;pointer-events:none}
+.ph{position:absolute;left:50%;bottom:0;height:74vh;aspect-ratio:4/5;z-index:2;transform:translateX(-50%) scale(calc(1 + var(--p,0)*.55));transform-origin:50% 100%;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.cl{position:absolute;top:43vh;width:min(230px,19vw);z-index:4;opacity:calc(1 - var(--p,0)*3.2);display:grid;gap:30px}
+.cl.l{left:4vw}.cl.r{right:4vw;text-align:right}
+.cl b{font:italic 400 clamp(46px,5.4vw,84px)/1 "Playfair Display",serif;display:block;color:var(--acc);margin-bottom:8px}
+.cl p{font-size:14px;line-height:1.4;font-weight:500}
+.cl .cap{display:block;margin-bottom:6px;color:var(--mut)}
+.code{border-bottom:1px dashed var(--acc);color:var(--acc);font-weight:700;letter-spacing:.12em}
+.bar{position:absolute;left:32px;right:32px;bottom:26px;z-index:5;display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.bar .cap{display:block;margin-bottom:10px}
+.rnd{display:flex;gap:8px}
+.rnd .m{width:50px;height:50px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:17px}
+.rnd .m:hover{background:var(--acc);transform:translateY(-4px) rotate(-8deg)}
+/* ───── содержание ───── */
+section{padding:clamp(80px,10vw,150px) 0}
+.sh{display:grid;grid-template-columns:1.6fr 1fr;gap:30px;align-items:end;margin-bottom:50px}
+h2{font-size:clamp(52px,9.4vw,160px);letter-spacing:-.04em}
+h2 i{font-style:italic}
+.sh p{color:var(--mut);max-width:400px;justify-self:end}
+.rows{border-top:1.5px solid var(--ink)}
+.rows a{display:grid;grid-template-columns:70px 1.3fr 1fr 90px;gap:20px;align-items:center;padding:24px 14px;border-bottom:1px solid var(--line);transition:background .35s,color .35s,padding .35s}
+.rows .n{font-size:12px;font-weight:700;color:var(--acc);letter-spacing:.1em}
+.rows h3{font-size:clamp(26px,3.8vw,58px)}
+.rows p{color:var(--mut);font-size:15px;transition:color .3s}
+.rows .pg{justify-self:end;font:italic 400 22px "Playfair Display",serif;display:flex;gap:10px;align-items:center}
+.rows .pg::after{content:"→";font-style:normal;transition:transform .3s}
+.rows img{display:none}
+@media(hover:hover){.rows a:hover{background:var(--ink);color:var(--bg);padding-left:34px}.rows a:hover p{color:#c9c0b5}.rows a:hover .pg::after{transform:translateX(6px) rotate(-45deg)}}
+#pv{position:fixed;left:0;top:0;width:270px;aspect-ratio:4/5;object-fit:cover;pointer-events:none;z-index:30;opacity:0;transition:opacity .25s;will-change:transform;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+/* ───── развороты (горизонтальная прокрутка) ───── */
+.hz{height:400vh;padding:0}
+.hz .stick{background:none}
+.track{display:flex;width:max-content;height:100%;transform:translateX(calc(var(--p,0)*(100vw - 100%)));will-change:transform}
+.pn{flex:none;width:100vw;height:100%;padding:11vh 6vw 13vh;display:grid;gap:5vw;align-items:center;position:relative}
+.pn .fol{position:absolute;left:6vw;top:5vh}
+.pn .no{position:absolute;right:6vw;top:5vh;font:italic 400 20px "Playfair Display",serif}
+.p1{grid-template-columns:1.15fr .85fr}
+.p1 .q{font:400 clamp(38px,5.6vw,92px)/1.02 "Playfair Display",serif;letter-spacing:-.03em}
+.p1 p{color:var(--mut);max-width:520px;margin-top:28px;font-size:17px}
+.pn img{width:100%;max-height:72vh;object-fit:cover}
+.p2{background:var(--ink);color:var(--bg);grid-template-columns:repeat(2,1fr);align-content:center;gap:5vh 6vw}
+.p2 b{font:italic 400 clamp(70px,13vw,220px)/.85 "Playfair Display",serif;display:block;letter-spacing:-.04em}
+.p2 div:nth-child(odd) b{color:#f0b9a6}
+.p2 span{color:#b9b0a5;font-size:15px;letter-spacing:.06em}
+.p3{align-content:center;gap:4vh}
+.p3 h3{font-size:clamp(40px,5.6vw,90px);letter-spacing:-.03em}
+.pil{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink);counter-reset:p}
+.pil li{counter-increment:p;padding:22px 26px 24px 0;border-bottom:1px solid var(--line)}
+.pil li::before{content:"№ " counter(p);font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--acc)}
+.pil h4{font:400 26px/1.1 "Playfair Display",serif;margin:10px 0 8px}
+.pil p{color:var(--mut);font-size:14.5px;max-width:330px}
+.p4{background:var(--acc);color:#fff;grid-template-columns:.8fr 1.2fr}
+.p4 h3{font-size:clamp(40px,6vw,100px);letter-spacing:-.03em;margin:18px 0 24px}
+.p4 h3 i{font-style:italic}
+.p4 p{max-width:520px;margin-bottom:30px;font-size:17px;opacity:.92}
+.p4 .btn{background:#fff;color:var(--ink)}.p4 .btn:hover{background:var(--ink);color:#fff}
+.prog{position:absolute;left:6vw;right:6vw;bottom:5vh;height:2px;background:rgba(128,128,128,.35);z-index:3}
+.prog i{display:block;height:100%;background:var(--acc);width:calc(var(--p,0)*100%);mix-blend-mode:normal}
+.prog span{position:absolute;right:0;top:-26px;mix-blend-mode:difference;color:#fff}
+/* ───── письма в редакцию ───── */
+.letters .m{display:flex;justify-content:flex-start;gap:.5em;padding:.16em 0;border-bottom:1px solid var(--line);font:italic 400 clamp(40px,8vw,128px)/1.08 "Playfair Display",serif;letter-spacing:-.03em}
+.letters .m svg{font-size:.42em;color:var(--acc);transition:transform .4s}
+.letters .m::after{content:"↗";margin-left:auto;font-style:normal;font-size:.5em;opacity:.25;transition:opacity .3s,transform .3s}
+.letters .m:hover{color:var(--acc);padding-left:.25em}
+.letters .m:hover::after{opacity:1;transform:translate(6px,-6px)}
+.letters .m:hover svg{transform:rotate(-12deg) scale(1.2)}
+.fin{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px);margin-top:70px}
+.fin dl{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:19px;align-content:start;margin-bottom:30px}
+.fin dt{color:var(--mut);font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding-top:8px;font-weight:700}
+.map iframe{height:100%;min-height:420px;filter:grayscale(.9) contrast(1.05)}
+footer{border-top:1.5px solid var(--ink);padding:22px 0;font-size:13px;color:var(--mut)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.dock{background:var(--ink);color:var(--bg)}
+.dock .m{border:1px solid rgba(255,255,255,.25)}
+.dock .book{background:var(--acc);color:#fff}
+@media(max-width:900px){
+  .wrap{padding:0 18px}.cover{height:150vh}.issue{inset:14px 18px auto}.issue span:nth-child(2){display:none}
+  .mast{top:10vh}.ph{height:min(62vh,105vw)}.cl{display:none}
+  .bar{left:0;right:0;bottom:16px;justify-content:center}.bar .btn,.bar .cap{display:none}
+  .rnd{background:var(--bg);padding:8px;border-radius:99px}.rnd .m{width:46px;height:46px}
+  .sh{grid-template-columns:1fr}.sh p{justify-self:start}
+  .rows a{grid-template-columns:64px 1fr 22px;gap:14px;padding:14px 0}.rows img{display:block;width:64px;height:64px;object-fit:cover;border-radius:50%;grid-row:1/3}.rows .n{display:none}.rows h3{grid-column:2;font-size:24px}.rows p{grid-column:2;font-size:13.5px;line-height:1.4}.rows .pg{grid-row:1/3;grid-column:3;font-size:0;gap:0}.rows .pg::after{font-size:20px}
+  .hz{height:auto}.hz .stick{position:static;height:auto;overflow:visible}.track{transform:none;flex-direction:column;width:auto}
+  .pn{width:auto;height:auto;padding:76px 18px 64px;grid-template-columns:1fr!important;gap:28px}.pn .fol{left:18px;top:28px}.pn .no{right:18px;top:24px}.prog{display:none}
+  .p2{grid-template-columns:1fr 1fr!important}.pil{grid-template-columns:1fr}.pil li{padding-right:0}
+  .fin{grid-template-columns:1fr;margin-top:44px}.map iframe{min-height:340px}
+}
+@media(max-width:760px){.cover{height:140vh}.mast{top:8vh}.ph{top:14.5vh;bottom:auto;height:auto;width:88vw;transform-origin:50% 0;transform:translateX(-50%) scale(calc(1 + var(--p,0)*.3))}.bar{bottom:84px}.bar .cap{display:block;text-align:center;font-size:10px;margin-bottom:8px}.rnd{background:none;padding:0;justify-content:center}}
+</style>
+</head>
+<body>
+<main>
+<section class="cover" data-p="pin" style="padding:0"><div class="stick">
+  <div class="issue cap"><span>Пермь · Осинская, 8</span><span>Салон-школа красоты · с 2007 года</span><span>08:00–22:00</span></div>
+  <div class="mast back" aria-hidden="true">D’AJOUR</div>
+  <div class="ph"><img src="img/cover.jpg" alt="Салон красоты D'ajour"></div>
+  <div class="mast front" aria-hidden="true">D’AJOUR</div>
+  <h1 style="position:absolute;opacity:0;pointer-events:none">D'ajour — салон-школа красоты в центре Перми</h1>
+  <div class="cl l"><div><b>9</b><p>направлений красоты под одной крышей — от волос до лазера</p></div><div><span class="cap">Тема номера</span><p>Заботься о себе вместе с командой чемпионов</p></div></div>
+  <div class="cl r"><div><b>−10%</b><p>на первый визит по промокоду <button class="code" data-copy="106606" title="Скопировать">106606</button></p></div><div><span class="cap">Школа D'ajour</span><p>200+ выпускников стали мастерами</p></div></div>
+  <div class="bar"><div><span class="cap">Написать администратору — без звонков</span><div class="rnd" data-msgr="wa tg max vk ig tel"></div></div><a class="btn" data-go="book">Записаться онлайн <i data-ic="arrow"></i></a></div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="sh"><h2 data-split>Содер<i>жание</i></h2><p class="rv">Девять рубрик номера. Наведите на рубрику, чтобы заглянуть внутрь, — и записывайтесь онлайн или пишите нам в мессенджер.</p></div>
+  <div class="rows rv" id="rows"></div>
+</div></section>
+<img id="pv" alt="">
+
+<section class="hz" data-p="pin"><div class="stick">
+  <div class="track">
+    <article class="pn p1"><span class="cap fol">О салоне</span><span class="no">стр. 10</span>
+      <div><p class="q">«В гармонии с природой — <em>в гармонии с собой</em>»</p><p>Это принцип, которому мы следуем с 2007 года. Приветливый персонал и эстетичный интерьер позволят забыть о будничной суете: наслаждайтесь процедурами за чашечкой кофе, а затем с лёгкостью вернитесь к делам — мы в самом центре города.</p></div>
+      <img src="img/team.jpg" alt="Команда D'ajour" loading="lazy"></article>
+    <article class="pn p2" id="st"><span class="cap fol">D'ajour в цифрах</span><span class="no">стр. 12</span></article>
+    <article class="pn p3"><span class="cap fol">Правила редакции</span><span class="no">стр. 14</span>
+      <h3>Почему возвращаются <em>к нам</em></h3><ul class="pil" id="pil"></ul></article>
+    <article class="pn p4"><span class="cap fol">Школа D'ajour</span><span class="no">стр. 16</span>
+      <img src="img/master.jpg" alt="Мастер D'ajour за работой" loading="lazy">
+      <div><h3>Обучение от <i>топ-мастеров</i> салона</h3><p>Более 200 учеников вышли профессионалами после наших курсов. Видеокурсы — в любом регионе России в удобное время, очные курсы — в Перми, с сертификатом и всеми материалами.</p><a class="btn" data-go="school">Узнать о курсах →</a></div></article>
+  </div>
+  <div class="prog"><i></i><span class="cap">листайте вниз →</span></div>
+</div></section>
+
+<section id="contacts"><div class="wrap">
+  <div class="sh"><h2 data-split>Письма <i>в редакцию</i></h2><p class="rv">Выберите, где вам удобнее, — администратор ответит, подскажет по услугам и запишет. Звонить не обязательно.</p></div>
+  <div class="letters rv" data-msgr="wa tg max vk ig" data-label></div>
+  <div class="fin">
+    <div class="rv"><dl><dt>Адрес</dt><dd>Пермь, ул. Осинская, 8</dd><dt>Часы</dt><dd>Ежедневно 08:00–22:00</dd><dt>Телефон</dt><dd><a data-go="tel">+7 952 656-44-84</a></dd></dl><a class="btn" data-go="book">Записаться онлайн →</a></div>
+    <div class="map rv"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2007–2026 Салон-школа красоты D'ajour</span><span>Пермь, Осинская, 8</span></div></footer>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script>
+<script>
+fill('#rows', SERVICES, (s, k) => `<a href="${LINKS.book}" target="_blank" rel="noopener" data-i="img/${s.i}.jpg"><img src="img/${s.i}.jpg" alt="" loading="lazy"><span class="n">0${k + 1}</span><h3>${s.n}</h3><p>${s.d}</p><span class="pg">стр. ${k + 1}</span></a>`);
+document.getElementById('st').insertAdjacentHTML('beforeend', STATS.map(s => `<div><b data-count>${s[0]}</b><span>${s[1]}</span></div>`).join(''));
+fill('#pil', PILLARS, p => `<li><h4>${p.n}</h4><p>${p.d}</p></li>`);
+// превью рубрики, которое следует за курсором
+const pv = document.getElementById('pv');
+if (matchMedia('(hover:hover)').matches) document.querySelectorAll('#rows a').forEach(a => {
+  a.addEventListener('mouseenter', () => { pv.src = a.dataset.i; pv.style.opacity = 1; });
+  a.addEventListener('mouseleave', () => { pv.style.opacity = 0; });
+  a.addEventListener('mousemove', e => { pv.style.transform = `translate(${Math.min(e.clientX + 30, innerWidth - 300)}px,${e.clientY - 170}px) rotate(3deg)`; });
+});
+</script>
+</body>
+</html>

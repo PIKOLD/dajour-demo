@@ -1,0 +1,25 @@
+/* Фирменный стиль «Дом D'ajour»: красное дерево, эвкалипт, крем, Montserrat как в их сторис */
+:root{--mah:#4e1912;--mah2:#3a110c;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--euc2:#dfe8e1;--gold:#c9ad82;--line:rgba(42,24,20,.14)}
+body{background:var(--cream);color:var(--ink);font:400 16px/1.65 Montserrat,sans-serif}
+h1,h2,h3,.up{font-weight:300;text-transform:uppercase;letter-spacing:.09em;line-height:1.18}
+.cap{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:99px;background:var(--mah);color:var(--cream);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:transform .3s,background .3s,color .3s}
+.btn:hover{transform:translateY(-3px);background:var(--mah2)}
+.btn.cr{background:var(--cream);color:var(--mah)}.btn.cr:hover{background:#fff}
+/* дерево */
+.woodbg{position:relative;background:var(--mah);color:var(--cream);overflow:hidden;isolation:isolate}
+.woodbg>svg.wood{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.6}
+.woodbg::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 60% at 50% 40%,rgba(120,50,30,.35),transparent 70%),linear-gradient(180deg,transparent 60%,rgba(20,5,3,.45))}
+/* эвкалипт */
+.euc{position:absolute;z-index:0;width:var(--w,520px);overflow:visible;pointer-events:none;transform-origin:0 50%;animation:sway var(--t,7s) ease-in-out infinite alternate;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))}
+@keyframes sway{from{transform:rotate(var(--r,0deg))}to{transform:rotate(calc(var(--r,0deg) + 3deg))}}
+/* строки мессенджеров */
+.mr{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:16px;padding:14px 20px 14px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:transform .3s,background .3s,color .3s,border-color .3s}
+.mr+.mr{margin-top:10px}
+.mr .mi{width:52px;height:52px;border-radius:50%;background:var(--mah);color:var(--cream);display:grid;place-items:center;font-size:21px;transition:background .3s,color .3s}
+.mr b{display:block;font-weight:500;font-size:17px;letter-spacing:.02em}
+.mr small{color:var(--mut);font-size:13px;transition:color .3s}
+.mr i{font-style:normal;font-size:20px;transition:transform .3s}
+.mr:hover{background:var(--mah);color:var(--cream);border-color:var(--mah);transform:translateX(6px)}
+.mr:hover .mi{background:var(--cream);color:var(--mah)}.mr:hover small{color:#d9c4b5}.mr:hover i{transform:translateX(5px)}
+.code{border:1px dashed currentColor;border-radius:99px;padding:5px 16px;letter-spacing:.18em;font-weight:500}

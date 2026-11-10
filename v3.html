@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D'ajour — заботься о себе. Салон красоты в центре Перми</title>
+<meta name="description" content="Салон-школа красоты D'ajour в центре Перми: девять направлений, команда чемпионов, запись онлайн и в мессенджерах.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@700;900&family=Oswald:wght@700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+:root{--terra:#dc5429;--cream:#f5ebdb;--green:#1e3a2f;--euc:#a8cdb8;--wine:#56161a;--blush:#f4c6b6;--ink:#1a1512}
+body{background:var(--cream);color:var(--ink);font:400 17px/1.5 Onest,sans-serif}
+main{overflow-x:clip}
+.d,h1,h2,h3{font-family:"Alumni Sans",Oswald,sans-serif;font-weight:900;text-transform:uppercase;line-height:.8;letter-spacing:-.012em}
+.wrap{max-width:1400px;margin:0 auto;padding:0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:99px;background:var(--ink);color:var(--cream);font-weight:600;transition:transform .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+/* ───── первый экран ───── */
+.hero{display:grid;grid-template-columns:58fr 42fr;min-height:100vh;position:relative}
+.hl{background:var(--terra);color:var(--cream);padding:26px clamp(20px,3vw,44px) 40px;display:flex;flex-direction:column;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:15px}
+.logo{font-size:38px;line-height:1}
+h1{font-size:clamp(96px,16.2vw,290px);margin:auto 0 0}
+h1 span{display:block;white-space:nowrap}
+h1 span:first-child{transform:translateX(calc((var(--p,.5) - .5)*-5vw))}
+h1 span:last-child{transform:translateX(calc((var(--p,.5) - .5)*18vw));color:var(--ink)}
+.sub{font-size:clamp(18px,1.8vw,26px);font-weight:500;margin:22px 0 24px;max-width:560px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills .m{height:50px;padding:0 20px;border-radius:99px;background:var(--cream);color:var(--ink);font-weight:600;font-size:15px}
+.pills .m:hover{background:var(--ink);color:var(--cream);transform:translateY(-4px) rotate(-2deg)}
+.hr{position:relative;overflow:hidden;background:#cbb9a6}
+.hr img{position:absolute;inset:0;width:100%;height:112%;object-fit:cover;object-position:50% 30%;transform:translateY(calc((var(--p,.5) - .5)*-12%))}
+.hr .btn{position:absolute;top:22px;right:22px;z-index:2;height:48px;padding:0 24px}
+.hr .btn:hover{background:var(--terra)}
+.stk{position:absolute;left:58%;bottom:9%;width:clamp(120px,13vw,190px);aspect-ratio:1;margin-left:calc(clamp(120px,13vw,190px)/-2);border-radius:50%;background:var(--green);color:var(--cream);display:grid;place-items:center;z-index:3;transform:rotate(calc(var(--p,.5)*240deg))}
+.stk svg{position:absolute;inset:0;animation:sp 20s linear infinite}
+.stk text{font:600 13.5px Onest,sans-serif;letter-spacing:.14em;fill:currentColor;text-transform:uppercase}
+.stk b{font:900 clamp(40px,4.4vw,66px)/1 "Alumni Sans",Oswald,sans-serif;color:var(--euc)}
+@keyframes sp{to{transform:rotate(360deg)}}
+.band{background:var(--green);color:var(--cream);overflow:hidden;white-space:nowrap;padding:14px 0 10px;width:104vw;margin:-22px 0 0 -2vw;transform:rotate(-1.4deg);position:relative;z-index:4}
+.band div{display:inline-block;animation:tk 40s linear infinite;font:900 clamp(34px,4.4vw,64px)/1 "Alumni Sans",Oswald,sans-serif;text-transform:uppercase}
+.band b{color:var(--terra);margin:0 .4em}
+@keyframes tk{to{transform:translateX(-50%)}}
+/* ───── стопка услуг ───── */
+.sh{padding:clamp(70px,9vw,130px) 0 40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+h2{font-size:clamp(76px,15vw,250px)}
+h2 i{font-style:normal;color:var(--terra)}
+.sh p{max-width:340px;font-weight:500;padding-bottom:10px}
+.stack{padding:0 16px 30px}
+.card{position:sticky;top:calc(16px + var(--i)*10px);height:min(76vh,640px);margin-bottom:28px;border-radius:36px;background:var(--bg);color:var(--fg);display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;transform-origin:50% 0;will-change:transform}
+.tx{padding:clamp(22px,3.2vw,50px);display:flex;flex-direction:column;min-width:0}
+.num{font-size:30px;line-height:1;display:flex;justify-content:space-between;align-items:center}
+.num small{font:500 14px Onest,sans-serif;text-transform:none;letter-spacing:0;opacity:.8}
+.card h3{font-size:clamp(84px,14.5vw,240px);margin:auto 0 12px -.02em;color:var(--ac)}
+.nm{font-weight:600;font-size:clamp(18px,1.6vw,24px)}
+.ds{opacity:.85;max-width:460px;margin:4px 0 22px}
+.act{display:flex;gap:8px;flex-wrap:wrap}
+.act .btn{background:var(--fg);color:var(--bg);height:52px}
+.act .ic{width:52px;padding:0;font-size:20px;background:none;color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.act .ic:hover{background:var(--fg);color:var(--bg)}
+.im{position:relative}
+.im img{position:absolute;inset:26px 26px 26px 0;width:calc(100% - 26px);height:calc(100% - 52px);object-fit:cover;border-radius:26px;transform:rotate(var(--rot,2deg))}
+/* ───── почему ───── */
+.why{background:var(--green);color:var(--cream);border-radius:48px 48px 0 0;padding:clamp(70px,9vw,130px) 0;margin-top:40px}
+.why h2 i{color:var(--euc)}
+.why .ph{margin:50px 0;height:min(70vh,620px);border-radius:36px;overflow:hidden;transform:scale(calc(.74 + min(var(--p,0),.5)*.52))}
+.why .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.lead{font-size:clamp(22px,2.6vw,38px);font-weight:500;line-height:1.25;max-width:980px}
+.lead b{color:var(--euc);font-weight:500}
+.pil{display:grid;grid-template-columns:1fr 1fr;gap:0 60px;margin-top:50px;counter-reset:p}
+.pil li{counter-increment:p;display:grid;grid-template-columns:90px 1fr;gap:6px 10px;padding:26px 0;border-top:2px solid rgba(245,235,219,.25)}
+.pil li::before{content:"0" counter(p);font:900 74px/.8 "Alumni Sans",Oswald,sans-serif;color:var(--euc);grid-row:span 2}
+.pil h3{font-size:44px;line-height:.9}
+.pil p{opacity:.8;font-size:16px}
+.nums{background:var(--terra);color:var(--cream);display:grid;grid-template-columns:repeat(4,1fr)}
+.nums div{padding:50px 28px;border-left:2px solid rgba(245,235,219,.3)}
+.nums div:first-child{border:0}
+.nums b{font:900 clamp(84px,11.5vw,200px)/.8 "Alumni Sans",Oswald,sans-serif;display:block}
+.nums span{font-weight:500}
+/* ───── школа и контакты ───── */
+.school{background:var(--blush);color:var(--wine);display:grid;grid-template-columns:1fr 1fr}
+.school div{padding:clamp(50px,7vw,110px) clamp(22px,4vw,70px)}
+.school h2{font-size:clamp(70px,10vw,170px);margin:16px 0 26px}
+.school p{max-width:520px;font-size:19px;margin-bottom:30px}
+.school .btn{background:var(--wine);color:var(--blush)}
+.school img{width:100%;height:100%;min-height:420px;object-fit:cover}
+.tag{font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.ctc{padding:clamp(70px,9vw,130px) 0}
+.ctc h2 i{color:var(--terra)}
+.bigp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:44px 0}
+.bigp .m{height:clamp(86px,9vw,130px);border-radius:99px;font:900 clamp(34px,4vw,60px)/1 "Alumni Sans",Oswald,sans-serif;text-transform:uppercase;gap:.3em}
+.bigp .m svg{font-size:.7em}
+.bigp .m:nth-child(6n+1){background:var(--terra);color:var(--cream)}.bigp .m:nth-child(6n+2){background:var(--green);color:var(--cream)}.bigp .m:nth-child(6n+3){background:var(--euc);color:var(--green)}
+.bigp .m:nth-child(6n+4){background:var(--blush);color:var(--wine)}.bigp .m:nth-child(6n+5){background:var(--wine);color:var(--blush)}.bigp .m:nth-child(6n+6){background:var(--ink);color:var(--cream)}
+.bigp .m:hover{transform:translateY(-6px) rotate(-2deg) scale(1.02)}
+.ct{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}
+.box{background:#fff;border-radius:36px;padding:clamp(24px,3vw,44px)}
+.box ul{display:grid;gap:14px;font-size:20px;font-weight:500;margin-bottom:26px}
+.box li{display:flex;gap:12px;align-items:center}
+.box svg{color:var(--terra)}
+.code{background:var(--terra);color:var(--cream);border-radius:99px;padding:6px 18px;font-weight:600;letter-spacing:.14em}
+.map{border-radius:36px;overflow:hidden;min-height:440px;position:relative}
+.map iframe{position:absolute;inset:0;height:100%}
+footer{background:var(--green);color:var(--cream);padding:26px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.fab{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;gap:6px;padding:7px;border-radius:99px;background:var(--ink);box-shadow:0 12px 34px rgba(0,0,0,.3);transform:translateY(120px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.fab.on{transform:none}
+.fab [data-msgr]{display:flex;gap:6px}
+.fab .m{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);color:var(--cream)}
+.fab .m:hover{background:var(--terra)}
+.fab .book{display:flex;align-items:center;padding:0 22px;border-radius:99px;background:var(--terra);color:var(--cream);font-weight:600;font-size:15px}
+.dock{background:var(--ink);color:var(--cream)}
+.dock .m{background:rgba(255,255,255,.12)}
+.dock .book{background:var(--terra);color:var(--cream)}
+@media(max-width:900px){
+  .wrap{padding:0 16px}.hero{grid-template-columns:1fr;min-height:0}.hl{padding-bottom:30px;min-height:74vh}.hr{height:70vw}.hr .btn{display:none}
+  h1{font-size:27vw;margin-top:60px}.stk{left:auto;right:18px;bottom:auto;top:calc(74vh - 60px);margin:0}
+  .pills .m{flex:1 1 30%;padding:0 10px;font-size:14px}
+  .sh p{padding:0}.stack{padding:0 8px 20px}
+  .card{grid-template-columns:1fr;grid-template-rows:auto 1fr;top:calc(10px + var(--i)*7px);height:min(80vh,620px);border-radius:28px}
+  .card h3{font-size:25vw;margin-top:10px}.ds{margin-bottom:14px;font-size:15px}.act .btn{flex:1}
+  .im img{inset:0 16px 16px;width:calc(100% - 32px);height:calc(100% - 16px);border-radius:20px;transform:none}
+  .why{border-radius:30px 30px 0 0}.why .ph{height:70vw;border-radius:24px}.pil{grid-template-columns:1fr}.pil li{grid-template-columns:70px 1fr}.pil li::before{font-size:58px}.pil h3{font-size:36px}
+  .nums{grid-template-columns:1fr 1fr}.nums div{padding:30px 18px}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:2px solid rgba(245,235,219,.3)}
+  .school,.ct{grid-template-columns:1fr}.school img{min-height:0;height:90vw}.bigp{grid-template-columns:1fr 1fr;gap:8px}.map{min-height:340px}
+}
+@media(max-width:760px){.fab{display:none}}
+</style>
+</head>
+<body>
+<main>
+<div class="hero" data-p>
+  <div class="hl">
+    <div class="top"><span class="logo d">D’ajour</span><span>Пермь · Осинская, 8 · 08–22</span></div>
+    <h1><span>Заботься</span><span>о себе</span></h1>
+    <p class="sub">Вместе с командой чемпионов. Все любимые процедуры в одном месте — выберите и напишите нам, без звонков.</p>
+    <div class="pills" data-msgr="wa tg max vk ig tel" data-label></div>
+  </div>
+  <div class="hr"><img src="img/cover2.jpg" alt="Салон красоты D'ajour"><a class="btn" data-go="book">Записаться онлайн</a></div>
+  <div class="stk" aria-label="Скидка 10% на первый визит по промокоду 106606">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="c" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#c" textLength="484">первый визит · промокод 106606 · скидка ·</textPath></text></svg>
+    <b>−10%</b>
+  </div>
+</div>
+<div class="band" aria-hidden="true"><div id="band"></div></div>
+
+<section id="services">
+  <div class="wrap sh"><h2 data-split>9 поводов <i>зайти</i></h2><p class="rv">Листайте — карточки складываются в стопку. В каждой можно записаться онлайн или сразу написать администратору.</p></div>
+  <div class="stack" id="stack"></div>
+</section>
+
+<section class="why" id="about"><div class="wrap">
+  <h2 data-split>Почему <i>D’ajour</i></h2>
+  <div class="ph" data-p><img src="img/team.jpg" alt="Команда салона D'ajour" loading="lazy"></div>
+  <p class="lead rv">«В гармонии с природой — в гармонии с собой» — принцип, которому мы следуем <b>с 2007 года</b>. У нас работает команда чемпионов международного уровня, главная ценность которых — <b>ваше здоровье и комфорт</b>.</p>
+  <ul class="pil" id="pil"></ul>
+</div></section>
+<div class="nums" id="nums"></div>
+
+<section class="school" id="school">
+  <div><span class="tag">Школа D'ajour</span><h2 data-split>Учим быть мастером</h2>
+    <p class="rv">Более 200 учеников вышли профессионалами после наших курсов. Видеокурсы — в любом регионе России, очные курсы — в Перми, с сертификатом и всеми материалами.</p>
+    <a class="btn" data-go="school">Узнать о курсах</a></div>
+  <img src="img/master.jpg" alt="Мастер D'ajour за работой" loading="lazy">
+</section>
+
+<section class="ctc" id="contacts"><div class="wrap">
+  <h2 data-split>Напишите <i>нам</i></h2>
+  <div class="bigp rv" data-msgr="wa tg max vk ig tel" data-label></div>
+  <div class="ct">
+    <div class="box rv"><ul><li><i data-ic="pin"></i>Пермь, ул. Осинская, 8</li><li><i data-ic="clock"></i>Ежедневно 08:00–22:00</li><li><i data-ic="tel"></i><a data-go="tel">+7 952 656-44-84</a></li></ul>
+      <p style="margin-bottom:26px">Скидка 10% на первый визит по промокоду <button class="code" data-copy="106606" title="Скопировать">106606</button></p>
+      <a class="btn" data-go="book">Записаться онлайн</a></div>
+    <div class="map rv"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2007–2026 Салон-школа красоты D'ajour</span><span>Пермь, Осинская, 8 · 08:00–22:00</span></div></footer>
+<div class="fab" id="fab"><div data-msgr="wa tg max"></div><a class="book" data-go="book">Записаться</a></div>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script>
+<script>
+const PAL = [['var(--green)', 'var(--cream)', 'var(--euc)'], ['var(--blush)', 'var(--wine)', 'var(--terra)'], ['var(--wine)', 'var(--blush)', 'var(--blush)'], ['var(--euc)', 'var(--green)', 'var(--green)'], ['var(--ink)', 'var(--cream)', 'var(--terra)'], ['#fff', 'var(--ink)', 'var(--terra)']];
+const ic = k => `<a class="btn ic" href="${LINKS[k]}" target="_blank" rel="noopener" aria-label="${NAMES[k]}">${ICONS[k]}</a>`;
+fill('#stack', SERVICES, (s, k) => { const c = PAL[k % PAL.length]; return `<article class="card" style="--i:${k};--bg:${c[0]};--fg:${c[1]};--ac:${c[2]};--rot:${k % 2 ? -2 : 2}deg">
+  <div class="tx"><span class="num d">0${k + 1}<small>${s.n}</small></span><h3>${s.k}</h3><p class="ds">${s.d}</p>
+  <div class="act"><a class="btn" href="${LINKS.book}" target="_blank" rel="noopener">Записаться</a>${ic('wa')}${ic('tg')}${ic('max')}</div></div>
+  <div class="im"><img src="img/${s.i}.jpg" alt="${s.n}" loading="lazy"></div></article>`; });
+fill('#pil', PILLARS, p => `<li class="rv"><h3>${p.n}</h3><p>${p.d}</p></li>`);
+fill('#nums', STATS, s => `<div><b data-count>${s[0]}</b><span>${s[1]}</span></div>`);
+const t = SERVICES.map(s => s.k + '<b>✦</b>').join(''); document.getElementById('band').innerHTML = t + t + t + t;
+// стопка: нижние карточки чуть уменьшаются и темнеют
+const cards = [...document.querySelectorAll('.card')], fab = document.getElementById('fab');
+document.addEventListener('fx', () => {
+  cards.forEach((c, i) => { const n = cards[i + 1]; if (!n) return;
+    const r = c.getBoundingClientRect(), d = Math.min(1, Math.max(0, (r.bottom - n.getBoundingClientRect().top) / r.height));
+    c.style.transform = `scale(${1 - d * 0.07})`; c.style.filter = d > 0.02 ? `brightness(${1 - d * 0.28})` : ''; });
+  fab.classList.toggle('on', scrollY > innerHeight * 0.7);
+});
+</script>
+</body>
+</html>

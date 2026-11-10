@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D'ajour — салон красоты в центре Перми</title>
+<meta name="description" content="Салон-школа красоты D'ajour, Пермь, Осинская, 8. Команда чемпионов, девять направлений, запись онлайн и в мессенджерах.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;500;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<style>
+:root{--bg:#0c0809;--bg2:#161012;--ink:#f6ede4;--mut:#a99c95;--line:rgba(246,237,228,.16);--g:linear-gradient(100deg,#ffd0a8,#f58a6c 45%,#cf4b72);--a:#f58a6c}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Manrope,sans-serif}
+h1,h2,h3,.ub{font-family:Unbounded,sans-serif;font-weight:500;line-height:1.04;letter-spacing:-.03em}
+.gt,.gt .w>span{background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+.cap{font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--a)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:99px;background:var(--g);color:#1a0d0c;font-weight:600;font-size:15px;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(245,138,108,.35)}
+.btn.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.o:hover{box-shadow:inset 0 0 0 1px var(--a)}
+header{position:fixed;inset:0 0 auto;z-index:40;mix-blend-mode:difference;color:#fff;pointer-events:none}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+header a{pointer-events:auto}
+.logo{font:700 17px Unbounded,sans-serif;letter-spacing:.02em}
+header nav{display:flex;gap:28px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+/* ───── портал ───── */
+.hero{height:210vh}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden}
+.giant{position:absolute;left:0;top:11vh;white-space:nowrap;font:700 24vw/.8 Unbounded,sans-serif;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(246,237,228,.22);transform:translateX(calc(2vw - var(--p,0)*46vw));user-select:none}
+.portal{--q:calc(1 - var(--p,0));position:absolute;inset:0;clip-path:inset(calc(var(--q)*13vh) calc(var(--q)*var(--ix,34vw)) calc(var(--q)*var(--ib,15vh)) calc(var(--q)*var(--ix,34vw)) round calc(var(--q)*18vw) calc(var(--q)*18vw) 0 0)}
+.portal img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;transform:scale(calc(1.18 - var(--p,0)*.18))}
+.portal::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,8,9,.92) 4%,rgba(12,8,9,.25) 55%,rgba(12,8,9,calc(var(--p,0)*.45)))}
+.hc{position:absolute;inset:auto 0 7vh;text-align:center;padding:0 20px;z-index:2}
+h1{font-size:clamp(32px,6vw,96px);max-width:1100px;margin:16px auto 20px}
+.hc p{max-width:470px;margin:0 auto 26px;color:#d9cdc4;font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:22px}
+.orbs{display:flex;gap:10px;justify-content:center}
+.orbs .m{width:52px;height:52px;border-radius:50%;background:rgba(246,237,228,.08);box-shadow:inset 0 0 0 1px var(--line);font-size:17px}
+.orbs .m:hover{background:var(--g);color:#1a0d0c;transform:translateY(-4px) scale(1.08)}
+.side{position:absolute;top:50%;z-index:2;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);opacity:calc(1 - var(--p,0)*3)}
+.side.l{left:32px;transform:rotate(-90deg) translateX(-50%);transform-origin:0 0}
+.side.r{right:32px;text-align:right;line-height:2}
+.side b{display:block;font:500 34px/1 Unbounded,sans-serif;letter-spacing:-.02em;color:var(--ink)}
+/* ───── кольцо услуг ───── */
+.ringsec{height:520vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;perspective:1500px;background:radial-gradient(60% 50% at 50% 42%,#2a1519 0%,var(--bg) 70%)}
+.rt{position:absolute;inset:92px 32px auto;display:flex;justify-content:space-between;align-items:flex-start;z-index:3}
+.rt h2{font-size:clamp(22px,2.6vw,38px);max-width:420px}
+.cnt{font:300 clamp(40px,6vw,92px)/.9 Unbounded,sans-serif;letter-spacing:-.04em}
+.cnt small{font-size:.3em;color:var(--mut);letter-spacing:0}
+.ring{--w:min(27vw,36vh,330px);--R:calc(var(--w)*1.52);position:absolute;left:50%;top:44%;width:var(--w);aspect-ratio:3/4;margin:calc(var(--w)*-.667) 0 0 calc(var(--w)*-.5);transform-style:preserve-3d;transform:translateZ(calc(var(--R)*-1)) rotateX(-7deg) rotateY(calc(var(--p,0)*-320deg));transition:transform .25s ease-out}
+.ring a{position:absolute;inset:0;transform:rotateY(calc(var(--i)*40deg)) translateZ(var(--R));backface-visibility:hidden;border-radius:16px;overflow:hidden;background:#241418}
+.ring img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(.7);transition:filter .5s}
+.ring a.on img{filter:none}
+.ring a.on{box-shadow:0 0 0 1px rgba(255,208,168,.6),0 30px 90px rgba(245,138,108,.28)}
+.ri{position:absolute;inset:auto 0 5vh;text-align:center;z-index:3;padding:0 20px}
+.ri h3{font-size:clamp(34px,6.4vw,104px);font-weight:700;letter-spacing:-.045em}
+.ri p{color:#d9cdc4;margin:10px auto 18px;max-width:460px}
+.sw{animation:sw .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes sw{from{opacity:0;transform:translateY(26px);filter:blur(8px)}}
+.ri .cta{margin:0}
+.ri .btn{height:50px;padding:0 24px}
+.ri .ic{width:50px;padding:0;font-size:18px}
+/* ───── цифры и о салоне ───── */
+section{padding:clamp(80px,10vw,150px) 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.stats div{padding:34px 26px;border-radius:24px;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line)}
+.stats b{font:300 clamp(38px,4.8vw,74px)/1 Unbounded,sans-serif;letter-spacing:-.04em;display:block;margin-bottom:10px;background:var(--g);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stats span{color:var(--mut);font-size:14px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center;margin-top:clamp(70px,9vw,130px)}
+h2{font-size:clamp(30px,4.6vw,68px)}
+.about h2{margin:18px 0 24px}
+.about p{color:var(--mut);max-width:520px;font-size:17px}
+.duo{position:relative;height:min(74vh,640px)}
+.duo img{position:absolute;object-fit:cover;border-radius:18px}
+.duo img:first-child{inset:0 22% 14% 0;width:78%;height:86%;transform:translateY(calc((var(--p,.5) - .5)*-70px))}
+.duo img:last-child{right:0;bottom:0;width:44%;height:50%;transform:translateY(calc((var(--p,.5) - .5)*110px));box-shadow:0 0 0 8px var(--bg)}
+.pil{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:clamp(60px,8vw,110px);counter-reset:p}
+.pil li{counter-increment:p;padding:30px 28px 34px;border-radius:24px;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line);transition:transform .35s,box-shadow .35s}
+.pil li:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px var(--a)}
+.pil li::before{content:"0" counter(p);font:300 30px/1 Unbounded,sans-serif;color:var(--a)}
+.pil h3{font-size:19px;margin:22px 0 10px;letter-spacing:-.01em}
+.pil p{color:var(--mut);font-size:15px}
+/* ───── школа ───── */
+.school{background:var(--bg2);border-radius:40px;margin:0 16px;overflow:hidden}
+.school .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center}
+.school h2{margin:18px 0 22px}
+.school p{color:var(--mut);max-width:520px;margin-bottom:30px;font-size:17px}
+.school img{border-radius:200px 200px 18px 18px;aspect-ratio:4/5;object-fit:cover;width:100%;max-width:440px;justify-self:end}
+/* ───── контакты ───── */
+.big{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:44px 0 60px}
+.big .m{flex-direction:column;gap:16px;aspect-ratio:1;border-radius:50%;background:var(--bg2);box-shadow:inset 0 0 0 1px var(--line);font-size:14px;font-weight:600}
+.big .m svg{font-size:2.3em;color:var(--a);transition:color .3s}
+.big .m:hover{background:var(--g);color:#1a0d0c;transform:translateY(-8px) rotate(-4deg)}
+.big .m:hover svg{color:#1a0d0c}
+.ct{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px)}
+.info{display:grid;gap:16px;font-size:19px;margin-bottom:30px}
+.info li{display:flex;gap:14px;align-items:center}
+.info svg{color:var(--a)}
+.code{color:var(--a);border-bottom:1px dashed var(--a);letter-spacing:.14em;font-weight:600}
+.map{border-radius:24px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line)}
+.map iframe{height:100%;min-height:440px;filter:grayscale(1) invert(.92) contrast(.88) brightness(.95)}
+footer{border-top:1px solid var(--line);padding:24px 0;font-size:13px;color:var(--mut)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.dock{background:#1d1416;box-shadow:inset 0 0 0 1px var(--line),0 10px 30px rgba(0,0,0,.5)}
+.dock .m{box-shadow:inset 0 0 0 1px var(--line)}
+.dock .book{background:var(--g);color:#1a0d0c;font-weight:600}
+@media(max-width:900px){
+  .wrap{padding:0 18px}header nav{display:none}header .wrap{height:60px}.side{display:none}
+  .portal{--ix:13vw;--ib:36vh}.portal img{object-position:50% 24%}.hc{bottom:4vh}.hc p{font-size:15px;margin-bottom:18px}.cta .btn{flex:1;padding:0 12px;height:52px}
+  .rt{inset:70px 18px auto}.rt h2{font-size:17px;max-width:180px}
+  .ring{--w:min(56vw,34vh);top:40%}.stage{perspective:900px}
+  .stats{grid-template-columns:1fr 1fr;gap:10px}.stats div{padding:22px 18px}
+  .about,.school .wrap,.ct{grid-template-columns:1fr}.duo{height:108vw}
+  .pil{grid-template-columns:1fr;gap:10px}.school{margin:0 8px;border-radius:28px}.school img{justify-self:start}
+  .big{grid-template-columns:repeat(3,1fr);gap:10px}.big .m{font-size:12px;gap:10px}.map iframe{min-height:340px}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="#top">D’AJOUR</a>
+  <nav><a href="#services">Услуги</a><a href="#about">О салоне</a><a href="#school">Школа</a><a href="#contacts">Контакты</a></nav></div></header>
+
+<main id="top">
+<div class="hero" data-p="pin"><div class="stick">
+  <div class="giant" aria-hidden="true">D’AJOUR · D’AJOUR</div>
+  <div class="portal"><img src="img/dark.jpg" alt="Салон красоты D'ajour"></div>
+  <div class="side l">Пермь · Осинская, 8 · 08:00–22:00</div>
+  <div class="side r"><b>−10%</b>первый визит<br>промокод 106606</div>
+  <div class="hc">
+    <span class="cap">Салон-школа красоты · с 2007 года</span>
+    <h1 data-split>Заботься о себе с <span class="gt">командой чемпионов</span></h1>
+    <p>Девять направлений красоты в одном месте — в самом центре Перми.</p>
+    <div class="cta"><a class="btn" data-go="book">Записаться онлайн</a><a class="btn o" href="#services">Смотреть услуги</a></div>
+    <div class="orbs" data-msgr="wa tg max vk ig tel"></div>
+  </div>
+</div></div>
+
+<div class="ringsec" id="services" data-p="pin"><div class="stage">
+  <div class="rt"><h2>Всё для вашей красоты — <span class="gt">листайте</span></h2><div class="cnt"><span id="rc">01</span><small> / 09</small></div></div>
+  <div class="ring" id="ring"></div>
+  <div class="ri"><h3 id="rn"></h3><p id="rd"></p>
+    <div class="cta"><a class="btn" data-go="book">Записаться</a><a class="btn o ic" data-go="wa"><i data-ic="wa"></i></a><a class="btn o ic" data-go="tg"><i data-ic="tg"></i></a><a class="btn o ic" data-go="max"><i data-ic="max"></i></a></div></div>
+</div></div>
+
+<section id="about"><div class="wrap">
+  <div class="stats rv" id="stats"></div>
+  <div class="about">
+    <div><span class="cap">О салоне</span><h2 data-split>«В гармонии с природой — <span class="gt">в гармонии с собой</span>»</h2>
+      <p class="rv">Принцип, которому мы следуем с 2007 года. У нас работает команда чемпионов международного уровня, главная ценность которых — ваше здоровье и комфорт. Эстетичный интерьер, чашечка кофе и забота в каждой детали.</p></div>
+    <div class="duo" data-p><img src="img/team.jpg" alt="Команда салона D'ajour" loading="lazy"><img src="img/coffee.jpg" alt="Кофе в салоне" loading="lazy"></div>
+  </div>
+  <ul class="pil" id="pil"></ul>
+</div></section>
+
+<section class="school" id="school"><div class="wrap">
+  <div><span class="cap">Школа D'ajour</span><h2 data-split>Обучение от <span class="gt">топ-мастеров</span> салона</h2>
+    <p class="rv">Более 200 учеников вышли профессионалами после наших курсов. Видеокурсы — в любом регионе России, очные курсы — в Перми, с сертификатом и всеми материалами.</p>
+    <a class="btn" data-go="school">Узнать о курсах</a></div>
+  <img class="rv" src="img/master.jpg" alt="Мастер D'ajour за работой" loading="lazy">
+</div></section>
+
+<section id="contacts"><div class="wrap">
+  <span class="cap">Контакты</span><h2 data-split style="margin-top:18px;max-width:900px">Напишите нам там, <span class="gt">где вам удобно</span></h2>
+  <div class="big rv" data-msgr="wa tg max vk ig tel" data-label></div>
+  <div class="ct">
+    <div class="rv"><ul class="info"><li><i data-ic="pin"></i>Пермь, ул. Осинская, 8</li><li><i data-ic="clock"></i>Ежедневно 08:00–22:00</li><li><i data-ic="tel"></i><a data-go="tel">+7 952 656-44-84</a></li></ul>
+      <p style="color:var(--mut);margin-bottom:26px">Скидка 10% на первое посещение по промокоду <button class="code" data-copy="106606" title="Скопировать">106606</button></p>
+      <a class="btn" data-go="book">Записаться онлайн</a></div>
+    <div class="map rv"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2007–2026 Салон-школа красоты D'ajour</span><span>Пермь, Осинская, 8 · 08:00–22:00</span></div></footer>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script>
+<script>
+fill('#ring', SERVICES, (s, k) => `<a href="${LINKS.book}" target="_blank" rel="noopener" style="--i:${k}" aria-label="${s.n}"><img src="img/${s.i}.jpg" alt=""></a>`);
+fill('#stats', STATS, s => `<div><b data-count>${s[0]}</b><span>${s[1]}</span></div>`);
+fill('#pil', PILLARS, p => `<li class="rv"><h3>${p.n}</h3><p>${p.d}</p></li>`);
+// кольцо: активная услуга зависит от прокрутки
+const sec = document.getElementById('services'), items = [...document.querySelectorAll('#ring a')];
+const rn = document.getElementById('rn'), rd = document.getElementById('rd'), rc = document.getElementById('rc');
+let cur = -1;
+const setR = () => {
+  const k = Math.round((parseFloat(sec.style.getPropertyValue('--p')) || 0) * (SERVICES.length - 1));
+  if (k === cur) return; cur = k;
+  const s = SERVICES[k];
+  rn.textContent = s.k; rd.textContent = s.n + '. ' + s.d; rc.textContent = '0' + (k + 1);
+  [rn, rd].forEach(el => { el.classList.remove('sw'); void el.offsetWidth; el.classList.add('sw'); });
+  items.forEach((a, i) => a.classList.toggle('on', i === k));
+};
+document.addEventListener('fx', setR); setR();
+</script>
+</body>
+</html>
