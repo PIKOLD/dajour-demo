@@ -85,7 +85,7 @@ h2 i{font-style:italic}
 /* ───── письма в редакцию ───── */
 .letters .m{display:flex;justify-content:flex-start;gap:.5em;padding:.16em 0;border-bottom:1px solid var(--line);font:italic 400 clamp(40px,8vw,128px)/1.08 "Playfair Display",serif;letter-spacing:-.03em}
 .letters .m svg{font-size:.42em;color:var(--acc);transition:transform .4s}
-.letters .m::after{content:"↗";margin-left:auto;font-style:normal;font-size:.5em;opacity:.25;transition:opacity .3s,transform .3s}
+.letters .m::after{content:"";margin-left:auto;width:.42em;height:.42em;flex:none;align-self:center;border-top:2px solid currentColor;border-right:2px solid currentColor;opacity:.25;transition:opacity .3s,transform .3s}
 .letters .m:hover{color:var(--acc);padding-left:.25em}
 .letters .m:hover::after{opacity:1;transform:translate(6px,-6px)}
 .letters .m:hover svg{transform:rotate(-12deg) scale(1.2)}

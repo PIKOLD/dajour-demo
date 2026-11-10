@@ -15,6 +15,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.05em;line-height:.95}
 .wrap{padding:0 24px}
 .sm{font-size:13px;letter-spacing:.01em}
 .g{color:var(--mut)}
+.ne{vertical-align:-.14em;flex:none}
 /* первый экран */
 .hero{position:relative;height:100vh;min-height:560px;overflow:hidden;background:#cfcfcf}
 .hero>img{position:absolute;inset:0;width:100%;height:112%;object-fit:cover;object-position:50% 40%;transform:translateY(calc((var(--p,.5) - .5)*-14%))}
@@ -97,7 +98,7 @@ h2 sup{font-size:.22em;letter-spacing:0;vertical-align:top;position:relative;top
 <main>
 <div class="hero" data-p>
   <img src="img/gallery.jpg" alt="Салон красоты D'ajour">
-  <div class="top bl sm"><a href="#top">D’ajour</a><span>Салон-школа красоты — Пермь, Осинская, 8</span><a data-go="book">Записаться ↗</a></div>
+  <div class="top bl sm"><a href="#top">D’ajour</a><span>Салон-школа красоты — Пермь, Осинская, 8</span><a data-go="book">Записаться <svg class="ne" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
   <h1 class="tag bl">Заботься о себе вместе с командой чемпионов.</h1>
   <div class="ms bl" data-msgr="wa tg max vk ig tel"></div>
   <div class="word bl" aria-hidden="true">d’ajour</div>
@@ -118,14 +119,14 @@ h2 sup{font-size:.22em;letter-spacing:0;vertical-align:top;position:relative;top
 <section id="about"><div class="wrap">
   <p class="st" data-split>В гармонии с природой — в гармонии с собой. <span class="g">Этому принципу мы следуем с 2007 года: команда чемпионов международного уровня, сертифицированная продукция и цена, которая не меняется после записи.</span></p>
   <div class="nums" id="nums"></div>
-  <a class="sch" data-go="school"><span>Школа D’ajour — обучение от топ-мастеров салона</span><span>↗</span></a>
+  <a class="sch" data-go="school"><span>Школа D’ajour — обучение от топ-мастеров салона</span><span><svg class="ne" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
 </div></section>
 
 <div class="ct" id="contacts"><div class="wrap">
   <h2 data-split>Написать</h2>
   <div class="cells rv" data-msgr="wa tg max vk ig tel" data-label></div>
   <div class="fin">
-    <div class="rv"><dl><dt>Адрес</dt><dd>Пермь, ул. Осинская, 8</dd><dt>Часы</dt><dd>Ежедневно 08:00–22:00</dd><dt>Телефон</dt><dd><a data-go="tel">+7 952 656-44-84</a></dd></dl><a class="btn" data-go="book">Записаться онлайн ↗</a></div>
+    <div class="rv"><dl><dt>Адрес</dt><dd>Пермь, ул. Осинская, 8</dd><dt>Часы</dt><dd>Ежедневно 08:00–22:00</dd><dt>Телефон</dt><dd><a data-go="tel">+7 952 656-44-84</a></dd></dl><a class="btn" data-go="book">Записаться онлайн <svg class="ne" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
     <div class="map rv"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="D'ajour на карте Перми" loading="lazy"></iframe></div>
   </div>
   <div class="ft sm"><span>© 2007–2026 D’ajour</span><span>Салон-школа красоты</span></div>
@@ -135,8 +136,8 @@ h2 sup{font-size:.22em;letter-spacing:0;vertical-align:top;position:relative;top
 
 <script src="common.js"></script><script src="prices.js"></script><script src="price.js"></script>
 <script>
-fill('#grid', PRICES, (c, k) => `<a class="rv" href="#services" data-cat="${k}"><div class="im"><img src="img/${CAT_IMG[k]}.jpg" alt="${c.c}" loading="lazy"></div><div class="r"><span><span class="g">0${k + 1}&nbsp;&nbsp;</span>${c.c}</span><i>↗</i></div><p>${CAT_NOTE[k]} · от ${rub(minPrice(c))}</p></a>`);
-document.getElementById('grid').insertAdjacentHTML('beforeend', `<a class="rv cta" href="${LINKS.book}" target="_blank" rel="noopener"><div class="im"><span>Онлайн-запись за минуту</span><b>↗</b></div><div class="r"><span>Выбрать время и мастера</span></div><p>Или напишите нам — подскажем</p></a>`);
+fill('#grid', PRICES, (c, k) => `<a class="rv" href="#services" data-cat="${k}"><div class="im"><img src="img/${CAT_IMG[k]}.jpg" alt="${c.c}" loading="lazy"></div><div class="r"><span><span class="g">0${k + 1}&nbsp;&nbsp;</span>${c.c}</span><i><svg class="ne" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></i></div><p>${CAT_NOTE[k]} · от ${rub(minPrice(c))}</p></a>`);
+document.getElementById('grid').insertAdjacentHTML('beforeend', `<a class="rv cta" href="${LINKS.book}" target="_blank" rel="noopener"><div class="im"><span>Онлайн-запись за минуту</span><b><svg class="ne" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></b></div><div class="r"><span>Выбрать время и мастера</span></div><p>Или напишите нам — подскажем</p></a>`);
 fill('#nums', STATS, s => `<div><b data-count>${s[0]}</b><span class="sm g">${s[1]}</span></div>`);
 </script>
 </body>
