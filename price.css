@@ -1,0 +1,35 @@
+/* Окно услуг и строки прайса. Цвета задаются на странице: --s-bg, --s-ink, --s-mut, --s-acc, --s-line */
+.sheet{position:fixed;inset:0;z-index:100;visibility:hidden;--s-bg:#fff;--s-ink:#141414;--s-mut:#7d7d7d;--s-acc:#141414;--s-line:rgba(0,0,0,.1)}
+.sheet.on{visibility:visible}
+.sheet-bg{position:absolute;inset:0;background:rgba(10,8,6,.55);opacity:0;transition:opacity .35s}
+.sheet.on .sheet-bg{opacity:1}
+.sheet-in{position:absolute;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--s-bg);color:var(--s-ink);transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,.25)}
+.sheet.on .sheet-in{transform:none}
+.sheet-x{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);color:#111;font-size:26px;line-height:1;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.2)}
+.sheet-body{overflow-y:auto;overscroll-behavior:contain;padding:0 22px 30px;flex:1}
+.sheet-h{margin:0 -22px 8px;min-height:210px;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;color:#fff}
+.sheet-h span{font-size:13px;opacity:.9;margin-bottom:6px}
+.sheet-h h3{font-size:30px;line-height:1.1;color:#fff;text-transform:none;letter-spacing:-.01em;font-weight:500}
+.sheet-body h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--s-acc);margin:26px 0 6px}
+.sheet-f{font-size:13px;color:var(--s-mut);margin-top:22px}
+.pi{border-bottom:1px solid var(--s-line)}
+.pr{display:grid;grid-template-columns:1fr auto;gap:2px 14px;width:100%;text-align:left;padding:13px 2px;align-items:baseline;color:inherit}
+.pn{font-size:15.5px;font-weight:500;line-height:1.3}
+.pn small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--s-mut);font-weight:500;margin-bottom:2px}
+.pp{font-weight:600;white-space:nowrap;grid-column:2;grid-row:1}
+.pd{font-size:13px;color:var(--s-mut);grid-column:1}
+.pr::after{content:"Записаться";grid-column:2;grid-row:2;font-size:12px;color:var(--s-acc);text-decoration:underline;text-underline-offset:3px;justify-self:end}
+.pr[aria-expanded=true]::after{content:"Свернуть"}
+.pr:hover .pn{color:var(--s-acc)}
+.pa{padding:2px 2px 16px;animation:pa .3s}
+@keyframes pa{from{opacity:0;transform:translateY(-6px)}}
+.pa p{font-size:13px;color:var(--s-mut);margin-bottom:10px;line-height:1.45}
+.pb{display:flex;flex-wrap:wrap;gap:6px}
+.pm{display:inline-flex;align-items:center;gap:7px;height:42px;padding:0 14px;border-radius:99px;border:1px solid var(--s-line);font-size:14px;font-weight:500;transition:background .25s,color .25s,border-color .25s}
+.pm svg{font-size:1.15em}
+.pm:hover,.pm.on{background:var(--s-acc);color:var(--s-bg);border-color:var(--s-acc)}
+.toast{position:absolute;left:50%;bottom:26px;transform:translate(-50%,30px);background:#111;color:#fff;padding:12px 20px;border-radius:99px;font-size:14px;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap;z-index:3}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.none{padding:14px 2px;color:var(--s-mut);font-size:14px}
+@media(max-width:640px){.sheet-in{top:auto;height:92vh;border-radius:22px 22px 0 0;transform:translateY(100%);overflow:hidden}.sheet-h{min-height:170px}.sheet-h h3{font-size:25px}.toast{white-space:normal;text-align:center;width:max-content;max-width:86vw}}
+@media(prefers-reduced-motion:reduce){.sheet-in,.sheet-bg{transition:none}}

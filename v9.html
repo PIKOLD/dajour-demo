@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Дом D'ajour — салон красоты в Перми: услуги, цены, запись в мессенджере</title>
+<meta name="description" content="Дом D'ajour, Пермь, Осинская, 8. Все услуги с ценами, запись онлайн или в WhatsApp, Telegram, MAX, ВКонтакте — без звонков.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css"><link rel="stylesheet" href="brand.css"><link rel="stylesheet" href="price.css">
+<style>
+.sheet,.res{--s-bg:#fffaf2;--s-ink:#2a1814;--s-mut:#7a665d;--s-acc:#4e1912;--s-line:rgba(42,24,20,.14)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* шапка */
+header{position:sticky;top:0;z-index:40;background:var(--cream);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:18px;height:62px}
+.logo{font-weight:500;letter-spacing:.2em;font-size:15px;margin-right:auto}
+.st-open{display:inline-flex;align-items:center;gap:8px;font-size:13px}
+.dot{width:8px;height:8px;border-radius:50%;background:#3cb878;box-shadow:0 0 0 4px rgba(60,184,120,.2)}
+.dot.off{background:#b9a79b;box-shadow:none}
+header nav{display:flex;gap:22px;font-size:13.5px}
+header nav a:hover{color:var(--mah)}
+header .btn{height:42px;padding:0 22px;font-size:11.5px}
+/* первый экран: сразу действия */
+.hero{padding:clamp(34px,5vw,64px) 0 clamp(40px,6vw,76px)}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,70px);align-items:center;position:relative;z-index:1}
+.hero .lg{width:96px;margin-bottom:22px}
+h1{font-size:clamp(24px,3.3vw,44px)}
+.hero p.tx{color:#e3d2c2;max-width:480px;margin:16px 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:99px;border:1px solid rgba(245,239,229,.3);font-size:12.5px;transition:background .3s}
+a.chip:hover{background:rgba(245,239,229,.12)}
+.find label{display:block;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.find input{width:100%;height:58px;border-radius:99px;border:0;padding:0 26px;font:400 16px Montserrat,sans-serif;background:var(--cream);color:var(--ink);outline-offset:3px}
+.find input::placeholder{color:#a08d82}
+.res{background:var(--card);color:var(--ink);border-radius:18px;padding:2px 18px;margin-top:10px;max-height:340px;overflow:auto}
+.card{background:var(--cream);color:var(--ink);border-radius:26px;padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.card h2{font-size:20px;margin-bottom:4px}
+.card>p{color:var(--mut);font-size:14px;margin-bottom:16px}
+.card .mr{padding:10px 16px 10px 10px}.card .mr+.mr{margin-top:8px}
+.card .mr .mi{width:44px;height:44px;font-size:18px}.card .mr{grid-template-columns:44px 1fr auto}
+.card .btn{width:100%;margin-top:12px}
+.hero .e1{--w:min(34vw,460px);--r:20deg;left:-5vw;top:-4vw;opacity:.9}
+.hero .e2{--w:min(30vw,420px);--r:200deg;right:-27vw;bottom:2vw;opacity:.9}
+section{padding:clamp(60px,7.5vw,104px) 0}
+h2{font-size:clamp(22px,3vw,40px)}
+.hd{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:34px}
+.hd .cap,.cap.e{color:var(--euc)}
+.hd h2{margin-top:12px}
+.hd p{color:var(--mut);max-width:400px}
+/* разделы услуг */
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cats a{display:block;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.cats a:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(60,20,10,.14)}
+.cats .im{aspect-ratio:4/3;overflow:hidden}
+.cats img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.cats a:hover img{transform:scale(1.07)}
+.cats .tx{padding:16px 18px 18px}
+.cats b{display:block;font-weight:500;font-size:16.5px;line-height:1.25;margin-bottom:6px}
+.cats span{font-size:13px;color:var(--mut);display:block;line-height:1.4}
+.cats i{display:flex;justify-content:space-between;align-items:center;font-style:normal;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-weight:600;font-size:14px;color:var(--mah)}
+/* шаги и купон */
+.how{background:var(--euc2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border-radius:20px;padding:26px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--mah);color:var(--cream);font-weight:500;margin-bottom:18px}
+.steps b{display:block;font-weight:500;font-size:17px;margin-bottom:6px}
+.steps p{color:var(--mut);font-size:14.5px}
+.cp{margin-top:16px;border-radius:20px;border:1.5px dashed var(--mah);padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;color:var(--mah)}
+.cp b{font-weight:300;font-size:46px;line-height:1}
+.cp span{flex:1;min-width:200px}
+.cp .code{background:var(--mah);color:var(--cream);border:0;padding:12px 22px}
+/* работы */
+.mq{overflow:hidden}
+.mq div{display:flex;gap:14px;width:max-content;animation:tk 60s linear infinite}
+.mq:hover div{animation-play-state:paused}
+@keyframes tk{to{transform:translateX(-50%)}}
+.mq img{height:clamp(260px,30vw,380px);aspect-ratio:3/4;object-fit:cover;border-radius:16px}
+/* доверие */
+.trust{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+.trust img{border-radius:999px 999px 16px 16px;aspect-ratio:5/4;object-fit:cover;object-position:50% 30%;width:100%}
+.rate{display:inline-flex;align-items:center;gap:14px;padding:14px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line);margin:20px 0;transition:border-color .3s}
+.rate:hover{border-color:var(--mah)}
+.rate b{font-weight:300;font-size:40px;line-height:1;color:var(--mah)}
+.rate span{font-size:13.5px;line-height:1.4;color:var(--mut)}
+.rate em{font-style:normal;color:#e0a02f;letter-spacing:.1em;display:block}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.nums div{padding:16px;border-radius:16px;background:var(--euc2)}
+.nums b{display:block;font-weight:400;font-size:26px;line-height:1.1}
+.nums span{font-size:12.5px;color:var(--mut)}
+/* вопросы */
+.faq{max-width:860px;margin:0 auto}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;justify-content:space-between;gap:16px;padding:19px 2px;cursor:pointer;font-weight:500;font-size:17px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;font-weight:300;line-height:1;color:var(--mah);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mut);padding:0 40px 20px 2px}
+/* адрес */
+.addr{background:var(--card);border-top:1px solid var(--line)}
+.ag{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,5vw,60px)}
+.ag ul{display:grid;gap:14px;font-size:17px;margin:22px 0 26px}
+.ag li{display:flex;gap:14px;align-items:center}
+.ag li svg{color:var(--mah);font-size:20px}
+.ag .row{display:flex;flex-wrap:wrap;gap:10px}
+.btn.ln{background:none;color:var(--mah);box-shadow:inset 0 0 0 1px var(--mah)}.btn.ln:hover{background:var(--mah);color:var(--cream)}
+.map{border-radius:20px;overflow:hidden;min-height:420px;position:relative;background:#e7dccb}
+.map iframe{position:absolute;inset:0;height:100%}
+.lk{display:flex;justify-content:space-between;gap:14px;padding:18px 2px;border-block:1px solid var(--line);font-weight:500;margin-top:30px;transition:padding .3s}
+.lk:hover{padding-left:12px}
+footer{background:var(--mah2);color:#d9c4b5;padding:26px 0;font-size:13px;text-align:center}
+.fab{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;gap:6px;padding:7px;border-radius:99px;background:var(--cream);box-shadow:0 12px 34px rgba(40,10,5,.3);transform:translateY(120px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.fab.on{transform:none}
+.fab [data-msgr]{display:flex;gap:6px}
+.fab .m{width:44px;height:44px;border-radius:50%;background:var(--mah);color:var(--cream)}
+.fab .book{display:flex;align-items:center;padding:0 22px;border-radius:99px;background:var(--euc);color:#fff;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.dock{background:var(--cream);box-shadow:0 8px 30px rgba(40,10,5,.35)}
+.dock .m{background:var(--mah);color:var(--cream)}
+.dock .book{background:var(--euc);color:#fff;letter-spacing:.1em;text-transform:uppercase;font-size:12px}
+@media(max-width:900px){
+  .wrap{padding:0 16px}header nav,header .btn{display:none}
+  .hg,.trust,.ag{grid-template-columns:1fr}.hero .euc{display:none}
+  .cats{grid-template-columns:1fr 1fr;gap:10px}.cats .tx{padding:12px 12px 14px}.cats b{font-size:14.5px}.cats span{display:none}.cats i{font-size:13px;margin-top:8px;padding-top:8px}
+  .steps{grid-template-columns:1fr;gap:10px}.steps li{padding:20px;display:grid;grid-template-columns:44px 1fr;gap:0 16px}.steps li::before{grid-row:span 2;margin:0}
+  .nums{grid-template-columns:1fr 1fr 1fr}.nums div{padding:12px}.nums b{font-size:20px}
+  .map{min-height:320px}details p{padding-right:10px}
+}
+@media(max-width:760px){.fab{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top">ДОМ D’AJOUR</a>
+  <span class="st-open"><i class="dot" id="dot"></i><span id="open">Открыто до 22:00</span></span>
+  <nav><a href="#services">Услуги и цены</a><a href="#how">Как записаться</a><a href="#faq">Вопросы</a><a href="#addr">Адрес</a></nav>
+  <a class="btn" data-go="book">Записаться</a>
+</div></header>
+
+<main id="top">
+<div class="hero woodbg">
+  <svg class="wood" aria-hidden="true"><filter id="wd"><feTurbulence type="fractalNoise" baseFrequency=".007 .3" numOctaves="4" seed="7"/><feColorMatrix values="0 0 0 0 .08  0 0 0 0 .015  0 0 0 0 .01  1.7 0 0 0 -.5"/></filter><rect width="100%" height="100%" filter="url(#wd)"/></svg>
+  <svg class="euc e1" data-n="9"></svg><svg class="euc e2" data-n="8"></svg>
+  <div class="wrap hg">
+    <div>
+      <img class="lg" src="img/logo-light.png" alt="Дом D'ajour — салон красоты">
+      <h1>Добро пожаловать в Дом D’ajour</h1>
+      <p class="tx">Салон и школа красоты в центре Перми. Найдите услугу, посмотрите цену и запишитесь — онлайн или в мессенджере, без звонков.</p>
+      <div class="chips"><span class="chip"><i data-ic="pin"></i>Осинская, 8</span><span class="chip"><i data-ic="clock"></i>Ежедневно 08:00–22:00</span><a class="chip" data-go="map">★ 4,9 на Яндекс Картах</a></div>
+      <div class="find"><label for="q">Быстрый поиск услуги</label><input id="q" type="search" placeholder="Например: маникюр, брови, окрашивание" autocomplete="off"><div class="res" id="res" hidden></div></div>
+    </div>
+    <div class="card"><h2>Напишите нам</h2><p>Администратор ответит и запишет к мастеру</p>
+      <div data-mrows="wa tg max vk"></div>
+      <a class="btn" data-go="book">Записаться онлайн</a></div>
+  </div>
+</div>
+
+<section id="services"><div class="wrap">
+  <div class="hd"><div><span class="cap">Услуги и цены</span><h2>Что хотите сделать?</h2></div><p>Нажмите на раздел — откроются все процедуры с ценой и длительностью. Запись — в один клик.</p></div>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section class="how" id="how"><div class="wrap">
+  <div class="hd"><div><span class="cap" style="color:var(--mah)">Как записаться</span><h2>Три шага, без звонков</h2></div></div>
+  <ol class="steps">
+    <li><b>Выберите услугу</b><p>В разделе услуг или через поиск — сразу видно цену и сколько времени займёт.</p></li>
+    <li><b>Напишите нам или запишитесь онлайн</b><p>В WhatsApp, Telegram, MAX или ВКонтакте — где привычнее. Текст заявки скопируется — останется вставить его в чат.</p></li>
+    <li><b>Приходите</b><p>Осинская, 8 — центр Перми. Работаем каждый день с 08:00 до 22:00.</p></li>
+  </ol>
+  <div class="cp"><b>−10%</b><span>на первое посещение — назовите промокод администратору</span><button class="code" data-copy="106606" title="Скопировать промокод">106606</button></div>
+</div></section>
+
+<section style="padding-bottom:0"><div class="wrap hd"><div><span class="cap">Работы мастеров</span><h2>Сделано в Доме D’ajour</h2></div><a class="btn ln" data-go="ig">Больше работ</a></div>
+  <div class="mq"><div id="works"></div></div>
+</section>
+
+<section><div class="wrap trust">
+  <img class="rv" src="img/team.jpg" alt="Команда Дома D'ajour" loading="lazy">
+  <div><span class="cap e">Нам доверяют</span><h2 style="margin-top:12px">Команда чемпионов с 2007 года</h2>
+    <a class="rate" data-go="map"><b>4,9</b><span><em>★★★★★</em>рейтинг на Яндекс Картах · читать отзывы →</span></a>
+    <p style="color:var(--mut);margin-bottom:18px">«В гармонии с природой — в гармонии с собой»: мастера международного уровня, сертифицированная продукция и цена, которая не меняется после записи.</p>
+    <div class="nums"><div><b>3000+</b><span>гостей рекомендуют нас</span></div><div><b>200+</b><span>выпускников школы</span></div><div><b>125</b><span>процедур в прайсе</span></div></div></div>
+</div></section>
+
+<section id="faq" style="padding-top:0"><div class="wrap">
+  <div class="hd" style="justify-content:center;text-align:center"><div><span class="cap">Частые вопросы</span><h2>Коротко о главном</h2></div></div>
+  <div class="faq" id="faqs"></div>
+</div></section>
+
+<section class="addr" id="addr"><div class="wrap ag">
+  <div><span class="cap e">Адрес дома</span><h2 style="margin-top:12px">Мы очень рады встрече с вами</h2>
+    <ul><li><i data-ic="pin"></i>Пермь, ул. Осинская, 8</li><li><i data-ic="clock"></i>Ежедневно 08:00–22:00</li><li><i data-ic="tel"></i><a data-go="tel">+7 952 656-44-84</a></li></ul>
+    <div class="row"><a class="btn" data-go="book">Записаться онлайн</a><a class="btn ln" data-go="map">Как добраться</a></div>
+    <a class="lk" data-go="school"><span>Школа красоты D’ajour — курсы для мастеров</span><span>→</span></a></div>
+  <div class="map"><iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087" title="Дом D'ajour на карте Перми" loading="lazy"></iframe></div>
+</div></section>
+</main>
+
+<footer>© 2007–2026 Дом D’ajour · салон и школа красоты · Пермь, Осинская, 8</footer>
+<div class="fab" id="fab"><div data-msgr="wa tg max"></div><a class="book" data-go="book">Записаться</a></div>
+<div class="dock"><div data-msgr="wa tg max tel"></div><a class="book" data-go="book">Записаться</a></div>
+
+<script src="common.js"></script><script src="brand.js"></script><script src="prices.js"></script><script src="price.js"></script>
+<script>
+fill('#cats', PRICES, (c, k) => `<a href="#services" data-cat="${k}"><div class="im"><img src="img/${CAT_IMG[k]}.jpg" alt="" loading="lazy"></div><div class="tx"><b>${c.c}</b><span>${CAT_NOTE[k]}</span><i><span>от ${rub(minPrice(c))}</span><span>${count(c)} →</span></i></div></a>`);
+document.getElementById('works').innerHTML = (r => r + r)(WORKS.map(w => `<img src="${w}" alt="Работа мастера D'ajour" loading="lazy">`).join(''));
+bindSearch(document.getElementById('q'), document.getElementById('res'));
+const FAQ = [
+  ['Как записаться без звонка?', 'Выберите услугу и нажмите «Записаться»: можно выбрать время в онлайн-записи или написать администратору в WhatsApp, Telegram, MAX или ВКонтакте.'],
+  ['Можно сделать всё за один визит?', PILLARS[0].d],
+  ['Насколько это безопасно?', PILLARS[2].d],
+  ['А если результат мне не понравится?', PILLARS[3].d],
+  ['Цена не вырастет в процессе?', PILLARS[5].d],
+  ['Есть скидка на первый визит?', 'Да, 10% на первое посещение по промокоду 106606 — назовите его администратору при записи.']
+];
+fill('#faqs', FAQ, f => `<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`);
+// открыто ли сейчас (Пермь, UTC+5)
+const h = (new Date().getUTCHours() + 5) % 24, on = h >= 8 && h < 22;
+document.getElementById('open').textContent = on ? 'Открыто до 22:00' : 'Откроемся в 08:00';
+document.getElementById('dot').classList.toggle('off', !on);
+const fab = document.getElementById('fab');
+document.addEventListener('fx', () => fab.classList.toggle('on', scrollY > innerHeight * 0.7));
+</script>
+</body>
+</html>
