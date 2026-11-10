@@ -1,6 +1,6 @@
 /* Фирменные элементы «Дом D'ajour»: ветки эвкалипта, строки мессенджеров, работы мастеров */
 const MSUB = { wa: 'Чат с администратором', tg: 'Мы в Telegram', max: 'Чат с администратором', vk: 'Сообщество салона', ig: 'Работы и новости', tel: '+7 952 656-44-84' };
-const WORKS = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `img/w${n}.jpg`);
+const WORKS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(n => `img/w${n}.jpg`);
 // строки «Напишите нам» — как в таплинке: иконка, название, подпись, стрелка
 const mrows = keys => keys.map(k => `<a class="mr" href="${LINKS[k]}" ${k !== 'tel' ? 'target="_blank" rel="noopener"' : ''}><span class="mi">${ICONS[k]}</span><span class="mt"><b>${NAMES[k]}</b><small>${MSUB[k]}</small></span><i>→</i></a>`).join('');
 // ветка эвкалипта: круглые листья вдоль изогнутого стебля

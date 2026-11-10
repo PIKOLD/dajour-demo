@@ -22,4 +22,8 @@ h1,h2,h3,.up{font-weight:300;text-transform:uppercase;letter-spacing:.09em;line-
 .mr i{font-style:normal;font-size:20px;transition:transform .3s}
 .mr:hover{background:var(--mah);color:var(--cream);border-color:var(--mah);transform:translateX(6px)}
 .mr:hover .mi{background:var(--cream);color:var(--mah)}.mr:hover small{color:#d9c4b5}.mr:hover i{transform:translateX(5px)}
+.inside{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.inside img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px}
+.inside img:nth-child(odd){border-radius:999px 999px 14px 14px}
+@media(max-width:900px){.inside{grid-template-columns:1fr 1fr;gap:10px}}
 .code{border:1px dashed currentColor;border-radius:99px;padding:5px 16px;letter-spacing:.18em;font-weight:500}
