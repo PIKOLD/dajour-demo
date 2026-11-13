@@ -10,20 +10,21 @@
 <meta name="theme-color" content="#3a110c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Дом D'ajour — салон красоты в Перми">
-<meta property="og:description" content="Напишите нам в любой мессенджер или запишитесь онлайн. Осинская, 8 · ежедневно 08:00–22:00">
+<meta property="og:description" content="Напишите нам в любой мессенджер или запишитесь онлайн. Осинская, 8 · ежедневно 10:00–20:00">
 <!-- при переносе на домен салона заменить адрес картинки на новый -->
 <meta property="og:image" content="https://pikold.github.io/dajour-demo/site/img/og.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234e1912'/%3E%3Cpath d='M22 16h11c10 0 16 6 16 16s-6 16-16 16H22zm5 4.500v23h6c7 0 11-4.500 11-11.500s-4-11.500-11-11.500z' fill='%23f5efe5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/h1.jpg">
-<script>document.documentElement.dataset.c=(/[?&]c=([0-3])/.exec(location.search)||[0,"0"])[1]</script>
+<script>document.documentElement.dataset.c=(/[?&]c=([0-4])/.exec(location.search)||[0,"0"])[1]</script>
 <style>
 :root{--mah:#4e1912;--mah2:#3a110c;--d:58,17,12;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--cap:#7f9c8d;--tk:#fff;--line:rgba(42,24,20,.14);--l0:#8fae9d;--l1:#7b9b8a;--l2:#a9c4b4;--l3:#6a8a79;--stem:#8a6a52}
-/* палитры на выбор: ?c=1 эспрессо · коньяк · серо-бежевый, ?c=2 бордо · мокко · беж, ?c=3 шоколад · голубой */
+/* палитры на выбор: ?c=1 эспрессо · коньяк · серо-бежевый, ?c=2 бордо · мокко · беж, ?c=3 шоколад · голубой, ?c=4 бордо · голубой */
 html[data-c="1"]{--mah:#33211a;--mah2:#241712;--d:36,23,18;--cream:#e2dcd4;--card:#f0ebe4;--ink:#2a1c16;--mut:#74665b;--euc:#a5552b;--cap:#a5552b;--tk:#f6ebdd;--line:rgba(42,28,22,.17);--l0:#b98a5e;--l1:#a5552b;--l2:#d6b48c;--l3:#8a4a25;--stem:#6b4a36}
 html[data-c="2"]{--mah:#6d1a27;--mah2:#450f19;--d:69,15,25;--cream:#efe6da;--card:#f9f3ea;--ink:#2e1b18;--mut:#7b655c;--euc:#8b6f5d;--cap:#8b6f5d;--tk:#fbf3e8;--line:rgba(46,27,24,.15);--l0:#cbb39c;--l1:#b59a84;--l2:#e0cdb9;--l3:#a08572;--stem:#7a5a4a}
 html[data-c="3"]{--mah:#40261a;--mah2:#2e1b12;--d:46,27,18;--cream:#e8eff6;--card:#f8fbfd;--ink:#2b1a12;--mut:#6b655f;--euc:#a9c5df;--cap:#5d86ae;--tk:#3a2217;--line:rgba(43,26,18,.14);--l0:#a9c5df;--l1:#8fb2d3;--l2:#c6daec;--l3:#7ea3c7;--stem:#7a5a48}
+html[data-c="4"]{--mah:#6d1a27;--mah2:#450f19;--d:69,15,25;--cream:#e8eff6;--card:#f8fbfd;--ink:#2e1b1c;--mut:#6c6468;--euc:#a9c5df;--cap:#5d86ae;--tk:#4a101b;--line:rgba(46,27,28,.14);--l0:#a9c5df;--l1:#8fb2d3;--l2:#c6daec;--l3:#7ea3c7;--stem:#8a5a60}
 *,*::before,*::after{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{min-height:100vh;background:var(--mah2);color:var(--ink);font:400 16px/1.65 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -189,6 +190,7 @@ footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:cen
   <button data-c="1" style="--a:#33211a;--b:#a5552b" aria-label="Палитра 1: эспрессо и коньяк"></button>
   <button data-c="2" style="--a:#6d1a27;--b:#efe6da" aria-label="Палитра 2: бордо и беж"></button>
   <button data-c="3" style="--a:#40261a;--b:#a9c5df" aria-label="Палитра 3: шоколад и голубой"></button>
+  <button data-c="4" style="--a:#6d1a27;--b:#a9c5df" aria-label="Палитра 4: бордо и голубой"></button>
   <button data-c="0" style="--a:#4e1912;--b:#7f9c8d" aria-label="Как сейчас: красное дерево и эвкалипт"></button>
 </div>
 
@@ -197,7 +199,7 @@ footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:cen
 const SALON = {
   lead: 'Масштабный салон 200\u00a0м² в\u00a0самом центре города',
   address: 'Пермь, ул. Осинская, 8', addressShort: 'Осинская, 8',
-  hours: [8, 22],                       // ежедневно — показывается в блоке «Адрес»
+  hours: [10, 20],                       // ежедневно — показывается в блоке «Адрес»
   phone: '+7 952 656-44-84',
   promo: null,                          // купон убран по просьбе салона; вернуть: { pct: '−10%', code: '…' }
   book: 'https://app.arnica.pro/booking/booking?orgid=44585#/main',
@@ -278,7 +280,7 @@ if (SALON.promo) {
   });
 }
 
-// палитра: ?c=1…3, переключатель внизу (временный)
+// палитра: ?c=1…4, переключатель внизу (временный)
 const pal = $('pal'), tc = document.querySelector('meta[name=theme-color]');
 const setPal = c => {
   document.documentElement.dataset.c = c;
