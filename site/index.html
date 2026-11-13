@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<!-- пока сайт на тестовом адресе — закрыт от поиска; при переносе на домен салона строку ниже убрать -->
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дом D'ajour — салон красоты в Перми · написать и записаться</title>
+<meta name="description" content="Дом D'ajour — салон и школа красоты в центре Перми, ул. Осинская, 8. Напишите нам в любой мессенджер или запишитесь онлайн.">
+<meta name="theme-color" content="#3a110c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Дом D'ajour — салон красоты в Перми">
+<meta property="og:description" content="Напишите нам в любой мессенджер или запишитесь онлайн. Осинская, 8 · ежедневно 08:00–22:00">
+<!-- при переносе на домен салона заменить адрес картинки на новый -->
+<meta property="og:image" content="https://pikold.github.io/dajour-demo/site/img/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234e1912'/%3E%3Cpath d='M22 16h11c10 0 16 6 16 16s-6 16-16 16H22zm5 4.500v23h6c7 0 11-4.500 11-11.500s-4-11.500-11-11.500z' fill='%23f5efe5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/h1.jpg">
+<style>
+:root{--mah:#4e1912;--mah2:#3a110c;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--line:rgba(42,24,20,.14)}
+*,*::before,*::after{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{min-height:100vh;background:var(--mah2);color:var(--ink);font:400 16px/1.65 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;padding:0}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+iframe{border:0;display:block;width:100%}
+[hidden]{display:none!important}
+svg.i{width:1em;height:1em;fill:currentColor;flex:none}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+h1,h2{font-weight:300;text-transform:uppercase;letter-spacing:.09em;line-height:1.18}
+.cap{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500}
+
+/* фон на широком экране: красное дерево и эвкалипт */
+.bg{position:fixed;inset:0;z-index:-1;background:var(--mah);overflow:hidden}
+.bg .wood{position:absolute;inset:0;width:100%;height:100%;opacity:.6}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 40%,rgba(120,50,30,.35),transparent 70%),linear-gradient(180deg,transparent 60%,rgba(20,5,3,.45))}
+.euc{position:absolute;z-index:1;width:var(--w,520px);overflow:visible;pointer-events:none;transform-origin:0 50%;animation:sway var(--t,7s) ease-in-out infinite alternate;filter:drop-shadow(0 14px 18px rgba(0,0,0,.35))}
+@keyframes sway{from{transform:rotate(var(--r,0deg))}to{transform:rotate(calc(var(--r,0deg) + 3deg))}}
+.e1{--w:min(44vw,600px);--r:22deg;left:-3vw;top:2vw}
+.e2{--w:min(40vw,540px);--r:160deg;--t:9s;right:-36vw;top:30vh}
+.e3{--w:min(38vw,500px);--r:-24deg;--t:8s;left:-2vw;bottom:8vh}
+
+.col{width:min(480px,100%);margin:0 auto;background:var(--cream);min-height:100vh;box-shadow:0 0 80px rgba(0,0,0,.5);position:relative}
+
+/* главный экран: фото гостей салона */
+.top{position:relative;height:min(88svh,760px);min-height:540px;overflow:hidden;background:var(--mah2);color:var(--cream);display:flex;flex-direction:column;justify-content:flex-end;text-align:center;isolation:isolate}
+.top .ph{position:absolute;left:0;top:0;width:100%;height:80%;object-fit:cover;object-position:50% 20%;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s ease-out;z-index:-2}
+.top .ph.on{opacity:1;transform:none}
+.top::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,8,5,.6) 0,rgba(30,8,5,.25) 14%,transparent 26%,transparent 50%,rgba(58,17,12,.7) 66%,var(--mah2) 80%)}
+.top .in{padding:0 24px 26px}
+.top .lg{position:absolute;top:calc(16px + env(safe-area-inset-top));left:50%;width:78px;margin-left:-39px;filter:drop-shadow(0 2px 12px rgba(0,0,0,.6))}
+.top h1{font-size:18px;letter-spacing:.14em}
+.top p{color:#eadbcc;font-size:14.5px;margin:10px auto 18px;max-width:320px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:99px;border:1px solid rgba(245,239,229,.35);font-size:12.5px;background:rgba(40,12,8,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dot{width:8px;height:8px;border-radius:50%;background:#58d68d;box-shadow:0 0 0 4px rgba(88,214,141,.2)}
+.dot.off{background:#b9a79b;box-shadow:none}
+.bars{display:flex;gap:6px;justify-content:center;margin-top:20px}
+.bars i{width:28px;height:2px;border-radius:2px;background:rgba(245,239,229,.3);overflow:hidden;position:relative}
+.bars i::after{content:"";position:absolute;inset:0;background:var(--cream);transform:scaleX(0);transform-origin:0 50%}
+.bars i.on::after{animation:bar 5s linear forwards}
+.bars i.done::after{transform:none}
+@keyframes bar{to{transform:none}}
+
+/* бегущая строка услуг */
+.tick{background:var(--euc);color:#fff;overflow:hidden;white-space:nowrap;padding:11px 0}
+.tick div{display:inline-block;animation:tk 34s linear infinite}
+.tick span{display:inline-flex;align-items:center}
+.tick span::after{content:"";width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6;margin:0 1.3em}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+.blk{padding:34px 20px 6px}
+.blk>.cap{color:var(--euc);display:block;margin-bottom:8px}
+h2{font-size:22px;margin-bottom:18px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 24px;border-radius:99px;background:var(--mah);color:var(--cream);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;transition:transform .3s,background .3s,color .3s}
+.btn:hover{transform:translateY(-2px);background:var(--mah2)}
+.blk>.btn{margin-top:12px}
+
+/* строки мессенджеров */
+.mr{display:grid;grid-template-columns:52px 1fr auto;align-items:center;gap:16px;padding:14px 20px 14px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:transform .3s,background .3s,color .3s,border-color .3s}
+.mr+.mr{margin-top:10px}
+.mr .mi{width:52px;height:52px;border-radius:50%;background:var(--mah);color:var(--cream);display:grid;place-items:center;font-size:21px;transition:background .3s,color .3s}
+.mr b{display:block;font-weight:500;font-size:17px;letter-spacing:.02em}
+.mr small{color:var(--mut);font-size:13px;transition:color .3s}
+.mr>svg{font-size:20px;transition:transform .3s}
+@media(hover:hover){
+  .mr:hover{background:var(--mah);color:var(--cream);border-color:var(--mah);transform:translateX(4px)}
+  .mr:hover .mi{background:var(--cream);color:var(--mah)}.mr:hover small{color:#d9c4b5}.mr:hover>svg{transform:translateX(5px)}
+}
+
+/* купон */
+.cp{margin:26px 20px 0;padding:18px 16px;border-radius:18px;border:1.5px dashed var(--mah);display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--mah)}
+.cp b{font-weight:300;font-size:34px;line-height:1;white-space:nowrap}
+.cp span{font-size:13px;line-height:1.4;flex:1;min-width:0}
+.cp .code{background:var(--mah);color:var(--cream);border-radius:99px;padding:10px 14px;letter-spacing:.12em;font-weight:500;white-space:nowrap;flex:none}
+
+/* услуги */
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;display:flex;align-items:center;gap:14px;padding:13px 2px;cursor:pointer;font-weight:500;font-size:15.5px}
+summary::-webkit-details-marker{display:none}
+summary img{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none}
+summary::after{content:"";margin-left:auto;flex:none;width:14px;height:14px;background:linear-gradient(var(--mah),var(--mah)) 50%/100% 1.5px no-repeat,linear-gradient(var(--mah),var(--mah)) 50%/1.5px 100% no-repeat;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+.sv{padding:0 2px 18px}
+.sv>img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;margin-bottom:12px}
+.sv p{color:var(--mut);font-size:14.5px;margin-bottom:12px}
+.sv .row{display:flex;gap:8px}
+.sv .btn{height:46px;font-size:12px;padding:0 10px;flex:1}
+.sv .ic{flex:none;width:46px;padding:0;font-size:18px;background:none;color:var(--mah);box-shadow:inset 0 0 0 1px var(--mah)}
+.sv .ic:hover{background:var(--mah);color:var(--cream)}
+
+/* ленты фото */
+.wk{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;padding:0 20px 6px;margin:0 -20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.wk::-webkit-scrollbar{display:none}
+.wk img{flex:none;width:58%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;scroll-snap-align:center;background:#e6dccd}
+
+/* адрес */
+.ad ul{display:grid;gap:12px;font-size:15.5px;margin-bottom:16px}
+.ad li{display:flex;gap:12px;align-items:center}
+.ad li svg{color:var(--mah);font-size:18px}
+.map{border-radius:14px;overflow:hidden;background:#e6dccd}
+.map iframe{height:260px}
+.lks{margin-top:26px;border-top:1px solid var(--line)}
+.lk{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 2px;border-bottom:1px solid var(--line);font-weight:500}
+.lk svg{color:var(--mah);font-size:18px}
+footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:center;color:var(--mut);font-size:12.5px}
+
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:var(--cream);padding:11px 20px;border-radius:99px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:9;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:760px){.bg{display:none}.col{box-shadow:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <svg class="wood"><filter id="wd"><feTurbulence type="fractalNoise" baseFrequency=".007 .3" numOctaves="4" seed="7"/><feColorMatrix values="0 0 0 0 .08  0 0 0 0 .015  0 0 0 0 .01  1.7 0 0 0 -.5"/></filter><rect width="100%" height="100%" filter="url(#wd)"/></svg>
+  <svg class="euc e1" data-n="10"></svg><svg class="euc e2" data-n="9" data-bend="40"></svg><svg class="euc e3" data-n="8" data-bend="36"></svg>
+</div>
+
+<main class="col">
+  <header class="top">
+    <img class="ph on" src="img/h1.jpg" alt="Гостья салона Дом D'ajour" fetchpriority="high">
+    <img class="ph" data-src="img/h2.jpg" alt="">
+    <img class="ph" data-src="img/h3.jpg" alt="">
+    <img class="lg" src="img/logo.png" alt="Дом D'ajour — салон красоты" width="78">
+    <div class="in">
+      <h1>Добро пожаловать в&nbsp;Дом&nbsp;D’ajour</h1>
+      <p id="lead"></p>
+      <div class="chips"><span class="chip"><i class="dot" id="dot"></i><span id="open"></span></span><a class="chip" href="#addr" id="chipAddr"></a></div>
+      <div class="bars" id="bars" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    </div>
+  </header>
+  <div class="tick" aria-hidden="true"><div class="cap" id="tick"></div></div>
+
+  <section class="blk"><span class="cap">Без звонков</span><h2>Напишите нам</h2>
+    <div id="rows"></div>
+    <a class="btn" id="book" target="_blank" rel="noopener">Записаться онлайн</a></section>
+
+  <div class="cp" id="cp" hidden><b id="cpPct"></b><span>на первое посещение по&nbsp;промокоду</span><button class="code" id="cpCode" title="Скопировать промокод"></button></div>
+
+  <section class="blk"><span class="cap">Что мы делаем</span><h2>Услуги</h2><div id="acc"></div></section>
+
+  <section class="blk"><span class="cap">Сделано в Доме D’ajour</span><h2>Работы мастеров</h2><div class="wk" id="wk"></div></section>
+
+  <section class="blk"><span class="cap">Наш дом</span><h2>Интерьер</h2><div class="wk" id="inr"></div></section>
+
+  <section class="blk ad" id="addr"><span class="cap">Как нас найти</span><h2>Адрес дома</h2>
+    <ul id="facts"></ul>
+    <div class="map"><iframe id="map" title="Дом D'ajour на карте Перми" loading="lazy"></iframe></div>
+    <div class="lks" id="lks"></div></section>
+
+  <footer id="foot"></footer>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ====== ВСЁ, ЧТО МОЖЕТ МЕНЯТЬСЯ, — ЗДЕСЬ ====== */
+const SALON = {
+  lead: 'Салон и школа красоты в центре Перми. Все любимые процедуры — под одной крышей.',
+  address: 'Пермь, ул. Осинская, 8', addressShort: 'Осинская, 8',
+  hours: [8, 22],                       // ежедневно, по пермскому времени
+  phone: '+7 952 656-44-84',
+  promo: { pct: '−10%', code: '106606' }, // убрать купон: promo: null
+  book: 'https://app.arnica.pro/booking/booking?orgid=44585#/main',
+  map: 'https://yandex.ru/maps/org/d_ajour/77986565087/',
+  mapWidget: 'https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087',
+  school: 'https://dajour.ru/kursy-2/',
+  // мессенджеры в том порядке, в каком показываются; sub — подпись под названием
+  messengers: [
+    { k: 'wa', name: 'WhatsApp', sub: 'Чат с администратором', url: 'https://wa.me/message/ZLAVOFXOAT5RB1' },
+    { k: 'tg', name: 'Telegram', sub: 'Чат с администратором', url: 'https://t.me/dajours' },
+    { k: 'max', name: 'MAX', sub: 'Чат с администратором', url: 'https://max.ru/id590848968086_biz' },
+    { k: 'vk', name: 'ВКонтакте', sub: 'Сообщество салона', url: 'https://vk.com/djr_salon' },
+    { k: 'ig', name: 'Instagram', sub: 'Работы и новости', url: 'https://www.instagram.com/d.ajour_/' }
+  ],
+  quick: ['wa', 'tg', 'max'],            // значки рядом с «Записаться» внутри услуги
+  services: [
+    { k: 'Волосы', n: 'Парикмахерские услуги', d: 'Стрижки, окрашивание любой сложности, уходы и укладки', i: 'hair' },
+    { k: 'Ногти', n: 'Ногтевой сервис', d: 'Маникюр, педикюр, покрытие и здоровье стоп', i: 'nails' },
+    { k: 'Образ', n: 'Макияж и причёски', d: 'Образ для любого события — от фотосессии до свадьбы', i: 'makeup' },
+    { k: 'Взгляд', n: 'Ресницы и брови', d: 'Наращивание, ламинирование, коррекция и окрашивание', i: 'brows' },
+    { k: 'Перманент', n: 'Перманентный макияж', d: 'Брови, губы, веки. Удаление тату и татуажа', i: 'lips' },
+    { k: 'Релакс', n: 'Массаж', d: 'Расслабление и восстановление сил для тела и души', i: 'massage' },
+    { k: 'Кожа', n: 'Косметология', d: 'Чистки, пилинги и уходы для чистой сияющей кожи', i: 'cosm' },
+    { k: 'Лазер', n: 'Лазерная и аппаратная косметология', d: 'Современное оборудование и видимый результат', i: 'laser' },
+    { k: 'Силуэт', n: 'Аппаратный массаж', d: 'Коррекция фигуры и упругость кожи', i: 'app' }
+  ],
+  works: 12,                             // фото img/w1.jpg … img/w12.jpg
+  interior: ['Ресепшен', 'Интерьер', 'Уголок отдыха', 'Зеркало'] // img/in1.jpg …
+};
+/* ============================================== */
+
+const $ = id => document.getElementById(id);
+const S = b => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${b}</svg>`;
+const IC = {
+  wa: S('<path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2Zm0 1.800a8.200 8.200 0 1 1-4.200 15.200l-.4-.2-2.800.7.8-2.700-.3-.4A8.200 8.200 0 0 1 12 3.800Z"/><path d="M9 7.200c-.2-.4-.4-.4-.6-.4h-.6c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.300 0 1.400 1 2.700 1.100 2.900.2.2 2 3.100 4.900 4.300 2.400 1 2.900.8 3.400.7.5 0 1.700-.7 1.900-1.300.3-.7.3-1.200.2-1.400-.1-.1-.3-.2-.6-.3l-1.900-1c-.3-.1-.5-.1-.7.2l-.9 1.100c-.1.2-.3.2-.6.1-.3-.2-1.200-.5-2.300-1.400-.9-.8-1.400-1.700-1.600-2-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5L9 7.200Z"/>'),
+  tg: S('<path d="M21.900 4.300 18.700 19.400c-.2 1-.9 1.300-1.700.8l-4.800-3.600-2.300 2.200c-.3.3-.5.5-1 .5l.3-4.900 8.900-8c.4-.3-.1-.5-.6-.2l-11 6.900-4.700-1.500c-1-.3-1-1 .2-1.500L20.500 3c.9-.3 1.600.2 1.400 1.300Z"/>'),
+  vk: S('<path d="M12.800 17.500C7 17.500 3.700 13.600 3.600 7h2.900c.1 4.800 2.200 6.900 3.900 7.300V7h2.700v4.200c1.700-.2 3.400-2.100 4-4.200h2.700c-.4 2.600-2.300 4.500-3.700 5.200 1.400.6 3.500 2.300 4.300 5.300h-3c-.6-2-2.200-3.500-4.300-3.700v3.700h-.3Z"/>'),
+  max: S('<path d="M12 2.500C6.500 2.500 2.500 6.600 2.500 12c0 1.900.5 3.600 1.400 5.100L3 21.500l4.600-1.100c1.300.7 2.800 1.100 4.400 1.100 5.500 0 9.500-4.100 9.500-9.500S17.500 2.500 12 2.500Zm0 4.300a5.200 5.200 0 1 1 0 10.400 5.200 5.200 0 0 1 0-10.400Zm0 2.400a2.800 2.800 0 1 0 0 5.600 2.800 2.800 0 0 0 0-5.600Z"/>'),
+  ig: S('<path fill-rule="evenodd" d="M7.500 2.500h9a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-9a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5Zm0 1.900a3.100 3.100 0 0 0-3.100 3.100v9a3.100 3.100 0 0 0 3.100 3.100h9a3.100 3.100 0 0 0 3.100-3.100v-9a3.100 3.100 0 0 0-3.100-3.100h-9ZM12 7.400a4.600 4.600 0 1 1 0 9.200 4.600 4.600 0 0 1 0-9.200Zm0 1.900a2.700 2.700 0 1 0 0 5.400 2.700 2.700 0 0 0 0-5.400Zm4.900-3.300a1.100 1.100 0 1 1 0 2.200 1.100 1.100 0 0 1 0-2.200Z"/>'),
+  tel: S('<path d="M6.600 2.800 9 2.300c.5-.1 1 .2 1.200.7l1.100 2.900c.2.4 0 .9-.3 1.200L9.400 8.500a11.500 11.500 0 0 0 6.100 6.100l1.400-1.600c.3-.4.8-.5 1.200-.3l2.900 1.100c.5.2.8.7.7 1.200l-.5 2.400c-.1.5-.6.9-1.100.9C11 18.300 5.700 13 5.700 3.900c0-.5.4-1 .9-1.100Z"/>'),
+  arrow: S('<path d="M13.300 5.300 20 12l-6.700 6.700-1.400-1.400 4.300-4.300H4v-2h12.200l-4.300-4.300 1.400-1.400Z"/>'),
+  pin: S('<path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 4.500a2.500 2.500 0 1 1 0 5 2.500 2.500 0 0 1 0-5Z"/>'),
+  clock: S('<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-1 3v5.400l4 2.400 1-1.700-3-1.800V7h-2Z"/>')
+};
+const ext = 'target="_blank" rel="noopener"';
+const hh = h => String(h).padStart(2, '0') + ':00';
+const M = Object.fromEntries(SALON.messengers.map(m => [m.k, m]));
+const tel = 'tel:' + SALON.phone.replace(/[^+\d]/g, '');
+
+$('lead').textContent = SALON.lead;
+$('chipAddr').textContent = SALON.addressShort;
+$('book').href = SALON.book;
+$('rows').innerHTML = SALON.messengers.map(m => `<a class="mr" href="${m.url}" ${ext}><span class="mi">${IC[m.k]}</span><span><b>${m.name}</b><small>${m.sub}</small></span>${IC.arrow}</a>`).join('');
+$('tick').innerHTML = SALON.services.map(s => `<span>${s.k}</span>`).join('').repeat(2);
+
+const quick = SALON.quick.map(k => `<a class="btn ic" href="${M[k].url}" ${ext} aria-label="Написать в ${M[k].name}">${IC[k]}</a>`).join('');
+$('acc').innerHTML = SALON.services.map(s => `<details><summary><img src="img/${s.i}.jpg" alt="" loading="lazy" width="46" height="46">${s.n}</summary><div class="sv"><img src="img/${s.i}.jpg" alt="${s.n}" loading="lazy"><p>${s.d}</p><div class="row"><a class="btn" href="${SALON.book}" ${ext}>Записаться</a>${quick}</div></div></details>`).join('');
+// открыт только один раздел услуг
+document.querySelectorAll('#acc details').forEach(d => d.addEventListener('toggle', () => { if (d.open) document.querySelectorAll('#acc details[open]').forEach(o => { if (o !== d) o.open = false; }); }));
+
+$('wk').innerHTML = Array.from({ length: SALON.works }, (_, n) => `<img src="img/w${n + 1}.jpg" alt="Работа мастера Дом D'ajour" loading="lazy">`).join('');
+$('inr').innerHTML = SALON.interior.map((a, n) => `<img src="img/in${n + 1}.jpg" alt="${a}" loading="lazy">`).join('');
+
+$('facts').innerHTML = `<li>${IC.pin}${SALON.address}</li><li>${IC.clock}Ежедневно ${hh(SALON.hours[0])}–${hh(SALON.hours[1])}</li><li>${IC.tel}<a href="${tel}">${SALON.phone}</a></li>`;
+$('map').src = SALON.mapWidget;
+$('lks').innerHTML = [['Открыть в Яндекс Картах', SALON.map], ['Отзывы гостей', SALON.map + 'reviews/'], ['Школа красоты D’ajour — курсы', SALON.school]]
+  .map(([t, u]) => `<a class="lk" href="${u}" ${ext}><span>${t}</span>${IC.arrow}</a>`).join('');
+$('foot').textContent = `© ${new Date().getFullYear()} Дом D’ajour · салон и школа красоты`;
+
+// открыто ли сейчас (Пермь, UTC+5)
+const h = (new Date().getUTCHours() + 5) % 24, on = h >= SALON.hours[0] && h < SALON.hours[1];
+$('open').textContent = on ? `Открыто до ${hh(SALON.hours[1])}` : `Откроемся в ${hh(SALON.hours[0])}`;
+$('dot').classList.toggle('off', !on);
+
+// промокод: копирование по нажатию
+const toast = t => { const el = $('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove('on'), 1800); };
+if (SALON.promo) {
+  $('cp').hidden = false; $('cpPct').textContent = SALON.promo.pct; $('cpCode').textContent = SALON.promo.code;
+  $('cpCode').addEventListener('click', () => {
+    const ok = () => toast('Промокод скопирован');
+    navigator.clipboard ? navigator.clipboard.writeText(SALON.promo.code).then(ok, () => toast('Промокод: ' + SALON.promo.code)) : toast('Промокод: ' + SALON.promo.code);
+  });
+}
+
+// главный экран: фото сменяются сами
+const ph = [...document.querySelectorAll('.top .ph')], bars = [...$('bars').children];
+let cur = 0;
+if (!matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  ph.forEach(i => { if (i.dataset.src) { const p = new Image(); p.src = i.dataset.src; p.onload = () => { i.src = i.dataset.src; i.dataset.ok = 1; }; } });
+  setInterval(() => {
+    const nx = (cur + 1) % ph.length;
+    if (ph[nx].dataset.src && !ph[nx].dataset.ok) return;
+    ph[cur].classList.remove('on'); ph[nx].classList.add('on'); cur = nx;
+    bars.forEach((b, n) => { b.classList.toggle('done', n < cur); b.classList.toggle('on', n === cur); });
+  }, 5000);
+} else $('bars').hidden = true;
+
+// ветки эвкалипта на широком экране
+function branch(n = 9, len = 520, bend = -46) {
+  const cols = ['#8fae9d', '#7b9b8a', '#a9c4b4', '#6a8a79'];
+  let s = `<path d="M0 0 Q ${len * 0.5} ${bend} ${len} ${bend * 0.25}" fill="none" stroke="#8a6a52" stroke-width="2.4" stroke-linecap="round"/>`;
+  for (let i = 0; i < n; i++) {
+    const t = (i + 0.7) / n, x = 2 * (1 - t) * t * len * 0.5 + t * t * len, y = 2 * (1 - t) * t * bend + t * t * bend * 0.25;
+    const sz = (1 - t * 0.5) * (54 + (i * 37) % 19), side = i % 2 ? 1 : -1, ang = side * (56 + (i * 53) % 26) - t * 12;
+    s += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${ang.toFixed(1)})"><path d="M0 0C${sz * 0.22} ${-sz * 0.56} ${sz * 0.9} ${-sz * 0.5} ${sz} 0C${sz * 0.9} ${sz * 0.5} ${sz * 0.22} ${sz * 0.56} 0 0Z" fill="${cols[i % 4]}"/><path d="M0 0L${sz * 0.9} 0" stroke="rgba(255,255,255,.3)" stroke-width="1"/></g>`;
+  }
+  return s;
+}
+if (innerWidth > 760) document.querySelectorAll('svg.euc').forEach(el => { el.setAttribute('viewBox', '-30 -130 620 250'); el.innerHTML = branch(+el.dataset.n || 9, 520, +el.dataset.bend || -46); });
+</script>
+</body>
+</html>
