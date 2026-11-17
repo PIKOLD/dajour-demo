@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234e1912'/%3E%3Cpath d='M22 16h11c10 0 16 6 16 16s-6 16-16 16H22zm5 4.500v23h6c7 0 11-4.500 11-11.500s-4-11.500-11-11.500z' fill='%23f5efe5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/h1.jpg">
+<link rel="preload" as="image" href="img/h1.jpg?v=2">
 <script>document.documentElement.dataset.c=(/[?&]c=([0-4])/.exec(location.search)||[0,"0"])[1]</script>
 <style>
 :root{--mah:#4e1912;--mah2:#3a110c;--d:58,17,12;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--cap:#7f9c8d;--tk:#fff;--line:rgba(42,24,20,.14);--l0:#8fae9d;--l1:#7b9b8a;--l2:#a9c4b4;--l3:#6a8a79;--stem:#8a6a52}
@@ -152,9 +152,9 @@ footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:cen
 
 <main class="col">
   <header class="top">
-    <img class="ph on" src="img/h1.jpg" alt="Гостья салона Дом D'ajour" fetchpriority="high">
-    <img class="ph" data-src="img/h2.jpg" alt="">
-    <img class="ph" data-src="img/h3.jpg" alt="">
+    <img class="ph on" src="img/h1.jpg?v=2" alt="Гостья салона Дом D'ajour" fetchpriority="high">
+    <img class="ph" data-src="img/h2.jpg?v=2" alt="">
+    <img class="ph" data-src="img/h3.jpg?v=2" alt="">
     <div class="in">
       <img class="lg" src="img/logo.png" alt="Дом D'ajour — салон красоты" width="84">
       <h1>Добро пожаловать в&nbsp;Дом&nbsp;D’ajour</h1>
@@ -226,7 +226,7 @@ const SALON = {
     { k: 'Лазер', n: 'Лазерная и аппаратная косметология', d: 'Современное оборудование и видимый результат', i: 'laser' },
     { k: 'Силуэт', n: 'Аппаратный массаж', d: 'Коррекция фигуры и упругость кожи', i: 'app' }
   ],
-  works: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12], // фото img/w<номер>.jpg
+  works: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13], // фото img/w<номер>.jpg
   interior: ['Ресепшен', 'Интерьер', 'Уголок отдыха', 'Зеркало'] // img/in1.jpg …
 };
 /* ============================================== */
@@ -256,12 +256,12 @@ $('rows').innerHTML = SALON.messengers.map(m => `<a class="mr" href="${m.url}" $
 $('tick').innerHTML = SALON.services.map(s => `<span>${s.k}</span>`).join('').repeat(2);
 
 const quick = SALON.quick.map(k => `<a class="btn ic" href="${M[k].url}" ${ext} aria-label="Написать в ${M[k].name}">${IC[k]}</a>`).join('');
-$('acc').innerHTML = SALON.services.map(s => `<details><summary><img src="img/${s.i}.jpg" alt="" loading="lazy" width="46" height="46">${s.n}</summary><div class="sv"><img src="img/${s.i}.jpg" alt="${s.n}" loading="lazy"><p>${s.d}</p><div class="row"><a class="btn" href="${SALON.book}" ${ext}>Записаться</a>${quick}</div></div></details>`).join('');
+$('acc').innerHTML = SALON.services.map(s => `<details><summary><img src="img/${s.i}.jpg?v=2" alt="" loading="lazy" width="46" height="46">${s.n}</summary><div class="sv"><img src="img/${s.i}.jpg?v=2" alt="${s.n}" loading="lazy"><p>${s.d}</p><div class="row"><a class="btn" href="${SALON.book}" ${ext}>Записаться</a>${quick}</div></div></details>`).join('');
 // открыт только один раздел услуг
 document.querySelectorAll('#acc details').forEach(d => d.addEventListener('toggle', () => { if (d.open) document.querySelectorAll('#acc details[open]').forEach(o => { if (o !== d) o.open = false; }); }));
 
-$('wk').innerHTML = SALON.works.map(n => `<img src="img/w${n}.jpg" alt="Работа мастера Дом D'ajour" loading="lazy">`).join('');
-$('inr').innerHTML = SALON.interior.map((a, n) => `<img src="img/in${n + 1}.jpg" alt="${a}" loading="lazy">`).join('');
+$('wk').innerHTML = SALON.works.map(n => `<img src="img/w${n}.jpg?v=2" alt="Работа мастера Дом D'ajour" loading="lazy">`).join('');
+$('inr').innerHTML = SALON.interior.map((a, n) => `<img src="img/in${n + 1}.jpg?v=2" alt="${a}" loading="lazy">`).join('');
 
 $('facts').innerHTML = `<li>${IC.pin}${SALON.address}</li><li>${IC.clock}Ежедневно ${hh(SALON.hours[0])}–${hh(SALON.hours[1])}</li><li>${IC.tel}<a href="${tel}">${SALON.phone}</a></li>`;
 $('map').src = SALON.mapWidget;
