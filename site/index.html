@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234e1912'/%3E%3Cpath d='M22 16h11c10 0 16 6 16 16s-6 16-16 16H22zm5 4.500v23h6c7 0 11-4.500 11-11.500s-4-11.500-11-11.500z' fill='%23f5efe5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/h1.jpg?v=3">
+<link rel="preload" as="image" href="img/h1.jpg?v=4">
 <script>document.documentElement.dataset.c=(/[?&]c=([0-4])/.exec(location.search)||[0,"0"])[1]</script>
 <style>
 :root{--mah:#4e1912;--mah2:#3a110c;--d:58,17,12;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--cap:#7f9c8d;--tk:#fff;--line:rgba(42,24,20,.14);--l0:#8fae9d;--l1:#7b9b8a;--l2:#a9c4b4;--l3:#6a8a79;--stem:#8a6a52}
@@ -153,9 +153,9 @@ footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:cen
 
 <main class="col">
   <header class="top">
-    <img class="ph on" src="img/h1.jpg?v=3" alt="Гостья салона Дом D'ajour" fetchpriority="high">
-    <img class="ph" data-src="img/h2.jpg?v=3" alt="">
-    <img class="ph" data-src="img/h3.jpg?v=3" alt="">
+    <img class="ph on" src="img/h1.jpg?v=4" alt="Гостья салона Дом D'ajour" fetchpriority="high">
+    <img class="ph" data-src="img/h2.jpg?v=4" alt="">
+    <img class="ph" data-src="img/h3.jpg?v=4" alt="">
     <div class="in">
       <img class="lg" src="img/logo.png" alt="Дом D'ajour — салон красоты" width="84">
       <h1>Добро пожаловать в&nbsp;Дом&nbsp;D’ajour</h1>
@@ -206,12 +206,12 @@ const SALON = {
   book: 'https://app.arnica.pro/booking/booking?orgid=44585#/main',
   map: 'https://yandex.ru/maps/org/d_ajour/77986565087/',
   mapWidget: 'https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=77986565087',
-  school: 'https://dajour.ru/kursy-2/',
+  school: 'https://dajour.org',
   // мессенджеры в том порядке, в каком показываются; sub — подпись под названием
   messengers: [
     { k: 'wa', name: 'WhatsApp', sub: 'Чат с администратором', url: 'https://wa.me/message/ZLAVOFXOAT5RB1' },
     { k: 'tg', name: 'Telegram', sub: 'Чат с администратором', url: 'https://t.me/dom_dajour' },
-    { k: 'max', name: 'MAX', sub: 'Чат с администратором', url: 'https://max.ru/id590848968086_biz' },
+    { k: 'max', name: 'MAX', sub: 'Канал салона', url: 'https://max.ru/id590848968086_biz' },
     { k: 'vk', name: 'ВКонтакте', sub: 'Сообщество салона', url: 'https://vk.com/djr_salon' },
     { k: 'ig', name: 'Instagram', sub: 'Работы и новости', url: 'https://www.instagram.com/dom_dajour_/' }
   ],
@@ -257,12 +257,12 @@ $('rows').innerHTML = SALON.messengers.map(m => `<a class="mr" href="${m.url}" $
 $('tick').innerHTML = SALON.services.map(s => `<span>${s.k}</span>`).join('').repeat(2);
 
 const quick = SALON.quick.map(k => `<a class="btn ic" href="${M[k].url}" ${ext} aria-label="Написать в ${M[k].name}">${IC[k]}</a>`).join('');
-$('acc').innerHTML = SALON.services.map(s => `<details><summary><img src="img/${s.i}.jpg?v=3" alt="" loading="lazy" width="46" height="46">${s.n}</summary><div class="sv"><img src="img/${s.i}.jpg?v=3" alt="${s.n}" loading="lazy"><p>${s.d}</p><div class="row"><a class="btn" href="${SALON.book}" ${ext}>Записаться</a>${quick}</div></div></details>`).join('');
+$('acc').innerHTML = SALON.services.map(s => `<details><summary><img src="img/${s.i}.jpg?v=4" alt="" loading="lazy" width="46" height="46">${s.n}</summary><div class="sv"><img src="img/${s.i}.jpg?v=4" alt="${s.n}" loading="lazy"><p>${s.d}</p><div class="row"><a class="btn" href="${SALON.book}" ${ext}>Записаться</a>${quick}</div></div></details>`).join('');
 // открыт только один раздел услуг
 document.querySelectorAll('#acc details').forEach(d => d.addEventListener('toggle', () => { if (d.open) document.querySelectorAll('#acc details[open]').forEach(o => { if (o !== d) o.open = false; }); }));
 
-$('wk').innerHTML = SALON.works.map(n => `<img src="img/w${n}.jpg?v=3" alt="Работа мастера Дом D'ajour" loading="lazy">`).join('');
-$('inr').innerHTML = SALON.interior.map((a, n) => `<img src="img/in${n + 1}.jpg?v=3" alt="${a}" loading="lazy">`).join('');
+$('wk').innerHTML = SALON.works.map(n => `<img src="img/w${n}.jpg?v=4" alt="Работа мастера Дом D'ajour" loading="lazy">`).join('');
+$('inr').innerHTML = SALON.interior.map((a, n) => `<img src="img/in${n + 1}.jpg?v=4" alt="${a}" loading="lazy">`).join('');
 
 $('facts').innerHTML = `<li>${IC.pin}${SALON.address}</li><li>${IC.clock}Ежедневно ${hh(SALON.hours[0])}–${hh(SALON.hours[1])}</li><li>${IC.tel}<a href="${tel}">${SALON.phone}</a></li>`;
 $('map').src = SALON.mapWidget;
