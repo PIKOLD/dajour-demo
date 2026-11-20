@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234e1912'/%3E%3Cpath d='M22 16h11c10 0 16 6 16 16s-6 16-16 16H22zm5 4.500v23h6c7 0 11-4.500 11-11.500s-4-11.500-11-11.500z' fill='%23f5efe5'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/h1.jpg?v=4">
+<link rel="preload" as="image" href="img/h1.jpg?v=5">
 <script>document.documentElement.dataset.c=(/[?&]c=([0-4])/.exec(location.search)||[0,"0"])[1]</script>
 <style>
 :root{--mah:#4e1912;--mah2:#3a110c;--d:58,17,12;--cream:#f5efe5;--card:#fffaf2;--ink:#2a1814;--mut:#7a665d;--euc:#7f9c8d;--cap:#7f9c8d;--tk:#fff;--line:rgba(42,24,20,.14);--l0:#8fae9d;--l1:#7b9b8a;--l2:#a9c4b4;--l3:#6a8a79;--stem:#8a6a52}
@@ -53,7 +53,7 @@ h1,h2{font-weight:300;text-transform:uppercase;letter-spacing:.09em;line-height:
 
 /* главный экран: фото гостей салона */
 .top{position:relative;height:min(88svh,760px);min-height:540px;overflow:hidden;background:var(--mah2);color:var(--cream);display:flex;flex-direction:column;justify-content:flex-end;text-align:center;isolation:isolate}
-.top .ph{position:absolute;left:0;top:-14%;width:100%;height:84%;object-fit:cover;object-position:50% 0%;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s ease-out;z-index:-2}
+.top .ph{position:absolute;left:0;top:var(--y,-14%);width:100%;height:84%;object-fit:cover;object-position:50% 0%;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s ease-out;z-index:-2}
 .top .ph.on{opacity:1;transform:none}
 @media (max-height:640px){.top .ph{top:-30%;height:100%}}
 .top::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--d),.35) 0,transparent 16%,transparent 34%,rgba(var(--d),.74) 52%,var(--mah2) 70%)}
@@ -153,9 +153,9 @@ footer{padding:30px 20px calc(40px + env(safe-area-inset-bottom));text-align:cen
 
 <main class="col">
   <header class="top">
-    <img class="ph on" src="img/h1.jpg?v=4" alt="Гостья салона Дом D'ajour" fetchpriority="high">
+    <img class="ph on" src="img/h1.jpg?v=5" style="--y:-12%" alt="Гостья салона Дом D'ajour" fetchpriority="high">
     <img class="ph" data-src="img/h2.jpg?v=4" alt="">
-    <img class="ph" data-src="img/h3.jpg?v=4" alt="">
+    <img class="ph" data-src="img/h3.jpg?v=4" style="--y:-8%" alt="">
     <div class="in">
       <img class="lg" src="img/logo.png" alt="Дом D'ajour — салон красоты" width="84">
       <h1>Добро пожаловать в&nbsp;Дом&nbsp;D’ajour</h1>
