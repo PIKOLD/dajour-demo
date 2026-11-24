@@ -30,7 +30,7 @@ if(el('service')){
  if(!items.length){el('bag').append(node('p','Выберите услуги, чтобы увидеть стоимость и длительность.'),button('К меню услуг',()=>{el('drawer').close();location.hash='menu'}))}
  const sum=k=>items.reduce((v,s)=>v+s[k],0);el('total').textContent=items.length?price({low:sum('low'),high:sum('high')})+' · '+sum('min')+' мин':'';el('actions').hidden=!items.length;el('copy').textContent='Скопировать список'}
  el('more').onclick=()=>{limit+=12;draw()};el('search').oninput=()=>{limit=8;draw()};el('basket').onclick=()=>el('drawer').showModal();
- el('copy').onclick=async()=>{const txt=[...el('bag').querySelectorAll('.row')].map(r=>r.firstChild.textContent+' · '+r.children[1].textContent).join('\n')+'\nИтого: '+el('total').textContent;try{await navigator.clipboard.writeText(txt);el('copy').textContent='Список скопирован'}catch{window.prompt('Скопируйте список',txt)}};
+ el('copy').onclick=async()=>{const txt=[...el('bag').querySelectorAll('.row')].map(r=>r.firstChild.firstChild.textContent+' · '+r.firstChild.lastChild.textContent+' · '+r.children[1].textContent).join('\n')+'\nИтого: '+el('total').textContent;try{await navigator.clipboard.writeText(txt);el('copy').textContent='Список скопирован'}catch{window.prompt('Скопируйте список',txt)}};
  const scenes=[['h1','Образы дома'],['in3','В гостях у D’ajour'],['in4','Детали интерьера']];
  const motion=()=>!matchMedia('(prefers-reduced-motion: reduce)').matches;
  function scene(i){const [file,label]=scenes[i];el('portrait').src='img/'+file+'.jpg';el('portrait').alt=label;el('sceneLabel').textContent=label;
@@ -39,3 +39,4 @@ if(el('service')){
  for(const [f,label] of [['w12','Укладка'],['w2','Макияж'],['w8','Маникюр'],['w9','Перманентный макияж'],['w10','Брови']]){const b=button('',()=>{el('light').querySelector('img').src='img/'+f+'.jpg';el('light').showModal()});b.setAttribute('aria-label','Увеличить: '+label);const img=new Image();img.loading='lazy';img.src='img/'+f+'.jpg';img.alt=label;b.append(img);el('gallery').append(b)}
  window.addEventListener('pageshow',()=>{edits=read('prices',{});draw()});window.addEventListener('storage',()=>{edits=read('prices',{});cart=new Set(read('cart',[]));draw()});draw()
 }
+
