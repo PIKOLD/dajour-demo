@@ -10,6 +10,13 @@ API = 'https://api.yclients.com/api/v1'
 PERM = dt.timezone(dt.timedelta(hours=5))
 
 
+def h31(s):
+    h = 0
+    for ch in s:
+        h = (h * 31 + ord(ch)) % 1000003
+    return h
+
+
 class YClients:
     def __init__(self):
         self.partner = env('YCLIENTS_PARTNER_TOKEN')
@@ -65,9 +72,9 @@ class YClients:
             now = dt.datetime.now(PERM)
             for st in self.staff(service_id):
                 for h in range(10, 20):
-                    busy = int(hashlib.md5(f'{date}{h}{st["id"]}'.encode()).hexdigest(), 16) % 3 == 0
+                    busy = h31(f'{date}{h}{st["id"]}') % 3 == 0          # та же формула в demo/tg/index.html
                     slot = dt.datetime.fromisoformat(f'{date}T{h:02d}:00:00+05:00')
-                    if not busy and slot > now + dt.timedelta(hours=1):
+                    if not busy and not (date == now.date().isoformat() and h <= now.hour):
                         out.setdefault(f'{h:02d}:00', {'time': f'{h:02d}:00', 'staff_id': st['id'], 'staff': st['name'], 'datetime': slot.isoformat()})
         else:
             for st in self.staff(service_id)[:6]:

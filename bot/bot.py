@@ -9,7 +9,9 @@ from yclients import YClients
 from brain import Brain, find_services
 
 TG = f'https://api.telegram.org/bot{env("TELEGRAM_BOT_TOKEN")}'
-ADMIN = env('ADMIN_CHAT_ID')          # куда слать заявки на перманент и уведомления о записях
+ADMIN = env('ADMIN_CHAT_ID')
+MINIAPP = env('MINIAPP_URL', 'https://pikold.github.io/dajour-demo/demo/tg/')
+APP_KB = {'keyboard': [[{'text': '✨ Записаться онлайн', 'web_app': {'url': MINIAPP}}]], 'resize_keyboard': True, 'is_persistent': True}          # куда слать заявки на перманент и уведомления о записях
 yc = YClients()
 SERVICES = yc.services()
 brain = Brain(SERVICES)
@@ -80,6 +82,8 @@ def start(chat):
     S[chat] = {'h': [], 'step': None}
     demo = '\n\n(Демо-режим: запись тестовая, в салон не уходит.)' if yc.demo else ''
     send(chat, f"Здравствуйте! Я ИИ-администратор «{SALON['name']}» 🌿\nЗапишу на услугу, подскажу цены и адрес. Можно просто написать, что хотите — например «маникюр в субботу».{demo}", MENU)
+    if not CONSOLE:
+        send(chat, 'А ещё можно записаться в красивом окне — кнопка внизу 👇', APP_KB)
 
 
 def show_services(chat, lst, title='Выберите услугу', page=0, mid=None):
@@ -146,7 +150,7 @@ def ask_phone(chat):
 def confirm(chat):
     st = S[chat]; st['step'] = 'confirm'
     if not CONSOLE:
-        http('POST', f'{TG}/sendMessage', data={'chat_id': chat, 'text': 'Проверьте, пожалуйста 👇', 'reply_markup': {'remove_keyboard': True}})
+        http('POST', f'{TG}/sendMessage', data={'chat_id': chat, 'text': 'Проверьте, пожалуйста 👇', 'reply_markup': APP_KB})
     send(chat, f'📋 {st["svc"]["name"]}\n🗓 {day_label(st["date"])}, {st["slot"]["time"]}\n💳 {price_text(st["svc"]["price"])}\n👤 {st["name"]}, {st["phone"]}',
          kb([[('✅ Записаться', 'ok'), ('✖️ Отмена', 'no')]]))
 
@@ -201,12 +205,47 @@ def fail(chat, e):
     send(chat, f'Не получилось получить расписание 😔 Запишитесь онлайн: {SALON["book_url"]} или позвоните {SALON["phone"]}.', MENU)
 
 
+# ---------- запись из Mini App ----------
+def on_webapp(chat, raw, first_name=''):
+    st = S.setdefault(chat, {'h': [], 'step': None})
+    try:
+        d = json.loads(raw)
+    except ValueError:
+        return
+    if d.get('type') == 'pm':
+        st['step'] = None
+        send(chat, 'Перманент мастер согласует лично — задам 3 коротких вопроса 🤍')
+        return pm_next(chat)
+    svc = next((s for s in SERVICES if s['id'] == d.get('svc')), None)
+    if not svc:
+        return send(chat, 'Не нашла услугу — выберите, пожалуйста, ещё раз.', MENU)
+    st.update(svc=svc, date=d['date'])
+    try:
+        slots = yc.times(svc['id'], d['date'])
+    except Exception as e:
+        return fail(chat, e)
+    slot = next((s for s in slots if s['time'] == d.get('time')), None)
+    if not slot:
+        st['slots'], st['dates'] = slots, [d['date']]
+        return send(chat, f'Время {d.get("time")} только что заняли 😔 Свободно {day_label(d["date"])}:',
+                    kb([[(s['time'], f't:{k}') for k, s in enumerate(slots[j:j + 4], j)] for j in range(0, len(slots), 4)]) if slots else MENU)
+    st.update(slot=slot, name=(d.get('name') or first_name or 'Гость')[:40])
+    phone = re.sub(r'[^\d+]', '', d.get('phone') or '') or st.get('last_phone', '')
+    if len(re.sub(r'\D', '', phone)) < 10:
+        return ask_phone(chat)
+    st['phone'] = phone
+    do_book(chat)
+
+
 # ---------- входящие ----------
 def on_text(chat, text, contact=None):
     st = S.setdefault(chat, {'h': [], 'step': None})
     if text in ('/start', '/menu'):
         return start(chat)
     step = st.get('step')
+    if contact and step != 'phone':
+        st['last_phone'] = re.sub(r'[^\d+]', '', contact)
+        return
     if step == 'name' and text:
         st['name'] = text.strip()[:40]
         return ask_phone(chat)
@@ -294,7 +333,10 @@ def run_telegram():
                     on_button(cq['message']['chat']['id'], cq['data'], cq['message']['message_id'])
                 elif 'message' in u:
                     m = u['message']
-                    on_text(m['chat']['id'], m.get('text', ''), (m.get('contact') or {}).get('phone_number'))
+                    if 'web_app_data' in m:
+                        on_webapp(m['chat']['id'], m['web_app_data']['data'], m.get('from', {}).get('first_name', ''))
+                    else:
+                        on_text(m['chat']['id'], m.get('text', ''), (m.get('contact') or {}).get('phone_number'))
             except Exception as e:
                 print('Ошибка обработки:', e)
 

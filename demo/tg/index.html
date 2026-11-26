@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<title>Запись — Дом D'ajour</title>
+<meta name="robots" content="noindex">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1b0e0a;--bg2:#26140e;--card:#2e1911;--cream:#f6f0e6;--mut:rgba(246,240,230,.6);--line:rgba(246,240,230,.12);--gold:#d9b77a;--goldg:linear-gradient(120deg,#b8924f,#f3dfb0 45%,#c9a165);--disp:Forum,serif;--it:'Cormorant Garamond',serif;--sans:Manrope,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--cream);font:500 15px/1.45 var(--sans);min-height:100%;overflow-x:hidden}
+.tgph[hidden]{display:none!important}
+button,input{font:inherit;color:inherit;background:none;border:0;outline:0}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+.app{max-width:560px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:12px;padding:14px 0 12px;background:linear-gradient(var(--bg) 75%,transparent)}
+.top img{height:34px}
+.top .t{flex:1;min-width:0}
+.top b{display:block;font:400 22px/1.05 var(--disp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top small{color:var(--mut);font-size:12px}
+.bk{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.bk svg{width:18px}
+.steps{display:flex;gap:6px;margin:2px 0 16px}
+.steps i{flex:1;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.steps i.on{background:var(--goldg)}
+h2{font:400 30px/1.05 var(--disp);margin:6px 0 4px}
+h2 em{font:500 italic 32px var(--it);color:var(--gold)}
+.sub{color:var(--mut);font-size:13.5px;margin-bottom:16px}
+.scr{display:none;animation:in .35s cubic-bezier(.2,.7,.2,1)}
+.scr.on{display:block}
+@keyframes in{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+/* направления */
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cat{position:relative;aspect-ratio:1/1.12;border-radius:20px;overflow:hidden;text-align:left;background:var(--card)}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat:active img{transform:scale(1.06)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(20,9,6,.88))}
+.cat span{position:absolute;left:12px;right:12px;bottom:11px;z-index:1}
+.cat b{display:block;font:400 19px/1.05 var(--disp)}
+.cat small{color:var(--gold);font-size:12px;font-weight:700}
+.cat.wide{grid-column:1/-1;aspect-ratio:2.3/1}
+/* поиск и чипы */
+.srch{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;background:var(--card);border:1px solid var(--line);margin-bottom:12px}
+.srch svg{width:18px;color:var(--gold);flex:none}.srch input{flex:1;min-width:0}
+.chips{display:flex;gap:6px;overflow-x:auto;margin:0 -16px 12px;padding:0 16px;scrollbar-width:none}
+.chips button{flex:none;padding:8px 14px;border-radius:99px;border:1px solid var(--line);font-size:13px;font-weight:700;white-space:nowrap}
+.chips button.on{background:var(--cream);color:var(--bg);border-color:var(--cream)}
+/* услуги */
+.svc{display:flex;align-items:center;gap:12px;width:100%;padding:14px;border-radius:16px;background:var(--card);border:1px solid transparent;margin-bottom:8px;text-align:left;transition:border-color .2s,transform .15s}
+.svc:active{transform:scale(.985)}
+.svc.on{border-color:var(--gold)}
+.svc .n{flex:1;min-width:0;font-weight:600}
+.svc .n small{display:block;color:var(--mut);font-weight:500;font-size:12.5px;margin-top:2px}
+.svc .p{font:400 18px var(--disp);color:var(--gold);white-space:nowrap}
+/* дни и время */
+.days{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 18px;padding:2px 16px 4px;scrollbar-width:none;scroll-snap-type:x mandatory}
+.day{flex:none;width:62px;padding:10px 0;border-radius:16px;background:var(--card);border:1px solid var(--line);text-align:center;scroll-snap-align:start}
+.day small{display:block;font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em}
+.day b{display:block;font:400 24px/1.1 var(--disp)}
+.day.on{background:var(--goldg);color:#1b0e0a;border-color:transparent}.day.on small{color:#1b0e0a}
+.lbl{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:4px 0 10px}
+.times{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.tm{padding:12px 0;border-radius:12px;background:var(--card);border:1px solid var(--line);font-weight:700;text-align:center}
+.tm.on{background:var(--cream);color:var(--bg)}
+.tm:disabled{opacity:.28;text-decoration:line-through}
+.none{padding:18px;border-radius:16px;border:1px dashed var(--line);color:var(--mut);text-align:center}
+/* форма и итог */
+.fld{display:block;margin-bottom:10px}
+.fld span{display:block;font-size:12px;color:var(--mut);margin:0 0 6px 4px}
+.fld input{width:100%;padding:14px 16px;border-radius:14px;background:var(--card);border:1px solid var(--line);font-size:16px}
+.fld input:focus{border-color:var(--gold)}
+.tgph{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px;border-radius:14px;border:1px dashed var(--gold);color:var(--gold);font-weight:700;margin:-2px 0 12px}
+.sum{position:relative;border-radius:22px;padding:18px;background:radial-gradient(120% 120% at 0 0,#4b2518,#24110b);border:1px solid rgba(217,183,122,.35);overflow:hidden;margin-top:8px}
+.sum::before{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:radial-gradient(rgba(217,183,122,.25),transparent 70%)}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:14px}
+.sum dt{color:var(--mut)}
+.sum dd{font-weight:700;text-align:right}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.sum .tot b{font:400 28px var(--disp);color:var(--gold)}
+.note{font-size:12px;color:var(--mut);margin-top:12px;text-align:center}
+.pm{padding:20px;border-radius:20px;background:var(--card);text-align:center}
+.pm h3{font:400 24px var(--disp);margin-bottom:8px}
+/* своя кнопка (вне Telegram) */
+.cta{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 35%);z-index:6;display:none}
+.cta button{width:100%;max-width:528px;margin:0 auto;display:block;padding:16px;border-radius:16px;background:var(--goldg);color:#1b0e0a;font-weight:800;font-size:15px}
+.cta button:disabled{opacity:.4}
+body.web .cta{display:block}
+.demo{font-size:11px;color:var(--mut);text-align:center;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><button class="bk" id="bk" aria-label="Назад" style="visibility:hidden"><svg viewBox="0 0 24 24"><path d="M10.7 5.3 4 12l6.7 6.7 1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4Z" fill="currentColor"/></svg></button>
+    <img src="../img/logo.png" alt=""><div class="t"><b>Дом D'ajour</b><small>Онлайн-запись · Осинская, 8</small></div></div>
+  <div class="steps" id="steps"><i></i><i></i><i></i><i></i></div>
+
+  <section class="scr on" data-s="0">
+    <h2>Что сделаем <em>сегодня?</em></h2><p class="sub">Выберите направление или найдите услугу</p>
+    <label class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2"/></svg><input id="q" placeholder="маникюр, окрашивание, массаж…" enterkeyhint="search"></label>
+    <div id="qres"></div>
+    <div class="cats" id="cats"></div>
+  </section>
+
+  <section class="scr" data-s="1">
+    <h2 id="catT"></h2><p class="sub">Цены и время из онлайн-записи салона</p>
+    <div class="chips" id="grp"></div>
+    <div id="svcs"></div>
+  </section>
+
+  <section class="scr" data-s="2">
+    <h2>Когда <em>удобно?</em></h2><p class="sub" id="svcLine"></p>
+    <div class="days" id="days"></div>
+    <div class="lbl">Свободное время</div>
+    <div id="times"></div>
+  </section>
+
+  <section class="scr" data-s="3">
+    <h2>Почти <em>готово</em></h2><p class="sub">Подтвердим запись в чате и напомним заранее</p>
+    <label class="fld"><span>Имя</span><input id="nm" autocomplete="given-name" placeholder="Как к вам обращаться"></label>
+    <label class="fld"><span>Телефон</span><input id="ph" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00"></label>
+    <button class="tgph" id="tgph" hidden>📱 Подставить номер из Telegram</button>
+    <div class="sum"><dl id="sum"></dl><div class="tot"><span>К оплате в салоне</span><b id="tot"></b></div></div>
+    <p class="note">Нажимая «Записаться», вы соглашаетесь, что салон свяжется с вами по этому номеру.</p>
+  </section>
+
+  <section class="scr" data-s="9">
+    <div class="pm"><h3>Перманент — через мастера</h3><p class="sub">Форму, цвет и время мастер подбирает лично. Вернём вас в чат — администратор задаст 3 коротких вопроса и передаст заявку.</p></div>
+  </section>
+  <p class="demo" id="demo"></p>
+</div>
+<div class="cta"><button id="cta" disabled>Выберите услугу</button></div>
+
+<script src="../assets/prices.js?v=5"></script>
+<script>
+const tg = window.Telegram && Telegram.WebApp, inTG = !!(tg && tg.initData);
+if (inTG) { tg.ready(); tg.expand(); tg.setHeaderColor('#1b0e0a'); tg.setBackgroundColor('#1b0e0a'); } else document.body.classList.add('web');
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const rub = n => n.toLocaleString('ru-RU').replace(/ |,/g, ' ') + ' ₽';
+const price = p => p === 0 ? 'бесплатно' : Array.isArray(p) ? (p[1] ? rub(p[0]).replace(' ₽', '') + '–' + rub(p[1]) : 'от ' + rub(p[0])) : rub(p);
+const dur = m => !m ? '' : m >= 60 ? Math.floor(m / 60) + ' ч' + (m % 60 ? ' ' + m % 60 + ' мин' : '') : m + ' мин';
+const haptic = t => inTG && tg.HapticFeedback && tg.HapticFeedback.selectionChanged && tg.HapticFeedback.selectionChanged();
+
+/* услуги — в том же порядке, что у бота (id = порядковый номер с 1) */
+const SV = []; PRICES.forEach(c => c.g.forEach(g => g.s.forEach(([n, p, m]) => SV.push({ id: SV.length + 1, cat: c.c, group: g.n, name: n, price: p, minutes: m }))));
+const CATS = [...new Set(SV.map(s => s.cat))];
+const META = { 'Ногтевой сервис': ['Ногти', 'nails'], 'Парикмахерские услуги': ['Волосы', 'hair'], 'Макияж и причёски': ['Макияж и причёски', 'makeup'], 'Ресницы и брови': ['Ресницы и брови', 'brows'],
+  'Массаж': ['Массаж', 'massage'], 'Косметология': ['Косметология', 'cosm'], 'Перманентный макияж': ['Перманент', 'lips'], 'Удаление тату и татуажа': ['Удаление тату', 'laser'] };
+const PM = ['Перманентный макияж', 'Удаление тату и татуажа'];
+const minP = c => Math.min(...SV.filter(s => s.cat === c).map(s => Array.isArray(s.price) ? s.price[0] : s.price).filter(Boolean));
+
+/* демо-расписание — та же формула, что в боте */
+const hsh = s => { let h = 0; for (const ch of s) h = (h * 31 + ch.codePointAt(0)) % 1000003; return h; };
+const permNow = () => new Date(Date.now() + (new Date().getTimezoneOffset() + 300) * 60000);
+const iso = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+function slots(date) {
+  const now = permNow(), out = [];
+  for (let h = 10; h < 20; h++) {
+    const free = [1, 2].some(st => hsh(`${date}${h}${st}`) % 3 !== 0);
+    const past = date === iso(now) && h <= now.getHours();
+    out.push({ t: String(h).padStart(2, '0') + ':00', ok: free && !past });
+  }
+  return out;
+}
+
+const S = { step: 0, cat: null, grp: null, svc: null, date: null, time: null };
+const WD = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'], MON = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+
+function go(n) {
+  S.step = n; $$('.scr').forEach(s => s.classList.toggle('on', +s.dataset.s === n));
+  $$('#steps i').forEach((i, k) => i.classList.toggle('on', k <= Math.min(n, 3)));
+  $('#bk').style.visibility = n ? 'visible' : 'hidden';
+  if (inTG) n ? tg.BackButton.show() : tg.BackButton.hide();
+  scrollTo(0, 0); cta();
+}
+const back = () => go(S.step === 9 ? 0 : S.step === 1 ? 0 : S.step - 1);
+$('#bk').onclick = back; if (inTG) tg.BackButton.onClick(back);
+
+/* 0 — направления и поиск */
+$('#cats').innerHTML = CATS.map((c, i) => `<button class="cat${i === 0 ? ' wide' : ''}" data-c="${c}"><img src="../img/${META[c][1]}.jpg" alt="" loading="${i < 4 ? 'eager' : 'lazy'}"><span><b>${META[c][0]}</b><small>${PM.includes(c) ? 'через мастера' : 'от ' + rub(minP(c))}</small></span></button>`).join('');
+$$('.cat').forEach(b => b.onclick = () => openCat(b.dataset.c));
+$('#q').oninput = e => {
+  const q = e.target.value.trim().toLowerCase();
+  const r = q.length < 2 ? [] : SV.filter(s => (s.name + ' ' + s.cat).toLowerCase().includes(q)).slice(0, 8);
+  $('#qres').innerHTML = r.map(s => svcRow(s)).join('');
+  $('#cats').style.display = q.length < 2 ? '' : 'none';
+  bindSvc('#qres');
+};
+function openCat(c) {
+  haptic(); if (PM.includes(c)) { S.cat = c; return go(9); }
+  S.cat = c; const gs = [...new Set(SV.filter(s => s.cat === c).map(s => s.group))];
+  S.grp = gs.length > 1 ? gs[0] : null;
+  $('#catT').textContent = META[c][0];
+  $('#grp').innerHTML = gs.length > 1 ? gs.map(g => `<button data-g="${g}"${g === S.grp ? ' class="on"' : ''}>${g || 'Комплексы'}</button>`).join('') : '';
+  $$('#grp button').forEach(b => b.onclick = () => { S.grp = b.dataset.g; $$('#grp button').forEach(x => x.classList.toggle('on', x === b)); drawSvcs(); haptic(); });
+  drawSvcs(); go(1);
+}
+const svcRow = s => `<button class="svc${S.svc && S.svc.id === s.id ? ' on' : ''}" data-id="${s.id}"><span class="n">${s.name}<small>${dur(s.minutes)}</small></span><span class="p">${price(s.price)}</span></button>`;
+function drawSvcs() { $('#svcs').innerHTML = SV.filter(s => s.cat === S.cat && (S.grp === null || s.group === S.grp)).map(svcRow).join(''); bindSvc('#svcs'); }
+function bindSvc(root) { $$(root + ' .svc').forEach(b => b.onclick = () => { S.svc = SV[b.dataset.id - 1]; if (PM.includes(S.svc.cat)) return go(9); haptic(); openDays(); }); }
+
+/* 2 — день и время */
+function openDays() {
+  $('#svcLine').textContent = `${S.svc.name} · ${price(S.svc.price)}${S.svc.minutes ? ' · ' + dur(S.svc.minutes) : ''}`;
+  const d0 = permNow(); const ds = [...Array(14)].map((_, i) => { const d = new Date(d0); d.setDate(d.getDate() + i); return d; });
+  if (!S.date) S.date = iso(ds.find(d => slots(iso(d)).some(x => x.ok)) || ds[0]);
+  $('#days').innerHTML = ds.map((d, i) => `<button class="day${iso(d) === S.date ? ' on' : ''}" data-d="${iso(d)}"><small>${i === 0 ? 'сег' : i === 1 ? 'зав' : WD[d.getDay()]}</small><b>${d.getDate()}</b><small>${MON[d.getMonth()]}</small></button>`).join('');
+  $$('.day').forEach(b => b.onclick = () => { S.date = b.dataset.d; S.time = null; $$('.day').forEach(x => x.classList.toggle('on', x === b)); drawTimes(); haptic(); });
+  drawTimes(); go(2);
+}
+function drawTimes() {
+  const sl = slots(S.date);
+  $('#times').innerHTML = sl.some(x => x.ok) ? `<div class="times">${sl.map(x => `<button class="tm${S.time === x.t ? ' on' : ''}" data-t="${x.t}"${x.ok ? '' : ' disabled'}>${x.t}</button>`).join('')}</div>` : '<div class="none">На этот день окон нет — выберите другой</div>';
+  $$('.tm').forEach(b => b.onclick = () => { S.time = b.dataset.t; $$('.tm').forEach(x => x.classList.toggle('on', x === b)); haptic(); cta(); });
+  cta();
+}
+
+/* 3 — контакты и итог */
+function openForm() {
+  const u = inTG && tg.initDataUnsafe && tg.initDataUnsafe.user;
+  if (u && !$('#nm').value) $('#nm').value = u.first_name || '';
+  $('#tgph').hidden = !(inTG && tg.requestContact);
+  const d = new Date(S.date + 'T12:00:00');
+  $('#sum').innerHTML = `<dt>Услуга</dt><dd>${S.svc.name}</dd><dt>Когда</dt><dd>${WD[d.getDay()]}, ${d.getDate()} ${MON[d.getMonth()]} · ${S.time}</dd>${S.svc.minutes ? `<dt>Длительность</dt><dd>${dur(S.svc.minutes)}</dd>` : ''}<dt>Адрес</dt><dd>Осинская, 8</dd>`;
+  $('#tot').textContent = price(S.svc.price);
+  go(3);
+}
+$('#tgph').onclick = () => tg.requestContact(ok => { const ph = ok && tg.initDataUnsafe && null; if (ok) { $('#ph').placeholder = 'Номер получен — бот подставит сам'; S.tgPhone = true; cta(); } });
+['#nm', '#ph'].forEach(s => $(s).oninput = cta);
+const phoneOk = () => S.tgPhone || $('#ph').value.replace(/\D/g, '').length >= 10;
+
+/* главная кнопка: в Telegram — родная MainButton, в браузере — своя */
+function cta() {
+  let txt = '', on = false, act = null;
+  if (S.step === 2) { txt = S.time ? `Далее · ${S.time}` : 'Выберите время'; on = !!S.time; act = openForm; }
+  else if (S.step === 3) { txt = `Записаться · ${price(S.svc.price)}`; on = $('#nm').value.trim().length > 1 && phoneOk(); act = submit; }
+  else if (S.step === 9) { txt = 'Вернуться в чат к администратору'; on = true; act = () => send({ type: 'pm', cat: S.cat }); }
+  S.act = act;
+  if (inTG) {
+    const mb = tg.MainButton;
+    if (!act) return mb.hide();
+    mb.setParams({ text: txt, color: '#d9b77a', text_color: '#1b0e0a', is_active: on, is_visible: true });
+  } else { $('#cta').textContent = txt || 'Выберите услугу'; $('#cta').disabled = !on; $('.cta').style.display = act ? '' : 'none'; }
+}
+if (inTG) tg.MainButton.onClick(() => S.act && S.act()); $('#cta').onclick = () => S.act && S.act();
+function submit() { send({ type: 'book', svc: S.svc.id, date: S.date, time: S.time, name: $('#nm').value.trim(), phone: $('#ph').value.trim(), tg_phone: !!S.tgPhone }); }
+function send(data) {
+  if (inTG) { tg.HapticFeedback && tg.HapticFeedback.notificationOccurred('success'); tg.sendData(JSON.stringify(data)); }
+  else alert('Демо в браузере: в Telegram эти данные уйдут боту\n\n' + JSON.stringify(data, null, 1));
+}
+$('#demo').textContent = 'Демо-версия · расписание тестовое';
+go(0);
+</script>
+</body>
+</html>
