@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Дом D'ajour — салон красоты в центре Перми (демо)</title>
+<meta name="description" content="Демо-сайт салона красоты Дом D'ajour: комнаты и цены, ключ-сертификат в подарок, ИИ-консьерж. Пермь, Осинская, 8.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1b0e0a">
+<link rel="icon" href="img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="preload" as="image" href="img/h1.jpg">
+</head>
+<body data-page="home" data-dark="1">
+
+<!-- 1. Входная дверь: открывается при прокрутке -->
+<section class="entry" id="entry">
+  <div class="stick">
+    <div class="wallpaper"></div>
+    <div class="floor"></div>
+    <div class="wrap grid">
+      <div class="hin">
+        <span class="kick">Пермь · Осинская, 8</span>
+        <h1><span class="ln"><span>Входите,</span></span><span class="ln"><span>вас <em>ждут</em></span></span></h1>
+        <p class="sub">Дом D'ajour — салон красоты 200&nbsp;м² в&nbsp;самом центре Перми. Девять комнат: волосы, ногти, кожа, взгляд, образ — и&nbsp;мастера, которые знают, что делать.</p>
+        <div class="cta">
+          <a class="btn gold" href="https://app.arnica.pro/booking/booking?orgid=44585#/main" target="_blank" rel="noopener">Записаться онлайн <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
+          <a class="btn ghost" href="#plan">Посмотреть комнаты</a>
+        </div>
+      </div>
+      <div class="doorway" id="door">
+        <div class="plaque"><img src="img/logo.png" alt="Дом D'ajour"></div>
+        <div class="frame">
+          <div class="opening">
+            <div class="inside" id="inside">
+              <img class="on" src="img/h1.jpg" alt="Гостья салона Дом D'ajour">
+              <img data-src="img/h2.jpg" alt="">
+              <img data-src="img/h3.jpg" alt="">
+            </div>
+            <div class="glow"></div>
+            <div class="leafd l"><i class="pn t"></i><i class="pn b"></i><i class="knob"></i></div>
+            <div class="leafd r"><i class="pn t"></i><i class="pn b"></i><i class="knob"></i></div>
+          </div>
+          <div class="sign" id="sign"><b></b><span></span></div>
+          <button class="bell" data-chat="" aria-label="Позвонить консьержу"><i></i><small>Звонок</small></button>
+        </div>
+        <div class="dots"><i class="on"></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="hint"><span>Прокрутите — дверь откроется</span><i></i></div>
+  </div>
+</section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+
+<!-- 2. План дома: услуги — это комнаты -->
+<section class="sec" id="plan">
+  <div class="wrap">
+    <div class="shead">
+      <div><span class="kick rv">План дома</span><h2 class="h2"><span class="ln"><span>Девять комнат</span></span><span class="ln"><span><em>красоты</em></span></span></h2></div>
+      <p class="lead rv" style="margin:0;max-width:440px">Каждое направление — отдельная комната. Наведите или нажмите, чтобы заглянуть внутрь: что там делают и сколько стоит.</p>
+    </div>
+    <div class="planwrap">
+      <div class="blue rv">
+        <div class="dim"><i></i>Осинская, 8 · 200 м²<i></i></div>
+        <div class="compass">С</div>
+        <div class="plan" id="planGrid"></div>
+      </div>
+      <aside class="legend rv d1">
+        <div class="tb">
+          <div><span>Объект</span><b>Дом D'ajour</b></div>
+          <div><span>Адрес</span><b>Осинская, 8</b></div>
+          <div><span>Площадь</span><b>200 м²</b></div>
+          <div><span>Услуг в записи</span><b id="nPrices">—</b></div>
+          <div><span>Режим</span><b>10:00–20:00</b></div>
+        </div>
+        <div class="prev"><img id="prevImg" src="img/in5.jpg" alt=""><p id="prevTxt">Наведите на комнату на плане</p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Зеркальная стена: работы мастеров -->
+<section class="sec mirrors wallpaper" id="wall">
+  <div class="wrap" style="position:relative">
+    <div class="shead">
+      <div><span class="kick rv">Зеркальная стена</span><h2 class="h2"><span class="ln"><span>В каждом зеркале —</span></span><span class="ln"><span><em>наша работа</em></span></span></h2></div>
+      <p class="lead rv" style="margin:0;max-width:380px">Как круглые зеркала в золотых рамах в самом салоне. Нажмите, чтобы рассмотреть.</p>
+    </div>
+    <div class="mwall" id="mwall"></div>
+  </div>
+</section>
+
+<!-- 4. Ключ от Дома: новогодний сертификат -->
+<section class="sec" style="overflow:hidden" id="key">
+  <canvas class="snow" id="snowKey"></canvas>
+  <div class="wrap keysec">
+    <div>
+      <span class="kick rv">Новый год · подарок</span>
+      <h2 class="h2"><span class="ln"><span>Подарите</span></span><span class="ln"><span><em>ключ от Дома</em></span></span></h2>
+      <p class="lead rv">Сертификат в Дом D'ajour — как ключ с бархатной биркой: номинал или любимая услуга, имя получателя и тёплые слова. Собирается за минуту, приходит в мессенджер или в конверте.</p>
+      <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:34px">
+        <a class="btn" href="sertifikaty.html">Собрать свой ключ <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div class="keystage rv d1">
+      <i class="hook"></i>
+      <div class="keyset">
+        <div class="ring"></div>
+        <svg class="key" viewBox="0 0 120 300" aria-hidden="true"><defs><linearGradient id="kg" x1="0" x2="1"><stop offset="0" stop-color="#7a5526"/><stop offset=".35" stop-color="#f3dfae"/><stop offset=".6" stop-color="#b08442"/><stop offset="1" stop-color="#6e4b20"/></linearGradient></defs><g fill="url(#kg)"><path fill-rule="evenodd" d="M60 6a44 44 0 1 1 0 88A44 44 0 0 1 60 6Zm0 14a30 30 0 1 0 0 60 30 30 0 0 0 0-60Z"/><path fill-rule="evenodd" d="M60 30c6 8 14 12 20 20-6 8-14 12-20 20-6-8-14-12-20-20 6-8 14-12 20-20Zm0 12-8 8 8 8 8-8Z"/><rect x="52" y="90" width="16" height="190" rx="6"/><circle cx="60" cy="100" r="13"/><path d="M68 224h30v14H82v8h16v14H82v8h16v12H68Z"/></g></svg>
+        <div class="tagc"><div class="t">Ключ от Дома D'ajour</div><div class="v">5 000 ₽</div><div class="w">для Анны, с любовью</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Консьерж: ИИ-администратор -->
+<section class="sec conc" id="concierge">
+  <div class="wrap cgrid">
+    <div>
+      <span class="kick rv">Консьерж дома</span>
+      <h2 class="h2"><span class="ln"><span>Ответим, даже</span></span><span class="ln"><span>когда <em>все заняты</em></span></span></h2>
+      <p class="lead rv">ИИ-консьерж отвечает клиентам в Telegram и на сайте сразу: цены из прайса салона, запись, адрес. Для перманента задаёт уточняющие вопросы и передаёт заявку мастеру.</p>
+      <ul class="feat rv">
+        <li>Цены и длительность — по настоящему прайсу салона</li>
+        <li>Запись через систему онлайн-записи или ссылка на нужную услугу</li>
+        <li>Сложные процедуры — анкета и заявка мастеру, он связывается сам</li>
+      </ul>
+      <button class="deskbell rv" id="deskbell"><span class="b"><i class="pin"></i><i class="dome"></i><i class="base"></i></span><span><b>Позвоните в звонок</b><small>консьерж ответит прямо здесь</small></span></button>
+    </div>
+    <div class="rv d2">
+      <div class="phone"><div class="scr">
+        <div class="top"><img src="img/logo.png" alt=""><span><b>Консьерж Дома D'ajour</b><small>онлайн</small></span></div>
+        <div class="msgs" id="demoMsgs"></div>
+      </div></div>
+      <p>Пример диалога · время и запись — для демонстрации</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Адрес: домовая табличка -->
+<section class="sec" id="address">
+  <div class="wrap addr">
+    <div class="plate rv"><i class="sc"></i><i class="sc"></i><i class="sc"></i><i class="sc"></i><div class="num">8</div><div class="st"><small>Пермь · центр</small>Улица<br>Осинская</div></div>
+    <div class="info">
+      <span class="kick rv">Как нас найти</span>
+      <h2 class="h2"><span class="ln"><span>Адрес <em>дома</em></span></span></h2>
+      <div class="status rv" id="status"><i></i><span></span></div>
+      <dl class="rv" style="margin-top:30px">
+        <div><dt>Часы</dt><dd>Ежедневно 10:00–20:00</dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79526564484">+7 952 656-44-84</a></dd></div>
+      </dl>
+      <div class="rv" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px">
+        <a class="btn" href="https://yandex.ru/maps/org/d_ajour/77986565087/" target="_blank" rel="noopener">Маршрут</a>
+        <a class="btn ghost" href="kontakty.html">Карта и все контакты</a>
+      </div>
+      <div class="msg rv" id="msg"></div>
+    </div>
+  </div>
+</section>
+
+<script src="assets/prices.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const NOANIM = document.documentElement.classList.contains('noanim');
+const total = PRICES.reduce((a, c) => a + c.g.reduce((b, g) => b + g.s.length, 0), 0);
+$('#nPrices').textContent = total;
+
+/* лента */
+$('#mq').innerHTML = ['Волосы', 'Ногти', 'Образ', 'Взгляд', 'Перманент', 'Релакс', 'Кожа', 'Лазер', 'Силуэт'].map(w => `<span>${w}</span>`).join('').repeat(2);
+
+/* табличка «открыто» */
+const st = openNow();
+$('#sign span').textContent = st.text; $('#sign').classList.toggle('closed', !st.open);
+$('#status span').textContent = st.open ? 'Сейчас открыто, ждём до 20:00' : 'Сейчас закрыто · откроемся в 10:00';
+$('#status').classList.toggle('closed', !st.open);
+
+/* дверь: открывается по мере прокрутки */
+const entry = $('#entry'), door = $('#door'), hint = $('.entry .hint');
+let ajar = NOANIM ? .32 : 0;
+function doorUpd() {
+  const r = entry.getBoundingClientRect(), span = entry.offsetHeight - innerHeight;
+  const p = Math.max(ajar, Math.min(1, -r.top / span));
+  entry.style.setProperty('--p', p.toFixed(3));
+  door.style.transform = `scale(${1 + Math.max(0, p - .55) * .5})`;
+  hint.style.opacity = p > .5 ? 0 : .7;
+}
+addEventListener('scroll', doorUpd, { passive: true }); addEventListener('resize', doorUpd); doorUpd();
+if (!NOANIM) setTimeout(() => { const t0 = performance.now(); (function f(t) { const k = Math.min(1, (t - t0) / 1400); ajar = .26 * (1 - Math.pow(1 - k, 3)); doorUpd(); if (k < 1) requestAnimationFrame(f); })(t0); }, 700);
+requestAnimationFrame(() => $('.entry .hin').classList.add('in'));
+
+/* за дверью меняются гостьи */
+const hp = $$('#inside img'), dots = $$('.doorway .dots i'); let hi = 0;
+hp.forEach(i => { if (i.dataset.src) { const p = new Image(); p.src = i.dataset.src; p.onload = () => i.src = i.dataset.src; } });
+setInterval(() => { hp[hi].classList.toggle('on', false); dots[hi].classList.toggle('on', false); hi = (hi + 1) % hp.length; hp[hi].classList.add('on'); dots[hi].classList.add('on'); }, 5000);
+
+/* план дома */
+const pv = $('#prevImg'), pt = $('#prevTxt');
+$('#planGrid').innerHTML = SALON.services.map((s, i) => `<a class="room" href="uslugi.html#${s.id}" style="grid-area:${s.id}" data-i="${s.i}" data-d="${s.d}"><img src="img/${s.i}.jpg" alt="" loading="lazy"><span class="n">КОМН. 0${i + 1}</span><span><h3>${s.k}</h3><small class="fn">${s.n}</small><span class="pr">${fromPrice(s)}</span></span><i class="door"></i></a>`).join('')
+  + `<div class="room hall" style="grid-area:hall"><span class="n">ХОЛЛ · РЕСЕПШЕН</span><h3>Консьерж</h3><button class="btn sm" data-chat="Записаться">Спросить</button></div>`;
+$$('#planGrid a.room').forEach(r => r.addEventListener('mouseenter', () => { pv.style.opacity = 0; setTimeout(() => { pv.src = 'img/' + r.dataset.i + '.jpg'; pv.style.opacity = 1; }, 180); pt.textContent = r.dataset.d; }));
+
+/* зеркальная стена */
+const MIR = [['w1', 2, 6, 22], ['w2', 27, 0, 15], ['w15', 45, 8, 26], ['w14', 75, 0, 18], ['w16', 12, 50, 17], ['w12', 31, 52, 13], ['w5', 50, 56, 19], ['w3', 76, 40, 16]];
+$('#mwall').innerHTML = MIR.map(([n, l, t, w]) => `<figure class="mir rv" style="left:${l}%;top:${t}%;width:${w}%;aspect-ratio:1"><div class="gl"><img src="img/${n}.jpg" alt="Работа мастера Дом D'ajour" loading="lazy" style="object-position:50% 28%"></div></figure>`).join('');
+$('#mwall').addEventListener('mousemove', e => { const k = e.clientX / innerWidth; $$('.mir .gl').forEach(g => g.style.setProperty('--sx', (k * 160 - 80) + '%')); });
+lightbox('#mwall figure');
+
+/* ключ: снег */
+snow($('#snowKey'), 50);
+
+/* консьерж: звонок и демо-диалог */
+$('#deskbell').onclick = () => { const b = $('#deskbell'); b.classList.remove('ding'); void b.offsetWidth; b.classList.add('ding'); setTimeout(() => BOT.open(), 350); };
+const DM = $('#demoMsgs');
+const script = [
+  ['u', 'Здравствуйте! Сколько стоит маникюр с покрытием?'],
+  ['b', () => { const r = BOT.find('маникюр комплекс'); return 'Здравствуйте! Вот цены:<div class="pl">' + r.slice(0, 3).map(x => `<div><span>${x.n}</span><b>${price(x.p)}</b></div>`).join('') + '</div>'; }],
+  ['u', 'Есть окно на завтра вечером?'],
+  ['b', 'Завтра свободно 18:00 и 19:30 у топ-мастера. Записать на 18:00?'],
+  ['u', 'Да, на 18:00'],
+  ['b', 'Готово! Записала вас на завтра, 18:00. Напомню за 3 часа 🔔']
+];
+let played = false;
+new IntersectionObserver(es => { if (es[0].isIntersecting && !played) { played = true; play(); } }, { threshold: .3 }).observe(DM);
+function play() {
+  DM.innerHTML = ''; let i = 0;
+  const step = () => {
+    if (i >= script.length) return setTimeout(play, 5000);
+    const [w, t] = script[i++];
+    if (w === 'b') { const ty = document.createElement('div'); ty.className = 'm b typing'; ty.innerHTML = '<i></i><i></i><i></i>'; DM.append(ty);
+      setTimeout(() => { ty.className = 'm b'; ty.innerHTML = typeof t === 'function' ? t() : t; setTimeout(step, 1600); }, 1100);
+    } else { const d = document.createElement('div'); d.className = 'm u'; d.textContent = t; DM.append(d); setTimeout(step, 900); }
+    while (DM.children.length > 6) DM.firstChild.remove();
+  };
+  step();
+}
+
+$('#msg').innerHTML = msgRows();
+$$('[data-chat]').forEach(b => { if (!b.onclick) b.onclick = e => { e.preventDefault(); BOT.open(); if (b.dataset.chat) setTimeout(() => BOT.handle(b.dataset.chat), 900); }; });
+watch();
+</script>
+</body>
+</html>

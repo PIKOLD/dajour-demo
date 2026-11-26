@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Комнаты и цены — Дом D'ajour (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a0f0b">
+<link rel="icon" href="img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="uslugi" data-dark="1">
+
+<section class="ph-hd wallpaper"><div class="wrap"><div>
+  <div class="crumbs rv"><a href="index.html">Прихожая</a> / Комнаты и цены</div>
+  <h1><span class="ln"><span>Комнаты</span></span><span class="ln"><span><em>и цены</em></span></span></h1>
+  <p class="lead rv">Весь прайс салона в одном месте: найдите услугу, посмотрите цену и длительность — и сразу записывайтесь онлайн.</p>
+  <p class="src rv">Цены и длительность — из онлайн-записи салона на 10.11.2026. Точную стоимость подтвердит мастер.</p>
+</div><div class="arch rv"><img src="img/w5.jpg" alt=""></div></div></section>
+
+<div class="tools"><div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <label class="search"><span id="sic"></span><input id="q" type="search" placeholder="Найти услугу" aria-label="Найти услугу"></label>
+</div></div>
+
+<div class="wrap" id="cats"></div>
+<div class="wrap"><p class="empty" id="empty">Ничего не нашли. <button class="btn sm" data-chat="" style="margin-top:14px">Спросить ИИ-администратора</button></p></div>
+
+<script src="assets/prices.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const META = {
+  'Ногтевой сервис': ['nails', 'nails', 'Маникюр, педикюр, покрытие и здоровье стоп'],
+  'Парикмахерские услуги': ['hair', 'hair', 'Стрижки, окрашивание любой сложности, уходы и укладки'],
+  'Макияж и причёски': ['makeup', 'makeup', 'Образ для любого события — от фотосессии до свадьбы'],
+  'Ресницы и брови': ['brows', 'brows', 'Наращивание, ламинирование, коррекция и окрашивание'],
+  'Массаж': ['massage', 'massage', 'Классический и аппаратный массаж: расслабление, восстановление, коррекция фигуры'],
+  'Косметология': ['cosm', 'cosm', 'Чистки, пилинги, уходы, аппаратная и лазерная косметология'],
+  'Перманентный макияж': ['pm', 'lips', 'Брови, губы, веки — работа топ-мастера'],
+  'Удаление тату и татуажа': ['tattoo', 'laser', 'Лазерное удаление татуажа и тату любого размера']
+};
+const ALIAS = { cosm: 'cosm', laser: 'cosm', app: 'massage' }; // ссылки с главной
+const book = SALON.book;
+$('#cats').innerHTML = PRICES.map((c, ci) => {
+  const [id, img, d] = META[c.c] || [c.c, 'hair', ''];
+  return `<section class="cat" id="${id}" data-c="${c.c}">
+    <div class="ci rv"><img src="img/${img}.jpg" alt="${c.c}" loading="lazy"><div><span class="rn">Комната 0${ci + 1}</span><h2>${c.c}</h2><p>${d}</p></div>
+      <a class="btn sm" href="${book}" target="_blank" rel="noopener">Записаться ${IC.arrow}</a></div>
+    <div>${c.g.map(g => `<div class="grp">${g.n ? `<h4>${g.n}</h4>` : ''}${g.s.map(s => `<div class="it" data-t="${(s[0] + ' ' + g.n + ' ' + c.c).toLowerCase().replace(/ё/g, 'е')}"><span>${s[0]}</span><span>${s[2] ? dur(s[2]) : ''}</span><b>${price(s[1])}</b></div>`).join('')}</div>`).join('')}</div>
+  </section>`;
+}).join('');
+$('#tabs').innerHTML = PRICES.map(c => `<a href="#${(META[c.c] || [c.c])[0]}">${c.c}</a>`).join('');
+$('#sic').innerHTML = IC.search;
+
+// подсветка активной вкладки
+const tabs = $$('#tabs a'), cats = $$('.cat');
+const tio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; tabs.forEach(t => t.classList.toggle('on', t.hash === '#' + e.target.id)); const on = $('#tabs a.on'); if (on) $('#tabs').scrollTo({ left: on.offsetLeft - 40, behavior: 'smooth' }); }), { rootMargin: '-45% 0px -50% 0px' });
+cats.forEach(c => tio.observe(c));
+
+// поиск
+$('#q').oninput = e => {
+  const ws = e.target.value.toLowerCase().replace(/ё/g, 'е').trim().split(/\s+/).filter(Boolean);
+  let any = 0;
+  cats.forEach(c => {
+    let n = 0;
+    $$('.grp', c).forEach(g => { let k = 0; $$('.it', g).forEach(it => { const ok = ws.every(w => it.dataset.t.includes(w)); it.classList.toggle('hide', !ok); k += ok; }); g.style.display = k ? '' : 'none'; n += k; });
+    c.style.display = n ? '' : 'none'; any += n;
+  });
+  $('#empty').style.display = any ? 'none' : 'block';
+};
+
+// переход с главной: #laser → косметология и т.п.
+const h = location.hash.slice(1);
+if (ALIAS[h] && !document.getElementById(h)) setTimeout(() => document.getElementById(ALIAS[h]).scrollIntoView(), 50);
+watch();
+</script>
+</body>
+</html>

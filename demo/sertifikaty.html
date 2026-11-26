@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Подарочные сертификаты — Дом D'ajour (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a0f0b">
+<link rel="icon" href="img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="cert" data-dark="1">
+
+<section class="nyhero wallpaper">
+  <div class="bg"><img src="img/gallery.jpg" alt=""></div>
+  <canvas class="snow"></canvas>
+  <div class="wrap">
+    <div class="crumbs rv"><a href="index.html">Прихожая</a> / Ключ в подарок</div>
+    <h1><span class="ln"><span>Ключ от Дома —</span></span><span class="ln"><span><em>в подарок</em></span></span></h1>
+    <p class="lead rv">Новогодний сертификат в Дом D'ajour: на сумму или на конкретную услугу. Соберите его ниже — дизайн, номинал, имя и пожелание.</p>
+    <a class="btn light rv" href="#builder" style="margin-top:30px">Собрать сертификат <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <span class="kick rv">Как это работает</span>
+    <h2 class="h2" style="margin-bottom:40px"><span class="ln"><span>Четыре <em>шага</em></span></span></h2>
+    <div class="steps">
+      <div class="rv"><b>Соберите</b><p>Номинал или услуга, новогодний дизайн, имя получателя и пожелание.</p></div>
+      <div class="rv d1"><b>Оплатите</b><p>Онлайн картой или по СБП — без звонков и визита в салон.</p></div>
+      <div class="rv d2"><b>Получите</b><p>Электронный сертификат с номером придёт в мессенджер или на почту. Или заберите в конверте.</p></div>
+      <div class="rv d3"><b>Подарите</b><p>Получатель записывается на удобное время и называет номер сертификата.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="builder" style="background:var(--cream);scroll-margin-top:60px">
+  <div class="wrap">
+    <span class="kick rv">Конструктор</span>
+    <h2 class="h2" style="margin-bottom:50px"><span class="ln"><span>Ваш <em>сертификат</em></span></span></h2>
+    <div class="builder">
+      <div>
+        <div class="opt"><b>Тип</b><div class="seg" id="type"><button class="on" data-v="sum">На сумму</button><button data-v="svc">На услугу</button></div></div>
+        <div class="opt" id="sumBox"><b>Номинал</b>
+          <div class="seg" id="sums"></div>
+          <div class="fld" id="ownBox" style="margin-top:10px;display:none"><input id="own" type="number" min="1000" step="500" placeholder="Сумма от 1 000 ₽" inputmode="numeric"></div>
+        </div>
+        <div class="opt" id="svcBox" style="display:none"><b>Услуга</b><div class="fld"><select id="svc"></select></div></div>
+        <div class="opt"><b>Дизайн</b><div class="designs" id="des">
+          <button class="on" data-v="d1"><i class="dsw1"></i>Бордо-бархат</button>
+          <button data-v="d2"><i class="dsw2"></i>Шампань</button>
+          <button data-v="d3"><i class="dsw3"></i>Изумруд</button>
+        </div></div>
+        <div class="opt"><b>Кому и от кого</b><div class="fld">
+          <input id="to" maxlength="28" placeholder="Имя получателя, например: Анне">
+          <input id="from" maxlength="28" placeholder="От кого, например: от Миши">
+          <textarea id="wish" maxlength="110" placeholder="Пожелание (необязательно)"></textarea>
+        </div></div>
+        <div class="opt"><b>Как вручить</b><div class="seg" id="dlv"><button class="on" data-v="e">Электронный<small>в мессенджер или на почту</small></button><button data-v="p">В конверте<small>заберу в салоне</small></button></div></div>
+      </div>
+      <div class="pv">
+        <div class="card3d"><i class="hookk"></i><svg class="keyimg" viewBox="0 0 120 300" aria-hidden="true"><defs><linearGradient id="kg" x1="0" x2="1"><stop offset="0" stop-color="#7a5526"/><stop offset=".35" stop-color="#f3dfae"/><stop offset=".6" stop-color="#b08442"/><stop offset="1" stop-color="#6e4b20"/></linearGradient></defs><g fill="url(#kg)"><path fill-rule="evenodd" d="M60 6a44 44 0 1 1 0 88A44 44 0 0 1 60 6Zm0 14a30 30 0 1 0 0 60 30 30 0 0 0 0-60Z"/><path fill-rule="evenodd" d="M60 30c6 8 14 12 20 20-6 8-14 12-20 20-6-8-14-12-20-20 6-8 14-12 20-20Zm0 12-8 8 8 8 8-8Z"/><rect x="52" y="90" width="16" height="190" rx="6"/><circle cx="60" cy="100" r="13"/><path d="M68 224h30v14H82v8h16v14H82v8h16v12H68Z"/></g></svg><div class="gc d1" id="card">
+          <svg class="orn" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><g id="flake"><path d="M100 10v180M22 55l156 90M22 145l156-90"/><path d="M100 35l-12-12M100 35l12-12M100 165l-12 12M100 165l12 12M43 67l-4-16M43 67l-16 4M157 133l4 16M157 133l16-4M43 133l-16-4M43 133l-4 16M157 67l16 4M157 67l4-16"/></g><circle cx="100" cy="100" r="22"/></svg>
+          <div class="lgw"><img id="clogo" src="img/logo.png" alt="Дом D'ajour"><span class="tag">Подарочный<br>сертификат<br><span id="num"></span></span></div>
+          <div class="val"><small id="vlab">Номинал</small><span id="val">5 000 ₽</span></div>
+          <div class="who"><span id="cto">Для: —</span><span id="cfrom"></span></div>
+        </div></div>
+        <p class="msgline" id="cwish"></p>
+        <div class="total"><div><small>К оплате</small><b id="tot">5 000 ₽</b></div><button class="btn" id="go">Оформить <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap" style="max-width:960px">
+    <span class="kick rv">Вопросы</span>
+    <h2 class="h2" style="margin-bottom:30px"><span class="ln"><span>Частые <em>вопросы</em></span></span></h2>
+    <div class="faq rv">
+      <details open><summary>Как воспользоваться сертификатом?</summary><p>Запишитесь онлайн или через администратора и назовите номер сертификата. Администратор спишет сумму после процедуры.</p></details>
+      <details><summary>Можно ли потратить на несколько услуг?</summary><p>Да, сертификат на сумму можно потратить на любые услуги салона, в том числе за несколько визитов, пока не закончится остаток.</p></details>
+      <details><summary>Сколько действует сертификат?</summary><p>Срок действия салон указывает при оформлении — он напечатан на сертификате.</p></details>
+      <details><summary>Можно ли подарить сертификат на услугу?</summary><p>Да: выберите «На услугу» — в сертификате будет название процедуры, а стоимость подставится из прайса салона.</p></details>
+    </div>
+    <p class="src">Демо: ответы — пример, каждый салон настраивает свои правила.</p>
+  </div>
+</section>
+
+<div class="modal" id="modal"><div class="box">
+  <h3>Почти готово</h3>
+  <p>Ваш сертификат <span class="code" id="mcode"></span> на <b id="mval"></b>.</p>
+  <ol>
+    <li>Оплата онлайн — картой или по СБП.</li>
+    <li>Сертификат с номером приходит в мессенджер или на почту (или ждёт вас в конверте на ресепшен).</li>
+    <li>Номер сразу попадает в базу салона — администратор видит остаток.</li>
+  </ol>
+  <p class="src" style="margin:0 0 18px">Это демо-версия: оплата и отправка не подключены.</p>
+  <button class="btn" id="mok">Понятно</button>
+</div></div>
+
+<script src="assets/prices.js"></script>
+<script src="assets/app.js"></script>
+<script>
+snow($('.nyhero .snow'), 90);
+const st = { type: 'sum', sum: 5000, own: false, svc: null, d: 'd1', dlv: 'e' };
+const SUMS = [3000, 5000, 7000, 10000, 15000];
+$('#sums').innerHTML = SUMS.map(v => `<button data-v="${v}"${v === st.sum ? ' class="on"' : ''}>${rub(v)}</button>`).join('') + '<button data-v="own">Своя сумма</button>';
+// услуги для сертификата: из прайса, только с фиксированной ценой
+$('#svc').innerHTML = PRICES.map(c => `<optgroup label="${c.c}">${c.g.flatMap(g => g.s).filter(s => !Array.isArray(s[1]) && s[1] >= 1000).map(s => `<option value="${s[1]}">${s[0]} — ${rub(s[1])}</option>`).join('')}</optgroup>`).join('');
+const num = 'DJ-27-' + String(Math.floor(1000 + Math.random() * 9000));
+$('#num').textContent = '№ ' + num;
+
+function seg(id, key, cb) {
+  $$('#' + id + ' button').forEach(b => b.onclick = () => { $$('#' + id + ' button').forEach(x => x.classList.toggle('on', x === b)); st[key] = b.dataset.v; cb && cb(b.dataset.v); render(); });
+}
+seg('type', 'type', v => { $('#sumBox').style.display = v === 'sum' ? '' : 'none'; $('#svcBox').style.display = v === 'svc' ? '' : 'none'; });
+seg('sums', 'sum', v => { st.own = v === 'own'; $('#ownBox').style.display = st.own ? '' : 'none'; if (st.own) $('#own').focus(); });
+seg('des', 'd'); seg('dlv', 'dlv');
+['own', 'to', 'from', 'wish', 'svc'].forEach(id => $('#' + id).addEventListener('input', render));
+
+function value() {
+  if (st.type === 'svc') { const o = $('#svc').selectedOptions[0]; return { n: +o.value, label: 'Услуга', text: o.textContent.split(' — ')[0] }; }
+  const n = st.own ? Math.max(0, +$('#own').value || 0) : +st.sum;
+  return { n, label: 'Номинал', text: n ? rub(n) : '— ₽' };
+}
+function render() {
+  const v = value(), c = $('#card');
+  c.className = 'gc ' + st.d;
+  $('#vlab').textContent = v.label;
+  $('#val').textContent = v.text;
+  $('#val').style.fontSize = st.type === 'svc' ? 'clamp(24px,3vw,36px)' : '';
+  const to = $('#to').value.trim(), from = $('#from').value.trim(), w = $('#wish').value.trim();
+  $('#cto').textContent = to ? 'Для: ' + to : 'Для: —';
+  $('#cfrom').textContent = from;
+  $('#cwish').textContent = w ? '«' + w + '»' : '';
+  $('#tot').textContent = v.n ? rub(v.n) : '—';
+}
+render();
+
+// объёмная карточка за курсором / наклоном
+const card = $('#card'), wrap = $('.card3d');
+wrap.addEventListener('pointermove', e => {
+  const r = wrap.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+  card.style.transform = `rotateY(${(x - .5) * 16}deg) rotateX(${(.5 - y) * 12}deg)`;
+  card.style.setProperty('--mx', x * 100 + '%'); card.style.setProperty('--my', y * 100 + '%');
+});
+wrap.addEventListener('pointerleave', () => card.style.transform = '');
+
+$('#go').onclick = () => {
+  const v = value(); if (!v.n) return $('#own').focus();
+  $('#mcode').textContent = num; $('#mval').textContent = st.type === 'svc' ? v.text + ' (' + rub(v.n) + ')' : rub(v.n);
+  $('#modal').classList.add('open');
+};
+$('#mok').onclick = $('#modal').onclick = e => { if (e.target === e.currentTarget || e.target.id === 'mok') $('#modal').classList.remove('open'); };
+requestAnimationFrame(() => $('.nyhero h1').classList.add('in'));
+watch();
+</script>
+</body>
+</html>

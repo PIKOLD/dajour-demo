@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Контакты — Дом D'ajour (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a0f0b">
+<link rel="icon" href="img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="contacts" data-dark="1">
+
+<section class="ph-hd wallpaper"><div class="wrap"><div>
+  <div class="crumbs rv"><a href="index.html">Прихожая</a> / Адрес</div>
+  <h1><span class="ln"><span>Ждём вас</span></span><span class="ln"><span><em>в гости</em></span></span></h1>
+</div><div class="arch rv"><img src="img/in1.jpg" alt=""></div></div></section>
+
+<section class="sec">
+  <div class="wrap cbig">
+    <div>
+      <div class="ct" style="display:block">
+        <dl class="rv">
+          <div><dt>Адрес</dt><dd>Пермь, ул. Осинская, 8</dd></div>
+          <div><dt>Часы работы</dt><dd>Ежедневно 10:00–20:00</dd></div>
+          <div><dt>Телефон</dt><dd><a href="tel:+79526564484">+7 952 656-44-84</a></dd></div>
+        </dl>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 40px" class="rv">
+        <a class="btn" href="https://app.arnica.pro/booking/booking?orgid=44585#/main" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn ghost" href="https://yandex.ru/maps/org/d_ajour/77986565087/" target="_blank" rel="noopener">Маршрут в Яндекс Картах</a>
+      </div>
+      <div class="msg rv" id="msg"></div>
+    </div>
+    <div class="map rv d1" id="map"></div>
+  </div>
+</section>
+
+<script src="assets/prices.js"></script>
+<script src="assets/app.js"></script>
+<script>
+$('#msg').innerHTML = msgRows();
+// карта грузится, только когда до неё доскроллили
+new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { $('#map').innerHTML = `<iframe src="${SALON.mapWidget}" title="Дом D'ajour на карте" loading="lazy" allowfullscreen></iframe>`; o.disconnect(); } }).observe($('#map'));
+watch();
+</script>
+</body>
+</html>

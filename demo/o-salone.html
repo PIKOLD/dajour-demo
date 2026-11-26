@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>О салоне — Дом D'ajour (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1a0f0b">
+<link rel="icon" href="img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="about" data-dark="1">
+
+<section class="ph-hd wallpaper"><div class="wrap"><div>
+  <div class="crumbs rv"><a href="index.html">Прихожая</a> / О доме</div>
+  <h1><span class="ln"><span>Дом, где</span></span><span class="ln"><span>о вас <em>заботятся</em></span></span></h1>
+</div><div class="arch rv"><img src="img/team.jpg" alt=""></div></div></section>
+
+<section class="sec">
+  <div class="wrap about">
+    <div class="pic rv"><img src="img/team.jpg" alt="Команда Дома D'ajour" loading="lazy"><img class="sm" src="img/master.jpg" alt="Мастер за работой" loading="lazy"></div>
+    <div>
+      <span class="kick rv">Дом D'ajour</span>
+      <h2 class="h2"><span class="ln"><span>Салон и</span></span><span class="ln"><span><em>школа красоты</em></span></span></h2>
+      <p class="lead rv">Масштабный салон 200&nbsp;м² в&nbsp;самом центре Перми, на Осинской, 8. Девять направлений — от стрижек и&nbsp;маникюра до перманента, массажа и&nbsp;лазерной косметологии — под одной крышей.</p>
+      <p class="lead rv">При салоне работает школа красоты D'ajour с&nbsp;курсами для мастеров.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:32px" class="rv">
+        <a class="btn" href="https://app.arnica.pro/booking/booking?orgid=44585#/main" target="_blank" rel="noopener">Записаться</a>
+        <a class="btn ghost" href="uslugi.html">Услуги и цены</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--cream)">
+  <div class="wrap">
+    <p class="quote rv">Волосы, ногти, кожа, взгляд и&nbsp;образ — <b>всё в&nbsp;одном доме</b>, чтобы не&nbsp;искать мастеров по&nbsp;всему городу.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="shead"><div><span class="kick rv">Пространство</span><h2 class="h2"><span class="ln"><span>Интерьер</span></span></h2></div></div>
+    <div class="mosaic">
+      <figure class="rv" style="grid-column:span 7;grid-row:span 3"><img src="img/in1.jpg" alt="Ресепшен" loading="lazy" style="object-position:50% 60%"><figcaption>Ресепшен</figcaption></figure>
+      <figure class="rv d1" style="grid-column:span 5;grid-row:span 3"><img src="img/in2.jpg" alt="Витрина" loading="lazy"><figcaption>Витрина</figcaption></figure>
+      <figure class="rv" style="grid-column:span 4;grid-row:span 4"><img src="img/in3.jpg" alt="Зона отдыха" loading="lazy"><figcaption>Зона отдыха</figcaption></figure>
+      <figure class="rv d1" style="grid-column:span 4;grid-row:span 4"><img src="img/in4.jpg" alt="Зеркало" loading="lazy"><figcaption>Зеркало</figcaption></figure>
+      <figure class="rv d2" style="grid-column:span 4;grid-row:span 4"><img src="img/coffee.jpg" alt="Кофе для гостей" loading="lazy"><figcaption>Для гостей</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><div><span class="kick rv">Портфолио</span><h2 class="h2"><span class="ln"><span>Работы</span></span><span class="ln"><span><em>мастеров</em></span></span></h2></div><p class="lead rv" style="margin:0">Нажмите на фото, чтобы рассмотреть.</p></div>
+    <div class="masonry" id="gal"></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="school wallpaper rv">
+      <div><span class="kick">Обучение</span><h2 class="h2">Школа красоты <em style="color:var(--gold)">D'ajour</em></h2></div>
+      <a class="btn light" href="https://dajour.org" target="_blank" rel="noopener">Курсы на dajour.org</a>
+    </div>
+  </div>
+</section>
+
+<script src="assets/prices.js"></script>
+<script src="assets/app.js"></script>
+<script>
+const G = ['w1', 'w6', 'hair2', 'w2', 'w15', 'w7', 'w14', 'w3', 'pure', 'w5', 'w8', 'w16', 'w4', 'olive', 'w12', 'w9', 'w13', 'w10', 'cover2'];
+$('#gal').innerHTML = G.map(n => `<figure class="rv"><img src="img/${n}.jpg" alt="Работа мастера Дом D'ajour" loading="lazy"></figure>`).join('');
+lightbox('#gal figure');
+watch();
+</script>
+</body>
+</html>
