@@ -71,10 +71,28 @@ function reveal() {
   $$('[data-r]').forEach(el => io.observe(el));
 }
 
-/* переключатель вариантов дизайна */
+/* совместимость с мастером сертификатов (../assets/cert.js): watch и snow как в app.js */
+const watch = () => { $$('.rv,.ln').forEach(e => e.classList.add('in')); reveal(); };
+function snow(canvas, n = 70, col = 'rgba(255,245,230,.8)') {
+  if (!canvas) return;
+  const c = canvas.getContext('2d'); let w, h, P = [];
+  const size = () => { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; };
+  size(); addEventListener('resize', size);
+  for (let i = 0; i < n; i++) P.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 1.8 + .4, s: Math.random() * .5 + .2, o: Math.random() * Math.PI * 2 });
+  let vis = true; new IntersectionObserver(e => vis = e[0].isIntersecting).observe(canvas);
+  (function f() {
+    if (vis) { c.clearRect(0, 0, w, h); c.fillStyle = canvas.dataset.col || col;
+      for (const p of P) { p.y += p.s; p.o += .01; p.x += Math.sin(p.o) * .3; if (p.y > h) { p.y = -4; p.x = Math.random() * w; } c.beginPath(); c.arc(p.x, p.y, p.r, 0, 7); c.fill(); } }
+    requestAnimationFrame(f);
+  })();
+}
+
+/* переключатель вариантов дизайна (на страницах сертификатов — между версиями мастера) */
 (function () {
-  const cur = document.body.dataset.v;
-  const V = [['../index.html', 'Дом', 'dom'], ['journal.html', 'Журнал', 'journal'], ['noch.html', 'Ночь', 'noch'], ['svezh.html', 'Свежий', 'svezh']];
+  const cur = document.body.dataset.v, sert = document.body.dataset.page === 'sert';
+  const V = sert
+    ? [['../sertifikaty.html', 'Дом', 'dom'], ['sert-journal.html', 'Журнал', 'journal'], ['sert-noch.html', 'Ночь', 'noch'], ['sert-svezh.html', 'Свежий', 'svezh']]
+    : [['../index.html', 'Дом', 'dom'], ['journal.html', 'Журнал', 'journal'], ['noch.html', 'Ночь', 'noch'], ['svezh.html', 'Свежий', 'svezh']];
   document.body.insertAdjacentHTML('beforeend', `<div class="vsw" role="navigation" aria-label="Варианты дизайна"><span>Стиль</span>${V.map(([h, t, k]) => `<a href="${h}"${k === cur ? ' aria-current="true"' : ''}>${t}</a>`).join('')}</div>`);
   const st = document.createElement('style');
   st.textContent = `.vsw{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:999;display:flex;align-items:center;gap:2px;padding:5px;border-radius:99px;background:rgba(20,18,16,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 12px/1 Manrope,system-ui,sans-serif;color:#fff;white-space:nowrap}

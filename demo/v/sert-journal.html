@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Сертификат в подарок — D'ajour, стиль «Журнал» (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3efe8">
+<link rel="icon" href="../img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/cert.css?v=5">
+<style>
+:root{--p:#f3efe8;--p2:#e9e3d8;--ink:#121110;--red:#c41e2a;--mut:#6d665d;--serif:'Playfair Display',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,56px);
+ --paper:#f3efe8;--wall:#e9e3d8;--gold:#c41e2a;--goldg:#c41e2a;--brass:#c41e2a;--mah:#c41e2a;--mah2:#8c1620;--line:#121110;--disp:'Playfair Display',Georgia,serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--p);color:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:46px;padding:0 22px;background:var(--ink);color:var(--p);font:600 13px var(--sans);letter-spacing:.04em;border-radius:0;transition:background .25s}
+.btn:hover{background:var(--red)}
+.btn.red,.btn.gold{background:var(--red);color:#fff}.btn.red:hover,.btn.gold:hover{background:#fff;color:var(--ink)}
+.btn.ghost{background:transparent;color:#fff;border:1px solid #fff}.btn.ghost:hover{background:#fff;color:var(--ink)}
+header.top{position:sticky;top:0;z-index:50;background:rgba(243,239,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ink)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px}
+header.top .mh{font:900 26px/1 var(--serif);letter-spacing:-.02em}
+header.top .back{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--red)}
+header.top .r{display:flex;align-items:center;gap:22px}
+
+/* мастер: рамка */
+.wiz{margin-top:0;padding-top:0;min-height:0;color:var(--ink);background:var(--p);border-bottom:1px solid var(--ink)}
+.wiz::before{display:none}
+.whead{padding-top:clamp(22px,3vw,40px);padding-bottom:18px;border-bottom:3px double var(--ink)}
+.whead h1{font:900 clamp(34px,5vw,72px)/.95 var(--serif);letter-spacing:-.03em}
+.whead h1 em{color:var(--red);font-weight:400}
+.prog button{color:var(--mut);font:500 11px var(--mono);letter-spacing:.06em;padding-top:12px}
+.prog button::before{height:2px;border-radius:0;background:rgba(18,17,16,.2)}
+.prog button::after{height:2px;border-radius:0;background:var(--red)}
+.prog button.done{color:var(--ink)}
+.prog button.cur{color:var(--red)}
+.wbody{align-items:start}
+.stage{background:var(--ink);border:1px solid var(--ink);box-shadow:10px 10px 0 var(--red);margin:6px 10px 10px 0;overflow:hidden}
+.cf .it .nm{color:#fff;font-family:var(--serif);font-style:italic}
+.cfnav button{border:1px solid rgba(255,255,255,.6);background:rgba(18,17,16,.5);color:#fff;border-radius:0}
+.cfnav button:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.one .flipb{color:#fff;font-family:var(--mono)}
+.one .flipb:hover{color:#ff6a73}
+.stage .floor{background:radial-gradient(ellipse,rgba(255,255,255,.14),transparent 70%)}
+
+/* панель */
+.panel{background:#fbf9f4;border:1px solid var(--ink);border-radius:0;box-shadow:10px 10px 0 var(--ink);margin:6px 10px 10px 0}
+.panel .sn{font:500 11px var(--mono);letter-spacing:.08em;color:var(--red)}
+.panel h2{font:900 clamp(28px,2.8vw,42px)/1.02 var(--serif);letter-spacing:-.02em}
+.panel .sub,.hintline,.dnow small,.dnow .cnt,.wc,.qty span,.total small,.rev dt{color:var(--mut)}
+.panel .sub{font-size:14.5px}
+.pnav{border-top:1px solid var(--ink)}
+.pnav .bk{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.pnav .btn{height:48px;padding:0 28px}
+.chipsx button,.amts button,.rels button,.chans button,.when button{border:1px solid var(--ink);border-radius:0;background:#fff;color:var(--ink)}
+.chipsx button:hover,.amts button:hover,.rels button:hover,.chans button:hover,.when button:hover{background:var(--p2)}
+.chipsx button.on,.amts button.on,.rels button.on,.chans button.on,.when button.on,.mode button.on{background:var(--ink);color:var(--p);border-color:var(--ink)}
+.chipsx button{font-family:var(--mono);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.dnow{border-radius:0;background:var(--p2);border-left:3px solid var(--red)}
+.dnow b{font:700 22px var(--serif)}
+.mode{border-radius:0;border:1px solid var(--ink);padding:3px}
+.mode button{border-radius:0;font-family:var(--mono);font-weight:500;font-size:12px;text-transform:uppercase}
+.bignum{font:900 clamp(54px,6vw,84px)/1 var(--serif);letter-spacing:-.03em}
+.bignum small{color:var(--red)}
+.amts button{font-family:var(--mono);font-weight:500}
+.slider input[type=range]{accent-color:var(--red)}
+.slider label,.fld2 input,.fld2 textarea,.svlist{border:1px solid var(--ink);border-radius:0;background:#fff}
+.fld2 input:focus,.fld2 textarea:focus{border-color:var(--red);outline:0}
+.svlist h6{background:var(--p2);color:var(--red);font-family:var(--mono);font-weight:500}
+.svlist label{border-top:1px solid rgba(18,17,16,.2)}
+.svlist input{accent-color:var(--red)}
+.rels button i{color:var(--red);font-family:var(--serif)}
+.rels button.on i{color:#ff6a73}
+.chans button small{opacity:.65}
+.sugg button{border:1px dashed var(--red);border-radius:0;color:var(--red)}
+.sugg button:hover{background:var(--p2)}
+.rev{border-radius:0;background:var(--ink);border:1px solid var(--ink)}
+.rev div{background:#fff}
+.rev button{color:var(--red);font-family:var(--mono);text-transform:uppercase}
+.qty .st{border:1px solid var(--ink);border-radius:0;background:#fff}
+.qty .st b{font:700 22px var(--serif)}
+.total{border-top:3px double var(--ink);padding-top:14px}
+.total b{font:900 46px/1 var(--serif);color:var(--red)}
+.dt input{border:1px solid var(--ink);border-radius:0;padding:12px;font:inherit;background:#fff}
+
+/* финал */
+.done::before{background:rgba(18,17,16,.95)}
+.env .back{background:#8c1620}
+.env .front{background:linear-gradient(160deg,#a31b27,#6d0f18)}
+.env .flap{background:linear-gradient(#b8222e,#8c1620)}
+.env .seal{background:var(--p)}
+.done h2{font:900 clamp(36px,4vw,58px)/1 var(--serif);color:#fff}
+.done h2 em{color:#ff6a73;font-weight:400}
+.done .codes span{color:#fff;border-color:rgba(255,255,255,.5);border-radius:0;font-family:var(--mono);font-weight:500}
+.done p{color:rgba(255,255,255,.8)}.done small{color:rgba(255,255,255,.5)}
+
+/* как это работает */
+.how{padding:clamp(48px,7vw,96px) 0}
+.how h2{font:900 clamp(34px,5vw,64px)/1 var(--serif);letter-spacing:-.03em;margin:10px 0 36px}
+.how h2 i{color:var(--red);font-weight:400}
+.how .mono{color:var(--red)}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);counter-reset:s}
+.steps>div{padding:20px 22px 10px 0;counter-increment:s}
+.steps>div+div{padding-left:22px;border-left:1px solid var(--ink)}
+.steps>div::before{content:"0" counter(s);font:900 54px/1 var(--serif);color:var(--red);display:block;margin-bottom:12px}
+.steps b{font:700 22px var(--serif);display:block;margin-bottom:6px}
+.steps p{color:var(--mut);font-size:14.5px}
+footer.ft{background:var(--ink);color:var(--p);padding:22px 0 90px}
+footer.ft .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media(max-width:980px){.steps{grid-template-columns:1fr 1fr}.steps>div:nth-child(3){padding-left:0;border-left:0}.steps>div:nth-child(n+3){border-top:1px solid var(--ink);margin-top:10px}.stage,.panel{margin-right:6px}}
+@media(max-width:640px){
+  header.top .back{display:none}header.top .btn{height:38px;padding:0 14px}
+  .wiz{margin-top:0;padding-top:0}
+  .panel{border-radius:0;padding:20px 18px;box-shadow:6px 6px 0 var(--ink)}.stage{box-shadow:6px 6px 0 var(--red)}
+  .pnav{background:#fbf9f4;border-radius:0}
+  .steps{grid-template-columns:1fr}.steps>div,.steps>div+div{padding:18px 0 8px!important;border-left:0!important;border-top:1px solid var(--ink);margin-top:0!important}.steps>div:first-child{border-top:0}
+}
+</style>
+</head>
+<body data-v="journal" data-page="sert">
+<header class="top"><div class="wrap">
+  <a class="mh" href="journal.html">D'ajour</a>
+  <div class="r"><a class="back mono" href="journal.html">← К номеру</a><a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a></div>
+</div></header>
+
+<section class="wiz wallpaper" id="wiz">
+  <canvas class="snow"></canvas>
+  <div class="wrap">
+    <div class="whead">
+      <h1>Ключ от Дома <em>в подарок</em></h1>
+      <nav class="prog" id="prog" aria-label="Шаги"></nav>
+    </div>
+    <div class="wbody">
+      <div class="stage" id="stage">
+        <div class="cf" id="cf"></div>
+        <div class="cfnav" id="cfnav"><button id="cfl" aria-label="Предыдущая открытка"></button><button id="cfr" aria-label="Следующая открытка"></button></div>
+        <div class="one" id="one"><div class="tilt" id="tilt"><div class="fl"><div id="front"></div><div class="gback" id="back"></div></div></div><button class="flipb" id="flipb">↻ Перевернуть</button></div>
+        <div class="floor"></div>
+      </div>
+
+      <div class="panel">
+        <div class="pstep" data-s="0">
+          <div class="sn">Шаг 1 из 6</div><h2>Выберите открытку</h2>
+          <p class="sub">30 дизайнов к любому поводу — листайте карусель или выберите повод.</p>
+          <div class="chipsx" id="cats"></div>
+          <div class="dnow"><div><b id="dName"></b><small id="dCat"></small></div><span class="cnt" id="dPos"></span></div>
+        </div>
+        <div class="pstep" data-s="1">
+          <div class="sn">Шаг 2 из 6</div><h2>Что положить на ключ?</h2>
+          <div class="mode" id="mode"><button class="on" data-v="sum">Сумму</button><button data-v="svc">Конкретные услуги</button></div>
+          <div id="sumBox">
+            <div class="bignum" id="big">5 000 <small>₽</small></div>
+            <div class="amts" id="amts"></div>
+            <div class="slider"><input type="range" id="rng" min="1000" max="50000" step="500" aria-label="Сумма"><label>₽<input id="amt" type="number" inputmode="numeric" min="1000" step="100" aria-label="Своя сумма"></label></div>
+            <p class="hintline">Сумму можно потратить на любые услуги салона, в несколько визитов.</p>
+          </div>
+          <div id="svcBox" hidden>
+            <div class="fld2"><input id="svq" type="search" placeholder="Найти: маникюр, массаж, окрашивание…"></div>
+            <div class="svlist" id="svlist"></div>
+            <p class="hintline" id="svSum"></p>
+          </div>
+        </div>
+        <div class="pstep" data-s="2">
+          <div class="sn">Шаг 3 из 6</div><h2>Кому подарок?</h2>
+          <p class="sub">Подскажем подходящие слова для поздравления.</p>
+          <div class="rels" id="rels"></div>
+          <div class="fld2"><input id="to" maxlength="24" placeholder="Имя получателя"></div>
+        </div>
+        <div class="pstep" data-s="3">
+          <div class="sn">Шаг 4 из 6</div><h2>Тёплые слова</h2>
+          <p class="sub">Пожелание будет на обороте карты и в сообщении получателю.</p>
+          <div class="fld2"><textarea id="wish" maxlength="140" placeholder="Напишите пожелание"></textarea><div class="wc"><span id="wcn">0</span>/140</div><input id="from" maxlength="24" placeholder="Подпись: от кого"></div>
+          <div class="sugg" id="sugg"></div>
+        </div>
+        <div class="pstep" data-s="4">
+          <div class="sn">Шаг 5 из 6</div><h2>Как и когда вручить?</h2>
+          <div class="chans" id="chans"></div>
+          <div class="fld2" id="contactBox" style="margin-top:12px"><input id="contact"></div>
+          <p class="hintline" id="chNote"></p>
+          <div class="when" id="when"></div>
+          <div class="dt" id="dt"><input type="date" id="dDate" aria-label="Дата"><input type="time" id="dTime" value="09:00" aria-label="Время"></div>
+        </div>
+        <div class="pstep" data-s="5">
+          <div class="sn">Шаг 6 из 6</div><h2>Всё верно?</h2>
+          <dl class="rev" id="rev"></dl>
+          <div class="qty"><span>Сколько сертификатов</span><div class="st"><button id="qm" aria-label="Меньше">−</button><b id="qn">1</b><button id="qp" aria-label="Больше">+</button></div></div>
+          <div class="total"><div><small>К оплате</small><b id="tot"></b></div></div>
+        </div>
+        <div class="pnav"><button class="bk" id="prev">← Назад</button><button class="btn" id="next">Дальше</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done" id="done"><div>
+    <div class="env"><div class="back"></div><div class="card" id="envCard"></div><div class="front"></div><div class="flap"></div><div class="seal"><img src="../img/logo-dark.png" alt=""></div></div>
+    <h2>Ключ <em>упакован</em></h2>
+    <p id="doneTxt"></p>
+    <div class="codes" id="codes"></div>
+    <div class="acts"><button class="btn gold" id="again">Собрать ещё один</button><a class="btn ghost" href="journal.html">В журнал</a></div>
+    <small>Демо-версия: оплата и отправка не подключены</small>
+  </div></div>
+</section>
+
+<section class="how"><div class="wrap">
+  <span class="mono">Как это работает</span>
+  <h2>Четыре <i>шага</i></h2>
+  <div class="steps">
+    <div><b>Соберите</b><p>Открытка, сумма или услуги, подпись и пожелание — за пару минут.</p></div>
+    <div><b>Оплатите</b><p>Онлайн картой или по СБП — без звонков и визита в салон.</p></div>
+    <div><b>Мы доставим</b><p>Сообщение с сертификатом придёт получателю в выбранный день и час.</p></div>
+    <div><b>Подарок открыт</b><p>Получатель записывается на удобное время и называет номер сертификата.</p></div>
+  </div>
+</div></section>
+
+<footer class="ft mono"><div class="wrap"><span>Демо-версия · образец сайта от студии «Кирилл и Даня»</span><span>Фото и цены — салона D'ajour</span></div></footer>
+
+<script>window.IMG_ROOT='../'</script>
+<script src="../assets/prices.js?v=5"></script>
+<script src="core.js?v=2"></script>
+<script src="../assets/cert.js?v=6"></script>
+<script>$('#bk1').href=SALON.book</script>
+</body>
+</html>

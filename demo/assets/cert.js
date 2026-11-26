@@ -1,3 +1,4 @@
+const IR = window.IMG_ROOT || ''; /* путь к картинкам: '' на основном демо, '../' в вариантах дизайна */
 /* Мастер «Ключ от Дома»: 30 открыток, 3D-карусель, 6 шагов, финал с конвертом */
 
 /* ================= ОРНАМЕНТЫ (рисуются кодом) ================= */
@@ -43,12 +44,12 @@ const D = [
   ['ny3', 'ny', 'Изумрудная ель', 'radial-gradient(120% 140% at 20% 0%,#3e6a52,#1e3a2c 60%,#0f1f17)', 'fir', 'rgba(201,166,104,.6)', 'Чудес в Новом году'],
   ['ny4', 'ny', 'Полночь', 'linear-gradient(160deg,#1c2340,#0d1226 60%,#080a16)', 'stars', '#e7c98b', 'Ровно в полночь', 1],
   ['ny5', 'ny', 'Ёлочный шар', 'linear-gradient(160deg,#f6efe3,#eadcc4)', 'ball', '', 'С Новым годом', 1, 1],
-  ['ny6', 'ny', 'Праздник в Доме', 'linear-gradient(180deg,rgba(20,8,6,.05),rgba(20,8,6,.78)),url(img/dark.jpg) center/cover', '', '', 'С Новым годом'],
+  ['ny6', 'ny', 'Праздник в Доме', 'linear-gradient(180deg,rgba(20,8,6,.05),rgba(20,8,6,.78)),url(' + IR + 'img/dark.jpg) center/cover', '', '', 'С Новым годом'],
   ['bd1', 'bd', 'Конфетти', '#f7efe2', 'confetti', '', 'С днём рождения', 1, 1],
   ['bd2', 'bd', 'Шары', 'radial-gradient(120% 140% at 20% 0%,#f0c4bf,#d98f89 60%,#b5615f)', 'balloons', 'rgba(255,240,220,.85)', 'С днём рождения'],
   ['bd4', 'bd', 'Свечи', 'radial-gradient(120% 140% at 20% 0%,#3a2418,#1d110b)', 'candles', 'rgba(201,166,104,.6)', 'Загадай желание', 1],
   ['bd5', 'bd', 'Серпантин', 'linear-gradient(160deg,#fbf6ee,#efe3cf)', 'streamers', '', 'Праздник!', 0, 1],
-  ['bd3', 'bd', 'Шампанское', 'linear-gradient(180deg,rgba(20,8,6,0),rgba(20,8,6,.72)),url(img/gallery.jpg) center/cover', '', '', 'Праздновать красиво'],
+  ['bd3', 'bd', 'Шампанское', 'linear-gradient(180deg,rgba(20,8,6,0),rgba(20,8,6,.72)),url(' + IR + 'img/gallery.jpg) center/cover', '', '', 'Праздновать красиво'],
   ['m1', 'm8', 'Тюльпаны', 'linear-gradient(160deg,#fdf1ee,#f6dcd5)', 'tulips', '', 'С 8 Марта', 0, 1],
   ['m2', 'm8', 'Мимоза', 'linear-gradient(160deg,#fbf6e6,#efe6c4)', 'mimosa', '', 'Весеннего настроения', 0, 1],
   ['m3', 'm8', 'Весна', 'radial-gradient(120% 140% at 20% 0%,#cfe3d2,#9fc2a7 60%,#6f9a7b)', 'spring', 'rgba(255,255,255,.6)', 'Весна в Доме'],
@@ -64,11 +65,11 @@ const D = [
   ['an1', 'any', 'Ключ от Дома', 'radial-gradient(120% 140% at 20% 0%,#5a2c1d,#2a120b 65%,#170905)', 'key', 'rgba(201,166,104,.65)', 'Ключ от Дома'],
   ['an2', 'any', 'Зеркало', 'linear-gradient(160deg,#241410,#120806)', 'ring', '#c9a668', 'Время для себя', 1],
   ['an3', 'any', 'Арки', 'linear-gradient(160deg,#efe4d2,#e1d0b6)', 'arch', 'rgba(120,80,40,.45)', 'Добро пожаловать', 0, 1],
-  ['an4', 'any', 'Холл', 'linear-gradient(180deg,rgba(20,8,6,.1),rgba(20,8,6,.75)),url(img/in5.jpg) center/cover', '', '', 'Ждём в гости'],
-  ['an5', 'any', 'Витрина', 'linear-gradient(180deg,rgba(20,8,6,.1),rgba(20,8,6,.75)),url(img/in2.jpg) center/cover', '', '', 'Просто так']
+  ['an4', 'any', 'Холл', 'linear-gradient(180deg,rgba(20,8,6,.1),rgba(20,8,6,.75)),url(' + IR + 'img/in5.jpg) center/cover', '', '', 'Ждём в гости'],
+  ['an5', 'any', 'Витрина', 'linear-gradient(180deg,rgba(20,8,6,.1),rgba(20,8,6,.75)),url(' + IR + 'img/in2.jpg) center/cover', '', '', 'Просто так']
 ].map(([id, c, n, bg, orn, oc, o, anim, dark]) => ({ id, c, n, bg, orn, oc, o, anim: !!anim, dark: !!dark }));
 const catName = k => (CATS.find(x => x[0] === k) || ['', ''])[1];
-const card = (d, val, svc, to) => `<div class="gcard${d.dark ? ' dark' : ''}${d.id === 'an2' || d.id === 'ny2' ? ' shim' : ''}" style="background:${d.bg}">${d.orn ? `<svg class="orn" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${ORN[d.orn](d.oc || '#fff')}</svg>` : ''}<div class="shine"></div><div class="in"><div class="top"><img src="img/logo.png" alt=""><span>Подарочный<br>сертификат</span></div><div class="occ">${d.o}</div><div class="bot"><div class="val${svc ? ' svc' : ''}">${val}</div><div class="to">${to || ''}</div></div></div></div>`;
+const card = (d, val, svc, to) => `<div class="gcard${d.dark ? ' dark' : ''}${d.id === 'an2' || d.id === 'ny2' ? ' shim' : ''}" style="background:${d.bg}">${d.orn ? `<svg class="orn" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${ORN[d.orn](d.oc || '#fff')}</svg>` : ''}<div class="shine"></div><div class="in"><div class="top"><img src="${IR}img/logo.png" alt=""><span>Подарочный<br>сертификат</span></div><div class="occ">${d.o}</div><div class="bot"><div class="val${svc ? ' svc' : ''}">${val}</div><div class="to">${to || ''}</div></div></div></div>`;
 
 /* ================= СОСТОЯНИЕ ================= */
 const STEPS = ['Дизайн', 'Номинал', 'Кому', 'Поздравление', 'Доставка', 'Проверка'];

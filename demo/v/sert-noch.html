@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Сертификат — D'ajour, стиль «Ночь» (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0b0a">
+<link rel="icon" href="../img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/cert.css?v=5">
+<style>
+:root{--bg:#0c0b0a;--ch:#e4cc9a;--chg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--tx:#eee8dd;--ln:rgba(228,204,154,.22);--e:cubic-bezier(.2,.7,.2,1);--pad:clamp(18px,4vw,64px);
+--ink:#1b0e0a;--paper:#f6f0e6;--gold:#e4cc9a;--goldg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--brass:#a8814a;--mah:#7a2a36;--wall:#efe6d6;--mut:#6b5d52;--line:rgba(27,14,10,.14);--ease:cubic-bezier(.2,.7,.2,1);--disp:Cormorant,Georgia,serif;--serif:Cormorant,Georgia,serif;--sans:Manrope,system-ui,sans-serif;--mx:50%;--my:30%}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:300 16px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:52px;padding:0 26px;border-radius:99px;background:var(--chg);background-size:200% 100%;color:#14110c;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:background-position .8s var(--e),transform .3s}
+.btn:hover{background-position:100% 0;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--ln)}
+.btn.ghost:hover{border-color:var(--ch)}
+.k{font:600 11px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--ch)}
+.h2{font:300 clamp(40px,5vw,72px)/.98 var(--disp)}
+.h2 i{font-style:italic;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+header.top{position:fixed;left:0;right:0;top:0;z-index:50;background:rgba(12,11,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+header.top .lg img{height:40px}
+header.top nav{display:flex;gap:26px}
+header.top nav a{font:400 13px var(--sans);color:rgba(238,232,221,.56);transition:color .2s}
+header.top nav a:hover{color:var(--ch)}
+header.top .btn{height:42px;padding:0 20px;font-size:11px}
+@media(max-width:760px){header.top nav{display:none}}
+
+/* мастер: тёмная роскошь */
+.wiz{color:var(--tx)}
+.wiz::before{background:radial-gradient(ellipse at 30% 48%,rgba(228,204,154,.13),transparent 55%),linear-gradient(#0c0b0a,#100e0b)}
+.whead h1{font:300 clamp(28px,3vw,44px)/1 var(--disp)}
+.whead h1 em{font-style:italic;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.prog button{color:rgba(238,232,221,.38);font-family:var(--sans)}
+.prog button::before{background:rgba(228,204,154,.16);height:2px}
+.prog button::after{height:2px;background:var(--chg)}
+.prog button.done{color:rgba(238,232,221,.78)}
+.prog button.cur{color:var(--ch)}
+.stage::before{content:"";position:absolute;left:50%;top:46%;width:80%;height:80%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(243,226,184,.2),rgba(228,204,154,.05) 45%,transparent 68%);pointer-events:none;z-index:-1}
+.cf .it:not(.c){filter:brightness(.55) saturate(.9)}
+.cf .it .nm{color:var(--tx);font-weight:300;font-style:italic}
+.cfnav button{border-color:var(--ln);background:rgba(12,11,10,.55);color:var(--ch)}
+.cfnav button:hover{background:var(--chg);color:#14110c;border-color:transparent}
+.one .flipb{color:rgba(238,232,221,.65)}
+.one .flipb:hover{color:var(--ch)}
+.stage .floor{background:radial-gradient(ellipse,rgba(228,204,154,.18),transparent 70%)}
+.panel{--ink:#e4cc9a;--paper:#14110c;--mut:rgba(238,232,221,.58);--line:rgba(228,204,154,.2);--brass:#e4cc9a;--wall:rgba(228,204,154,.07);--mah:#e4cc9a;color:var(--tx);background:linear-gradient(160deg,rgba(32,28,22,.78),rgba(16,14,11,.82));border:1px solid var(--ln);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:24px;box-shadow:0 40px 90px rgba(0,0,0,.55),inset 0 1px 0 rgba(243,226,184,.12)}
+.panel .sn{color:var(--ch);letter-spacing:.28em}
+.panel h2{font-weight:300}
+.panel .sub,.hintline{color:var(--mut)}
+.pnav{border-top:1px solid var(--ln)}
+.pnav .bk{color:var(--mut)}
+.pnav .bk:hover{color:var(--ch)}
+.pnav .btn{height:48px}
+.chipsx button,.mode,.amts button,.rels button,.chans button,.when button,.qty .st,.slider label,.svlist,.fld2 input,.fld2 textarea{background:rgba(238,232,221,.04);border-color:var(--ln);color:var(--tx)}
+.chipsx button:hover,.amts button:hover,.rels button:hover,.chans button:hover,.when button:hover{border-color:var(--ch)}
+.chipsx button.on,.mode button.on,.amts button.on,.rels button.on,.chans button.on,.when button.on{background:var(--chg);color:#14110c;border-color:transparent}
+.rels button i{color:var(--ch)}
+.rels button.on i{color:#14110c}
+.mode{border:1px solid var(--ln)}
+.mode button{color:var(--mut)}
+.mode button.on{color:#14110c}
+.dnow{background:rgba(228,204,154,.06);border:1px solid var(--ln)}
+.bignum{font-weight:300;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bignum small{-webkit-text-fill-color:rgba(238,232,221,.58)}
+.slider input[type=range]{accent-color:#c9a66b}
+.slider label input{color:var(--tx)}
+.fld2 input::placeholder,.fld2 textarea::placeholder{color:rgba(238,232,221,.36)}
+.fld2 input:focus,.fld2 textarea:focus{border-color:var(--ch);box-shadow:0 0 0 3px rgba(228,204,154,.1)}
+.dt input{color-scheme:dark;background:rgba(238,232,221,.04);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;color:var(--tx)}
+.svlist h6{background:#1a1712;color:var(--ch)}
+.svlist input{accent-color:#c9a66b}
+.sugg button{border-color:rgba(228,204,154,.4);color:var(--ch)}
+.sugg button:hover{background:rgba(228,204,154,.1)}
+.rev{background:var(--ln)}
+.rev div{background:#14120f}
+.rev button{color:var(--ch)}
+.qty .st b{color:var(--tx)}
+.total b{font-weight:300;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.done::before{background:rgba(12,11,10,.94)}
+.done h2{font-weight:300}
+.done h2 em{font-style:italic;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.done p{color:rgba(238,232,221,.72)}
+.done .codes span{border-color:var(--ln);color:var(--ch)}
+.btn.gold{background:var(--chg);background-size:200% 100%;color:#14110c}
+.env .back{background:#2a2218}
+.env .front{background:linear-gradient(160deg,#3a2f20,#1c160e)}
+.env .flap{background:linear-gradient(#4a3c27,#2a2218)}
+
+.how{padding:clamp(60px,9vw,120px) 0;border-top:1px solid var(--ln)}
+.how .h2{margin:14px 0 44px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.steps>div{padding:26px 22px;border:1px solid var(--ln);border-radius:20px;background:rgba(238,232,221,.03);counter-increment:s}
+.steps>div::before{content:"0" counter(s);display:block;font:italic 300 40px/1 var(--disp);color:var(--ch);margin-bottom:14px}
+.steps b{display:block;font:400 26px/1.1 var(--disp);margin-bottom:8px}
+.steps p{font-size:14px;color:rgba(238,232,221,.58)}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.foot{border-top:1px solid var(--ln);padding:30px 0 100px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:rgba(238,232,221,.5)}
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity 1s var(--e),transform 1s var(--e)}
+[data-r].in{opacity:1;transform:none}
+</style>
+</head>
+<body data-v="noch" data-page="sert">
+<header class="top"><div class="wrap">
+  <a class="lg" href="noch.html"><img src="../img/logo.png" alt="Дом D'ajour"></a>
+  <nav><a href="noch.html">На главную</a></nav>
+  <a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a>
+</div></header>
+
+<section class="wiz wallpaper" id="wiz">
+  <canvas class="snow"></canvas>
+  <div class="wrap">
+    <div class="whead">
+      <h1>Ключ от Дома <em>в подарок</em></h1>
+      <nav class="prog" id="prog" aria-label="Шаги"></nav>
+    </div>
+    <div class="wbody">
+      <div class="stage" id="stage">
+        <div class="cf" id="cf"></div>
+        <div class="cfnav" id="cfnav"><button id="cfl" aria-label="Предыдущая открытка"></button><button id="cfr" aria-label="Следующая открытка"></button></div>
+        <div class="one" id="one"><div class="tilt" id="tilt"><div class="fl"><div id="front"></div><div class="gback" id="back"></div></div></div><button class="flipb" id="flipb">↻ Перевернуть</button></div>
+        <div class="floor"></div>
+      </div>
+
+      <div class="panel">
+        <div class="pstep" data-s="0">
+          <div class="sn">Шаг 1 из 6</div><h2>Выберите открытку</h2>
+          <p class="sub">30 дизайнов к любому поводу — листайте карусель или выберите повод.</p>
+          <div class="chipsx" id="cats"></div>
+          <div class="dnow"><div><b id="dName"></b><small id="dCat"></small></div><span class="cnt" id="dPos"></span></div>
+        </div>
+        <div class="pstep" data-s="1">
+          <div class="sn">Шаг 2 из 6</div><h2>Что положить на ключ?</h2>
+          <div class="mode" id="mode"><button class="on" data-v="sum">Сумму</button><button data-v="svc">Конкретные услуги</button></div>
+          <div id="sumBox">
+            <div class="bignum" id="big">5 000 <small>₽</small></div>
+            <div class="amts" id="amts"></div>
+            <div class="slider"><input type="range" id="rng" min="1000" max="50000" step="500" aria-label="Сумма"><label>₽<input id="amt" type="number" inputmode="numeric" min="1000" step="100" aria-label="Своя сумма"></label></div>
+            <p class="hintline">Сумму можно потратить на любые услуги салона, в несколько визитов.</p>
+          </div>
+          <div id="svcBox" hidden>
+            <div class="fld2"><input id="svq" type="search" placeholder="Найти: маникюр, массаж, окрашивание…"></div>
+            <div class="svlist" id="svlist"></div>
+            <p class="hintline" id="svSum"></p>
+          </div>
+        </div>
+        <div class="pstep" data-s="2">
+          <div class="sn">Шаг 3 из 6</div><h2>Кому подарок?</h2>
+          <p class="sub">Подскажем подходящие слова для поздравления.</p>
+          <div class="rels" id="rels"></div>
+          <div class="fld2"><input id="to" maxlength="24" placeholder="Имя получателя"></div>
+        </div>
+        <div class="pstep" data-s="3">
+          <div class="sn">Шаг 4 из 6</div><h2>Тёплые слова</h2>
+          <p class="sub">Пожелание будет на обороте карты и в сообщении получателю.</p>
+          <div class="fld2"><textarea id="wish" maxlength="140" placeholder="Напишите пожелание"></textarea><div class="wc"><span id="wcn">0</span>/140</div><input id="from" maxlength="24" placeholder="Подпись: от кого"></div>
+          <div class="sugg" id="sugg"></div>
+        </div>
+        <div class="pstep" data-s="4">
+          <div class="sn">Шаг 5 из 6</div><h2>Как и когда вручить?</h2>
+          <div class="chans" id="chans"></div>
+          <div class="fld2" id="contactBox" style="margin-top:12px"><input id="contact"></div>
+          <p class="hintline" id="chNote"></p>
+          <div class="when" id="when"></div>
+          <div class="dt" id="dt"><input type="date" id="dDate" aria-label="Дата"><input type="time" id="dTime" value="09:00" aria-label="Время"></div>
+        </div>
+        <div class="pstep" data-s="5">
+          <div class="sn">Шаг 6 из 6</div><h2>Всё верно?</h2>
+          <dl class="rev" id="rev"></dl>
+          <div class="qty"><span>Сколько сертификатов</span><div class="st"><button id="qm" aria-label="Меньше">−</button><b id="qn">1</b><button id="qp" aria-label="Больше">+</button></div></div>
+          <div class="total"><div><small>К оплате</small><b id="tot"></b></div></div>
+        </div>
+        <div class="pnav"><button class="bk" id="prev">← Назад</button><button class="btn" id="next">Дальше</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="done" id="done"><div>
+    <div class="env"><div class="back"></div><div class="card" id="envCard"></div><div class="front"></div><div class="flap"></div><div class="seal"><img src="../img/logo-dark.png" alt=""></div></div>
+    <h2>Ключ <em>упакован</em></h2>
+    <p id="doneTxt"></p>
+    <div class="codes" id="codes"></div>
+    <div class="acts"><button class="btn gold" id="again">Собрать ещё один</button><a class="btn ghost" href="noch.html">В прихожую</a></div>
+    <small>Демо-версия: оплата и отправка не подключены</small>
+  </div></div>
+</section>
+
+<section class="how"><div class="wrap">
+  <span class="k" data-r>Как это работает</span>
+  <h2 class="h2" data-r>Четыре <i>шага</i></h2>
+  <div class="steps">
+    <div data-r><b>Соберите</b><p>Открытка, сумма или услуги, подпись и пожелание — за пару минут.</p></div>
+    <div data-r><b>Оплатите</b><p>Онлайн картой или по СБП — без звонков и визита в салон.</p></div>
+    <div data-r><b>Мы доставим</b><p>Сообщение с сертификатом придёт получателю в выбранный день и час.</p></div>
+    <div data-r><b>Подарок открыт</b><p>Получатель записывается на удобное время и называет номер сертификата.</p></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="foot"><span>Демо-версия · образец сайта от студии «Кирилл и Даня»</span><span>Фото и цены — салона D'ajour</span></div></div>
+
+<script>window.IMG_ROOT='../'</script>
+<script src="../assets/prices.js?v=5"></script>
+<script src="core.js?v=2"></script>
+<script>$('#bk1').href = SALON.book; reveal();</script>
+<script src="../assets/cert.js?v=6"></script>
+</body>
+</html>

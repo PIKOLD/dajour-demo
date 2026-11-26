@@ -208,4 +208,19 @@ const BOT = (() => {
   return { open, handle, find };
 })();
 
+/* ---------- переключатель стилей (Дом / Журнал / Ночь / Свежий) ---------- */
+(function () {
+  const c = PAGE === 'cert';
+  const V = c ? [['sertifikaty.html', 'Дом'], ['v/sert-journal.html', 'Журнал'], ['v/sert-noch.html', 'Ночь'], ['v/sert-svezh.html', 'Свежий']]
+    : [['index.html', 'Дом'], ['v/journal.html', 'Журнал'], ['v/noch.html', 'Ночь'], ['v/svezh.html', 'Свежий']];
+  document.body.insertAdjacentHTML('beforeend', `<div class="vsw" role="navigation" aria-label="Варианты дизайна"><span>Стиль</span>${V.map(([h, t], i) => `<a href="${ROOT}${h}"${i ? '' : ' aria-current="true"'}>${t}</a>`).join('')}</div>`);
+  const s = document.createElement('style');
+  s.textContent = `.vsw{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:69;display:flex;align-items:center;gap:2px;padding:5px;border-radius:99px;background:rgba(20,18,16,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(0,0,0,.25);font:600 12px/1 Manrope,system-ui,sans-serif;color:#fff;white-space:nowrap}
+.vsw span{padding:0 10px 0 12px;opacity:.55;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
+.vsw a{padding:9px 13px;border-radius:99px;color:#fff;text-decoration:none}
+.vsw a:hover{background:rgba(255,255,255,.12)}.vsw a[aria-current]{background:#fff;color:#111}
+@media(max-width:640px){.vsw{bottom:88px}.vsw span{display:none}.vsw a{padding:8px 10px}}`;
+  document.head.append(s);
+})();
+
 addEventListener('load', watch); watch();
