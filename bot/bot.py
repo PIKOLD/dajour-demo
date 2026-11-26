@@ -3,7 +3,7 @@
 Запуск:  python bot.py      (нужен TELEGRAM_BOT_TOKEN в .env)
 Проверка без Telegram:  python bot.py --console
 """
-import json, re, sys, time, datetime as dt, urllib.parse
+import html, json, re, sys, time, datetime as dt, urllib.parse
 from common import env, http, SALON, price_text
 from yclients import YClients
 from brain import Brain, find_services
@@ -23,6 +23,31 @@ def kb(rows):
     return {'inline_keyboard': [[{'text': t[:60], 'callback_data': d} for t, d in r] for r in rows]}
 
 
+EMO = {'Ногтевой сервис': '💅 Ногти', 'Парикмахерские услуги': '💇‍♀️ Волосы', 'Макияж и причёски': '💄 Макияж и причёски',
+       'Ресницы и брови': '👁 Ресницы и брови', 'Массаж': '💆‍♀️ Массаж', 'Косметология': '✨ Косметология',
+       'Перманентный макияж': '🖋 Перманент', 'Удаление тату и татуажа': '🫧 Удаление тату'}
+PAGE = 8
+esc = html.escape
+
+
+def cat_kb(prefix='c'):
+    items = [(EMO.get(c, c), f'{prefix}:{i}') for i, c in enumerate(CATS)]
+    return kb([items[j:j + 2] for j in range(0, len(items), 2)])
+
+
+def dur(m):
+    return '' if not m else (f'{m // 60} ч' + (f' {m % 60} мин' if m % 60 else '') if m >= 60 else f'{m} мин')
+
+
+def edit(chat, mid, text, markup=None):
+    if CONSOLE or not mid:
+        return send(chat, text, markup)
+    data = {'chat_id': chat, 'message_id': mid, 'text': text, 'parse_mode': 'HTML', 'disable_web_page_preview': True}
+    if markup:
+        data['reply_markup'] = markup
+    http('POST', f'{TG}/editMessageText', data=data)
+
+
 MENU = kb([[('📅 Записаться', 'm:book'), ('💳 Цены', 'm:price')], [('✨ Перманент', 'm:pm'), ('📍 Адрес и связь', 'm:addr')]])
 
 
@@ -37,10 +62,12 @@ def send(chat, text, markup=None):
             for r in markup['inline_keyboard']:
                 print('   ', ' | '.join(f'[{b["callback_data"]}] {b["text"]}' for b in r))
         return
-    data = {'chat_id': chat, 'text': text, 'disable_web_page_preview': True}
+    data = {'chat_id': chat, 'text': text, 'disable_web_page_preview': True, 'parse_mode': 'HTML'}
     if markup:
         data['reply_markup'] = markup
-    http('POST', f'{TG}/sendMessage', data=data)
+    code, _ = http('POST', f'{TG}/sendMessage', data=data)
+    if code == 400:                    # не разобрался HTML — шлём простым текстом
+        data.pop('parse_mode'); http('POST', f'{TG}/sendMessage', data=data)
 
 
 def day_label(iso):
@@ -55,10 +82,30 @@ def start(chat):
     send(chat, f"Здравствуйте! Я ИИ-администратор «{SALON['name']}» 🌿\nЗапишу на услугу, подскажу цены и адрес. Можно просто написать, что хотите — например «маникюр в субботу».{demo}", MENU)
 
 
-def show_services(chat, lst, title='Выберите услугу:'):
-    st = S[chat]; st['cands'] = lst; st['step'] = 'svc'
-    send(chat, title, kb([[(f'{s["name"]} · {price_text(s["price"])}', f's:{i}')] for i, s in enumerate(lst[:20])]
-                         + [[('🔎 Другая услуга', 'm:book')]]))
+def show_services(chat, lst, title='Выберите услугу', page=0, mid=None):
+    st = S[chat]; st.update(cands=lst, title=title, step='svc')
+    pages = max(1, -(-len(lst) // PAGE)); page = max(0, min(page, pages - 1))
+    part = lst[page * PAGE:(page + 1) * PAGE]
+    lines = [f'<b>{page * PAGE + k + 1}.</b> {esc(s["name"])} — <b>{price_text(s["price"])}</b>' + (f' · {dur(s.get("minutes"))}' if s.get('minutes') else '')
+             for k, s in enumerate(part)]
+    head = f'<b>{esc(title)}</b>' + (f'  ·  стр. {page + 1}/{pages}' if pages > 1 else '')
+    text = head + '\n\n' + '\n'.join(lines) + '\n\nНажмите номер услуги 👇'
+    nums = [(str(page * PAGE + k + 1), f's:{page * PAGE + k}') for k in range(len(part))]
+    rows = [nums[j:j + 4] for j in range(0, len(nums), 4)]
+    nav = ([('← Назад', f'pg:{page - 1}')] if page else []) + ([('Ещё →', f'pg:{page + 1}')] if page < pages - 1 else [])
+    rows += ([nav] if nav else []) + [[('🔎 Другая услуга', 'm:book')]]
+    (edit(chat, mid, text, kb(rows)) if mid else send(chat, text, kb(rows)))
+
+
+def show_category(chat, ci, mid=None):
+    lst = [s for s in SERVICES if s['cat'] == CATS[ci]]
+    groups = list(dict.fromkeys(s.get('group', '') for s in lst))
+    if len(groups) > 1 and len(lst) > PAGE:
+        btn = [(f'{g or "Основные услуги"} · {sum(1 for s in lst if s.get("group", "") == g)}', f'g:{ci}:{gi}') for gi, g in enumerate(groups)]
+        text = f'<b>{EMO.get(CATS[ci], CATS[ci])}</b>\n\nВыберите раздел:'
+        rows = [btn[j:j + 2] for j in range(0, len(btn), 2)] + [[('← Все направления', 'm:book')]]
+        return edit(chat, mid, text, kb(rows)) if mid else send(chat, text, kb(rows))
+    show_services(chat, lst, EMO.get(CATS[ci], CATS[ci]), 0, mid)
 
 
 def ask_dates(chat):
@@ -181,28 +228,35 @@ def on_text(chat, text, contact=None):
         found = find_services(SERVICES, r.get('query') or text)
         if found:
             return show_services(chat, found, r.get('reply') or 'Выберите услугу:')
-        return send(chat, (r.get('reply') or '') + '\n\nВыберите направление:', kb([[(c, f'c:{i}')] for i, c in enumerate(CATS)]))
+        return send(chat, (r.get('reply') or '') + '\n\nВыберите направление:', cat_kb())
     if intent == 'human':
         return send(chat, f'{r.get("reply", "")}\n📞 {SALON["phone"]}\n{SALON["messengers"]}')
     send(chat, r.get('reply') or 'Подскажу! Что вас интересует?', MENU if not st['h'][:-2] else None)
 
 
-def on_button(chat, d):
+def on_button(chat, d, mid=None):
     st = S.setdefault(chat, {'h': [], 'step': None})
     if d == 'm:book':
-        return send(chat, 'Напишите услугу (например «маникюр с покрытием») или выберите направление:', kb([[(c, f'c:{i}')] for i, c in enumerate(CATS)]))
+        return send(chat, 'Напишите услугу (например «маникюр с покрытием») или выберите направление:', cat_kb())
     if d == 'm:price':
-        return send(chat, 'Цены по направлениям:', kb([[(c, f'p:{i}')] for i, c in enumerate(CATS)]))
+        return send(chat, 'Цены по направлениям:', cat_kb('p'))
     if d == 'm:pm':
         st['step'] = None; return pm_next(chat)
     if d == 'm:addr':
         return send(chat, f'📍 {SALON["address"]}, {SALON["hours"]}\nМаршрут: {SALON["map_url"]}\n📞 {SALON["phone"]}\n{SALON["messengers"]}', MENU)
     kind, _, v = d.partition(':')
     if kind == 'c':
-        return show_services(chat, [s for s in SERVICES if s['cat'] == CATS[int(v)]], f'{CATS[int(v)]}:')
+        return show_category(chat, int(v), mid)
+    if kind == 'g':
+        ci, gi = map(int, v.split(':'))
+        lst = [s for s in SERVICES if s['cat'] == CATS[ci]]
+        g = list(dict.fromkeys(s.get('group', '') for s in lst))[gi]
+        return show_services(chat, [s for s in lst if s.get('group', '') == g], f'{EMO.get(CATS[ci], CATS[ci])} · {g or "Основные услуги"}', 0, mid)
+    if kind == 'pg' and st.get('cands'):
+        return show_services(chat, st['cands'], st.get('title', 'Выберите услугу'), int(v), mid)
     if kind == 'p':
         lst = [s for s in SERVICES if s['cat'] == CATS[int(v)]]
-        return send(chat, f'{CATS[int(v)]}\n' + '\n'.join(f'• {s["name"]} — {price_text(s["price"])}' for s in lst), kb([[('📅 Записаться', f'c:{v}')], [('← Меню', 'menu')]]))
+        return send(chat, f'<b>{EMO.get(CATS[int(v)], CATS[int(v)])}</b>\n\n' + '\n'.join(f'• {esc(s["name"])} — <b>{price_text(s["price"])}</b>' for s in lst), kb([[('📅 Записаться', f'c:{v}'), ('← Меню', 'menu')]]))
     if kind == 'menu':
         return send(chat, 'Чем помочь?', MENU)
     if kind == 's' and st.get('cands'):
@@ -237,7 +291,7 @@ def run_telegram():
                 if 'callback_query' in u:
                     cq = u['callback_query']
                     http('POST', f'{TG}/answerCallbackQuery', data={'callback_query_id': cq['id']})
-                    on_button(cq['message']['chat']['id'], cq['data'])
+                    on_button(cq['message']['chat']['id'], cq['data'], cq['message']['message_id'])
                 elif 'message' in u:
                     m = u['message']
                     on_text(m['chat']['id'], m.get('text', ''), (m.get('contact') or {}).get('phone_number'))
