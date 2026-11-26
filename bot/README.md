@@ -19,7 +19,7 @@
 
 ## Где взять ключи
 - **Telegram**: @BotFather → `/newbot` → токен. Свой chat id для уведомлений — у @userinfobot.
-- **YandexGPT**: Yandex Cloud → создать каталог → сервисный аккаунт с ролью `ai.languageModels.user` → API-ключ. ID каталога — в консоли.
+- **Yandex AI Studio** (aistudio.yandex.cloud): привязать платёжный аккаунт → «Создать API-ключ» (сохранить секрет) → ID каталога — значок копирования у названия каталога. Модель — Alice AI LLM.
 - **YCLIENTS**:
   - ID филиала — число в адресе админки YCLIENTS;
   - партнёрский токен — кабинет разработчика YCLIENTS (заявка);

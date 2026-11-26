@@ -6,7 +6,8 @@
 import json, re
 from common import env, http, SALON, price_text, norm
 
-URL = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'
+URL = 'https://llm.api.cloud.yandex.net/foundationModels/v1/completion'      # старый API YandexGPT
+URL_RESPONSES = 'https://ai.api.cloud.yandex.net/v1/responses'                # AI Studio, OpenAI-совместимый
 
 SYN = {'маник': 'маникюр', 'ногт': 'маникюр', 'педик': 'педикюр', 'стриж': 'стрижка', 'подстри': 'стрижка', 'окраш': 'окрашивание',
        'покрас': 'окрашивание', 'ресниц': 'ресниц', 'бров': 'бров', 'массаж': 'массаж', 'чистк': 'чистка', 'пилинг': 'пилинг',
@@ -49,7 +50,7 @@ def system_prompt(services):
 class Brain:
     def __init__(self, services):
         self.key, self.folder = env('YANDEX_API_KEY'), env('YANDEX_FOLDER_ID')
-        self.model = env('YANDEX_MODEL', 'yandexgpt/latest')
+        self.model = env('YANDEX_MODEL', 'aliceai-llm')
         self.services = services
         self.sys = system_prompt(services)
         self.ai = bool(self.key and self.folder)
@@ -63,13 +64,24 @@ class Brain:
         return self._rules(text)
 
     def _yandex(self, text, history):
-        msgs = [{'role': 'system', 'text': self.sys}] + history[-8:] + [{'role': 'user', 'text': text}]
-        code, r = http('POST', URL, headers={'Authorization': f'Api-Key {self.key}', 'x-folder-id': self.folder}, data={
-            'modelUri': f'gpt://{self.folder}/{self.model}',
-            'completionOptions': {'stream': False, 'temperature': 0.2, 'maxTokens': '600'}, 'messages': msgs})
-        if code != 200:
-            raise RuntimeError(f'{code} {r}')
-        raw = r['result']['alternatives'][0]['message']['text']
+        """Новый OpenAI-совместимый API AI Studio (модель Alice AI LLM); если не ответил — старый API YandexGPT."""
+        hdr = {'Authorization': f'Api-Key {self.key}', 'x-folder-id': self.folder}
+        code, r = http('POST', URL_RESPONSES, headers=hdr, data={
+            'model': f'gpt://{self.folder}/{self.model}', 'instructions': self.sys, 'temperature': 0.2, 'max_output_tokens': 600,
+            'input': [{'role': h['role'], 'content': h['text']} for h in history[-8:]] + [{'role': 'user', 'content': text}]})
+        raw = ''
+        if code == 200:
+            raw = r.get('output_text') or ''.join(c.get('text', '') for o in r.get('output', []) if isinstance(o, dict)
+                                                 for c in (o.get('content') or []) if isinstance(c, dict))
+        if not raw:
+            print('Responses API:', code, str(r)[:200], '— пробую старый API')
+            msgs = [{'role': 'system', 'text': self.sys}] + history[-8:] + [{'role': 'user', 'text': text}]
+            code, r = http('POST', URL, headers=hdr, data={
+                'modelUri': f'gpt://{self.folder}/{env("YANDEX_MODEL_OLD", "yandexgpt/latest")}',
+                'completionOptions': {'stream': False, 'temperature': 0.2, 'maxTokens': '600'}, 'messages': msgs})
+            if code != 200:
+                raise RuntimeError(f'{code} {r}')
+            raw = r['result']['alternatives'][0]['message']['text']
         m = re.search(r'\{.*\}', raw, re.S)
         try:
             out = json.loads(m.group(0)) if m else {}
