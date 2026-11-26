@@ -3,74 +3,105 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Подарочные сертификаты — Дом D'ajour (демо)</title>
+<title>Ключ в подарок — сертификаты Дом D'ajour (демо)</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#1a0f0b">
+<meta name="theme-color" content="#1b0e0a">
 <link rel="icon" href="img/logo-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=3">
+<link rel="stylesheet" href="assets/cert.css?v=3">
 </head>
 <body data-page="cert" data-dark="1">
 
 <section class="nyhero wallpaper">
-  <div class="bg"><img src="img/gallery.jpg" alt=""></div>
   <canvas class="snow"></canvas>
   <div class="wrap">
     <div class="crumbs rv"><a href="index.html">Прихожая</a> / Ключ в подарок</div>
     <h1><span class="ln"><span>Ключ от Дома —</span></span><span class="ln"><span><em>в подарок</em></span></span></h1>
-    <p class="lead rv">Новогодний сертификат в Дом D'ajour: на сумму или на конкретную услугу. Соберите его ниже — дизайн, номинал, имя и пожелание.</p>
-    <a class="btn light rv" href="#builder" style="margin-top:30px">Собрать сертификат <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
+    <p class="lead rv">Подарочный сертификат в Дом D'ajour. Выберите открытку, сумму или конкретные услуги, подпишите — и мы доставим подарок в мессенджер точно к нужному моменту.</p>
+    <div class="perks rv"><span>16 открыток к любому поводу</span><span>На сумму или на услуги</span><span>Доставка ко времени</span><span>Несколько штук сразу</span></div>
+    <a class="btn gold rv" href="#builder" style="margin-top:30px">Собрать подарок <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
   </div>
+  <div class="fan" id="fan"></div>
 </section>
 
-<section class="sec">
+<section class="sec" id="builder" style="scroll-margin-top:60px;padding-top:clamp(60px,7vw,100px)">
   <div class="wrap">
-    <span class="kick rv">Как это работает</span>
-    <h2 class="h2" style="margin-bottom:40px"><span class="ln"><span>Четыре <em>шага</em></span></span></h2>
-    <div class="steps">
-      <div class="rv"><b>Соберите</b><p>Номинал или услуга, новогодний дизайн, имя получателя и пожелание.</p></div>
-      <div class="rv d1"><b>Оплатите</b><p>Онлайн картой или по СБП — без звонков и визита в салон.</p></div>
-      <div class="rv d2"><b>Получите</b><p>Электронный сертификат с номером придёт в мессенджер или на почту. Или заберите в конверте.</p></div>
-      <div class="rv d3"><b>Подарите</b><p>Получатель записывается на удобное время и называет номер сертификата.</p></div>
+    <div class="cb">
+      <div>
+        <div class="stepc rv">
+          <h3><i>1</i>Открытка<small id="dName"></small></h3>
+          <div class="ctabs" id="cats"></div>
+          <div class="dgrid" id="designs"></div>
+        </div>
+
+        <div class="stepc rv">
+          <h3><i>2</i>Что внутри</h3>
+          <div class="mode" id="mode"><button class="on" data-v="sum">На сумму</button><button data-v="svc">На услуги</button></div>
+          <div id="sumBox">
+            <div class="amts" id="amts"></div>
+            <div class="slider"><input type="range" id="rng" min="1000" max="50000" step="500" aria-label="Сумма"><label>₽ <input id="amt" type="number" inputmode="numeric" min="1000" max="100000" step="100" aria-label="Своя сумма"></label></div>
+            <p class="hintline">Сертификат на сумму можно потратить на любые услуги салона, в несколько визитов.</p>
+          </div>
+          <div id="svcBox" hidden>
+            <div class="fld2"><input id="svq" type="search" placeholder="Найти услугу: маникюр, массаж, окрашивание…"></div>
+            <div class="svlist" id="svlist"></div>
+            <div class="picked" id="picked"></div>
+            <p class="hintline">Цены — из онлайн-записи салона. Для услуг «от» берём минимальную стоимость.</p>
+          </div>
+        </div>
+
+        <div class="stepc rv">
+          <h3><i>3</i>Подпись</h3>
+          <div class="fld2">
+            <div class="row2"><input id="to" maxlength="24" placeholder="Имя получателя"><input id="from" maxlength="24" placeholder="Ваше имя"></div>
+            <textarea id="wish" maxlength="140" placeholder="Пожелание — появится на обороте и в сообщении"></textarea>
+            <div class="cnt"><span id="wc">0</span>/140</div>
+            <div class="sugg" id="sugg"></div>
+          </div>
+        </div>
+
+        <div class="stepc rv">
+          <h3><i>4</i>Как вручить</h3>
+          <div class="chans" id="chans"></div>
+          <div class="fld2" style="margin-top:12px"><input id="contact" placeholder=""></div>
+          <p class="hintline" id="chNote"></p>
+          <div class="when" id="when"></div>
+          <div class="dt" id="dt"><input type="date" id="dDate" aria-label="Дата"><input type="time" id="dTime" value="09:00" aria-label="Время"></div>
+        </div>
+
+        <div class="stepc rv">
+          <h3><i>5</i>Сколько</h3>
+          <div class="qty"><div class="st"><button id="qm" aria-label="Меньше">−</button><b id="qn">1</b><button id="qp" aria-label="Больше">+</button></div><p>Несколько одинаковых сертификатов — для коллег, подруг или корпоративного подарка. У каждого свой номер.</p></div>
+        </div>
+      </div>
+
+      <aside class="pvc">
+        <div class="pvtabs" id="pvt"><button class="on" data-v="f">Лицевая</button><button data-v="b">Оборот</button><button data-v="r">Как получат</button></div>
+        <div class="pvbox">
+          <div class="flip" id="flip"><div class="fl"><div id="front"></div><div class="gback" id="back"></div></div></div>
+          <div class="recv" id="recv"></div>
+        </div>
+        <p class="flipnote" id="fnote">Нажмите на открытку, чтобы перевернуть</p>
+        <div class="sum">
+          <dl id="sumdl"></dl>
+          <div class="tot"><div><small>К оплате</small><b id="tot">—</b></div><button class="btn gold" id="go">Оформить</button></div>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<section class="sec" id="builder" style="background:var(--cream);scroll-margin-top:60px">
+<section class="sec" style="background:var(--wall)">
   <div class="wrap">
-    <span class="kick rv">Конструктор</span>
-    <h2 class="h2" style="margin-bottom:50px"><span class="ln"><span>Ваш <em>сертификат</em></span></span></h2>
-    <div class="builder">
-      <div>
-        <div class="opt"><b>Тип</b><div class="seg" id="type"><button class="on" data-v="sum">На сумму</button><button data-v="svc">На услугу</button></div></div>
-        <div class="opt" id="sumBox"><b>Номинал</b>
-          <div class="seg" id="sums"></div>
-          <div class="fld" id="ownBox" style="margin-top:10px;display:none"><input id="own" type="number" min="1000" step="500" placeholder="Сумма от 1 000 ₽" inputmode="numeric"></div>
-        </div>
-        <div class="opt" id="svcBox" style="display:none"><b>Услуга</b><div class="fld"><select id="svc"></select></div></div>
-        <div class="opt"><b>Дизайн</b><div class="designs" id="des">
-          <button class="on" data-v="d1"><i class="dsw1"></i>Бордо-бархат</button>
-          <button data-v="d2"><i class="dsw2"></i>Шампань</button>
-          <button data-v="d3"><i class="dsw3"></i>Изумруд</button>
-        </div></div>
-        <div class="opt"><b>Кому и от кого</b><div class="fld">
-          <input id="to" maxlength="28" placeholder="Имя получателя, например: Анне">
-          <input id="from" maxlength="28" placeholder="От кого, например: от Миши">
-          <textarea id="wish" maxlength="110" placeholder="Пожелание (необязательно)"></textarea>
-        </div></div>
-        <div class="opt"><b>Как вручить</b><div class="seg" id="dlv"><button class="on" data-v="e">Электронный<small>в мессенджер или на почту</small></button><button data-v="p">В конверте<small>заберу в салоне</small></button></div></div>
-      </div>
-      <div class="pv">
-        <div class="card3d"><i class="hookk"></i><svg class="keyimg" viewBox="0 0 120 300" aria-hidden="true"><defs><linearGradient id="kg" x1="0" x2="1"><stop offset="0" stop-color="#7a5526"/><stop offset=".35" stop-color="#f3dfae"/><stop offset=".6" stop-color="#b08442"/><stop offset="1" stop-color="#6e4b20"/></linearGradient></defs><g fill="url(#kg)"><path fill-rule="evenodd" d="M60 6a44 44 0 1 1 0 88A44 44 0 0 1 60 6Zm0 14a30 30 0 1 0 0 60 30 30 0 0 0 0-60Z"/><path fill-rule="evenodd" d="M60 30c6 8 14 12 20 20-6 8-14 12-20 20-6-8-14-12-20-20 6-8 14-12 20-20Zm0 12-8 8 8 8 8-8Z"/><rect x="52" y="90" width="16" height="190" rx="6"/><circle cx="60" cy="100" r="13"/><path d="M68 224h30v14H82v8h16v14H82v8h16v12H68Z"/></g></svg><div class="gc d1" id="card">
-          <svg class="orn" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><g id="flake"><path d="M100 10v180M22 55l156 90M22 145l156-90"/><path d="M100 35l-12-12M100 35l12-12M100 165l-12 12M100 165l12 12M43 67l-4-16M43 67l-16 4M157 133l4 16M157 133l16-4M43 133l-16-4M43 133l-4 16M157 67l16 4M157 67l4-16"/></g><circle cx="100" cy="100" r="22"/></svg>
-          <div class="lgw"><img id="clogo" src="img/logo.png" alt="Дом D'ajour"><span class="tag">Подарочный<br>сертификат<br><span id="num"></span></span></div>
-          <div class="val"><small id="vlab">Номинал</small><span id="val">5 000 ₽</span></div>
-          <div class="who"><span id="cto">Для: —</span><span id="cfrom"></span></div>
-        </div></div>
-        <p class="msgline" id="cwish"></p>
-        <div class="total"><div><small>К оплате</small><b id="tot">5 000 ₽</b></div><button class="btn" id="go">Оформить <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></button></div>
-      </div>
+    <span class="kick rv">Как это работает</span>
+    <h2 class="h2" style="margin-bottom:44px"><span class="ln"><span>Четыре <em>шага</em></span></span></h2>
+    <div class="steps">
+      <div class="rv"><b>Соберите</b><p>Открытка, сумма или услуги, подпись и пожелание.</p></div>
+      <div class="rv d1"><b>Оплатите</b><p>Онлайн картой или по СБП — без звонков и визита в салон.</p></div>
+      <div class="rv d2"><b>Мы доставим</b><p>Сообщение с сертификатом придёт получателю в выбранный день и час.</p></div>
+      <div class="rv d3"><b>Подарок открыт</b><p>Получатель записывается на удобное время и называет номер сертификата.</p></div>
     </div>
   </div>
 </section>
@@ -81,80 +112,194 @@
     <h2 class="h2" style="margin-bottom:30px"><span class="ln"><span>Частые <em>вопросы</em></span></span></h2>
     <div class="faq rv">
       <details open><summary>Как воспользоваться сертификатом?</summary><p>Запишитесь онлайн или через администратора и назовите номер сертификата. Администратор спишет сумму после процедуры.</p></details>
-      <details><summary>Можно ли потратить на несколько услуг?</summary><p>Да, сертификат на сумму можно потратить на любые услуги салона, в том числе за несколько визитов, пока не закончится остаток.</p></details>
-      <details><summary>Сколько действует сертификат?</summary><p>Срок действия салон указывает при оформлении — он напечатан на сертификате.</p></details>
-      <details><summary>Можно ли подарить сертификат на услугу?</summary><p>Да: выберите «На услугу» — в сертификате будет название процедуры, а стоимость подставится из прайса салона.</p></details>
+      <details><summary>Можно потратить на несколько услуг?</summary><p>Да, сертификат на сумму действует на любые услуги салона, в том числе за несколько визитов, пока не закончится остаток.</p></details>
+      <details><summary>Что если получатель захочет другую услугу?</summary><p>Сертификат на услуги можно обменять на другие процедуры той же стоимости — администратор поможет подобрать.</p></details>
+      <details><summary>Сколько действует сертификат?</summary><p>Срок действия салон указывает при оформлении — он напечатан на обороте сертификата.</p></details>
     </div>
     <p class="src">Демо: ответы — пример, каждый салон настраивает свои правила.</p>
   </div>
 </section>
 
 <div class="modal" id="modal"><div class="box">
-  <h3>Почти готово</h3>
-  <p>Ваш сертификат <span class="code" id="mcode"></span> на <b id="mval"></b>.</p>
-  <ol>
-    <li>Оплата онлайн — картой или по СБП.</li>
-    <li>Сертификат с номером приходит в мессенджер или на почту (или ждёт вас в конверте на ресепшен).</li>
-    <li>Номер сразу попадает в базу салона — администратор видит остаток.</li>
-  </ol>
+  <h3>Подарок почти готов</h3>
+  <div id="mbody"></div>
   <p class="src" style="margin:0 0 18px">Это демо-версия: оплата и отправка не подключены.</p>
   <button class="btn" id="mok">Понятно</button>
 </div></div>
 
-<script src="assets/prices.js"></script>
-<script src="assets/app.js"></script>
+<script src="assets/prices.js?v=3"></script>
+<script src="assets/app.js?v=3"></script>
 <script>
-snow($('.nyhero .snow'), 90);
-const st = { type: 'sum', sum: 5000, own: false, svc: null, d: 'd1', dlv: 'e' };
-const SUMS = [3000, 5000, 7000, 10000, 15000];
-$('#sums').innerHTML = SUMS.map(v => `<button data-v="${v}"${v === st.sum ? ' class="on"' : ''}>${rub(v)}</button>`).join('') + '<button data-v="own">Своя сумма</button>';
-// услуги для сертификата: из прайса, только с фиксированной ценой
-$('#svc').innerHTML = PRICES.map(c => `<optgroup label="${c.c}">${c.g.flatMap(g => g.s).filter(s => !Array.isArray(s[1]) && s[1] >= 1000).map(s => `<option value="${s[1]}">${s[0]} — ${rub(s[1])}</option>`).join('')}</optgroup>`).join('');
-const num = 'DJ-27-' + String(Math.floor(1000 + Math.random() * 9000));
-$('#num').textContent = '№ ' + num;
+/* ---------- орнаменты открыток (рисуются кодом) ---------- */
+let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+const flake = (x, y, r) => `<g transform="translate(${x} ${y})" stroke-width="1.2"><path d="M0 -${r}V${r}M-${r * .87} -${r / 2}L${r * .87} ${r / 2}M-${r * .87} ${r / 2}L${r * .87} -${r / 2}"/><path d="M0 -${r * .6}l-${r * .2} -${r * .2}M0 -${r * .6}l${r * .2} -${r * .2}M0 ${r * .6}l-${r * .2} ${r * .2}M0 ${r * .6}l${r * .2} ${r * .2}"/></g>`;
+const ORN = {
+  snow: c => `<g fill="none" stroke="${c}">${flake(250, 52, 34)}${flake(196, 120, 16)}${flake(292, 150, 20)}${flake(150, 36, 10)}${flake(110, 170, 12)}</g>`,
+  bubbles: c => { seed = 3; let s = ''; for (let i = 0; i < 26; i++) { const x = 170 + rnd() * 150, y = rnd() * 200, r = 2 + rnd() * 10; s += `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${c}" stroke-width="1.2"/>`; } return s; },
+  fir: c => `<g fill="none" stroke="${c}" stroke-width="1.4" stroke-linecap="round"><path d="M330 -10 210 210"/>${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const x = 324 - i * 14, y = 2 + i * 26; return `<path d="M${x} ${y}c-20 4-40 2-62-8M${x - 4} ${y + 8}c14 10 30 16 52 16"/>`; }).join('')}</g>`,
+  stars: c => { seed = 11; let s = ''; for (let i = 0; i < 22; i++) { const x = rnd() * 320, y = rnd() * 200, r = 1.5 + rnd() * 5; s += `<path d="M${x} ${y - r}Q${x} ${y} ${x + r} ${y}Q${x} ${y} ${x} ${y + r}Q${x} ${y} ${x - r} ${y}Q${x} ${y} ${x} ${y - r}Z" fill="${c}" opacity="${.4 + rnd() * .6}"/>`; } return s + `<circle cx="262" cy="58" r="26" fill="none" stroke="${c}" stroke-width="1" opacity=".6"/>`; },
+  ball: () => `<path d="M262 0V34" stroke="#b08442" stroke-width="1.5"/><rect x="254" y="32" width="16" height="10" rx="2" fill="#b08442"/><circle cx="262" cy="86" r="46" fill="#8b2e3c"/><circle cx="262" cy="86" r="46" fill="url(#bh)"/><path d="M218 80q44 18 88 0M220 98q42 16 84 0" stroke="#e6c98e" stroke-width="2" fill="none"/><defs><radialGradient id="bh" cx=".35" cy=".3" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>`,
+  confetti: () => { seed = 5; const C = ['#c9a668', '#8b2e3c', '#3e6a52', '#d98f7e', '#1c2340']; let s = ''; for (let i = 0; i < 46; i++) { const x = 120 + rnd() * 200, y = rnd() * 200, w = 3 + rnd() * 6; s += `<rect x="${x}" y="${y}" width="${w}" height="${w * .45}" rx="1" fill="${C[i % 5]}" transform="rotate(${rnd() * 180} ${x} ${y})"/>`; } return s; },
+  balloons: c => `<g fill="none" stroke="${c}" stroke-width="1.4"><ellipse cx="250" cy="58" rx="26" ry="32"/><ellipse cx="292" cy="84" rx="20" ry="25"/><ellipse cx="214" cy="96" rx="17" ry="21"/><path d="M250 90q-6 40 4 110M292 109q8 40-6 91M214 117q10 30 0 83"/></g>`,
+  heart: c => `<path d="M262 170C210 130 196 104 196 82c0-22 16-38 36-38 14 0 24 8 30 20 6-12 16-20 30-20 20 0 36 16 36 38 0 22-14 48-66 88Z" fill="none" stroke="${c}" stroke-width="1.6"/><path d="M262 150c-36-28-46-48-46-64" fill="none" stroke="${c}" stroke-width="1"/>`,
+  leaves: c => `<g fill="none" stroke="${c}" stroke-width="1.4"><path d="M240 210C200 150 210 70 270 20c30 50 30 130-30 190Z"/><path d="M240 210 270 20M252 160l-26-14M260 120l-30-20M266 80l-22-22M256 176l26-24M262 136l28-30"/><path d="M300 200c20-40 40-50 40-50-4 30-20 50-40 50Z"/><path d="M150 230c-10-40 10-80 50-100-6 40-20 80-50 100Z"/></g>`,
+  marble: c => `<g fill="none" stroke="${c}"><path d="M-10 40C60 60 90 20 160 50s110 40 180 10" stroke-width="1.2"/><path d="M40 210c30-60 90-60 120-110s70-60 170-70" stroke-width=".8"/><path d="M120 -10c10 40 60 60 70 110" stroke-width=".6"/></g>`,
+  key: c => `<g fill="none" stroke="${c}" stroke-width="2"><circle cx="262" cy="64" r="34"/><circle cx="262" cy="64" r="20"/><path d="M262 98v110M262 168h26M262 186h18"/></g>`,
+  ring: c => `<circle cx="258" cy="100" r="74" fill="none" stroke="${c}" stroke-width="6" opacity=".9"/><circle cx="258" cy="100" r="66" fill="none" stroke="${c}" stroke-width="1" opacity=".5"/><path d="M215 70q20-30 60-30" stroke="#fff" stroke-opacity=".25" stroke-width="6" fill="none" stroke-linecap="round"/>`,
+  arch: c => `<g fill="none" stroke="${c}" stroke-width="1.4"><path d="M210 210V90a52 52 0 0 1 104 0v120"/><path d="M222 210V92a40 40 0 0 1 80 0v118"/><path d="M150 210v-70a26 26 0 0 1 52 0v70"/></g>`
+};
+const svgOrn = d => d.orn ? `<svg class="orn" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${ORN[d.orn](d.oc || '#fff')}</svg>` : '';
 
-function seg(id, key, cb) {
-  $$('#' + id + ' button').forEach(b => b.onclick = () => { $$('#' + id + ' button').forEach(x => x.classList.toggle('on', x === b)); st[key] = b.dataset.v; cb && cb(b.dataset.v); render(); });
+/* ---------- каталог открыток ---------- */
+const CATS = [['ny', 'Новый год'], ['bd', 'День рождения'], ['lv', 'Любимой'], ['th', 'Спасибо'], ['an', 'В любой день'], ['all', 'Все']];
+const D = [
+  { id: 'ny1', c: 'ny', n: 'Бордо-бархат', bg: 'radial-gradient(120% 140% at 15% 0%,#a23a4c,#5b1622 55%,#2e0910)', orn: 'snow', oc: 'rgba(240,210,160,.6)', o: 'С Новым годом' },
+  { id: 'ny2', c: 'ny', n: 'Шампань', bg: 'radial-gradient(120% 140% at 20% 0%,#fbf1df,#e8d0a4 55%,#c79d5d)', dark: 1, orn: 'bubbles', oc: 'rgba(150,105,40,.5)', o: 'С Новым годом' },
+  { id: 'ny3', c: 'ny', n: 'Изумрудная ель', bg: 'radial-gradient(120% 140% at 20% 0%,#3e6a52,#1e3a2c 60%,#0f1f17)', orn: 'fir', oc: 'rgba(201,166,104,.6)', o: 'Чудес в Новом году' },
+  { id: 'ny4', c: 'ny', n: 'Полночь', bg: 'linear-gradient(160deg,#1c2340,#0d1226 60%,#080a16)', orn: 'stars', oc: '#e7c98b', o: 'Ровно в полночь' },
+  { id: 'ny5', c: 'ny', n: 'Ёлочный шар', bg: 'linear-gradient(160deg,#f6efe3,#eadcc4)', dark: 1, orn: 'ball', o: 'С Новым годом' },
+  { id: 'ny6', c: 'ny', n: 'Праздник в Доме', ph: 'img/dark.jpg', bg: 'linear-gradient(180deg,rgba(20,8,6,.05),rgba(20,8,6,.78))', o: 'С Новым годом' },
+  { id: 'bd1', c: 'bd', n: 'Конфетти', bg: '#f7efe2', dark: 1, orn: 'confetti', o: 'С днём рождения' },
+  { id: 'bd2', c: 'bd', n: 'Шары', bg: 'radial-gradient(120% 140% at 20% 0%,#f0c4bf,#d98f89 60%,#b5615f)', orn: 'balloons', oc: 'rgba(255,240,220,.85)', o: 'С днём рождения' },
+  { id: 'bd3', c: 'bd', n: 'Шампанское', ph: 'img/gallery.jpg', bg: 'linear-gradient(180deg,rgba(20,8,6,.0),rgba(20,8,6,.72))', o: 'Праздновать красиво' },
+  { id: 'lv1', c: 'lv', n: 'Сердце', bg: 'radial-gradient(120% 140% at 20% 0%,#c0475a,#7d1d31 60%,#4a0c1a)', orn: 'heart', oc: 'rgba(255,220,200,.6)', o: 'Для тебя' },
+  { id: 'lv2', c: 'lv', n: 'Пудра', bg: 'radial-gradient(120% 140% at 20% 0%,#fbeee9,#f1d2c8 60%,#ddb0a2)', dark: 1, orn: 'heart', oc: 'rgba(160,70,70,.4)', o: 'Самой любимой' },
+  { id: 'th1', c: 'th', n: 'Листья Дома', bg: 'radial-gradient(120% 140% at 20% 0%,#2d4a3b,#20362b 60%,#13221a)', orn: 'leaves', oc: 'rgba(140,190,150,.5)', o: 'Спасибо' },
+  { id: 'th2', c: 'th', n: 'Мрамор', bg: 'linear-gradient(135deg,#f7f4f0,#e4ded6)', dark: 1, orn: 'marble', oc: 'rgba(90,80,70,.4)', o: 'С благодарностью' },
+  { id: 'an1', c: 'an', n: 'Ключ от Дома', bg: 'radial-gradient(120% 140% at 20% 0%,#5a2c1d,#2a120b 65%,#170905)', orn: 'key', oc: 'rgba(201,166,104,.65)', o: 'Ключ от Дома' },
+  { id: 'an2', c: 'an', n: 'Зеркало', bg: 'linear-gradient(160deg,#241410,#120806)', orn: 'ring', oc: '#c9a668', o: 'Время для себя' },
+  { id: 'an3', c: 'an', n: 'Арки', bg: 'linear-gradient(160deg,#efe4d2,#e1d0b6)', dark: 1, orn: 'arch', oc: 'rgba(120,80,40,.45)', o: 'Добро пожаловать' }
+];
+const WISH = {
+  ny: ['Пусть новый год начнётся с заботы о себе', 'Чудес, красоты и отдыха!', 'Самой красивой — в новом году'],
+  bd: ['С днём рождения! Время для себя — лучший подарок', 'Пусть этот год будет красивым', 'Отдыхай и сияй!'],
+  lv: ['Ты заслуживаешь лучшего', 'Для самой любимой', 'Просто потому что люблю'],
+  th: ['Спасибо за всё!', 'С благодарностью за твою заботу', 'Спасибо, что ты рядом'],
+  an: ['Время для себя', 'Просто так — ты этого достойна', 'Отдохни и порадуй себя']
+};
+const st = { d: 'ny1', cat: 'ny', mode: 'sum', sum: 5000, svc: new Map(), ch: 'tg', when: 'now', qty: 1, side: 'f' };
+const AMTS = [3000, 5000, 7000, 10000, 15000, 20000];
+const design = () => D.find(x => x.id === st.d);
+const card = (d, val, svc, to) => `<div class="gcard${d.dark ? ' dark' : ''}" style="background:${d.ph ? `${d.bg},url(${d.ph}) center/cover` : d.bg}">${svgOrn(d)}<div class="shine"></div><div class="in"><div class="top"><img src="img/logo.png" alt=""><span>Подарочный<br>сертификат</span></div><div class="occ">${d.o}</div><div class="bot"><div class="val${svc ? ' svc' : ''}">${val}</div><div class="to">${to || ''}</div></div></div></div>`;
+
+/* веер на первом экране */
+$('#fan').innerHTML = [['ny6', '5 000 ₽', 'Анна'], ['ny1', '10 000 ₽', 'Маме'], ['an1', '3 000 ₽', 'Катя']].map(([id, v, t]) => card(D.find(x => x.id === id), v, 0, t)).join('');
+
+/* 1. открытки */
+$('#cats').innerHTML = CATS.map(([k, t]) => `<button data-v="${k}"${k === st.cat ? ' class="on"' : ''}>${t}<b>${k === 'all' ? D.length : D.filter(d => d.c === k).length}</b></button>`).join('');
+function drawDesigns() {
+  const list = st.cat === 'all' ? D : D.filter(d => d.c === st.cat);
+  $('#designs').innerHTML = list.map(d => `<button data-v="${d.id}"${d.id === st.d ? ' class="on"' : ''}>${card(d, '', 0, '')}<span>${d.n}</span></button>`).join('');
+  $$('#designs button').forEach(b => b.onclick = () => { st.d = b.dataset.v; $$('#designs button').forEach(x => x.classList.toggle('on', x === b)); drawSugg(); render(); });
 }
-seg('type', 'type', v => { $('#sumBox').style.display = v === 'sum' ? '' : 'none'; $('#svcBox').style.display = v === 'svc' ? '' : 'none'; });
-seg('sums', 'sum', v => { st.own = v === 'own'; $('#ownBox').style.display = st.own ? '' : 'none'; if (st.own) $('#own').focus(); });
-seg('des', 'd'); seg('dlv', 'dlv');
-['own', 'to', 'from', 'wish', 'svc'].forEach(id => $('#' + id).addEventListener('input', render));
+$$('#cats button').forEach(b => b.onclick = () => { st.cat = b.dataset.v; $$('#cats button').forEach(x => x.classList.toggle('on', x === b)); drawDesigns(); });
+drawDesigns();
 
+/* 2. сумма или услуги */
+$('#amts').innerHTML = AMTS.map(v => `<button data-v="${v}">${rub(v)}</button>`).join('');
+const setSum = v => { st.sum = Math.max(0, Math.round(+v || 0)); $('#rng').value = Math.min(50000, Math.max(1000, st.sum)); if (document.activeElement !== $('#amt')) $('#amt').value = st.sum || ''; $$('#amts button').forEach(b => b.classList.toggle('on', +b.dataset.v === st.sum)); render(); };
+$$('#amts button').forEach(b => b.onclick = () => setSum(b.dataset.v));
+$('#rng').oninput = e => setSum(e.target.value);
+$('#amt').oninput = e => setSum(e.target.value);
+$$('#mode button').forEach(b => b.onclick = () => { st.mode = b.dataset.v; $$('#mode button').forEach(x => x.classList.toggle('on', x === b)); $('#sumBox').hidden = st.mode !== 'sum'; $('#svcBox').hidden = st.mode !== 'svc'; render(); });
+const ALL = PRICES.flatMap(c => c.g.flatMap(g => g.s.filter(s => minOf(s[1]) > 0).map(s => ({ c: c.c, n: s[0], p: minOf(s[1]), from: Array.isArray(s[1]) }))));
+function drawSvc() {
+  const q = $('#svq').value.toLowerCase().replace(/ё/g, 'е').trim();
+  const f = ALL.filter(x => !q || (x.n + ' ' + x.c).toLowerCase().replace(/ё/g, 'е').includes(q));
+  const cats = [...new Set(f.map(x => x.c))];
+  $('#svlist').innerHTML = cats.map(c => `<h6>${c}</h6>` + f.filter(x => x.c === c).map(x => { const k = x.c + '|' + x.n; return `<label><input type="checkbox" data-k="${k}"${st.svc.has(k) ? ' checked' : ''}><span>${x.n}</span><b>${x.from ? 'от ' : ''}${rub(x.p)}</b></label>`; }).join('')).join('') || '<p class="hintline" style="padding:14px">Ничего не нашли</p>';
+  $$('#svlist input').forEach(i => i.onchange = () => { const x = ALL.find(a => a.c + '|' + a.n === i.dataset.k); i.checked ? st.svc.set(i.dataset.k, x) : st.svc.delete(i.dataset.k); drawPicked(); render(); });
+}
+function drawPicked() {
+  $('#picked').innerHTML = [...st.svc.entries()].map(([k, x]) => `<span>${x.n} · ${rub(x.p)}<button data-k="${k}" aria-label="Убрать">×</button></span>`).join('');
+  $$('#picked button').forEach(b => b.onclick = () => { st.svc.delete(b.dataset.k); drawPicked(); drawSvc(); render(); });
+}
+$('#svq').oninput = drawSvc; drawSvc();
+
+/* 3. подпись */
+function drawSugg() { $('#sugg').innerHTML = (WISH[design().c] || WISH.an).map(w => `<button type="button">${w}</button>`).join(''); $$('#sugg button').forEach(b => b.onclick = () => { $('#wish').value = b.textContent; render(); }); }
+drawSugg();
+['to', 'from', 'wish', 'contact', 'dDate', 'dTime'].forEach(id => $('#' + id).addEventListener('input', render));
+
+/* 4. доставка */
+const SMS = '<svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 6.5a1.5 1.5 0 1 0 0 .01Zm5 0a1.5 1.5 0 1 0 0 .01Zm5 0a1.5 1.5 0 1 0 0 .01Z"/></svg>';
+const MAIL = '<svg viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2.3V17h16V7.3l-8 5.4-8-5.4ZM5.6 7 12 11.3 18.4 7H5.6Z"/></svg>';
+const GIFT = '<svg viewBox="0 0 24 24"><path d="M20 7h-2.2A3 3 0 0 0 12 4.4 3 3 0 0 0 6.2 7H4a1 1 0 0 0-1 1v3h18V8a1 1 0 0 0-1-1ZM9 7a1 1 0 1 1 2-.1V7H9Zm4 0v-.1A1 1 0 1 1 15 7h-2ZM4 13v6a1 1 0 0 0 1 1h6v-7H4Zm9 7h6a1 1 0 0 0 1-1v-6h-7v7Z"/></svg>';
+const CH = {
+  tg: ['Telegram', 'получателю', IC.tg, '@username или телефон', ''],
+  wa: ['WhatsApp', 'получателю', IC.wa, '+7 900 000-00-00', ''],
+  sms: ['SMS', 'получателю', SMS, '+7 900 000-00-00', ''],
+  mail: ['E-mail', 'получателю', MAIL, 'name@mail.ru', ''],
+  self: ['Себе', 'подарю сам', GIFT, '', 'PDF с сертификатом придёт вам — распечатайте или перешлите сами.'],
+  box: ['Конверт', 'в салоне', GIFT, '', 'Заберите сертификат в фирменном конверте на ресепшен: Осинская, 8, ежедневно 10:00–20:00.']
+};
+$('#chans').innerHTML = Object.entries(CH).map(([k, c]) => `<button data-v="${k}"${k === st.ch ? ' class="on"' : ''}>${c[2]}<span>${c[0]}<small>${c[1]}</small></span></button>`).join('');
+$$('#chans button').forEach(b => b.onclick = () => { st.ch = b.dataset.v; $$('#chans button').forEach(x => x.classList.toggle('on', x === b)); chanUI(); render(); });
+function chanUI() {
+  const c = CH[st.ch], need = !!c[3];
+  $('#contact').parentNode.style.display = need ? '' : 'none'; $('#contact').placeholder = 'Куда отправить: ' + c[3];
+  $('#chNote').textContent = c[4]; $('#chNote').style.display = c[4] ? '' : 'none';
+  $('#when').style.display = $('#dt').style.display = st.ch === 'box' || st.ch === 'self' ? 'none' : '';
+}
+const WHEN = [['now', 'Сразу после оплаты'], ['ny', 'В новогоднюю ночь · 1 января, 00:00'], ['date', 'Выбрать дату и время']];
+$('#when').innerHTML = WHEN.map(([k, t]) => `<button data-v="${k}"${k === st.when ? ' class="on"' : ''}>${t}</button>`).join('');
+$$('#when button').forEach(b => b.onclick = () => { st.when = b.dataset.v; $$('#when button').forEach(x => x.classList.toggle('on', x === b)); $('#dt').classList.toggle('on', st.when === 'date'); render(); });
+const today = new Date(); $('#dDate').min = today.toISOString().slice(0, 10); $('#dDate').value = new Date(today.getTime() + 864e5).toISOString().slice(0, 10);
+chanUI();
+
+/* 5. количество */
+$('#qm').onclick = () => { st.qty = Math.max(1, st.qty - 1); render(); };
+$('#qp').onclick = () => { st.qty = Math.min(20, st.qty + 1); render(); };
+
+/* ---------- превью ---------- */
+const num = 'DJ-27-' + String(Math.floor(1000 + Math.random() * 9000));
+const qr = () => { seed = +num.slice(-4); return Array.from({ length: 81 }, (_, i) => { const r = Math.floor(i / 9), c = i % 9, eye = (r < 3 && c < 3) || (r < 3 && c > 5) || (r > 5 && c < 3); const on = eye ? !(r % 8 === 1 && c % 8 === 1) && !((r === 1 || r === 7) && (c === 1 || c === 7)) : rnd() > .5; return `<i${on ? '' : ' class="o"'}></i>`; }).join(''); };
+const QR = qr();
 function value() {
-  if (st.type === 'svc') { const o = $('#svc').selectedOptions[0]; return { n: +o.value, label: 'Услуга', text: o.textContent.split(' — ')[0] }; }
-  const n = st.own ? Math.max(0, +$('#own').value || 0) : +st.sum;
-  return { n, label: 'Номинал', text: n ? rub(n) : '— ₽' };
+  if (st.mode === 'svc') { const a = [...st.svc.values()]; return { n: a.reduce((s, x) => s + x.p, 0), text: a.length ? (a.length === 1 ? a[0].n : a.length + ' услуги: ' + a.slice(0, 2).map(x => x.n.split(' (')[0]).join(', ') + (a.length > 2 ? '…' : '')) : 'Выберите услуги', svc: 1, list: a }; }
+  return { n: st.sum, text: st.sum ? rub(st.sum) : '— ₽', svc: 0 };
+}
+function whenText() {
+  if (st.ch === 'self') return 'сразу после оплаты, вам';
+  if (st.ch === 'box') return 'на ресепшен, сразу после оплаты';
+  if (st.when === 'ny') return '1 января в 00:00';
+  if (st.when === 'date') { const d = $('#dDate').value; return d ? new Date(d + 'T00:00').toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' }) + ' в ' + $('#dTime').value : 'выберите дату'; }
+  return 'сразу после оплаты';
 }
 function render() {
-  const v = value(), c = $('#card');
-  c.className = 'gc ' + st.d;
-  $('#vlab').textContent = v.label;
-  $('#val').textContent = v.text;
-  $('#val').style.fontSize = st.type === 'svc' ? 'clamp(24px,3vw,36px)' : '';
-  const to = $('#to').value.trim(), from = $('#from').value.trim(), w = $('#wish').value.trim();
-  $('#cto').textContent = to ? 'Для: ' + to : 'Для: —';
-  $('#cfrom').textContent = from;
-  $('#cwish').textContent = w ? '«' + w + '»' : '';
-  $('#tot').textContent = v.n ? rub(v.n) : '—';
+  const d = design(), v = value(), to = $('#to').value.trim(), from = $('#from').value.trim(), w = $('#wish').value.trim();
+  $('#dName').textContent = d.n;
+  $('#wc').textContent = w.length;
+  $('#front').innerHTML = card(d, v.text, v.svc, to);
+  $('#back').innerHTML = `<div class="in"><div class="l"><h5>Ключ от Дома D'ajour</h5><div class="no">№ ${num}${st.qty > 1 ? ' … +' + (st.qty - 1) : ''}</div><div class="msgt">${w ? '«' + w.replace(/</g, '&lt;') + '»' : 'Здесь будет ваше пожелание'}${from ? '<br>— ' + from.replace(/</g, '&lt;') : ''}</div><div class="ft2">${v.svc && v.list.length ? v.list.map(x => x.n).join(' · ') + '<br>' : ''}Запишитесь онлайн или у администратора и назовите номер. Пермь, Осинская, 8 · 10:00–20:00</div></div><div class="r"><div class="qr">${QR}</div><small>Покажите на ресепшен</small></div></div>`;
+  const c = CH[st.ch];
+  $('#recv').innerHTML = `<div class="hd2"><i>${c[2]}</i><span>${st.ch === 'box' ? 'Конверт на ресепшен' : st.ch === 'self' ? 'Придёт вам' : c[0]}<small>${$('#contact').value || (c[3] ? c[3] : 'Дом D\'ajour')}</small></span></div>
+    <div class="bub">${card(d, v.text, v.svc, to)}<p>${to ? to.replace(/</g, '&lt;') + ', в' : 'В'}ам подарок — ключ от Дома D'ajour${v.n ? ' на ' + rub(v.n) : ''}! ${w ? '«' + w.replace(/</g, '&lt;') + '»' : ''}${from ? '<br><b>Отправитель:</b> ' + from.replace(/</g, '&lt;') : ''}</p><span class="open">Открыть сертификат</span></div>
+    <div class="tm">Доставка: ${whenText()}</div>`;
+  $('#sumdl').innerHTML = [['Открытка', d.n], [v.svc ? 'Услуги' : 'Номинал', v.svc ? (v.list.length ? v.list.length + ' шт. · ' + rub(v.n) : '—') : (v.n ? rub(v.n) : '—')], ['Кому', to || '—'], ['Доставка', (st.ch === 'self' || st.ch === 'box' ? CH[st.ch][0] + ' · ' + CH[st.ch][1] : c[0]) + ', ' + whenText()], ['Количество', st.qty + ' шт.']].map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join('');
+  $('#qn').textContent = st.qty;
+  $('#tot').textContent = v.n ? rub(v.n * st.qty) : '—';
 }
-render();
+setSum(5000);
 
-// объёмная карточка за курсором / наклоном
-const card = $('#card'), wrap = $('.card3d');
-wrap.addEventListener('pointermove', e => {
-  const r = wrap.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-  card.style.transform = `rotateY(${(x - .5) * 16}deg) rotateX(${(.5 - y) * 12}deg)`;
-  card.style.setProperty('--mx', x * 100 + '%'); card.style.setProperty('--my', y * 100 + '%');
-});
-wrap.addEventListener('pointerleave', () => card.style.transform = '');
+/* переворот и вкладки превью */
+const flip = $('#flip');
+const side = s => { st.side = s; $$('#pvt button').forEach(b => b.classList.toggle('on', b.dataset.v === s)); flip.style.display = s === 'r' ? 'none' : ''; $('#recv').classList.toggle('on', s === 'r'); flip.classList.toggle('back', s === 'b'); $('#fnote').style.visibility = s === 'r' ? 'hidden' : ''; };
+$$('#pvt button').forEach(b => b.onclick = () => side(b.dataset.v));
+flip.onclick = () => side(st.side === 'b' ? 'f' : 'b');
+flip.addEventListener('pointermove', e => { const r = flip.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; const g = $('#front .gcard'); if (g) { g.style.setProperty('--mx', x * 100 + '%'); g.style.setProperty('--my', y * 100 + '%'); } });
 
+/* оформление (демо) */
 $('#go').onclick = () => {
-  const v = value(); if (!v.n) return $('#own').focus();
-  $('#mcode').textContent = num; $('#mval').textContent = st.type === 'svc' ? v.text + ' (' + rub(v.n) + ')' : rub(v.n);
+  const v = value();
+  if (!v.n) { if (st.mode === 'svc') { $('#svq').focus(); } else $('#amt').focus(); return; }
+  const nums = Array.from({ length: st.qty }, (_, i) => num.slice(0, -4) + String(+num.slice(-4) + i).padStart(4, '0'));
+  $('#mbody').innerHTML = `<p>${st.qty > 1 ? 'Сертификаты' : 'Сертификат'} <b>«${design().n}»</b> · ${v.svc ? v.list.map(x => x.n).join(', ') : rub(v.n)}${st.qty > 1 ? ' × ' + st.qty : ''}</p><p style="margin-top:8px">${nums.map(n => `<span class="code">${n}</span>`).join(' ')}</p><ol><li>Оплата онлайн — картой или по СБП: <b>${rub(v.n * st.qty)}</b>.</li><li>Доставка: ${st.ch === 'self' || st.ch === 'box' ? CH[st.ch][0] + ' (' + CH[st.ch][1] + ')' : CH[st.ch][0]}, ${whenText()}.</li><li>Номер сразу попадает в базу салона — администратор видит остаток.</li></ol>`;
   $('#modal').classList.add('open');
 };
 $('#mok').onclick = $('#modal').onclick = e => { if (e.target === e.currentTarget || e.target.id === 'mok') $('#modal').classList.remove('open'); };
+
+snow($('.nyhero .snow'), 80);
 requestAnimationFrame(() => $('.nyhero h1').classList.add('in'));
 watch();
 </script>

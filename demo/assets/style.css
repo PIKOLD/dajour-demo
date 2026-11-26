@@ -402,9 +402,9 @@ body::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;op
 .total b{font:400 36px/1 var(--disp)}
 .total small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 .faq details{border-bottom:1px solid var(--line);padding:24px 0}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font:400 clamp(22px,2.4vw,32px)/1.2 var(--disp)}
+.faq summary{list-style:none;cursor:pointer;display:block;position:relative;padding-right:40px;font:400 clamp(22px,2.4vw,32px)/1.2 var(--disp)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--sans);font-weight:300;font-size:28px;line-height:1;transition:transform .3s;color:var(--brass)}
+.faq summary::after{content:"+";position:absolute;right:0;top:2px;font-family:var(--sans);font-weight:300;font-size:28px;line-height:1;transition:transform .3s;color:var(--brass)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq p{margin-top:12px;color:var(--mut);max-width:720px}
 .modal{position:fixed;inset:0;z-index:90;background:rgba(27,14,10,.6);backdrop-filter:blur(6px);display:grid;place-items:center;padding:16px;opacity:0;pointer-events:none;transition:.3s}
@@ -507,3 +507,35 @@ body::after{content:"";position:fixed;inset:0;z-index:200;pointer-events:none;op
   .phone .scr{height:500px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.ln>span{transform:none}}
+
+/* ============ ПОДБОР ВИЗИТА ============ */
+.quiz{background:var(--wall)}
+.qz{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(30px,5vw,90px);align-items:start}
+.qprog{display:flex;gap:8px;margin-top:34px}
+.qprog i{flex:1;height:3px;border-radius:3px;background:rgba(33,19,14,.12);position:relative;overflow:hidden}
+.qprog i.on::after{content:"";position:absolute;inset:0;background:var(--brass)}
+.qcard{position:relative;background:var(--paper);border-radius:28px;padding:clamp(24px,3.4vw,46px);box-shadow:0 30px 60px rgba(58,29,20,.1),inset 0 0 0 1px var(--line);min-height:420px}
+.qcard::before{content:"";position:absolute;left:50%;top:-14px;width:26px;height:26px;border-radius:50%;transform:translateX(-50%);background:var(--goldg);box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.qcard .qn{font:700 11px var(--sans);letter-spacing:.24em;color:var(--brass);text-transform:uppercase}
+.qcard h3{font:400 clamp(30px,3.2vw,48px)/1.05 var(--disp);margin:12px 0 26px}
+.qopts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.qopts button{position:relative;text-align:left;padding:18px 18px 16px;border-radius:18px;border:1px solid var(--line);background:#fff;transition:.3s var(--ease);overflow:hidden}
+.qopts button:hover{border-color:var(--brass);transform:translateY(-3px);box-shadow:0 14px 30px rgba(58,29,20,.1)}
+.qopts button b{display:block;font:400 22px/1.1 var(--disp)}
+.qopts button small{display:block;font-size:12.5px;color:var(--mut);margin-top:6px}
+.qopts button img{position:absolute;right:-10px;top:-10px;width:62px;height:62px;border-radius:50%;object-fit:cover;opacity:.9;box-shadow:0 0 0 3px #fff}
+.qopts button:has(img) b,.qopts button:has(img) small{padding-right:46px}
+.qback{margin-top:22px;font-size:13px;font-weight:700;color:var(--mut);display:inline-flex;gap:6px;align-items:center}
+.qback:hover{color:var(--ink)}
+.qres{display:grid;gap:12px}
+.qr1{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px;border-radius:20px;background:#fff;border:1px solid var(--line);animation:pop .5s var(--ease) both}
+.qr1:nth-child(2){animation-delay:.08s}.qr1:nth-child(3){animation-delay:.16s}
+.qr1 img{width:72px;height:72px;border-radius:999px 999px 10px 10px;object-fit:cover}
+.qr1 .k{font:700 10.5px var(--sans);letter-spacing:.18em;color:var(--brass);text-transform:uppercase}
+.qr1 b{display:block;font-size:15.5px;line-height:1.3;margin:3px 0}
+.qr1 small{color:var(--mut);font-size:12.5px}
+.qr1 .p{font:400 26px/1 var(--disp);white-space:nowrap;text-align:right}
+.qnote{font-size:13px;color:var(--mut);margin:-10px 0 18px}
+.qacts{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+@media (max-width:980px){.qz{grid-template-columns:1fr}}
+@media (max-width:640px){.qopts{grid-template-columns:1fr 1fr}.qopts button{padding:14px}.qopts button b{font-size:19px}.qopts button img{width:48px;height:48px}.qr1{grid-template-columns:56px minmax(0,1fr)}.qr1 img{width:56px;height:56px}.qr1 .p{grid-column:2;text-align:left;font-size:22px}}

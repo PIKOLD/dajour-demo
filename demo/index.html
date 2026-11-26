@@ -10,7 +10,7 @@
 <link rel="icon" href="img/logo-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=3">
 <link rel="preload" as="image" href="img/h1.jpg">
 </head>
 <body data-page="home" data-dark="1">
@@ -93,6 +93,19 @@
   </div>
 </section>
 
+<!-- 3½. Подбор визита за 3 вопроса -->
+<section class="sec quiz" id="quiz">
+  <div class="wrap qz">
+    <div>
+      <span class="kick rv">Подбор визита</span>
+      <h2 class="h2"><span class="ln"><span>Не знаете,</span></span><span class="ln"><span>с чего <em>начать?</em></span></span></h2>
+      <p class="lead rv">Три вопроса — и консьерж предложит процедуры, которые подходят по времени и бюджету. Цены и длительность — из онлайн-записи салона.</p>
+      <div class="qprog" id="qprog"><i class="on"></i><i></i><i></i></div>
+    </div>
+    <div class="qcard rv d1" id="qcard"></div>
+  </div>
+</section>
+
 <!-- 4. Ключ от Дома: новогодний сертификат -->
 <section class="sec" style="overflow:hidden" id="key">
   <canvas class="snow" id="snowKey"></canvas>
@@ -161,8 +174,8 @@
   </div>
 </section>
 
-<script src="assets/prices.js"></script>
-<script src="assets/app.js"></script>
+<script src="assets/prices.js?v=3"></script>
+<script src="assets/app.js?v=3"></script>
 <script>
 const NOANIM = document.documentElement.classList.contains('noanim');
 const total = PRICES.reduce((a, c) => a + c.g.reduce((b, g) => b + g.s.length, 0), 0);
@@ -237,6 +250,37 @@ function play() {
   step();
 }
 
+
+/* подбор визита */
+const QZ = [
+  ['Что хочется обновить?', [['Волосы', 'стрижка, цвет, уход', 'Парикмахерские услуги', 'hair'], ['Руки и ноги', 'маникюр, педикюр', 'Ногтевой сервис', 'nails'], ['Лицо и кожа', 'чистки, пилинги, уход', 'Косметология', 'cosm'], ['Взгляд', 'брови и ресницы', 'Ресницы и брови', 'brows'], ['Тело и отдых', 'массаж', 'Массаж', 'massage'], ['Образ на событие', 'макияж и причёски', 'Макияж и причёски', 'makeup']]],
+  ['Сколько у вас времени?', [['До часа', 'забежать в обед', 60], ['1–2 часа', 'спокойный визит', 120], ['Сколько нужно', 'день для себя', 999]]],
+  ['Какой бюджет на визит?', [['До 2 000 ₽', 'быстро и приятно', 2000], ['До 5 000 ₽', 'полноценный уход', 5000], ['Не важно', 'лучшее, что есть', 1e9]]]
+];
+const qa = [];
+function qDraw() {
+  const i = qa.length, card = $('#qcard');
+  $$('#qprog i').forEach((x, k) => x.classList.toggle('on', k <= Math.min(i, 2)));
+  if (i < 3) {
+    const [q, opts] = QZ[i];
+    card.innerHTML = `<div class="qn">Вопрос ${i + 1} из 3</div><h3>${q}</h3><div class="qopts">${opts.map((o, k) => `<button data-k="${k}">${i === 0 ? `<img src="img/${o[3]}.jpg" alt="">` : ''}<b>${o[0]}</b><small>${o[1]}</small></button>`).join('')}</div>${i ? '<button class="qback" id="qb">← Назад</button>' : ''}`;
+    $$('.qopts button', card).forEach(b => b.onclick = () => { qa.push(QZ[i][1][+b.dataset.k]); qDraw(); });
+    if (i) $('#qb').onclick = () => { qa.pop(); qDraw(); };
+    return;
+  }
+  const [area, time, budget] = qa, cat = PRICES.find(c => c.c === area[2]);
+  const all = cat.g.flatMap(g => g.s.map(s => ({ n: s[0], p: minOf(s[1]), raw: s[1], m: s[2], g: g.n }))).filter(x => x.p > 0);
+  let note = '', r = all.filter(x => x.m <= time[2] && x.p <= budget[2]);
+  if (!r.length) { r = all.filter(x => x.p <= budget[2]); note = 'По времени точного совпадения нет — вот ближайшие варианты.'; }
+  if (!r.length) { r = all.filter(x => x.m <= time[2]); note = 'В этот бюджет не нашли — вот что подходит по времени.'; }
+  if (!r.length) { r = all; note = 'Покажем самое популярное направление.'; }
+  r = r.sort((a, b) => b.p - a.p).slice(0, 3);
+  const svc = SALON.services.find(s => s.c === area[2]);
+  card.innerHTML = `<div class="qn">Консьерж советует</div><h3>${area[0]} · ${time[0].toLowerCase()} · ${budget[0].toLowerCase()}</h3>${note ? `<p class="qnote">${note}</p>` : ''}<div class="qres">${r.map(x => `<div class="qr1"><img src="img/${area[3]}.jpg" alt=""><div><span class="k">${svc ? svc.k : area[0]}${x.g ? ' · ' + x.g : ''}</span><b>${x.n}</b><small>${x.m ? dur(x.m) : ''}</small></div><div class="p">${price(x.raw)}</div></div>`).join('')}</div>
+    <div class="qacts"><a class="btn" href="${SALON.book}" target="_blank" rel="noopener">Записаться ${IC.arrow}</a><a class="btn ghost" href="uslugi.html#${svc ? svc.id : ''}">Весь прайс комнаты</a><button class="qback" id="qr">↺ Подобрать заново</button></div>`;
+  $('#qr').onclick = () => { qa.length = 0; qDraw(); };
+}
+qDraw();
 $('#msg').innerHTML = msgRows();
 $$('[data-chat]').forEach(b => { if (!b.onclick) b.onclick = e => { e.preventDefault(); BOT.open(); if (b.dataset.chat) setTimeout(() => BOT.handle(b.dataset.chat), 900); }; });
 watch();
