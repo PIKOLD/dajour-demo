@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Unbounded:wght@600;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#160a07;--card:#2a150e;--card2:#331a11;--cream:#f6f0e6;--ink:#1b0e0a;--mut:rgba(246,240,230,.58);--line:rgba(246,240,230,.12);--gold:#d9b77a;--goldg:linear-gradient(120deg,#a8813f,#f3dfb0 42%,#c9a165 62%,#f6e5bd);--disp:Forum,serif;--it:'Cormorant Garamond',serif;--sans:Manrope,system-ui,sans-serif;--e:cubic-bezier(.2,.8,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -162,15 +162,85 @@ h2 em{font:600 italic 34px var(--it)}
 .cta button:disabled{opacity:.35;animation:none}
 body.web .cta{display:block}
 .demo{font-size:11px;color:var(--mut);text-align:center;margin-top:22px}
+
+/* ===== переключатель стилей ===== */
+.themes{display:flex;align-items:center;gap:6px;margin-top:14px;overflow-x:auto;scrollbar-width:none}
+.themes span{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-right:2px}
+.themes button{flex:none;display:flex;align-items:center;gap:7px;padding:7px 12px 7px 8px;border-radius:99px;border:1px solid var(--line);font-size:12.5px;font-weight:700}
+.themes button i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.themes button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.tbtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.tbtn svg{width:18px}
+/* текст поверх фото — всегда светлый */
+.hero .tx,.cathd div,.arch .ph b{color:#f6f0e6}
+.cathd .gold{-webkit-text-fill-color:currentColor;color:#f3dfb0}
+
+/* ===== ЖУРНАЛ: бумага, чёрный, красный, прямые углы ===== */
+body.t-journal{--bg:#f3efe8;--card:#fff;--card2:#fff;--cream:#121110;--ink:#f3efe8;--mut:#6d665d;--line:rgba(18,17,16,.18);--gold:#c41e2a;--goldg:linear-gradient(#c41e2a,#c41e2a);--disp:'Playfair Display',serif;--it:'Playfair Display',serif}
+body.t-journal::before{background:none}
+body.t-journal h2,body.t-journal .hero h1{font-weight:900;letter-spacing:-.02em}
+body.t-journal h2 em,body.t-journal .hero h1 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:400}
+body.t-journal :is(.hero,.arch .ph,.arch .ph img,.day,.svc,.tm,.srch,.chips button,.quick button,.cathd,.ticket,.fld input,.svcpill,.svcpill img,.pm,.cta button,.tgph,.themes button,.bk,.tbtn,.none,.svc .i,.svc .p,.key,.done .k,.live){border-radius:0!important}
+body.t-journal .hero{border:0;box-shadow:12px 12px 0 #c41e2a}
+body.t-journal .arch .ph{padding:0;border:1px solid #121110}
+body.t-journal .svc{background:#fff;border-color:#121110}
+body.t-journal .svc .i,body.t-journal .lbl,body.t-journal .stepname,body.t-journal .day small{font-family:'IBM Plex Mono',monospace}
+body.t-journal .ticket{box-shadow:10px 10px 0 #c41e2a}
+body.t-journal .day.on{box-shadow:none}
+body.t-journal .done{background:rgba(243,239,232,.96)}
+body.t-journal .done h3{color:#121110}
+
+/* ===== НОЧЬ: чёрный, шампань, тонкий Cormorant ===== */
+body.t-noch{--bg:#0c0b0a;--card:#161411;--card2:#1c1915;--cream:#eee8dd;--ink:#14110c;--mut:rgba(238,232,221,.55);--line:rgba(228,204,154,.18);--gold:#e4cc9a;--goldg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--disp:Cormorant,serif;--it:Cormorant,serif}
+body.t-noch::before{background:radial-gradient(70% 45% at 50% 0,rgba(228,204,154,.12),transparent 70%)}
+body.t-noch h2,body.t-noch .hero h1{font-weight:300}
+body.t-noch h2 em,body.t-noch .hero h1 em{font-family:Cormorant,serif;font-weight:300;font-style:italic}
+body.t-noch :is(.hero,.arch .ph,.arch .ph img,.cathd,.pm){border-radius:22px!important}
+body.t-noch .day{border-radius:16px}
+body.t-noch .hero{border-color:rgba(228,204,154,.35)}
+body.t-noch .svc{background:rgba(255,255,255,.03);backdrop-filter:blur(8px)}
+body.t-noch .done{background:rgba(12,11,10,.95)}
+
+/* ===== СВЕЖИЙ: пастель, жирный Unbounded, наклейки ===== */
+body.t-svezh{--bg:#fff7ef;--card:#fff;--card2:#fff;--cream:#1e1a24;--ink:#fff;--mut:#6f6878;--line:#1e1a24;--gold:#ff5f93;--goldg:linear-gradient(120deg,#ff8fb1,#c9b8ff);--disp:Unbounded,sans-serif;--it:Unbounded,sans-serif}
+body.t-svezh::before{background:radial-gradient(40% 30% at 100% 0,#dcf26a 0,transparent 70%),radial-gradient(40% 30% at 0 60%,#c9b8ff 0,transparent 70%);opacity:.5}
+body.t-svezh h2,body.t-svezh .hero h1{font-weight:800;letter-spacing:-.04em;font-size:28px}
+body.t-svezh h2 em,body.t-svezh .hero h1 em{font-family:Unbounded,sans-serif;font-style:normal;font-weight:800;font-size:inherit}
+body.t-svezh :is(.svc,.tm,.day,.quick button,.srch,.fld input,.chips button,.svcpill,.themes button,.bk,.tbtn,.ticket,.tgph,.none){border:2px solid #1e1a24}
+body.t-svezh :is(.svc,.ticket,.quick button,.svcpill){box-shadow:4px 4px 0 #1e1a24}
+body.t-svezh .hero{border-radius:36px;border:2px solid #1e1a24;box-shadow:6px 6px 0 #1e1a24}
+body.t-svezh .arch .ph{border-radius:32px;padding:3px;background:#1e1a24}
+body.t-svezh .arch .ph img{border-radius:29px}
+body.t-svezh .arch:nth-child(4n+1) .ph b{background:#dcf26a;color:#1e1a24}
+body.t-svezh .arch:nth-child(4n+2) .ph b{background:#c9b8ff;color:#1e1a24}
+body.t-svezh .arch:nth-child(4n+3) .ph b{background:#ffc9a6;color:#1e1a24}
+body.t-svezh .arch:nth-child(4n) .ph b{background:#ff8fb1;color:#1e1a24}
+body.t-svezh .cathd{border-radius:28px;border:2px solid #1e1a24}
+body.t-svezh .svc .p{border:0;background:#dcf26a;color:#1e1a24;font-family:Unbounded,sans-serif;font-size:13px;font-weight:800}
+body.t-svezh .svc .i{border:0;background:#c9b8ff;color:#1e1a24;font-family:Unbounded,sans-serif;font-weight:800}
+body.t-svezh .day{border-radius:18px}
+body.t-svezh .day.on{color:#1e1a24}
+body.t-svezh .tm.on{background:#1e1a24;color:#fff}
+body.t-svezh .ticket .tt{background:#ff8fb1;color:#1e1a24}
+body.t-svezh .ticket .tt span{color:#1e1a24}
+body.t-svezh .ticket{background:#fff;color:#1e1a24}
+body.t-svezh .ticket .cut::after{background:radial-gradient(circle at 0 50%,var(--bg) 10px,transparent 11px),radial-gradient(circle at 100% 50%,var(--bg) 10px,transparent 11px)}
+body.t-svezh .pm{background:#c9b8ff;border:2px solid #1e1a24;color:#1e1a24;border-radius:36px}
+body.t-svezh .pm p{color:#1e1a24}
+body.t-svezh .cta button{color:#1e1a24;border:2px solid #1e1a24;box-shadow:4px 4px 0 #1e1a24}
+body.t-svezh .done{background:rgba(255,247,239,.96)}
+body.t-svezh .done h3{color:#1e1a24}
+body.t-svezh .live{background:#fff;color:#1e1a24}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="bar"><button class="bk" id="bk" aria-label="Назад" hidden><svg viewBox="0 0 24 24"><path d="M10.7 5.3 4 12l6.7 6.7 1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4Z" fill="currentColor"/></svg></button>
-    <img class="lg" src="../img/logo.png" alt="Дом D'ajour"><div class="prog" id="prog"><i></i><i></i><i></i><i></i></div><span class="stepname" id="sn"></span></div>
+    <img class="lg" src="../img/logo.png" alt="Дом D'ajour"><div class="prog" id="prog"><i></i><i></i><i></i><i></i></div><span class="stepname" id="sn"></span><button class="tbtn" id="tbtn" aria-label="Сменить стиль"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.5-.2-.8-.4-1.1-.2-.3-.4-.6-.4-1 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5c0-4.2-4-7.7-9-7.7Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7.5" cy="11" r="1.3" fill="currentColor"/><circle cx="10" cy="7.3" r="1.3" fill="currentColor"/><circle cx="14.5" cy="7.3" r="1.3" fill="currentColor"/></svg></button></div>
 
   <section class="scr on" data-s="0">
     <div class="hero"><img src="../img/in5.jpg" alt=""><div class="tx"><h1 id="hi"></h1><div class="live" id="live"><i></i><span></span></div></div></div>
+    <div class="themes" id="themes"></div>
     <label class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2"/></svg><input id="q" placeholder="Найти: маникюр, окрашивание, массаж…" enterkeyhint="search"></label>
     <div id="qres" style="margin-top:12px"></div>
     <div id="home">
@@ -241,6 +311,27 @@ function slots(date) {
   return out;
 }
 
+const THEMES = {
+  dom: { n: 'Дом', sw: 'linear-gradient(135deg,#3b1d12,#d9b77a)', bg: '#160a07', btn: '#d9b77a', bt: '#1b0e0a', logo: 'logo.png' },
+  journal: { n: 'Журнал', sw: 'linear-gradient(135deg,#f3efe8 50%,#c41e2a 50%)', bg: '#f3efe8', btn: '#c41e2a', bt: '#ffffff', logo: 'logo-dark.png' },
+  noch: { n: 'Ночь', sw: 'linear-gradient(135deg,#0c0b0a 50%,#e4cc9a 50%)', bg: '#0c0b0a', btn: '#e4cc9a', bt: '#14110c', logo: 'logo.png' },
+  svezh: { n: 'Свежий', sw: 'linear-gradient(135deg,#ff8fb1,#c9b8ff 55%,#dcf26a)', bg: '#fff7ef', btn: '#ff8fb1', bt: '#1e1a24', logo: 'logo-dark.png' }
+};
+let TH = 'dom';
+try { TH = localStorage.getItem('dj_theme') || new URLSearchParams(location.search).get('theme') || 'dom'; } catch (e) {}
+if (!THEMES[TH]) TH = 'dom';
+function theme(k) {
+  TH = k; const T = THEMES[k];
+  document.body.classList.remove('t-dom', 't-journal', 't-noch', 't-svezh'); document.body.classList.add('t-' + k);
+  $$('.lg, .ticket .tt img').forEach(i => i.src = '../img/' + T.logo);
+  $$('#themes button').forEach(b => b.classList.toggle('on', b.dataset.t === k));
+  if (inTG) { try { tg.setHeaderColor(T.bg); tg.setBackgroundColor(T.bg); } catch (e) {} }
+  try { localStorage.setItem('dj_theme', k); } catch (e) {}
+  tap(); cta();
+}
+$('#themes').innerHTML = '<span>Стиль</span>' + Object.entries(THEMES).map(([k, T]) => `<button data-t="${k}"><i style="background:${T.sw}"></i>${T.n}</button>`).join('');
+$$('#themes button').forEach(b => b.onclick = () => theme(b.dataset.t));
+$('#tbtn').onclick = () => { const ks = Object.keys(THEMES); theme(ks[(ks.indexOf(TH) + 1) % ks.length]); };
 const S = { step: 0 };
 const WD = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'], MON = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
 const NAMES = ['', 'Услуга', 'Время', 'Запись'];
@@ -325,7 +416,7 @@ function openForm() {
   if (u && !$('#nm').value) $('#nm').value = u.first_name || '';
   $('#tgph').hidden = !(inTG && tg.requestContact);
   const d = new Date(S.date + 'T12:00:00');
-  $('#ticket').innerHTML = `<div class="tt"><img src="../img/logo.png" alt=""><span>КЛЮЧ К ЗАПИСИ</span></div>
+  $('#ticket').innerHTML = `<div class="tt"><img src="../img/${THEMES[TH].logo}" alt=""><span>КЛЮЧ К ЗАПИСИ</span></div>
     <div class="bd"><b>${S.svc.name}</b><div class="row"><div><small>Дата</small><strong>${WD[d.getDay()]}, ${d.getDate()} ${MON[d.getMonth()]}</strong></div><div><small>Время</small><strong>${S.time}</strong></div>${S.svc.minutes ? `<div><small>Длится</small><strong>${dur(S.svc.minutes)}</strong></div>` : ''}</div></div>
     <div class="cut"></div><div class="ft"><div><small>Осинская, 8 · Пермь</small><br><b>${price(S.svc.price)}</b></div><div class="key"><svg viewBox="0 0 24 24"><path d="M7.5 15.5a3.5 3.5 0 1 1 3.2-4.9H21v3h-2v2h-3v-2h-5.3a3.5 3.5 0 0 1-3.2 1.9Z" fill="currentColor"/></svg></div></div>`;
   go(3);
@@ -341,7 +432,7 @@ function cta() {
   else if (S.step === 3) { txt = `Записаться · ${price(S.svc.price)}`; on = $('#nm').value.trim().length > 1 && phoneOk(); act = submit; }
   else if (S.step === 9) { txt = 'Вернуться в чат к администратору'; on = true; act = () => send({ type: 'pm' }); }
   S.act = act;
-  if (inTG) { const mb = tg.MainButton; if (!act) return mb.hide(); mb.setParams({ text: txt, color: '#d9b77a', text_color: '#1b0e0a', is_active: on, is_visible: true }); }
+  if (inTG) { const mb = tg.MainButton; if (!act) return mb.hide(); mb.setParams({ text: txt, color: THEMES[TH].btn, text_color: THEMES[TH].bt, is_active: on, is_visible: true }); }
   else { $('#cta').textContent = txt || 'Выберите услугу'; $('#cta').disabled = !on; $('.cta').style.display = act ? '' : 'none'; }
 }
 if (inTG) tg.MainButton.onClick(() => S.act && S.act()); $('#cta').onclick = () => S.act && S.act();
@@ -353,7 +444,7 @@ function send(data) {
   if (inTG) tg.sendData(JSON.stringify(data));
   else { $('#done').classList.toggle('on', false); alert('Демо в браузере: в Telegram эти данные уйдут боту\n\n' + JSON.stringify(data, null, 1)); }
 }
-go(0);
+go(0); theme(TH);
 </script>
 </body>
 </html>
