@@ -93,11 +93,19 @@ button{cursor:pointer}
 .more{margin-top:16px;text-align:center}
 
 /* сторис */
-.stories{display:flex;gap:18px;overflow-x:auto;padding:6px 4px 14px;scrollbar-width:none}
-.stories button{flex:none;display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:700;font-size:13px}
-.stories .rg{width:clamp(92px,10vw,128px);aspect-ratio:1;border-radius:50%;padding:4px;background:conic-gradient(var(--pk),var(--li),var(--lm),var(--pc),var(--pk));transition:transform .35s var(--e)}
-.stories button:hover .rg{transform:scale(1.06) rotate(-4deg)}
-.stories .rg img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--bg)}
+.stories{display:flex;gap:16px;overflow-x:auto;padding:8px 4px 40px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--ink) transparent;cursor:grab}
+.stories.drag{cursor:grabbing;scroll-snap-type:none}
+.stories button{flex:0 0 clamp(210px,22vw,280px);position:relative;scroll-snap-align:start;border-radius:28px;padding:4px;background:conic-gradient(from 200deg,var(--pk),var(--li),var(--lm),var(--pc),var(--pk));transition:transform .4s var(--e);text-align:left}
+.stories button:nth-child(even){transform:translateY(26px)}
+.stories button:hover{transform:translateY(-6px) rotate(-1.5deg)}
+.stories .rg{display:block;position:relative;aspect-ratio:9/15;border-radius:24px;overflow:hidden;border:3px solid var(--bg);background:var(--pc)}
+.stories .rg img{width:100%;height:100%;object-fit:cover;transition:transform .9s;pointer-events:none}
+.stories button:hover .rg img{transform:scale(1.06)}
+.stories .rg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,36,.35),transparent 25%,transparent 60%,rgba(30,26,36,.7))}
+.stories .av{position:absolute;left:16px;top:16px;z-index:2;display:flex;align-items:center;gap:7px;color:#fff;font-weight:800;font-size:12.5px}
+.stories .av img{width:28px;height:28px;border-radius:50%;background:#fff;object-fit:contain;padding:3px}
+.stories .pl{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#fff;font:800 15px var(--disp);letter-spacing:-.02em}
+.stories .pl i{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-style:normal;font-size:13px}
 .sty{position:fixed;inset:0;z-index:100;background:rgba(30,26,36,.92);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .sty.on{opacity:1;pointer-events:auto}
 .sty .fr{position:relative;width:min(420px,92vw);aspect-ratio:9/16;max-height:88vh;border-radius:24px;overflow:hidden;background:#000}
@@ -208,7 +216,7 @@ button{cursor:pointer}
 </div></section>
 
 <section class="sec" id="works" style="padding-top:0"><div class="wrap">
-  <div class="hd" data-r><h2 class="h2">Работы <span>в сторис</span></h2><p>Нажмите на кружок — как в Instagram, листаются сами.</p></div>
+  <div class="hd" data-r><h2 class="h2">Работы <span>в сторис</span></h2><p>Листайте ленту и нажмите на карточку — откроется как сторис в Instagram.</p></div>
   <div class="stories" id="stories" data-r></div>
 </div></section>
 
@@ -282,7 +290,7 @@ draw();
 
 /* сторис */
 const ST = WORKS.slice(0, 12);
-$('#stories').innerHTML = ST.map((w, i) => `<button data-i="${i}"><span class="rg"><img src="../img/${w}.jpg" alt="" loading="lazy"></span>Работа ${i + 1}</button>`).join('');
+$('#stories').innerHTML = ST.map((w, i) => `<button data-i="${i}" aria-label="Открыть работу ${i + 1}"><span class="rg"><img src="../img/${w}.jpg" alt="" loading="lazy"></span><span class="av"><img src="../img/logo-dark.png" alt="">dom_dajour</span><span class="pl">Работа ${String(i + 1).padStart(2, '0')}<i>▶</i></span></button>`).join('');
 let si = 0, tm;
 function story(i) {
   if (i < 0) i = 0;
@@ -292,7 +300,8 @@ function story(i) {
   clearTimeout(tm); tm = setTimeout(() => story(si + 1), 4000);
 }
 function closeS() { clearTimeout(tm); $('#sty').classList.toggle('on', false); document.body.style.overflow = ''; }
-$$('#stories button').forEach(b => b.onclick = () => { $('#sty').classList.add('on'); document.body.style.overflow = 'hidden'; story(+b.dataset.i); });
+(el => { let x0, s0, down = false; el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; el.moved = false; x0 = e.clientX; s0 = el.scrollLeft; }); addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - x0; if (Math.abs(dx) > 5) { el.moved = true; el.classList.add('drag'); } el.scrollLeft = s0 - dx; }); addEventListener('pointerup', () => { down = false; el.classList.toggle('drag', false); }); })($('#stories'));
+$$('#stories button').forEach(b => b.onclick = () => { if ($('#stories').moved) return; $('#sty').classList.add('on'); document.body.style.overflow = 'hidden'; story(+b.dataset.i); });
 $('#sp').onclick = () => story(si - 1); $('#sn').onclick = () => story(si + 1); $('#sx').onclick = closeS;
 addEventListener('keydown', e => { if (!$('#sty').classList.contains('on')) return; if (e.key === 'Escape') closeS(); if (e.key === 'ArrowRight') story(si + 1); if (e.key === 'ArrowLeft') story(si - 1); });
 reveal();

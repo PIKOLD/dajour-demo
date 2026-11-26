@@ -55,6 +55,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bc{display:flex;flex-direction:column;align-items:flex-end;gap:4px;opacity:0;animation:cu .9s 1.2s forwards}
 .bc span{display:block;width:118px;height:34px;background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 4px,#fff 4px 5px,transparent 5px 8px,#fff 8px 11px,transparent 11px 12px,#fff 12px 13px,transparent 13px 16px)}
 .bc .mono{font-size:10px;color:rgba(255,255,255,.8)}
+/* на широком экране фото — вертикальная полоса справа в исходном формате, без растягивания */
+@media(min-width:981px){
+  .cover{background:#15110e}
+  .cover>img{left:auto;width:min(48%,calc((100svh - 61px)*.75));min-width:450px;object-position:50% 25%}
+  .cover::before{background:linear-gradient(90deg,#15110e 0,#15110e 50%,rgba(21,17,14,.55) 58%,rgba(21,17,14,0) 70%),linear-gradient(180deg,rgba(10,8,7,.45) 0,rgba(10,8,7,0) 22%,rgba(10,8,7,0) 55%,rgba(10,8,7,.85) 100%)}
+  .cover .cl.l{max-width:380px}
+}
 @keyframes cz{to{transform:scale(1)}}
 @keyframes cu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 .noanim .cover>img,.noanim .issue,.noanim .mast,.noanim .cl p,.noanim .cl.r .btn,.noanim .bc{animation:none;opacity:1;transform:none}
@@ -210,7 +217,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 </div></header>
 
 <section class="cover">
-  <img src="../img/cover.jpg" alt="Образ от мастеров D'ajour">
+  <img src="../img/cover-j.jpg" alt="Образ от мастеров D'ajour">
   <div class="wrap">
     <div class="issue mono"><span>Дом красоты · Пермь</span><span id="today"></span><span>Демо · образец сайта</span></div>
     <h1 class="mast">D<i>’</i>ajour</h1>
