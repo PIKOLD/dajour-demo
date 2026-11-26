@@ -12,7 +12,7 @@
 <style>
 :root{--cv-bar:#c41e2a;--cv-bar-ink:#fff;--cv-card:#fff;--cv-ink:#121110;--cv-mut:#6d665d;--cv-acc:#121110;--cv-acc-ink:#f3efe8;--cv-acc2:#c41e2a;--cv-line:#121110;--cv-r:0px;--cv-br:0px;--cv-disp:"Playfair Display",Georgia,serif;--cv-sans:Manrope,system-ui,sans-serif;--p:#f3efe8;--p2:#e9e3d8;--ink:#121110;--red:#c41e2a;--mut:#6d665d;--serif:'Playfair Display',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,56px)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{background:var(--p);color:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -140,23 +140,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .src{font:400 11px var(--mono);color:var(--mut);margin-top:22px;text-transform:uppercase;letter-spacing:.05em}
 
 /* цитата и цифры */
-.qt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(30px,5vw,80px);align-items:center}
+.qt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(30px,5vw,80px);align-items:center}
 .qt blockquote{font:italic 400 clamp(30px,3.6vw,56px)/1.08 var(--serif);letter-spacing:-.01em}
 .qt blockquote::before{content:"«";display:block;font:900 120px/.6 var(--serif);color:var(--red);font-style:normal;margin-bottom:10px}
-.qt figure{position:relative}
-.qt figure img{width:100%;aspect-ratio:3/2;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .8s}
-.qt figure:hover img{filter:none}
+.qt figure{position:relative;margin:0 18px 18px 0;isolation:isolate}
+.qt figure::before{content:"";position:absolute;inset:18px -18px -18px 18px;background:var(--red);z-index:-1;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.qt figure:hover::before{transform:translate(8px,8px)}
+.qt figure .tag{position:absolute;z-index:2;left:-14px;top:22px;background:var(--ink);color:var(--p);padding:8px 14px;transform:rotate(-3deg)}
+.qt figure img{width:100%;aspect-ratio:3/2;object-fit:cover;position:relative;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.qt figure:hover img{transform:translate(-4px,-4px)}
 .qt figcaption{margin-top:10px;display:flex;justify-content:space-between}
 .nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:clamp(40px,5vw,70px)}
 .nums div{padding:22px 18px 0 0;border-right:1px solid var(--ink);padding-left:18px}
 .nums div:first-child{padding-left:0}.nums div:last-child{border:0}
 .nums b{display:block;font:900 clamp(44px,5vw,80px)/1 var(--serif)}
+.nums div::before{content:"";display:block;width:34px;height:4px;background:var(--red);margin-bottom:16px}
 .nums span{font:400 12px var(--mono);text-transform:uppercase;color:var(--mut)}
 
 /* работы */
-.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;cursor:grab;scrollbar-width:thin;scrollbar-color:var(--ink) transparent}
+.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;margin-inline:calc(50% - 50vw);padding-inline:var(--pad);scroll-padding-inline:var(--pad);cursor:grab;scrollbar-width:thin;scrollbar-color:var(--ink) transparent}
 .strip.drag{cursor:grabbing;scroll-snap-type:none}
-.strip figure{flex:0 0 clamp(220px,24vw,330px);scroll-snap-align:start}
+.strip figure{flex:0 0 clamp(220px,22vw,420px);scroll-snap-align:start}
 .strip figure:nth-child(3n+2){margin-top:60px}
 .strip img{width:100%;aspect-ratio:3/4;object-fit:cover;pointer-events:none;user-select:none}
 .strip figcaption{margin-top:8px;display:flex;justify-content:space-between}
@@ -208,6 +212,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .flt{display:none}
 }
 @media(max-width:640px){
+  .qt figure{margin:0 12px 12px 0}.qt figure::before{inset:12px -12px -12px 12px}.qt figure .tag{left:8px;top:8px}
   .issue span:nth-child(2){display:none}
   .cover{min-height:640px;padding-bottom:76px}
   .cover>img{object-position:50% 12%}
@@ -282,7 +287,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="sec"><div class="wrap">
   <div class="qt">
     <blockquote data-r>Девять направлений под одной крышей. Не&nbsp;нужно искать мастеров по&nbsp;всему городу.</blockquote>
-    <figure data-r><img src="../img/team.jpg" alt="Команда Дома D'ajour" loading="lazy"><figcaption class="mono"><span>Команда Дома</span><span>Салон и школа красоты</span></figcaption></figure>
+    <figure data-r><span class="tag mono">Команда · D’ajour</span><img src="../img/team.jpg" alt="Команда Дома D'ajour" loading="lazy"><figcaption class="mono"><span>Команда Дома</span><span>Салон и школа красоты</span></figcaption></figure>
   </div>
   <div class="nums" data-r><div><b>200</b><span>м² пространства</span></div><div><b>9</b><span>направлений</span></div><div><b id="cnt2"></b><span>услуг в записи</span></div><div><b>10–20</b><span>ежедневно</span></div></div>
 </div></section>
@@ -363,6 +368,10 @@ addEventListener('scroll', () => { const h = document.documentElement; $('#bar')
 /* высота тёмной полосы под фото = высоте анонсов */
 const band = () => { const c = $('.cover'); c.style.setProperty('--band', innerWidth > 980 ? $('.cv').offsetHeight + 'px' : '0px'); };
 band(); addEventListener('resize', band); addEventListener('load', band); document.fonts && document.fonts.ready.then(band);
+/* счёт цифр при появлении */
+new IntersectionObserver((es, o) => es.forEach(e => { if (!e.isIntersecting) return; o.unobserve(e.target);
+  $$('b', e.target).forEach(b => { const to = parseInt(b.textContent, 10); if (!to || /–/.test(b.textContent) || document.documentElement.classList.contains('noanim')) return; const t0 = performance.now();
+    const f = t => { const k = Math.min(1, (t - t0) / 1400); b.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); }); }), { threshold: .4 }).observe($('.nums'));
 reveal();
 </script>
 </body>
