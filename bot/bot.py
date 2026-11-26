@@ -11,6 +11,7 @@ from brain import Brain, find_services
 TG = f'https://api.telegram.org/bot{env("TELEGRAM_BOT_TOKEN")}'
 ADMIN = env('ADMIN_CHAT_ID')
 MINIAPP = env('MINIAPP_URL', 'https://pikold.github.io/dajour-demo/demo/tg/')
+BOT_LINK = ''                         # ссылка на бота для открытки-сертификата (заполняется при запуске)
 APP_KB = {'keyboard': [[{'text': '✨ Записаться онлайн', 'web_app': {'url': MINIAPP}}]], 'resize_keyboard': True, 'is_persistent': True}          # куда слать заявки на перманент и уведомления о записях
 yc = YClients()
 SERVICES = yc.services()
@@ -216,6 +217,8 @@ def on_webapp(chat, raw, first_name=''):
         st['step'] = None
         send(chat, 'Перманент мастер согласует лично — задам 3 коротких вопроса 🤍')
         return pm_next(chat)
+    if d.get('type') == 'cert':
+        return on_cert(chat, d)
     svc = next((s for s in SERVICES if s['id'] == d.get('svc')), None)
     if not svc:
         return send(chat, 'Не нашла услугу — выберите, пожалуйста, ещё раз.', MENU)
@@ -235,6 +238,25 @@ def on_webapp(chat, raw, first_name=''):
         return ask_phone(chat)
     st['phone'] = phone
     do_book(chat)
+
+
+def on_cert(chat, d):
+    """Подарочный сертификат из Mini App: подтверждение, открытка для пересылки, уведомление владельцу."""
+    import random
+    st = S.setdefault(chat, {'h': [], 'step': None})
+    num = f'DJ-27-{random.randint(1000, 9999)}'
+    sum_ = f'{int(d.get("sum") or 0):,} ₽'.replace(',', ' ')
+    to = esc(d.get('to') or ('себе' if d.get('rel') == 'Себе' else 'получателю'))
+    wish, frm = esc(d.get('wish') or ''), esc(d.get('from') or '')
+    phone = re.sub(r'[^\d+]', '', d.get('phone') or '') or st.get('last_phone', '')
+    how = 'пришлю сюда — перешлите получателю' if d.get('dlv') == 'chat' else 'заберёте в салоне в конверте'
+    demo = '\n\n<i>Демо: оплата не подключена — администратор свяжется и пришлёт ссылку на оплату.</i>'
+    send(chat, f'🎁 <b>Сертификат оформлен!</b>\n\nОткрытка «{esc(d.get("design", ""))}» · <b>{sum_}</b>\nДля: {to}' + (f'\n«{wish}»' if wish else '')
+         + (f'\nОт: {frm}' if frm else '') + f'\n\nНомер: <code>{num}</code>\nВручение: {how}.{demo}', MENU)
+    if d.get('dlv') == 'chat':
+        send(chat, f'🎁 <b>Тебе подарок — сертификат в «{SALON["name"]}»</b>\n\nНоминал: <b>{sum_}</b> на любые услуги салона' + (f'\n\n«{wish}»' if wish else '')
+             + (f'\n— {frm}' if frm else '') + f'\n\nНомер сертификата: <code>{num}</code>\n📍 {SALON["address"]}, {SALON["hours"]}\nЗаписаться: {BOT_LINK or SALON["book_url"]}')
+    notify(f'🎁 Сертификат через бота: {sum_}, открытка «{d.get("design")}», получатель: {d.get("to") or d.get("rel")}. Покупатель: {d.get("name")}, {phone or "телефон не указан"}. Номер {num}. Вручение: {how}.')
 
 
 # ---------- входящие ----------
@@ -318,6 +340,10 @@ def on_button(chat, d, mid=None):
 def run_telegram():
     if not env('TELEGRAM_BOT_TOKEN'):
         sys.exit('Нет TELEGRAM_BOT_TOKEN в bot/.env — создайте бота у @BotFather и впишите токен.')
+    global BOT_LINK
+    c, me = http('GET', f'{TG}/getMe')
+    if c == 200:
+        BOT_LINK = 'https://t.me/' + me['result']['username']
     print(f'Бот запущен. YCLIENTS: {"демо" if yc.demo else "боевой"}, ИИ: {"YandexGPT" if brain.ai else "правила (нет ключа)"}')
     off = 0
     while True:

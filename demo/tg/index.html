@@ -163,6 +163,49 @@ h2 em{font:600 italic 34px var(--it)}
 body.web .cta{display:block}
 .demo{font-size:11px;color:var(--mut);text-align:center;margin-top:22px}
 
+/* ===== сертификаты ===== */
+.giftb{display:flex;align-items:center;gap:14px;width:100%;margin-top:20px;padding:14px 16px;border-radius:20px;text-align:left;background:linear-gradient(120deg,rgba(217,183,122,.18),rgba(217,183,122,.04));border:1px solid rgba(217,183,122,.45);position:relative;overflow:hidden}
+.giftb::after{content:"";position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 42%,rgba(255,255,255,.14) 50%,transparent 58%);animation:gl 4s infinite}
+@keyframes gl{from{transform:translateX(-40%)}to{transform:translateX(40%)}}
+.giftb>span{font-size:30px}
+.giftb b{display:block;font:400 20px/1.1 var(--disp)}
+.giftb small{color:var(--mut);font-size:12.5px}
+.gc{position:relative;aspect-ratio:1.6;border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;box-shadow:0 22px 44px rgba(0,0,0,.4);margin:6px 0 14px;transition:background .4s,color .4s;isolation:isolate}
+.gc::after{content:"";position:absolute;inset:-40%;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);animation:gl 5s infinite;z-index:-1}
+.gc .r1{display:flex;justify-content:space-between;align-items:flex-start}
+.gc .r1 img{height:34px}
+.gc .r1 span{font-size:9.5px;font-weight:800;letter-spacing:.2em;text-align:right;line-height:1.5;opacity:.85}
+.gc .to{font:600 italic 20px 'Cormorant Garamond',serif;opacity:.9}
+.gc .r2{display:flex;justify-content:space-between;align-items:flex-end}
+.gc .r2 b{font:400 38px/1 Forum,serif}
+.gc .r2 small{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.gd-bordo{background:radial-gradient(120% 140% at 15% 0%,#a23a4c,#5b1622 55%,#2e0910);color:#f6e5bd}
+.gd-champ{background:linear-gradient(135deg,#f6e7c3,#d9b77a 50%,#f3dfb0);color:#2a1a0e}
+.gd-snow{background:radial-gradient(circle,rgba(255,255,255,.85) 1px,transparent 1.6px) 0 0/22px 22px,radial-gradient(circle,rgba(255,255,255,.5) 1px,transparent 1.4px) 11px 11px/22px 22px,linear-gradient(170deg,#3b5a7a,#1d3149 60%,#101d2e);color:#fff}
+.gd-blush{background:radial-gradient(60% 80% at 90% 10%,#fff3,transparent),linear-gradient(135deg,#ffd6e0,#ff9fbc);color:#5b1630}
+.gd-leaf{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cpath d='M15 85C3 60 8 33 30 15c11 19 11 49-15 70Z' fill='none' stroke='%23d9b77a' stroke-opacity='.35'/%3E%3Cpath d='M70 45c-15-4-22-19-15-38 15 8 21 24 15 38Z' fill='none' stroke='%23d9b77a' stroke-opacity='.3'/%3E%3C/svg%3E"),linear-gradient(160deg,#2c4a3b,#16271f);color:#f3dfb0}
+.gd-photo{background:linear-gradient(180deg,rgba(20,8,6,.15),rgba(20,8,6,.8)),url(../img/in5.jpg) center/cover;color:#fff}
+.gdes{display:flex;gap:10px;overflow-x:auto;margin:0 -16px;padding:2px 16px 8px;scrollbar-width:none}
+.gdes button{flex:none;width:70px;text-align:center;font-size:11.5px;font-weight:700;color:var(--mut)}
+.gdes button i{display:block;height:44px;border-radius:10px;margin-bottom:5px;border:2px solid transparent;transition:.2s}
+.gdes button.on{color:var(--cream)}.gdes button.on i{border-color:var(--gold);transform:translateY(-2px)}
+.gamt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:10px}
+.gamt button{padding:13px 0;border-radius:14px;background:var(--card);border:1px solid var(--line);font:400 19px var(--disp);transition:.2s}
+.gamt button.on{background:var(--goldg);color:var(--ink);border-color:transparent}
+.rels{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.rels button,.wishes button,.dlv button{padding:9px 14px;border-radius:99px;border:1px solid var(--line);font-size:13px;font-weight:700}
+.rels button.on,.dlv button.on{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.wishes{display:flex;flex-direction:column;gap:6px;margin:-2px 0 12px}
+.wishes button{text-align:left;border-radius:14px;font-weight:600;color:var(--mut)}
+.dlv{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+textarea.in{width:100%;min-height:84px;padding:14px 16px;border-radius:16px;background:rgba(246,240,230,.06);border:1px solid var(--line);font:inherit;font-size:15px;color:inherit;resize:none;outline:0}
+textarea.in:focus{border-color:var(--gold)}
+body.t-journal :is(.giftb,.gc,.gamt button,.gdes button i,textarea.in){border-radius:0!important}
+body.t-journal .giftb{background:#fff;border:1px solid #121110;box-shadow:6px 6px 0 #c41e2a}
+body.t-svezh .giftb{background:#dcf26a;border:2px solid #1e1a24;box-shadow:4px 4px 0 #1e1a24}
+body.t-svezh :is(.gamt button,textarea.in,.rels button,.dlv button,.wishes button){border:2px solid #1e1a24}
+body.t-svezh .gc{border:2px solid #1e1a24;box-shadow:5px 5px 0 #1e1a24}
+
 /* ===== переключатель стилей ===== */
 .themes{display:flex;align-items:center;gap:6px;margin-top:14px;overflow-x:auto;scrollbar-width:none}
 .themes span{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-right:2px}
@@ -248,6 +291,7 @@ body.t-svezh .live{background:#fff;color:#1e1a24}
       <div class="rail" id="cats"></div>
       <div class="lbl">Быстрая запись</div>
       <div class="quick" id="quick"></div>
+      <button class="giftb" id="giftb"><span>🎁</span><div><b>Подарочный сертификат</b><small>Открытка, сумма и пожелание — за минуту</small></div></button>
     </div>
   </section>
 
@@ -271,6 +315,34 @@ body.t-svezh .live{background:#fff;color:#1e1a24}
     <button class="tgph" id="tgph" hidden>📱 Подставить номер из Telegram</button>
     <div class="ticket" id="ticket"></div>
     <p class="note">Оплата в салоне после процедуры. Нажимая «Записаться», вы соглашаетесь на звонок или сообщение от салона.</p>
+  </section>
+
+  <section class="scr" data-s="20">
+    <h2>Подарок <em class="gold">в Дом</em></h2><p class="sub">Сумму можно потратить на любые услуги салона</p>
+    <div class="gc" id="gc1"></div>
+    <div class="gdes" id="gdes"></div>
+    <div class="lbl">Сумма</div>
+    <div class="gamt" id="gamt"></div>
+    <label class="fld"><span>Или своя сумма, ₽</span><input id="gsum" type="number" inputmode="numeric" placeholder="от 1 000"></label>
+  </section>
+
+  <section class="scr" data-s="21">
+    <h2>Кому <em class="gold">подарок?</em></h2><p class="sub">Подпишем открытку — пожелание будет на сертификате</p>
+    <div class="rels" id="rels"></div>
+    <label class="fld"><span>Имя получателя</span><input id="gto" maxlength="24" placeholder="Например, Анна"></label>
+    <label class="fld"><span>Пожелание</span><textarea class="in" id="gwish" maxlength="140" placeholder="Пара тёплых слов"></textarea></label>
+    <div class="wishes" id="wishes"></div>
+    <label class="fld"><span>От кого</span><input id="gfrom" maxlength="24" placeholder="Подпись"></label>
+  </section>
+
+  <section class="scr" data-s="22">
+    <h2>Почти <em class="gold">готово</em></h2><p class="sub">Проверьте открытку и оставьте контакт</p>
+    <div class="gc" id="gc2"></div>
+    <div class="lbl">Как вручить</div>
+    <div class="dlv" id="dlv"></div>
+    <label class="fld"><span>Ваше имя</span><input id="gnm" autocomplete="given-name" placeholder="Как к вам обращаться"></label>
+    <label class="fld"><span>Телефон</span><input id="gph" type="tel" inputmode="tel" placeholder="+7 900 000-00-00"></label>
+    <p class="note">Демо: оплата не подключена — администратор свяжется и пришлёт ссылку на оплату.</p>
   </section>
 
   <section class="scr" data-s="9">
@@ -334,17 +406,18 @@ $$('#themes button').forEach(b => b.onclick = () => theme(b.dataset.t));
 $('#tbtn').onclick = () => { const ks = Object.keys(THEMES); theme(ks[(ks.indexOf(TH) + 1) % ks.length]); };
 const S = { step: 0 };
 const WD = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'], MON = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
-const NAMES = ['', 'Услуга', 'Время', 'Запись'];
+const NAMES = ['', 'Услуга', 'Время', 'Запись'], GN = ['Открытка', 'Кому', 'Итог'];
 
 function go(n) {
   S.step = n; $$('.scr').forEach(s => s.classList.toggle('on', +s.dataset.s === n));
-  $$('#prog i').forEach((i, k) => i.classList.toggle('on', k <= Math.min(n, 3)));
-  $('#sn').textContent = n === 9 ? 'Перманент' : (n ? `${n}/3 · ${NAMES[n]}` : '');
+  const gi = n >= 20 ? n - 19 : 0;
+  $$('#prog i').forEach((i, k) => i.classList.toggle('on', k <= (gi || Math.min(n, 3))));
+  $('#sn').textContent = n === 9 ? 'Перманент' : gi ? `🎁 ${gi}/3 · ${GN[gi - 1]}` : (n ? `${n}/3 · ${NAMES[n]}` : '');
   $('#bk').hidden = !n;
   if (inTG) n ? tg.BackButton.show() : tg.BackButton.hide();
   scrollTo(0, 0); cta();
 }
-const back = () => go(S.step === 9 || S.step === 1 ? 0 : S.step - 1);
+const back = () => go(S.step === 9 || S.step === 1 || S.step === 20 ? 0 : S.step - 1);
 $('#bk').onclick = back; if (inTG) tg.BackButton.onClick(back);
 
 /* 0 — приветствие, статус, комнаты, быстрая запись */
@@ -425,11 +498,48 @@ $('#tgph').onclick = () => tg.requestContact(ok => { if (ok) { $('#ph').placehol
 ['#nm', '#ph'].forEach(s => $(s).oninput = cta);
 const phoneOk = () => S.tgPhone || $('#ph').value.replace(/\D/g, '').length >= 10;
 
+/* ===== сертификат ===== */
+const GD = [['bordo', 'Бордо', 'logo.png'], ['champ', 'Шампань', 'logo-dark.png'], ['snow', 'Снегопад', 'logo.png'], ['blush', 'Нежность', 'logo-dark.png'], ['leaf', 'Зелень', 'logo.png'], ['photo', 'Холл Дома', 'logo.png']];
+const G = { d: 0, sum: 5000, rel: '', dlv: 'chat' };
+const RELS = ['Любимой', 'Маме', 'Подруге', 'Коллеге', 'Себе'];
+const WISH = { 'Любимой': 'Ты заслуживаешь самого красивого дня — люблю тебя', 'Маме': 'Мамочка, это время только для тебя. Спасибо за всё!', 'Подруге': 'Немного красоты и много радости — с любовью!', 'Коллеге': 'Спасибо за работу вместе — время отдохнуть и порадовать себя', 'Себе': 'Я это заслужила 🤍', '': 'Пусть этот день будет только про тебя' };
+function gcard(el) {
+  const [k, nm, logo] = GD[G.d], to = $('#gto') ? $('#gto').value.trim() : '';
+  el.className = 'gc gd-' + k;
+  el.innerHTML = `<div class="r1"><img src="../img/${logo}" alt=""><span>ПОДАРОЧНЫЙ<br>СЕРТИФИКАТ</span></div><div class="to">${G.rel === 'Себе' ? 'Подарок себе' : to ? 'Кому: ' + to.replace(/[<>&]/g, '') : '&nbsp;'}</div><div class="r2"><b>${rub(G.sum || 0)}</b><small>${nm}</small></div>`;
+}
+function openGift() {
+  tap();
+  $('#gdes').innerHTML = GD.map(([k, nm], i) => `<button data-i="${i}"${i === G.d ? ' class="on"' : ''}><i class="gd-${k}"></i>${nm}</button>`).join('');
+  $$('#gdes button').forEach(b => b.onclick = () => { G.d = +b.dataset.i; $$('#gdes button').forEach(x => x.classList.toggle('on', x === b)); gcard($('#gc1')); tap(); });
+  $('#gamt').innerHTML = [2000, 3000, 5000, 7000, 10000, 15000].map(v => `<button data-v="${v}"${v === G.sum ? ' class="on"' : ''}>${(v / 1000) + ' 000'}</button>`).join('');
+  $$('#gamt button').forEach(b => b.onclick = () => { G.sum = +b.dataset.v; $('#gsum').value = ''; $$('#gamt button').forEach(x => x.classList.toggle('on', x === b)); gcard($('#gc1')); tap(); cta(); });
+  gcard($('#gc1')); go(20);
+}
+$('#giftb').onclick = openGift;
+$('#gsum').oninput = e => { const v = +e.target.value; G.sum = v; $$('#gamt button').forEach(x => x.classList.toggle('on', +x.dataset.v === v)); gcard($('#gc1')); cta(); };
+$('#rels').innerHTML = RELS.map(r => `<button data-r="${r}">${r}</button>`).join('');
+$$('#rels button').forEach(b => b.onclick = () => { G.rel = b.dataset.r; $$('#rels button').forEach(x => x.classList.toggle('on', x === b)); drawWish(); tap(); cta(); });
+function drawWish() { const w = [WISH[G.rel] || WISH[''], 'С праздником! Красоты, отдыха и вдохновения', 'Время для себя — лучший подарок']; $('#wishes').innerHTML = w.map(x => `<button>${x}</button>`).join(''); $$('#wishes button').forEach(b => b.onclick = () => { $('#gwish').value = b.textContent; tap(); }); }
+drawWish();
+['#gto', '#gfrom', '#gnm', '#gph'].forEach(s => $(s).addEventListener('input', cta));
+$('#dlv').innerHTML = [['chat', 'Пришлите мне в чат — перешлю сам'], ['salon', 'Заберу в салоне в конверте']].map(([k, n]) => `<button data-k="${k}"${k === G.dlv ? ' class="on"' : ''}>${n}</button>`).join('');
+$$('#dlv button').forEach(b => b.onclick = () => { G.dlv = b.dataset.k; $$('#dlv button').forEach(x => x.classList.toggle('on', x === b)); tap(); });
+function openGiftSum() { const u = inTG && tg.initDataUnsafe && tg.initDataUnsafe.user; if (u && !$('#gnm').value) $('#gnm').value = u.first_name || ''; gcard($('#gc2')); go(22); }
+function submitGift() {
+  $('#done h3').textContent = 'Подарок готов!'; $('#done p').textContent = 'Сертификат — в чате';
+  $('#done').classList.add('on'); inTG && tg.HapticFeedback && tg.HapticFeedback.notificationOccurred('success');
+  setTimeout(() => send({ type: 'cert', design: GD[G.d][1], sum: G.sum, rel: G.rel, to: $('#gto').value.trim(), wish: $('#gwish').value.trim(), from: $('#gfrom').value.trim(), dlv: G.dlv, name: $('#gnm').value.trim(), phone: $('#gph').value.trim() }), 1100);
+}
+
 /* главная кнопка: в Telegram — родная MainButton, в браузере — своя */
 function cta() {
   let txt = '', on = false, act = null;
   if (S.step === 2) { txt = S.time ? `Далее · ${S.time}` : 'Выберите время'; on = !!S.time; act = openForm; }
   else if (S.step === 3) { txt = `Записаться · ${price(S.svc.price)}`; on = $('#nm').value.trim().length > 1 && phoneOk(); act = submit; }
+  else if (S.step === 20) { txt = G.sum >= 1000 ? `Далее · ${rub(G.sum)}` : 'Сумма от 1 000 ₽'; on = G.sum >= 1000; act = () => go(21); }
+  else if (S.step === 21) { txt = 'Далее'; on = G.rel === 'Себе' || $('#gto').value.trim().length > 1; act = openGiftSum; }
+  else if (S.step === 22) { txt = `Оформить · ${rub(G.sum)}`; on = $('#gnm').value.trim().length > 1 && $('#gph').value.replace(/\D/g, '').length >= 10; act = submitGift; }
   else if (S.step === 9) { txt = 'Вернуться в чат к администратору'; on = true; act = () => send({ type: 'pm' }); }
   S.act = act;
   if (inTG) { const mb = tg.MainButton; if (!act) return mb.hide(); mb.setParams({ text: txt, color: THEMES[TH].btn, text_color: THEMES[TH].bt, is_active: on, is_visible: true }); }
@@ -437,6 +547,7 @@ function cta() {
 }
 if (inTG) tg.MainButton.onClick(() => S.act && S.act()); $('#cta').onclick = () => S.act && S.act();
 function submit() {
+  $('#done h3').textContent = 'Записано!'; $('#done p').textContent = 'Подтверждение — в чате';
   $('#done').classList.add('on'); inTG && tg.HapticFeedback && tg.HapticFeedback.notificationOccurred('success');
   setTimeout(() => send({ type: 'book', svc: S.svc.id, date: S.date, time: S.time, name: $('#nm').value.trim(), phone: $('#ph').value.trim(), tg_phone: !!S.tgPhone }), 1100);
 }
