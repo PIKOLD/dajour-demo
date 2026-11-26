@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff7ef;--ink:#1e1a24;--pk:#ff8fb1;--li:#c9b8ff;--lm:#dcf26a;--pc:#ffc9a6;--mn:#b9ecd2;--mut:#6f6878;--disp:Unbounded,system-ui,sans-serif;--sans:Manrope,system-ui,sans-serif;--pad:clamp(16px,4vw,56px);--e:cubic-bezier(.3,1.4,.5,1)}
+:root{--cv-bar:#ff8fb1;--cv-bar-ink:#1e1a24;--cv-card:#fff;--cv-ink:#1e1a24;--cv-mut:#6f6878;--cv-acc:#1e1a24;--cv-acc-ink:#fff;--cv-acc2:#ff8fb1;--cv-line:#1e1a24;--cv-r:24px;--cv-br:99px;--cv-disp:Unbounded,system-ui,sans-serif;--cv-sans:Manrope,system-ui,sans-serif;--bg:#fff7ef;--ink:#1e1a24;--pk:#ff8fb1;--li:#c9b8ff;--lm:#dcf26a;--pc:#ffc9a6;--mn:#b9ecd2;--mut:#6f6878;--disp:Unbounded,system-ui,sans-serif;--sans:Manrope,system-ui,sans-serif;--pad:clamp(16px,4vw,56px);--e:cubic-bezier(.3,1.4,.5,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{background:var(--bg);color:var(--ink);font:500 16px/1.55 var(--sans);overflow-x:hidden}
@@ -179,12 +179,13 @@ button{cursor:pointer}
   .chips button{font-size:14px;padding-right:14px}
   .chips button img{width:32px;height:32px}
 }
+.cv-badge,.cv-steps li,.cv-frame{border-width:2px!important}.cv-steps li{box-shadow:4px 4px 0 #1e1a24}.cv-steps li:nth-child(1){background:#dcf26a}.cv-steps li:nth-child(2){background:#c9b8ff}.cv-steps li:nth-child(3){background:#ffc9a6}.cv-steps i{font-weight:800}.cv-score>b,.cv-final h2{font-weight:800;letter-spacing:-.04em}
 </style>
 </head>
-<body data-v="svezh">
+<body data-v="svezh" data-cta>
 <div class="wrap"><header class="top"><div class="bar">
   <a class="lg" href="#">d<i>’</i>ajour</a>
-  <nav><a href="#pick">Подбор</a><a href="#works">Работы</a><a href="#why">О доме</a><a href="#gift">Подарок</a><a href="#contacts">Контакты</a></nav>
+  <nav><a href="#pick">Подбор</a><a href="#works">Работы</a><a href="#reviews">Отзывы</a><a href="#why">О доме</a><a href="#gift">Подарок</a><a href="#contacts">Контакты</a></nav>
   <a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a>
 </div></header></div>
 
@@ -193,6 +194,7 @@ button{cursor:pointer}
     <h1>Дом <span class="a">красоты</span><br><span class="b">D’ajour</span></h1>
     <p>Стрижки, маникюр, брови, перманент, массаж, косметология и лазер — девять направлений в центре Перми.</p>
     <div class="acts"><a class="btn pk" href="#pick">Подобрать услугу</a><a class="btn" id="bk2" target="_blank" rel="noopener">Записаться онлайн</a></div>
+    <div data-conv="rating" style="margin-top:18px"></div>
   </div>
   <div class="pics" id="pics" data-r>
     <div class="blob"><img src="../img/h3.jpg" alt="Гостья Дома D'ajour"></div>
@@ -215,6 +217,8 @@ button{cursor:pointer}
   <div class="more"><button class="btn wh" id="more" style="border:2px solid var(--ink)" hidden>Показать ещё</button></div>
 </div></section>
 
+<section class="sec" style="padding-top:0"><div class="wrap"><div class="hd" data-r><h2 class="h2">Запись в <span>3 шага</span></h2></div><div data-conv="steps" data-r></div></div></section>
+
 <section class="sec" id="works" style="padding-top:0"><div class="wrap">
   <div class="hd" data-r><h2 class="h2">Работы <span>в сторис</span></h2><p>Листайте ленту и нажмите на карточку — откроется как сторис в Instagram.</p></div>
   <div class="stories" id="stories" data-r></div>
@@ -232,12 +236,16 @@ button{cursor:pointer}
   </div>
 </div></section>
 
+<section class="sec" id="reviews" style="padding-top:0"><div class="wrap"><div class="hd" data-r><h2 class="h2">Что говорят <span>гости</span></h2><p>Настоящие отзывы с Яндекс Карт.</p></div><div data-conv="reviews" data-r></div></div></section>
+
 <section class="sec" id="gift" style="padding-top:0"><div class="wrap">
   <div class="gift" data-r>
     <div><h2 class="h2">Подарок, который <span>точно</span> понравится</h2><p>Сертификат на сумму или конкретные услуги. 30 открыток, пожелание на обороте и доставка в нужный день — в мессенджер, SMS или на почту.</p><a class="btn" href="sert-svezh.html">Собрать сертификат</a></div>
     <a class="fan" href="sert-svezh.html" aria-label="Собрать сертификат"><div><small>D’ajour</small>Ключ от Дома</div><div><small>D’ajour</small>С днём рождения!</div><div><small>Подарочный сертификат</small>D’ajour</div></a>
   </div>
 </div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap"><div data-conv="final" data-r></div></div></section>
 
 <section class="sec" id="contacts" style="padding-top:0"><div class="wrap">
   <div class="hd" data-r><h2 class="h2">Ждём <span>в гости</span></h2></div>
@@ -252,6 +260,7 @@ button{cursor:pointer}
 
 <script src="../assets/prices.js?v=5"></script>
 <script src="core.js?v=2"></script>
+<script src="conv.js?v=1"></script>
 <script>
 ['#bk1', '#bk2', '#bk3', '#bk4'].forEach(s => $(s).href = SALON.book);
 $('#route').href = SALON.map; $('#school').href = SALON.school;

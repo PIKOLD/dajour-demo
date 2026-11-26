@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--p:#f3efe8;--p2:#e9e3d8;--ink:#121110;--red:#c41e2a;--mut:#6d665d;--serif:'Playfair Display',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,56px)}
+:root{--cv-bar:#c41e2a;--cv-bar-ink:#fff;--cv-card:#fff;--cv-ink:#121110;--cv-mut:#6d665d;--cv-acc:#121110;--cv-acc-ink:#f3efe8;--cv-acc2:#c41e2a;--cv-line:#121110;--cv-r:0px;--cv-br:0px;--cv-disp:"Playfair Display",Georgia,serif;--cv-sans:Manrope,system-ui,sans-serif;--p:#f3efe8;--p2:#e9e3d8;--ink:#121110;--red:#c41e2a;--mut:#6d665d;--serif:'Playfair Display',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,56px)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--p);color:var(--ink);font:400 16px/1.55 var(--sans);overflow-x:hidden}
@@ -58,9 +58,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* на широком экране фото — вертикальная полоса справа в исходном формате, без растягивания */
 @media(min-width:981px){
   .cover{background:#15110e}
-  .cover>img{left:auto;width:min(48%,calc((100svh - 61px)*.75));min-width:450px;object-position:50% 25%}
-  .cover::before{background:linear-gradient(90deg,#15110e 0,#15110e 50%,rgba(21,17,14,.55) 58%,rgba(21,17,14,0) 70%),linear-gradient(180deg,rgba(10,8,7,.45) 0,rgba(10,8,7,0) 22%,rgba(10,8,7,0) 55%,rgba(10,8,7,.85) 100%)}
-  .cover .cl.l{max-width:380px}
+  .cover>img{left:auto;width:min(50%,calc((100svh - 61px)*.8));min-width:460px;object-position:50% 25%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 38%);mask-image:linear-gradient(90deg,transparent 0,#000 38%)}
+  .cover::before{background:linear-gradient(180deg,rgba(10,8,7,.4) 0,rgba(10,8,7,0) 20%,rgba(10,8,7,0) 70%,rgba(10,8,7,.55) 100%)}
+  /* все анонсы — на тёмной части слева, лицо на фото свободно */
+  .cv{justify-content:flex-start;align-items:flex-end;gap:clamp(28px,3.6vw,56px);max-width:min(60%,820px)}
+  .cover .cl{max-width:340px;flex:1}
+  .cl.r{align-items:flex-start;text-align:left}
+  .cl.r .btn{align-self:flex-start}
+  .bc{align-items:flex-start}
 }
 @keyframes cz{to{transform:scale(1)}}
 @keyframes cu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -208,11 +213,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 </style>
 </head>
-<body data-v="journal">
+<body data-v="journal" data-cta>
 <div class="bar" id="bar"></div>
 <header class="top"><div class="wrap">
   <a class="mh" href="#">D'ajour</a>
-  <nav><a href="#toc">Содержание</a><a href="#price">Прайс</a><a href="#works">Работы</a><a href="#gift">Подарок</a><a href="#imprint">Контакты</a></nav>
+  <nav><a href="#toc">Содержание</a><a href="#price">Прайс</a><a href="#works">Работы</a><a href="#reviews">Отзывы</a><a href="#gift">Подарок</a><a href="#imprint">Контакты</a></nav>
   <a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a>
 </div></header>
 
@@ -229,6 +234,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="cl r">
         <p>Сертификат в подарок — соберите за пару минут<span class="mono">Стр. 05</span></p>
         <p>Осинская, 8 · ежедневно 10–20<span class="mono st" id="st1"></span></p>
+        <div data-conv="rating"></div>
         <a class="btn red" id="bk2" target="_blank" rel="noopener">Записаться онлайн</a>
         <div class="bc" aria-hidden="true"><span></span><i class="mono">D'AJOUR · ПЕРМЬ</i></div>
       </div>
@@ -251,6 +257,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <p class="src">Цены из онлайн-записи салона · окончательную стоимость подтверждает мастер</p>
 </div></section>
 
+<section class="sec"><div class="wrap"><header class="sh" data-r><span class="pg">✶</span><h2>Запись — <i>в три шага</i></h2><p>Без звонков и ожидания на линии.</p></header><div data-conv="steps" data-r></div></div></section>
+
 <section class="sec"><div class="wrap">
   <div class="qt">
     <blockquote data-r>Девять направлений под одной крышей. Не&nbsp;нужно искать мастеров по&nbsp;всему городу.</blockquote>
@@ -264,6 +272,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="strip" id="strip"></div>
 </div></section>
 
+<section class="sec" id="reviews"><div class="wrap"><header class="sh" data-r><span class="pg">★</span><h2>Что говорят <i>гости</i></h2><p>Настоящие отзывы с Яндекс Карт.</p></header><div data-conv="reviews" data-r></div></div></section>
+
 <section class="gift" id="gift"><div class="wrap">
   <div data-r><span class="mono">04 · Подарок</span><h2 style="margin-top:14px">Подарите <i>время</i> для&nbsp;себя</h2><p>Сертификат на сумму или конкретные услуги. Выберите открытку, напишите пожелание — получатель получит его в нужный день.</p><a class="btn" href="sert-journal.html">Собрать сертификат</a></div>
   <a class="tkt" href="sert-journal.html" data-r><div class="in2">
@@ -272,6 +282,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     <dl><dt>На что</dt><dd>Сумма или услуги из прайса</dd><dt>Как</dt><dd>Telegram, WhatsApp, SMS, e-mail или конверт</dd><dt>Когда</dt><dd>Сразу или в выбранный день</dd></dl>
   </div></a>
 </div></section>
+
+<section class="sec"><div class="wrap"><div data-conv="final" data-r></div></div></section>
 
 <section class="sec" id="imprint" style="border:0"><div class="wrap">
   <header class="sh" data-r><span class="pg">05</span><h2>Выходные <i>данные</i></h2><p>Как нас найти и связаться.</p></header>
@@ -287,6 +299,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 <script src="../assets/prices.js?v=5"></script>
 <script src="core.js?v=2"></script>
+<script src="conv.js?v=1"></script>
 <script>
 ['#bk1', '#bk2', '#bk3'].forEach(s => $(s).href = SALON.book);
 $('#map').href = SALON.map; $('#school').href = SALON.school;
@@ -316,7 +329,7 @@ $('#tabs').innerHTML = PRICES.map((c, i) => `<button data-i="${i}">${SHORT[c.c] 
 function showCat(i) {
   if (i < 0) i = 0;
   $$('#tabs button').forEach((b, k) => b.setAttribute('aria-pressed', k === i));
-  $('#plist').innerHTML = PRICES[i].g.map(g => `<div class="grp">${g.n ? `<h4>${g.n}</h4>` : `<h4>${PRICES[i].c}</h4>`}${g.s.map(([n, p, m]) => `<div class="row"><span>${n}</span><i></i><small>${m ? dur(m) : ''}</small><b>${price(p)}</b></div>`).join('')}</div>`).join('');
+  $('#plist').innerHTML = PRICES[i].g.map(g => `<div class="grp">${g.n ? `<h4>${g.n}</h4>` : `<h4>${PRICES[i].c}</h4>`}${g.s.map(([n, p, m]) => `<div class="row"><span>${n}</span><i></i><small>${m ? dur(m) : ''}</small><b>${price(p)}</b></div>`).join('')}</div>`).join('') + `<div class="grp"><a class="btn red" href="${SALON.book}" target="_blank" rel="noopener">Записаться: ${SHORT[PRICES[i].c] || PRICES[i].c} →</a></div>`;
 }
 $$('#tabs button').forEach(b => b.onclick = () => showCat(+b.dataset.i));
 showCat(0);

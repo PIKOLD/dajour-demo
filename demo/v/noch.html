@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0c0b0a;--bg2:#151310;--ch:#e4cc9a;--chg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--tx:#eee8dd;--mut:rgba(238,232,221,.56);--ln:rgba(228,204,154,.22);--disp:Cormorant,Georgia,serif;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,64px);--e:cubic-bezier(.2,.7,.2,1)}
+:root{--cv-card:rgba(255,255,255,.04);--cv-ink:#eee8dd;--cv-mut:rgba(238,232,221,.6);--cv-acc:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--cv-acc-ink:#14110c;--cv-acc2:#e4cc9a;--cv-line:rgba(228,204,154,.25);--cv-r:22px;--cv-br:99px;--cv-disp:Cormorant,Georgia,serif;--cv-sans:Manrope,system-ui,sans-serif;--bg:#0c0b0a;--bg2:#151310;--ch:#e4cc9a;--chg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--tx:#eee8dd;--mut:rgba(238,232,221,.56);--ln:rgba(228,204,154,.22);--disp:Cormorant,Georgia,serif;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,64px);--e:cubic-bezier(.2,.7,.2,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font:300 16px/1.6 var(--sans);overflow-x:hidden}
@@ -54,6 +54,8 @@ main{position:relative;z-index:2}
 .hero h1{font:300 clamp(84px,17vw,270px)/.8 var(--disp);letter-spacing:-.03em;display:flex;overflow:hidden}
 .hero h1 span{display:inline-block;transform:translateY(105%);animation:up 1.4s var(--e) forwards;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
 @keyframes up{to{transform:none}}
+.hcta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.hcta .cv-badge{background:rgba(12,11,10,.55);color:#eee8dd;border-color:rgba(228,204,154,.35);backdrop-filter:blur(8px)}
 .hero .sub{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid var(--ln)}
 .hero .sub p{font:300 clamp(22px,2.4vw,34px)/1.15 var(--disp);max-width:560px}
 .hero .sub p i{color:var(--ch)}
@@ -191,11 +193,11 @@ main{position:relative;z-index:2}
 }
 </style>
 </head>
-<body data-v="noch">
+<body data-v="noch" data-cta>
 <div class="spot" id="spot"></div>
 <header class="top" id="top"><div class="wrap">
   <a class="lg" href="#"><img src="../img/logo.png" alt="Дом D'ajour"></a>
-  <nav><a href="#dirs">Направления</a><a href="#price">Цены</a><a href="#home">О доме</a><a href="#works">Работы</a><a href="#gift">Сертификат</a><a href="#contacts">Контакты</a></nav>
+  <nav><a href="#dirs">Направления</a><a href="#price">Цены</a><a href="#home">О доме</a><a href="#works">Работы</a><a href="#reviews">Отзывы</a><a href="#gift">Сертификат</a><a href="#contacts">Контакты</a></nav>
   <a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a>
 </div></header>
 
@@ -205,6 +207,7 @@ main{position:relative;z-index:2}
   <div class="wrap">
     <span class="k">Дом красоты · Пермь · демо-образец сайта</span>
     <h1 id="ttl" aria-label="D'ajour">D'ajour</h1>
+    <div class="hcta"><a class="btn" id="bk0" target="_blank" rel="noopener">Записаться онлайн</a><span data-conv="rating"></span></div>
     <div class="sub">
       <p>Девять направлений красоты <i>под одной крышей</i> — в самом центре Перми</p>
       <div class="meta"><div><b>Осинская, 8</b>адрес</div><div><b>10:00–20:00</b>ежедневно</div><div><b><span class="dot" id="dot"></span><span id="stx"></span></b>сейчас</div></div>
@@ -225,6 +228,8 @@ main{position:relative;z-index:2}
   <p class="src">Все <span id="cnt"></span> услуг — из онлайн-записи салона. Окончательную стоимость подтверждает мастер.</p>
 </div></section>
 
+<section class="sec" style="padding-top:0"><div class="wrap"><div data-r><span class="k">Как записаться</span><h2 class="h2" style="margin:12px 0 40px">Три <i>шага</i></h2></div><div data-conv="steps" data-r></div></div></section>
+
 <section class="sec" id="home" style="background:var(--bg2)"><div class="wrap home">
   <figure data-r><img src="../img/in5.jpg" alt="Холл Дома D'ajour" loading="lazy"></figure>
   <div data-r><span class="k">О доме</span><h2 class="h2" style="margin-top:12px">Салон и <i>школа</i> красоты</h2>
@@ -238,12 +243,16 @@ main{position:relative;z-index:2}
   <div class="wk" id="wk" data-r></div>
 </div></section>
 
+<section class="sec" id="reviews"><div class="wrap"><div data-r><span class="k">Отзывы</span><h2 class="h2" style="margin:12px 0 40px">Что говорят <i>гости</i></h2></div><div data-conv="reviews" data-r></div></div></section>
+
 <section class="sec" id="gift" style="background:radial-gradient(80% 60% at 30% 50%,#1d1810,var(--bg))"><div class="wrap gift">
   <div class="gc" data-r><div class="gcard" id="gcard"><div class="t"><img src="../img/logo.png" alt=""><span>ПОДАРОЧНЫЙ СЕРТИФИКАТ</span></div><div class="m"><small>Номинал — на ваш выбор</small><b>Ключ от Дома</b></div></div></div>
   <div data-r><span class="k">Подарок</span><h2 class="h2" style="margin-top:12px">Подарите <i>вечер</i> для&nbsp;себя</h2>
     <ul><li><b>01</b>Открытка из 30 дизайнов, в том числе «живые»</li><li><b>02</b>Сумма или конкретные услуги из прайса</li><li><b>03</b>Доставка в мессенджер, SMS, на почту или в конверте</li></ul>
     <a class="btn" href="sert-noch.html">Собрать сертификат <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a></div>
 </div></section>
+
+<section class="sec" style="background:radial-gradient(60% 70% at 50% 50%,#1d1810,var(--bg))"><div class="wrap"><div data-conv="final" data-r></div></div></section>
 
 <section class="sec" id="contacts"><div class="wrap ct2">
   <div data-r><span class="k">Контакты</span><a class="tel" id="tel"></a>
@@ -260,8 +269,9 @@ main{position:relative;z-index:2}
 
 <script src="../assets/prices.js?v=5"></script>
 <script src="core.js?v=2"></script>
+<script src="conv.js?v=1"></script>
 <script>
-['#bk1', '#bk2'].forEach(s => $(s).href = SALON.book);
+['#bk0', '#bk1', '#bk2'].forEach(s => $(s).href = SALON.book);
 $('#route').href = SALON.map; $('#school').href = SALON.school;
 $('#tel').href = tel; $('#tel').textContent = SALON.phone;
 $('#ms').innerHTML = msgLinks('');
@@ -292,7 +302,7 @@ trk.addEventListener('scroll', () => { const c = trk.children[0].offsetWidth + 2
 const rows = s => s.map(([n, p, m]) => `<div class="row"><span>${n}${m ? `<small>${dur(m)}</small>` : ''}</span><b>${price(p)}</b></div>`).join('');
 $('#acc').innerHTML = PRICES.map((c, i) => {
   const all = c.g.flatMap(g => g.s), mn = Math.min(...all.map(x => minOf(x[1])).filter(Boolean));
-  return `<div><button class="q" aria-expanded="false"><small>${String(i + 1).padStart(2, '0')}</small><b>${c.c}</b><span>${all.length} усл. · от ${rub(mn)}</span><i></i></button><div class="a"><div><div class="in3">${c.g.map(g => `<div class="g">${g.n ? `<h4>${g.n}</h4>` : ''}${rows(g.s)}</div>`).join('')}</div></div></div></div>`;
+  return `<div><button class="q" aria-expanded="false"><small>${String(i + 1).padStart(2, '0')}</small><b>${c.c}</b><span>${all.length} усл. · от ${rub(mn)}</span><i></i></button><div class="a"><div><div class="in3">${c.g.map(g => `<div class="g">${g.n ? `<h4>${g.n}</h4>` : ''}${rows(g.s)}</div>`).join('')}<div class="g"><a class="btn" href="${SALON.book}" target="_blank" rel="noopener">Записаться →</a></div></div></div></div></div>`;
 }).join('');
 const openAcc = (d, v) => { d.classList.toggle('open', v); d.querySelector('.q').setAttribute('aria-expanded', v); };
 $$('#acc>div').forEach(d => d.querySelector('.q').onclick = () => { const v = !d.classList.contains('open'); $$('#acc>div').forEach(x => openAcc(x, false)); openAcc(d, v); });

@@ -12,6 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css?v=5">
 <link rel="preload" as="image" href="img/h1.jpg">
+<style>
+body{--cv-card:#fff;--cv-ink:#1b0e0a;--cv-mut:#7a6a5f;--cv-acc:#1b0e0a;--cv-acc-ink:#f6f0e6;--cv-acc2:#a67c3d;--cv-line:rgba(27,14,10,.14);--cv-r:22px;--cv-br:99px;--cv-disp:Forum,serif;--cv-sans:Manrope,system-ui,sans-serif}
+.hrate{margin-top:18px}
+.hrate .cv-badge{background:rgba(246,240,230,.12);color:#f6f0e6;border-color:rgba(246,240,230,.25);backdrop-filter:blur(8px)}
+</style>
 </head>
 <body data-page="home" data-dark="1">
 
@@ -29,6 +34,7 @@
           <a class="btn gold" href="https://app.arnica.pro/booking/booking?orgid=44585#/main" target="_blank" rel="noopener">Записаться онлайн <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a>
           <a class="btn ghost" href="#plan">Посмотреть комнаты</a>
         </div>
+        <div data-conv="rating" class="hrate"></div>
       </div>
       <div class="doorway" id="door">
         <div class="plaque"><img src="img/logo.png" alt="Дом D'ajour"></div>
@@ -154,6 +160,15 @@
 </section>
 
 <!-- 6. Адрес: домовая табличка -->
+<section class="sec" id="reviews" style="background:var(--wall)">
+  <div class="wrap">
+    <span class="kick rv">Отзывы гостей</span>
+    <h2 class="h2" style="margin-bottom:40px"><span class="ln"><span>Что говорят <em>гости</em></span></span></h2>
+    <div data-conv="reviews" class="rv"></div>
+    <div data-conv="steps" class="rv" style="margin-top:clamp(40px,5vw,70px)"></div>
+  </div>
+</section>
+
 <section class="sec" id="address">
   <div class="wrap addr">
     <div class="plate rv"><i class="sc"></i><i class="sc"></i><i class="sc"></i><i class="sc"></i><div class="num">8</div><div class="st"><small>Пермь · центр</small>Улица<br>Осинская</div></div>
@@ -176,6 +191,7 @@
 
 <script src="assets/prices.js?v=5"></script>
 <script src="assets/app.js?v=7"></script>
+<script src="v/conv.js?v=1"></script>
 <script>
 const NOANIM = document.documentElement.classList.contains('noanim');
 const total = PRICES.reduce((a, c) => a + c.g.reduce((b, g) => b + g.s.length, 0), 0);
