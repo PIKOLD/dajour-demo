@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Кирилл и Даня — сайты, которые продают</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0c0b;--tx:#f2ede6;--mut:rgba(242,237,230,.55);--line:rgba(242,237,230,.12);--acc:#d9ff5a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{background:var(--bg);color:var(--tx);font:500 16px/1.55 Manrope,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(50% 40% at 85% 5%,rgba(217,255,90,.10),transparent 70%),radial-gradient(40% 40% at 0 100%,rgba(255,120,80,.10),transparent 70%)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px);position:relative}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+header b{font:800 15px Unbounded,sans-serif;letter-spacing:-.02em}
+header a{padding:10px 18px;border-radius:99px;border:1px solid var(--line);font-size:14px;font-weight:700}
+.hero{padding:clamp(40px,8vw,110px) 0 clamp(40px,6vw,80px)}
+.hero h1{font:800 clamp(40px,8vw,118px)/.92 Unbounded,sans-serif;letter-spacing:-.05em}
+.hero h1 em{font:500 italic 1.05em 'Cormorant Garamond',serif;letter-spacing:-.01em;color:var(--acc)}
+.hero p{max-width:620px;margin-top:26px;font-size:clamp(17px,1.5vw,20px);color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;padding-bottom:40px}
+.card{position:relative;border-radius:28px;overflow:hidden;min-height:420px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-6px)}
+.card .bg{position:absolute;inset:0;z-index:-1;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.card:hover .bg{transform:scale(1.06)}
+.card .tag{align-self:flex-start;padding:6px 12px;border-radius:99px;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);font-size:12px;font-weight:700}
+.card h2{font:800 clamp(28px,3.2vw,46px)/1 Unbounded,sans-serif;letter-spacing:-.04em}
+.card p{margin-top:10px;max-width:440px;font-size:15px;opacity:.85}
+.card ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.card li{padding:6px 11px;border-radius:99px;border:1px solid rgba(255,255,255,.25);font-size:12.5px;font-weight:700}
+.card .go{position:absolute;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:var(--tx);color:var(--bg);display:grid;place-items:center;font-size:22px;transition:transform .4s}
+.card:hover .go{transform:rotate(-45deg)}
+.c1{grid-column:span 7}.c2{grid-column:span 5}.c3{grid-column:span 5}.c4{grid-column:span 7}.c5{grid-column:span 12;min-height:280px}
+.b1{background:radial-gradient(60% 70% at 75% 35%,#c7834a,transparent 60%),radial-gradient(40% 50% at 20% 90%,#e9d6b9,transparent 60%),#1d120c}
+.b2{background:radial-gradient(50% 60% at 70% 30%,#f3b6c2,transparent 60%),radial-gradient(40% 50% at 15% 85%,#a7b8a0,transparent 60%),#7a1f3d}
+.b3{background:linear-gradient(115deg,transparent 45%,rgba(61,245,200,.25) 50%,transparent 55%),radial-gradient(60% 60% at 70% 40%,#1f2a33,transparent 70%),#0b0d10}
+.b4{background:radial-gradient(70% 70% at 80% 20%,#4b2518,transparent 60%),linear-gradient(135deg,#2e1911,#160a07)}
+.b5{background:linear-gradient(120deg,#26a5e4 0%,#1b0e0a 60%)}
+.foot{padding:40px 0 60px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mut);font-size:14px}
+@media(max-width:900px){.c1,.c2,.c3,.c4,.c5{grid-column:1/-1}.card{min-height:340px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><b>Кирилл&nbsp;и&nbsp;Даня</b><a href="https://t.me/D_ajour_bot" target="_blank" rel="noopener">Наш бот-администратор →</a></header>
+  <section class="hero">
+    <h1>Сайты, которые <em>продают</em>,<br>а не просто красивые</h1>
+    <p>3D, моушен и квизы — чтобы запомнили. Чёткий оффер, цены и запись в два касания — чтобы купили. Плюс ИИ-администратор в Telegram, который записывает клиентов круглосуточно.</p>
+  </section>
+  <section class="grid">
+    <a class="card c1" href="kofe/"><div class="bg b1"></div><span class="tag">Концепт · кофейня-пекарня</span><div><h2>Зерно и&nbsp;пар</h2><p>3D-чашка с латте-артом, квиз «какой кофе ваш», меню с корзиной и предзаказ без очереди.</p><ul><li>three.js</li><li>квиз</li><li>предзаказ</li></ul></div><span class="go">→</span></a>
+    <a class="card c2" href="cvety/"><div class="bg b2"></div><span class="tag">Концепт · цветочная мастерская</span><div><h2>Пион и&nbsp;полынь</h2><p>3D-конструктор букета с живой ценой, подбор к поводу и доставка по районам Перми.</p><ul><li>конструктор</li><li>квиз</li><li>доставка</li></ul></div><span class="go">→</span></a>
+    <a class="card c3" href="detailing/"><div class="bg b3"></div><span class="tag">Концепт · автодетейлинг</span><div><h2>Глянец</h2><p>Глянцевая 3D-машина с выбором цвета, «до / после», калькулятор и запись на осмотр.</p><ul><li>3D</li><li>калькулятор</li><li>до/после</li></ul></div><span class="go">→</span></a>
+    <a class="card c4" href="../demo/"><div class="bg b4"></div><span class="tag">Реальный салон · демо для клиента</span><div><h2>Дом D'ajour</h2><p>Многостраничный сайт салона красоты в 4 стилях: настоящие цены и отзывы с Яндекс Карт, конструктор сертификатов, запись в 3 шага.</p><ul><li>4 стиля</li><li>сертификаты</li><li>отзывы Яндекса</li></ul></div><span class="go">→</span></a>
+    <a class="card c5" href="https://t.me/D_ajour_bot" target="_blank" rel="noopener"><div class="bg b5"></div><span class="tag">Telegram · ИИ-администратор + Mini App</span><div><h2>Бот, который записывает сам</h2><p>Отвечает на вопросы на Alice AI, показывает свободное время из CRM, собирает заявки на сложные услуги и продаёт сертификаты — в красивом окне прямо в Telegram.</p></div><span class="go">→</span></a>
+  </section>
+  <div class="foot"><span>Концепт-сайты: бренды вымышлены, цены и тексты — пример. Сайт D'ajour — демо для реального клиента.</span><span>Пермь · 2026</span></div>
+</div>
+</body>
+</html>
