@@ -5,20 +5,18 @@
 .pass h1{font:400 clamp(46px,6.4vw,96px)/.95 var(--disp);letter-spacing:-.01em}
 .pass h1 em{color:var(--brass)}
 .pass .hdr .acts{display:flex;gap:10px;flex-wrap:wrap}
-.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(7,clamp(96px,8.6vw,124px)) auto;gap:14px;grid-template-areas:
- "team team team team about about about about about stat stat stat"
- "team team team team about about about about about stat stat stat"
- "team team team team dirs dirs dirs dirs dirs addr addr addr"
- "team team team team dirs dirs dirs dirs dirs addr addr addr"
- "int int int int cont cont cont cont work work work work"
- "int int int int cont cont cont cont work work work work"
- "int int int int conc conc conc conc work work work work"
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:auto;gap:14px;grid-template-areas:
+ "about about about about about about about team team team team team"
+ "stat stat stat stat addr addr addr team team team team team"
+ "dirs dirs dirs dirs dirs dirs dirs team team team team team"
+ "int int int int work work work work cont cont cont cont"
+ "int int int int work work work work conc conc conc conc"
  "school school school school school school book book book book book book"}
 .tile{position:relative;border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line);padding:clamp(16px,1.8vw,26px);display:flex;flex-direction:column;min-width:0}
 .tile .lb2{font:700 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
 .tile h3{font:400 clamp(24px,2.2vw,34px)/1.05 var(--disp);margin-top:8px}
-.t-team{grid-area:team;padding:0;border:0;border-radius:999px 999px 24px 24px;background:var(--mah2)}
-.t-team>img{width:100%;height:100%;object-fit:cover}
+.t-team{grid-area:team;padding:0;border:0;border-radius:220px 220px 24px 24px;background:var(--mah2);min-height:520px}
+.t-team>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 .t-team .cap{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(27,14,10,.85));color:var(--paper)}
 .t-team .cap b{display:block;font:400 26px/1.1 var(--disp)}
 .t-team .cap small{opacity:.75;font-size:13px}
@@ -62,7 +60,10 @@
 .t-int .lb2{position:absolute;left:18px;top:16px;color:var(--gold);z-index:2}
 .t-cont{grid-area:cont;justify-content:space-between}
 .t-cont .tel{font:400 clamp(26px,2.4vw,36px)/1 var(--disp);margin-top:8px;display:block}
-.t-cont .ms{display:flex;gap:8px;flex-wrap:wrap}
+.t-cont .hrs2{display:block;font-size:13px;color:var(--mut);margin-top:8px}
+.t-cont .ms{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.t-int,.t-work{min-height:360px}
+.t-stat,.t-addr{min-height:220px}
 .t-cont .ms a{width:48px;height:48px;border-radius:50%;background:var(--mah2);color:var(--gold);display:grid;place-items:center;transition:.25s}
 .t-cont .ms a:hover{transform:translateY(-3px);background:var(--brass);color:#fff}
 .t-cont .ms svg{width:20px;height:20px;fill:currentColor}
@@ -79,7 +80,7 @@
 .t-conc{grid-area:conc;flex-direction:row;align-items:center;justify-content:space-between;gap:14px;background:var(--wall)}
 .t-conc b{font:400 22px/1.1 var(--disp)}
 .t-conc small{display:block;font-size:12.5px;color:var(--mut)}
-.t-school{grid-area:school;color:var(--paper);border:0;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;min-height:150px}
+.t-school{grid-area:school;background-color:var(--leaf);color:var(--paper);border:0;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;min-height:150px}
 .t-school .lb2{color:var(--gold)}
 .t-book{grid-area:book;background:var(--goldg);border:0;flex-direction:row;align-items:center;justify-content:space-between;gap:20px;min-height:150px;color:var(--ink);transition:background-position .8s var(--ease);background-size:200% 100%}
 .t-book:hover{background-position:100% 0}
@@ -91,15 +92,15 @@
 .galov .x2{position:fixed;right:20px;top:20px;z-index:2;height:46px;padding:0 20px;border-radius:99px;background:var(--ink);color:var(--paper);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
 .galov h2{font:400 clamp(40px,5vw,72px)/1 var(--disp);margin-bottom:30px}
 @media (max-width:980px){
-  .bento{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:auto;grid-template-areas:"about about" "stat addr" "dirs dirs" "team team" "cont cont" "int work" "conc conc" "school school" "book book"}
-  .t-team{height:440px}.t-int,.t-work{height:300px}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"about about" "stat addr" "team team" "dirs dirs" "cont cont" "int work" "conc conc" "school school" "book book"}
+  .t-team{min-height:440px;border-radius:200px 200px 24px 24px}.t-int,.t-work{min-height:300px}
   .t-stat,.t-addr{min-height:210px}
 }
 @media (max-width:640px){
   .bento{gap:10px}
   .tile{border-radius:20px}
-  .t-team{height:380px}
-  .t-int,.t-work{height:240px}
+  .t-team{min-height:380px;border-radius:160px 160px 20px 20px}
+  .t-int,.t-work{min-height:250px}
   .t-int .nav2{display:none}
   .t-school,.t-book,.t-conc{flex-direction:column;align-items:flex-start}
   .t-about .kf{gap:16px}
