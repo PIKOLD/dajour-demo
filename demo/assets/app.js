@@ -66,7 +66,7 @@ function openNow() {
 }
 
 document.body.insertAdjacentHTML('afterbegin', `
-<div class="demo"><b>Демо-версия</b> · образец сайта от студии «Кирилл и Даня»</div>
+<div class="demo"><b>Демо-версия</b> · образец сайта от студии «Кирилл и Даня» · <a href="${ROOT}v/journal.html" style="text-decoration:underline;text-underline-offset:3px">ещё 3 стиля →</a></div>
 <header class="hd${document.body.dataset.dark ? ' dark' : ''}"><div class="wrap">
   <a class="lg" href="index.html" aria-label="Дом D'ajour — на главную"><img class="dk" src="img/logo-dark.png" alt="Дом D'ajour"><img class="lt" src="img/logo.png" alt=""></a>
   <nav>${navLinks}</nav>

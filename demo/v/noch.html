@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>D'ajour — стиль «Ночь» (демо)</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c0b0a">
+<link rel="icon" href="../img/logo-dark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0b0a;--bg2:#151310;--ch:#e4cc9a;--chg:linear-gradient(120deg,#b8955a,#f3e2b8 40%,#c9a66b 60%,#f6e7c3);--tx:#eee8dd;--mut:rgba(238,232,221,.56);--ln:rgba(228,204,154,.22);--disp:Cormorant,Georgia,serif;--sans:Manrope,system-ui,sans-serif;--pad:clamp(18px,4vw,64px);--e:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font:300 16px/1.6 var(--sans);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit;background:none;border:0}
+button{cursor:pointer}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+/* зерно и луч за курсором */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.spot{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(228,204,154,.07),transparent 60%)}
+main{position:relative;z-index:2}
+.k{font:600 11px var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--ch)}
+.h2{font:300 clamp(44px,6vw,96px)/.95 var(--disp);letter-spacing:-.01em}
+.h2 i{font-style:italic;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 26px;border-radius:99px;background:var(--chg);background-size:200% 100%;color:#14110c;font:700 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:background-position .8s var(--e),transform .3s}
+.btn:hover{background-position:100% 0;transform:translateY(-2px)}
+.btn.gh{background:transparent;color:var(--tx);border:1px solid var(--ln)}
+.btn.gh:hover{border-color:var(--ch)}
+.btn svg{width:16px}
+[data-r]{opacity:0;transform:translateY(34px);filter:blur(6px);transition:opacity 1.1s var(--e),transform 1.1s var(--e),filter 1.1s var(--e)}
+[data-r].in{opacity:1;transform:none;filter:none}
+.noanim [data-r]{opacity:1;transform:none;filter:none;transition:none}
+
+/* шапка */
+.top{position:fixed;left:0;right:0;top:0;z-index:50;transition:background .4s,backdrop-filter .4s}
+.top.sc{background:rgba(12,11,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.top .lg img{height:40px}
+.top nav{display:flex;gap:30px}
+.top nav a{font:400 13px var(--sans);color:var(--mut);transition:color .2s}
+.top nav a:hover{color:var(--ch)}
+.top .btn{height:42px;padding:0 20px;font-size:11px}
+
+/* первый экран */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.12);animation:hz 2.6s var(--e) forwards;filter:saturate(.85)}
+@keyframes hz{to{transform:scale(1)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,11,10,.55),rgba(12,11,10,.1) 35%,rgba(12,11,10,.85) 78%,var(--bg))}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:clamp(30px,5vw,60px)}
+.hero h1{font:300 clamp(84px,17vw,270px)/.8 var(--disp);letter-spacing:-.03em;display:flex;overflow:hidden}
+.hero h1 span{display:inline-block;transform:translateY(105%);animation:up 1.4s var(--e) forwards;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
+@keyframes up{to{transform:none}}
+.hero .sub{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-top:22px;padding-top:22px;border-top:1px solid var(--ln)}
+.hero .sub p{font:300 clamp(22px,2.4vw,34px)/1.15 var(--disp);max-width:560px}
+.hero .sub p i{color:var(--ch)}
+.meta{display:flex;gap:26px;flex-wrap:wrap;font-size:13px;color:var(--mut)}
+.meta b{display:block;color:var(--tx);font-weight:600}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4fc27a;margin-right:8px;box-shadow:0 0 0 0 rgba(79,194,122,.6);animation:pl 2s infinite}
+.dot.off{background:#d0574b;animation:none}
+@keyframes pl{70%{box-shadow:0 0 0 10px rgba(79,194,122,0)}100%{box-shadow:0 0 0 0 rgba(79,194,122,0)}}
+.noanim .hero>img,.noanim .hero h1 span{animation:none;transform:none}
+
+/* направления: горизонтальная прокрутка */
+.hz{position:relative;height:var(--hh,360vh)}
+.hz .stk{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;gap:clamp(24px,4vh,44px)}
+.hz .hd{display:flex;justify-content:space-between;align-items:end;gap:20px}
+.hz .ct{font:300 clamp(34px,4vw,64px)/1 var(--disp);color:var(--mut);white-space:nowrap}
+.hz .ct b{color:var(--ch);font-weight:300}
+.trk{display:flex;gap:22px;padding:0 var(--pad);will-change:transform}
+.cd{position:relative;flex:0 0 clamp(260px,26vw,370px);aspect-ratio:3/4.3;border-radius:22px;overflow:hidden;background:var(--bg2);border:1px solid var(--ln);isolation:isolate}
+.cd img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.65) brightness(.75);transition:filter .8s var(--e),transform 1.2s var(--e)}
+.cd:hover img{filter:none;transform:scale(1.05)}
+.cd::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,11,10,.92));z-index:1}
+.cd .tx{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px}
+.cd .n{position:absolute;top:18px;left:22px;z-index:2;font:300 46px/1 var(--disp);color:var(--ch)}
+.cd h3{font:400 clamp(30px,2.6vw,40px)/1 var(--disp)}
+.cd p{font-size:13.5px;color:var(--mut);margin:8px 0 14px;line-height:1.45}
+.cd .pr{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ln);padding-top:12px;font-size:13px}
+.cd .pr b{font:500 22px var(--disp);color:var(--ch)}
+
+/* прайс */
+.sec{padding:clamp(80px,11vw,160px) 0;position:relative}
+.ph{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:46px}
+.srch{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--ln);padding:10px 2px;transition:border-color .3s}
+.srch:focus-within{border-color:var(--ch)}
+.srch svg{width:20px;color:var(--ch);flex:none}
+.srch input{flex:1;font:300 22px var(--disp);outline:0;min-width:0}
+.srch input::placeholder{color:var(--mut)}
+.acc{border-top:1px solid var(--ln)}
+.acc>div{border-bottom:1px solid var(--ln)}
+.acc .q{width:100%;display:grid;grid-template-columns:70px minmax(0,1fr) auto 44px;align-items:center;gap:16px;padding:24px 0;text-align:left}
+.acc .q small{font:300 15px var(--disp);color:var(--mut)}
+.acc .q b{font:300 clamp(28px,3vw,46px)/1 var(--disp);transition:color .3s,padding .4s var(--e)}
+.acc .q:hover b{color:var(--ch);padding-left:10px}
+.acc .q span{font-size:13px;color:var(--mut);white-space:nowrap}
+.acc .q i{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;transition:transform .4s var(--e),background .3s}
+.acc .q i::before{content:"+";font:300 24px/1 var(--sans);color:var(--ch)}
+.acc .open .q i{transform:rotate(45deg);background:rgba(228,204,154,.1)}
+.acc .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--e)}
+.acc .open .a{grid-template-rows:1fr}
+.acc .a>div{overflow:hidden}
+.acc .in3{padding:0 0 30px 86px;columns:2 340px;column-gap:50px}
+.acc h4{font:600 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ch);margin:4px 0 8px;break-after:avoid}
+.g{break-inside:avoid;margin-bottom:22px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid rgba(228,204,154,.08);font-size:14.5px}
+.row b{font:500 18px var(--disp);color:var(--ch);white-space:nowrap}
+.row small{color:var(--mut);font-size:12px;margin-left:6px;white-space:nowrap}
+.res{display:none}
+.res.on{display:block;padding:10px 0 30px}
+.none{color:var(--mut);padding:20px 0;font:300 22px var(--disp)}
+.src{font-size:12px;color:var(--mut);margin-top:22px}
+
+/* дом */
+.home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(30px,6vw,100px);align-items:center}
+.home figure{position:relative;border-radius:200px 200px 22px 22px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--ln)}
+.home figure img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.home p.l{font:300 clamp(22px,2.2vw,30px)/1.3 var(--disp);color:var(--mut);margin:24px 0 40px}
+.home p.l b{color:var(--tx);font-weight:400}
+.cnt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border-top:1px solid var(--ln);padding-top:26px}
+.cnt b{display:block;font:300 clamp(54px,5.6vw,92px)/1 var(--disp);background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cnt span{font-size:12.5px;color:var(--mut)}
+
+/* работы */
+.wk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(160px,17vw,250px);gap:14px}
+.wk figure{position:relative;border-radius:16px;overflow:hidden;cursor:zoom-in;background:var(--bg2)}
+.wk figure:nth-child(1){grid-row:span 2}.wk figure:nth-child(4){grid-row:span 2}.wk figure:nth-child(6){grid-column:span 2}
+.wk img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.8);transition:filter .7s var(--e),transform 1s var(--e)}
+.wk figure:hover img{filter:none;transform:scale(1.04)}
+.lb{position:fixed;inset:0;z-index:95;background:rgba(8,7,6,.94);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .35s;padding:20px}
+.lb.on{opacity:1;pointer-events:auto}
+.lb img{max-height:88vh;max-width:92vw;border-radius:14px}
+
+/* сертификат */
+.gift{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,6vw,100px);align-items:center}
+.gc{perspective:1200px}
+.gcard{position:relative;aspect-ratio:1.6;border-radius:22px;padding:clamp(20px,3vw,34px);background:linear-gradient(135deg,#221c13,#0f0d0a 60%,#2a2215);border:1px solid rgba(228,204,154,.45);box-shadow:0 40px 80px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.08);transform:rotateX(var(--rx,8deg)) rotateY(var(--ry,-14deg));transition:transform .2s;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transform-style:preserve-3d}
+.gcard::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(243,226,184,.28),transparent 45%);mix-blend-mode:screen}
+.gcard::after{content:"";position:absolute;inset:-50%;background:linear-gradient(115deg,transparent 40%,rgba(243,226,184,.18) 50%,transparent 60%);animation:sh 5s infinite}
+@keyframes sh{from{transform:translateX(-40%)}to{transform:translateX(40%)}}
+.gcard .t{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.gcard .t img{height:44px}
+.gcard .t span{font-size:11px;letter-spacing:.24em;color:var(--ch)}
+.gcard .m{position:relative;z-index:1}
+.gcard .m b{display:block;font:300 clamp(34px,4vw,60px)/1 var(--disp);background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gcard .m small{font-size:12px;color:var(--mut);letter-spacing:.14em;text-transform:uppercase}
+.gift ul{list-style:none;margin:26px 0 34px;display:grid;gap:12px}
+.gift li{display:flex;gap:14px;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--ln);font-size:15px}
+.gift li b{font:300 22px var(--disp);color:var(--ch);min-width:34px}
+
+/* контакты */
+.ct2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,5vw,80px)}
+.ct2 .tel{display:block;font:300 clamp(40px,5vw,78px)/1 var(--disp);margin:20px 0 10px;background:var(--chg);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ct2 dl{display:grid;grid-template-columns:auto 1fr;gap:14px 26px;margin:30px 0;font-size:15px}
+.ct2 dt{color:var(--mut);font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding-top:3px}
+.ms{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.ms a{width:52px;height:52px;border-radius:50%;border:1px solid var(--ln);display:grid;place-items:center;color:var(--ch);transition:.3s}
+.ms a:hover{background:var(--ch);color:var(--bg);transform:translateY(-3px)}
+.ms svg{width:20px;height:20px;fill:currentColor}
+.map{border-radius:22px;overflow:hidden;border:1px solid var(--ln);min-height:420px;background:var(--bg2)}
+.map iframe{width:100%;height:100%;min-height:420px;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.4) brightness(.9)}
+.foot{border-top:1px solid var(--ln);padding:30px 0 100px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--mut)}
+
+@media(max-width:980px){
+  .top nav{display:none}
+  .hz{height:auto!important}
+  .hz .stk{position:static;height:auto;padding:90px 0 40px}
+  .trk{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important;padding-bottom:10px;scrollbar-width:none}
+  .cd{scroll-snap-align:center;flex-basis:74vw}
+  .ph,.home,.gift,.ct2{grid-template-columns:1fr}
+  .home figure{max-width:440px}
+  .wk{grid-template-columns:1fr 1fr}
+  .wk figure:nth-child(6){grid-column:auto}
+  .spot{display:none}
+}
+@media(max-width:640px){
+  .top .lg img{height:34px}
+  .hero h1{font-size:25vw}
+  .meta{gap:16px}
+  .acc .q{grid-template-columns:minmax(0,1fr) 40px;gap:4px 12px;padding:18px 0}
+  .acc .q small{display:none}
+  .acc .q span{grid-row:2}
+  .acc .q i{grid-row:1/3;grid-column:2;width:40px;height:40px}
+  .acc .in3{padding:0 0 24px}
+  .row{font-size:13.5px}
+  .cnt{gap:10px}
+  .gcard{transform:none}
+}
+</style>
+</head>
+<body data-v="noch">
+<div class="spot" id="spot"></div>
+<header class="top" id="top"><div class="wrap">
+  <a class="lg" href="#"><img src="../img/logo.png" alt="Дом D'ajour"></a>
+  <nav><a href="#dirs">Направления</a><a href="#price">Цены</a><a href="#home">О доме</a><a href="#works">Работы</a><a href="#gift">Сертификат</a><a href="#contacts">Контакты</a></nav>
+  <a class="btn" id="bk1" target="_blank" rel="noopener">Записаться</a>
+</div></header>
+
+<main>
+<section class="hero">
+  <img src="../img/dark.jpg" alt="Гостьи Дома D'ajour">
+  <div class="wrap">
+    <span class="k">Дом красоты · Пермь · демо-образец сайта</span>
+    <h1 id="ttl" aria-label="D'ajour">D'ajour</h1>
+    <div class="sub">
+      <p>Девять направлений красоты <i>под одной крышей</i> — в самом центре Перми</p>
+      <div class="meta"><div><b>Осинская, 8</b>адрес</div><div><b>10:00–20:00</b>ежедневно</div><div><b><span class="dot" id="dot"></span><span id="stx"></span></b>сейчас</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hz" id="dirs"><div class="stk">
+  <div class="wrap hd"><div><span class="k">Направления</span><h2 class="h2" style="margin-top:12px">Девять <i>комнат</i></h2></div><div class="ct"><b id="ci">01</b> / 09</div></div>
+  <div class="trk" id="trk"></div>
+</div></section>
+
+<section class="sec" id="price"><div class="wrap">
+  <div class="ph" data-r><div><span class="k">Прайс</span><h2 class="h2" style="margin-top:12px">Все цены <i>сразу</i></h2></div>
+    <label class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="1.6"/></svg><input id="q" type="search" placeholder="Найти услугу: маникюр, пилинг…" aria-label="Поиск услуги"></label></div>
+  <div class="res" id="res"></div>
+  <div class="acc" id="acc" data-r></div>
+  <p class="src">Все <span id="cnt"></span> услуг — из онлайн-записи салона. Окончательную стоимость подтверждает мастер.</p>
+</div></section>
+
+<section class="sec" id="home" style="background:var(--bg2)"><div class="wrap home">
+  <figure data-r><img src="../img/in5.jpg" alt="Холл Дома D'ajour" loading="lazy"></figure>
+  <div data-r><span class="k">О доме</span><h2 class="h2" style="margin-top:12px">Салон и <i>школа</i> красоты</h2>
+    <p class="l"><b>Не нужно искать мастеров по всему городу:</b> от стрижки и маникюра до перманента, массажа и лазера — в одном месте. А при Доме работает школа красоты.</p>
+    <div class="cnt"><div><b data-n="200">0</b><span>м² пространства</span></div><div><b data-n="9">0</b><span>направлений</span></div><div><b data-n="0" id="cntS">0</b><span>услуг в записи</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="works"><div class="wrap">
+  <div class="ph" data-r><div><span class="k">Работы</span><h2 class="h2" style="margin-top:12px">Из темноты — <i>в&nbsp;цвет</i></h2></div><p style="color:var(--mut)">Наведите на фото, чтобы увидеть работу в цвете. Нажмите — откроется крупно.</p></div>
+  <div class="wk" id="wk" data-r></div>
+</div></section>
+
+<section class="sec" id="gift" style="background:radial-gradient(80% 60% at 30% 50%,#1d1810,var(--bg))"><div class="wrap gift">
+  <div class="gc" data-r><div class="gcard" id="gcard"><div class="t"><img src="../img/logo.png" alt=""><span>ПОДАРОЧНЫЙ СЕРТИФИКАТ</span></div><div class="m"><small>Номинал — на ваш выбор</small><b>Ключ от Дома</b></div></div></div>
+  <div data-r><span class="k">Подарок</span><h2 class="h2" style="margin-top:12px">Подарите <i>вечер</i> для&nbsp;себя</h2>
+    <ul><li><b>01</b>Открытка из 30 дизайнов, в том числе «живые»</li><li><b>02</b>Сумма или конкретные услуги из прайса</li><li><b>03</b>Доставка в мессенджер, SMS, на почту или в конверте</li></ul>
+    <a class="btn" href="../sertifikaty.html">Собрать сертификат <svg viewBox="0 0 24 24"><path d="M13.3 5.3 20 12l-6.7 6.7-1.4-1.4 4.3-4.3H4v-2h12.2l-4.3-4.3 1.4-1.4Z" fill="currentColor"/></svg></a></div>
+</div></section>
+
+<section class="sec" id="contacts"><div class="wrap ct2">
+  <div data-r><span class="k">Контакты</span><a class="tel" id="tel"></a>
+    <dl><dt>Адрес</dt><dd>Пермь, ул. Осинская, 8</dd><dt>Часы</dt><dd>Ежедневно 10:00–20:00</dd><dt>Сейчас</dt><dd id="stx2"></dd><dt>Школа</dt><dd><a id="school" target="_blank" rel="noopener" style="color:var(--ch)">dajour.org</a></dd></dl>
+    <div class="ms" id="ms"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" id="bk2" target="_blank" rel="noopener">Записаться онлайн</a><a class="btn gh" id="route" target="_blank" rel="noopener">Маршрут</a></div>
+  </div>
+  <div class="map" data-r><iframe id="mapf" title="Карта: Пермь, Осинская, 8" loading="lazy"></iframe></div>
+</div>
+<div class="wrap"><div class="foot"><span>Демо-версия · образец сайта от студии «Кирилл и Даня»</span><span>Фото и цены — салона D'ajour</span></div></div>
+</section>
+</main>
+<div class="lb" id="lb"><img alt=""></div>
+
+<script src="../assets/prices.js?v=5"></script>
+<script src="core.js?v=1"></script>
+<script>
+['#bk1', '#bk2'].forEach(s => $(s).href = SALON.book);
+$('#route').href = SALON.map; $('#school').href = SALON.school;
+$('#tel').href = tel; $('#tel').textContent = SALON.phone;
+$('#ms').innerHTML = msgLinks('');
+const on = openNow(); $('#stx').textContent = on.open ? 'Открыто' : 'Закрыто'; $('#stx2').textContent = on.text; $('#dot').classList.toggle('off', !on.open);
+$('#cnt').textContent = svcCount; $('#cntS').dataset.n = svcCount;
+
+/* заголовок по буквам */
+$('#ttl').innerHTML = [...'D’ajour'].map((c, i) => `<span style="animation-delay:${.25 + i * .07}s">${c}</span>`).join('');
+
+/* шапка и луч */
+addEventListener('scroll', () => $('#top').classList.toggle('sc', scrollY > 40), { passive: true });
+addEventListener('pointermove', e => { $('#spot').style.setProperty('--mx', e.clientX + 'px'); $('#spot').style.setProperty('--my', e.clientY + 'px'); }, { passive: true });
+
+/* направления: вертикальная прокрутка двигает ленту */
+$('#trk').innerHTML = SALON.services.map((s, i) => `<a class="cd" href="#price" data-c="${s.c}"><img src="../img/${s.i}.jpg" alt="${s.n}" loading="lazy"><span class="n">${String(i + 1).padStart(2, '0')}</span><div class="tx"><h3>${s.n}</h3><p>${s.d}</p><div class="pr"><span>Цены →</span><b>${fromPrice(s)}</b></div></div></a>`).join('');
+const hz = $('#dirs'), trk = $('#trk'), mq = matchMedia('(max-width:980px)');
+function size() { if (mq.matches) return; hz.style.setProperty('--hh', (trk.scrollWidth - innerWidth + innerHeight * 1.1) + 'px'); move(); }
+function move() {
+  if (mq.matches) return;
+  const r = hz.getBoundingClientRect(), max = trk.scrollWidth - innerWidth, p = Math.min(1, Math.max(0, -r.top / (hz.offsetHeight - innerHeight)));
+  trk.style.transform = `translateX(${-p * max}px)`;
+  $('#ci').textContent = String(Math.min(9, 1 + Math.round(p * 8))).padStart(2, '0');
+}
+addEventListener('scroll', move, { passive: true }); addEventListener('resize', size); addEventListener('load', size); size();
+trk.addEventListener('scroll', () => { const c = trk.children[0].offsetWidth + 22; $('#ci').textContent = String(Math.min(9, 1 + Math.round(trk.scrollLeft / c))).padStart(2, '0'); }, { passive: true });
+
+/* прайс: аккордеон и поиск */
+const rows = s => s.map(([n, p, m]) => `<div class="row"><span>${n}${m ? `<small>${dur(m)}</small>` : ''}</span><b>${price(p)}</b></div>`).join('');
+$('#acc').innerHTML = PRICES.map((c, i) => {
+  const all = c.g.flatMap(g => g.s), mn = Math.min(...all.map(x => minOf(x[1])).filter(Boolean));
+  return `<div><button class="q" aria-expanded="false"><small>${String(i + 1).padStart(2, '0')}</small><b>${c.c}</b><span>${all.length} усл. · от ${rub(mn)}</span><i></i></button><div class="a"><div><div class="in3">${c.g.map(g => `<div class="g">${g.n ? `<h4>${g.n}</h4>` : ''}${rows(g.s)}</div>`).join('')}</div></div></div></div>`;
+}).join('');
+const openAcc = (d, v) => { d.classList.toggle('open', v); d.querySelector('.q').setAttribute('aria-expanded', v); };
+$$('#acc>div').forEach(d => d.querySelector('.q').onclick = () => { const v = !d.classList.contains('open'); $$('#acc>div').forEach(x => openAcc(x, false)); openAcc(d, v); });
+$$('.cd').forEach(a => a.addEventListener('click', () => { const i = PRICES.findIndex(c => c.c === a.dataset.c); $$('#acc>div').forEach((x, k) => openAcc(x, k === i)); }));
+$('#q').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase(), res = $('#res');
+  if (q.length < 2) { res.classList.toggle('on', false); $('#acc').style.display = ''; return; }
+  const hit = PRICES.flatMap(c => c.g.flatMap(g => g.s)).filter(x => x[0].toLowerCase().includes(q));
+  res.innerHTML = hit.length ? rows(hit.slice(0, 30)) : '<p class="none">Не нашли — спросите администратора в мессенджере.</p>';
+  res.classList.add('on'); $('#acc').style.display = 'none';
+});
+
+/* счётчики */
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, to = +el.dataset.n, t0 = performance.now();
+  const f = t => { const k = Math.min(1, (t - t0) / 1600); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); };
+  requestAnimationFrame(f);
+}), { threshold: .5 });
+$$('.cnt b').forEach(b => document.documentElement.classList.contains('noanim') ? b.textContent = b.dataset.n : cio.observe(b));
+
+/* работы + просмотр */
+$('#wk').innerHTML = WORKS.slice(0, 10).map(w => `<figure><img src="../img/${w}.jpg" alt="Работа мастера D'ajour" loading="lazy"></figure>`).join('');
+$$('#wk figure').forEach(f => f.onclick = () => { $('#lb img').src = f.querySelector('img').src; $('#lb').classList.add('on'); });
+$('#lb').onclick = () => $('#lb').classList.toggle('on', false);
+
+/* сертификат наклоняется за курсором */
+const gc = $('#gcard');
+gc.parentElement.addEventListener('pointermove', e => { const r = gc.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; gc.style.setProperty('--ry', (x - .5) * 24 + 'deg'); gc.style.setProperty('--rx', (.5 - y) * 18 + 'deg'); gc.style.setProperty('--gx', x * 100 + '%'); gc.style.setProperty('--gy', y * 100 + '%'); });
+gc.parentElement.addEventListener('pointerleave', () => { gc.style.removeProperty('--ry'); gc.style.removeProperty('--rx'); });
+
+/* карта грузится, когда до неё доскроллили */
+new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { $('#mapf').src = SALON.mapWidget; o.disconnect(); } }, { rootMargin: '400px' }).observe($('#mapf'));
+reveal();
+</script>
+</body>
+</html>
