@@ -58,29 +58,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* на широком экране фото — вертикальная полоса справа в исходном формате, без растягивания */
 @media(max-width:980px){.cover>img.tp{display:none}}
 @media(min-width:981px){
-  /* триптих: три вертикальных фото в родном формате на всю ширину — без растягивания и пустот */
-  .cover{background:#f3efe8}
-  .cover>img{left:33.333%;width:33.334%;object-position:50% 22%;border-inline:3px solid #f3efe8}
-  .cover>img.tp{width:33.333%;border:0;filter:brightness(.82) saturate(.95)}
-  .cover>img.tp.l{left:0;object-position:50% 20%}
-  .cover>img.tp.r{left:auto;right:0;object-position:50% 30%}
-  .cover::before{background:linear-gradient(180deg,rgba(10,8,7,.5) 0,rgba(10,8,7,.08) 34%,rgba(10,8,7,0) 52%,rgba(10,8,7,.82) 100%)}
-  .cover .cl{max-width:360px}
-  /* анонсы — на тёмной стеклянной плашке, чтобы читались поверх любых фото */
-  .cv{align-items:center;padding:22px 28px;background:rgba(14,11,9,.74);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border:1px solid rgba(255,255,255,.14);box-shadow:0 20px 60px rgba(0,0,0,.35)}
-  .cv .cl p{padding-top:8px}
-  .cv .cl p b{font-size:clamp(54px,5vw,84px)}
-  .cl.r{display:grid;grid-template-columns:auto auto;gap:12px 20px;align-items:end;justify-items:end;max-width:none}
-  .cl.r p{grid-column:1/-1}
+  /* триптих сверху, все анонсы — в тёмной полосе под фото: лица ничем не закрыты */
+  .cover{--band:200px;background:#15110e}
+  .cover>img{top:0;bottom:auto;height:calc(100% - var(--band));left:33.333%;width:33.334%;object-position:50% 30%;border-inline:3px solid #f3efe8}
+  .cover>img.tp{width:33.333%;border:0;filter:brightness(.86)}
+  .cover>img.tp.l{left:0;object-position:50% 28%}
+  .cover>img.tp.r{left:auto;right:0;object-position:50% 32%}
+  .cover::before{bottom:var(--band);background:linear-gradient(180deg,rgba(10,8,7,.55) 0,rgba(10,8,7,.08) 30%,rgba(10,8,7,0) 80%,rgba(10,8,7,.3) 100%)}
+  .mast{font-size:clamp(84px,14vw,230px);text-shadow:0 6px 50px rgba(0,0,0,.35)}
+  .cover .wrap{padding-bottom:0}
+  .cv{margin-top:auto;padding:26px 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr);align-items:center;gap:0}
+  .cv>.cl.l{display:contents}
+  .cv .cl p{border:0;padding:0;margin:0}
+  .cv .cl.l p{padding-right:30px;font-size:clamp(18px,1.5vw,22px)}
+  .cv .cl.l p+p{padding-left:30px;border-left:1px solid rgba(255,255,255,.18)}
+  .cv .cl.l p b{display:inline;font-size:clamp(48px,4.2vw,70px);margin-right:10px;vertical-align:-6px}
+  .cl.r{max-width:none;padding-left:30px;border-left:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;text-align:left}
+  .cl.r p{flex-basis:100%;font-size:clamp(18px,1.5vw,22px)}
+  .cl.r p:first-child{display:none}
+  .cl.r .btn{align-self:auto}
   .cover .cv-badge{white-space:nowrap;font-size:12px}
   .cover .bc{display:none}
-  .cover .mast{text-shadow:0 6px 50px rgba(0,0,0,.35)}
 }
-@media(min-width:981px) and (max-height:900px){
-  .cv{padding:14px 24px}
-  .cv .cl p b{font-size:clamp(40px,3.6vw,60px)}
+@media(min-width:981px) and (max-height:820px){
   .cv .cl.l p:nth-child(2){display:none}
-  .cv .cl p{font-size:18px}
+  .cv{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+  .cl.r{border-left:0}
 }
 @keyframes cz{to{transform:scale(1)}}
 @keyframes cu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -357,6 +360,9 @@ $('#strip').innerHTML = WORKS.map((w, i) => `<figure><img src="../img/${w}.jpg" 
 
 /* полоса прочтения */
 addEventListener('scroll', () => { const h = document.documentElement; $('#bar').style.width = h.scrollTop / (h.scrollHeight - innerHeight) * 100 + '%'; }, { passive: true });
+/* высота тёмной полосы под фото = высоте анонсов */
+const band = () => { const c = $('.cover'); c.style.setProperty('--band', innerWidth > 980 ? $('.cv').offsetHeight + 'px' : '0px'); };
+band(); addEventListener('resize', band); addEventListener('load', band); document.fonts && document.fonts.ready.then(band);
 reveal();
 </script>
 </body>
