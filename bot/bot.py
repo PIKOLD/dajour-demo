@@ -264,6 +264,12 @@ def on_text(chat, text, contact=None):
     st = S.setdefault(chat, {'h': [], 'step': None})
     if text in ('/start', '/menu'):
         return start(chat)
+    cmd = {'/book': 'm:book', '/price': 'm:price', '/pm': 'm:pm', '/contacts': 'm:addr'}.get(text.split('@')[0])
+    if cmd:
+        st['step'] = None
+        return on_button(chat, cmd)
+    if text.split('@')[0] == '/gift':
+        return send(chat, '🎁 Подарочный сертификат оформляется в красивом окне: нажмите «✨ Записаться онлайн» внизу и пролистайте до баннера «Подарочный сертификат».', None if CONSOLE else APP_KB)
     step = st.get('step')
     if contact and step != 'phone':
         st['last_phone'] = re.sub(r'[^\d+]', '', contact)
