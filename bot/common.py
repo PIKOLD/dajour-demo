@@ -31,6 +31,8 @@ def http(method, url, data=None, headers=None, timeout=40):
             return e.code, json.loads(e.read().decode() or '{}')
         except Exception:
             return e.code, {}
+    except (urllib.error.URLError, TimeoutError, OSError, ValueError) as e:   # обрыв сети, таймаут — не падаем
+        return 0, {'error': str(e)}
 
 
 # ---------- данные салона (те же, что на сайте) ----------
