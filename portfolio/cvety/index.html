@@ -2,800 +2,940 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Пион и полынь — авторские букеты с доставкой по Перми</title>
-<meta name="description" content="Цветочная мастерская «Пион и полынь», Пермь: авторские букеты, доставка в выбранный интервал, фото букета перед отправкой, открытка от руки. Концепт-сайт.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Пион и полынь — авторские букеты с доставкой по Перми (концепт)</title>
+<meta name="description" content="Концепт-сайт цветочной мастерской «Пион и полынь», Пермь: авторские букеты, доставка в интервал, фото перед отправкой, открытка от руки, подписка. Бренд вымышлен.">
+<script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.pexels.com">
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
 <style>
 :root{
-  --milk:#faf6f0;--paper:#f4ede3;--ink:#1d1916;--wine:#6e1f37;--wine2:#5a1830;--powder:#efc3c9;--sage:#9fb09a;
-  --muted:#6f655d;--line:rgba(29,25,22,.14);
-  --pad:clamp(18px,4.2vw,64px);
-  --disp:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;--hand:"Caveat",cursive;
-  --ease:cubic-bezier(.2,.7,.2,1);
+  --pink:#f6c1cc;--wine:#5c1630;--sage:#b7c7ae;--butter:#fbe7a1;--off:#fffaf5;--ink:#1a1416;
+  --wine2:#7a2244;--line:rgba(26,20,22,.12);
+  --disp:"Unbounded",system-ui,sans-serif;--ser:"Cormorant Garamond",Georgia,serif;--body:"Manrope",system-ui,sans-serif;--hand:"Caveat",cursive;
+  --r:36px;--ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:72px}
-body{background:var(--milk);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--body);background:var(--off);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%}
-a{color:inherit}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-input,textarea{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
-.disp{font-family:var(--disp);font-weight:500;letter-spacing:-.02em;line-height:.92}
-.disp em,h2 em,h1 em{font-style:italic;color:var(--wine)}
-.kick{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--muted)}
-.wrap{padding-inline:var(--pad)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1392px;margin:0 auto;padding:0 16px}
+em.s{font-family:var(--ser);font-style:italic;font-weight:500;letter-spacing:0;font-size:1.12em;line-height:.8}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--wine2);outline-offset:3px;border-radius:12px}
 
-/* concept strip + header */
-.concept{background:var(--ink);color:#e9e1d6;font-size:12px;letter-spacing:.04em;text-align:center;padding:7px 12px}
-.concept b{font-weight:600;color:#fff}
-.hdr{position:sticky;top:0;z-index:40;background:rgba(250,246,240,.94);border-bottom:1px solid var(--line)}
-.hdr-in{display:flex;align-items:center;gap:28px;height:64px}
-.logo{font-family:var(--disp);font-size:27px;font-weight:600;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
-.logo i{font-weight:500;color:var(--wine);padding:0 .08em}
-.nav{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:500}
-.nav a{text-decoration:none;position:relative;padding:4px 0}
-.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
-.nav a:hover::after{transform:scaleX(1)}
-.hdr-tel{font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap}
-.hdr-cart{display:flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:40px;padding:8px 16px;font-size:14px;font-weight:600;transition:background .25s,color .25s}
-.hdr-cart:hover{background:var(--ink);color:var(--milk)}
-.cnt{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:10px;background:var(--wine);color:#fff;font-size:11px;padding:0 5px}
+/* demo bar + header */
+.demo{background:var(--ink);color:#f3e6e9;font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}
+.demo b{color:var(--pink);font-weight:700}
+header{position:sticky;top:0;z-index:40;background:rgba(255,250,245,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hd{display:flex;align-items:center;gap:28px;height:72px}
+.logo{font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:-.03em;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.logo i{width:30px;height:30px;border-radius:50%;background:var(--wine);display:grid;place-items:center}
+.logo i svg{width:18px;height:18px}
+.logo em{font-family:var(--ser);font-weight:600;font-size:1.2em;letter-spacing:0;color:var(--wine2)}
+nav{display:flex;gap:4px;margin-left:auto}
+nav a{font-weight:600;font-size:14.5px;padding:9px 14px;border-radius:99px;transition:background .25s}
+nav a:hover{background:var(--pink)}
+.hcart{display:flex;align-items:center;gap:10px;background:var(--ink);color:var(--off);border-radius:99px;padding:10px 18px 10px 14px;font-weight:700;font-size:14px;transition:transform .25s var(--ease)}
+.hcart:hover{transform:translateY(-2px)}
+.hcart svg{width:20px;height:20px}
+.cnt{min-width:22px;height:22px;border-radius:99px;background:var(--pink);color:var(--ink);font-size:12px;display:inline-grid;place-items:center;padding:0 6px}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 30px;border-radius:60px;background:var(--wine);color:#fff;font-weight:600;font-size:15px;text-decoration:none;letter-spacing:.01em;transition:background .3s,transform .3s var(--ease)}
-.btn:hover{background:var(--wine2);transform:translateY(-2px)}
-.btn svg{transition:transform .3s var(--ease)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 28px;border-radius:99px;font-weight:800;font-size:16px;transition:transform .3s var(--ease),background .3s,box-shadow .3s;white-space:nowrap}
+.btn:hover{transform:translateY(-3px)}
+.btn svg{width:20px;height:20px;transition:transform .3s var(--ease)}
 .btn:hover svg{transform:translateX(4px)}
-.btn.ink{background:var(--ink)}
-.btn.ink:hover{background:#000}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--milk)}
-.lnk{font-weight:600;font-size:15px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .25s}
-.lnk:hover{color:var(--wine)}
+.b-pink{background:var(--pink);color:var(--ink)}
+.b-pink:hover{box-shadow:0 14px 30px -12px rgba(246,193,204,.9)}
+.b-wine{background:var(--wine);color:var(--off)}
+.b-ink{background:var(--ink);color:var(--off)}
+.b-line{border:2px solid currentColor;background:transparent}
 
-/* hero */
-.hero{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-top:26px;padding-bottom:34px;position:relative}
-.issue{grid-column:1/-1;display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:22px}
-.hero-txt{grid-column:1/9;grid-row:2;z-index:2;align-self:center;padding-block:8px}
-.hero h1{font-size:clamp(50px,min(8.4vw,13vh),134px);margin-bottom:24px}
-.hero h1 span{display:block}
-.hero h1 .ind{padding-left:1.1em}
-.lead{max-width:430px;font-size:17px;color:#3d3530;margin-bottom:24px}
-.cta-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.cta-note{font-size:12px;color:var(--muted);margin-top:14px}
-.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:620px;margin-top:24px;border-top:1px solid var(--ink);list-style:none}
-.facts li{padding:14px 18px 0 0;font-size:13px;line-height:1.4;color:#3d3530}
-.facts li+li{padding-left:18px;border-left:1px solid var(--line)}
-.facts b{display:block;font-family:var(--disp);font-size:30px;font-weight:500;font-style:italic;color:var(--wine);line-height:1;margin-bottom:6px}
-.hero-ph{grid-column:7/13;grid-row:2;position:relative;margin:0}
-.hero-ph .frame{height:min(calc(100svh - 230px),760px);min-height:440px;overflow:hidden;background:#e8e2dc}
-.hero-ph img{width:100%;height:112%;object-fit:cover;object-position:50% 40%;will-change:transform}
-.hero-ph figcaption{display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--muted);padding-top:10px}
-.hero-ph figcaption i{font-family:var(--disp);font-size:15px}
-.vcap{position:absolute;top:0;left:-34px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
 
-/* marquee */
-.marq{border-block:1px solid var(--ink);overflow:hidden;background:var(--powder);padding:14px 0}
-.marq-t{display:flex;width:max-content;animation:marq 38s linear infinite}
-.marq-t span{font-family:var(--disp);font-style:italic;font-size:clamp(26px,3vw,40px);line-height:1;white-space:nowrap;padding-right:34px;display:flex;align-items:center;gap:34px}
-.marq-t span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--wine)}
-@keyframes marq{to{transform:translateX(-50%)}}
+/* photos */
+.ph{overflow:hidden;border-radius:var(--r);position:relative;background:#eac6cc}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.ph:hover img{transform:scale(1.05)}
 
-/* section heads */
-.sec{padding-top:clamp(72px,10vw,140px);padding-bottom:clamp(20px,3vw,40px)}
-.sh{display:grid;grid-template-columns:auto 1fr;gap:0 24px;align-items:end;margin-bottom:clamp(30px,4vw,54px)}
-.sh .pg{font-family:var(--disp);font-size:clamp(64px,9vw,150px);line-height:.8;color:var(--powder);font-weight:500;font-style:italic;grid-row:1/3}
-.sh .kick{border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:12px;display:flex;justify-content:space-between;gap:16px}
-.sh h2{font-size:clamp(42px,6.4vw,100px)}
+/* HERO */
+.hero{display:grid;grid-template-columns:1.22fr .9fr;gap:14px;padding-top:6px;min-height:min(calc(100vh - 120px),780px)}
+.h-l{background:var(--wine);color:var(--off);border-radius:40px;padding:52px 56px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.h-l::after{content:"";position:absolute;right:-120px;bottom:-140px;width:380px;height:380px;border-radius:50%;background:var(--wine2);opacity:.55}
+.kick{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.kick::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pink)}
+.h1{font-family:var(--disp);font-weight:800;font-size:clamp(36px,5.5vw,86px);line-height:.98;letter-spacing:-.045em;margin:26px 0 24px;position:relative;z-index:1}
+.h1 em.s{color:var(--pink);font-size:1.2em;display:inline-block;padding-right:.08em}
+.lead{font-size:18px;max-width:520px;color:#f4dde3;position:relative;z-index:1}
+.lead b{color:var(--off)}
+.h-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;position:relative;z-index:1}
+.h-cta .b-line{color:var(--off)}
+.h-cta .b-line:hover{background:rgba(255,250,245,.08)}
+.facts{margin-top:auto;padding-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
+.facts div{border-top:1.5px solid rgba(246,193,204,.35);padding-top:14px;font-size:14px;color:#ecd0d7;line-height:1.35}
+.facts b{display:block;font-family:var(--disp);font-weight:700;font-size:22px;color:var(--off);letter-spacing:-.03em;margin-bottom:4px}
+.h-r{position:relative;border-radius:40px;min-height:540px}
+.h-r .ph{position:absolute;inset:0;border-radius:40px}
+.sticker{position:absolute;top:26px;left:26px;width:150px;height:150px;border-radius:50%;background:var(--butter);color:var(--ink);display:grid;place-content:center;text-align:center;transform:rotate(-12deg);transition:transform .6s var(--ease);z-index:2;box-shadow:0 18px 40px -18px rgba(26,20,22,.5)}
+.sticker:hover{transform:rotate(6deg) scale(1.04)}
+.sticker small{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.2}
+.sticker b{font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-.04em;line-height:1.1;margin:2px 0}
+.sticker i{font-style:normal;font-size:10.5px;opacity:.7}
+.pick{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;background:var(--off);border-radius:28px;padding:12px 12px 12px 20px;display:flex;align-items:center;gap:14px}
+.pick div{flex:1;min-width:0}
+.pick small{display:block;font-size:12px;font-weight:700;color:var(--wine2);text-transform:uppercase;letter-spacing:.07em}
+.pick strong{font-family:var(--disp);font-size:17px;letter-spacing:-.03em;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pick .btn{height:52px;padding:0 22px;font-size:15px}
 
-/* catalog */
-.cat-bar{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:34px;flex-wrap:wrap}
-.tabs{position:relative;display:flex;gap:4px;border:1px solid var(--line);border-radius:40px;padding:4px;max-width:100%;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{position:relative;z-index:1;padding:9px 18px;border-radius:30px;font-size:14px;font-weight:600;white-space:nowrap;transition:color .35s}
-.tab[aria-selected="true"]{color:#fff}
-.tab-ind{position:absolute;top:4px;bottom:4px;left:0;border-radius:30px;background:var(--ink);transition:transform .45s var(--ease),width .45s var(--ease)}
-.price-note{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:56px 24px;padding-bottom:64px;transition:opacity .2s}
-.grid.swap{opacity:0}
-.card{display:flex;flex-direction:column;animation:cardIn .6s var(--ease) both;animation-delay:var(--d,0ms)}
-.grid .card:nth-child(even){transform:translateY(64px)}
-@keyframes cardIn{from{opacity:0;translate:0 20px}to{opacity:1;translate:0 0}}
-.card-ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#ece5dd;margin-bottom:14px}
-.card-ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
-.card:hover .card-ph img{transform:scale(1.045)}
-.card-ph figcaption{position:absolute;left:10px;top:10px;background:var(--milk);font-size:11px;font-weight:600;padding:4px 9px;border-radius:20px}
-.card-n{font-family:var(--disp);font-style:italic;font-size:15px;color:var(--muted)}
-.card h3{font-family:var(--disp);font-weight:500;font-size:clamp(24px,2vw,30px);line-height:1.05;margin:2px 0 6px}
-.card p{font-size:13px;color:var(--muted);line-height:1.45;flex:1}
-.card-f{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-.card-f b{font-size:17px;font-weight:700;white-space:nowrap}
-.add{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:30px;border:1px solid var(--ink);font-size:13px;font-weight:600;white-space:nowrap;transition:background .25s,color .25s,border-color .25s}
-.add:hover{background:var(--wine);border-color:var(--wine);color:#fff}
-.add.ok{background:var(--sage);border-color:var(--sage);color:var(--ink)}
+/* MARQUEE */
+.mq{background:var(--pink);margin:14px 16px 0;border-radius:40px;overflow:hidden;padding:22px 0}
+.mq-t{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq-t span{font-family:var(--disp);font-weight:800;font-size:clamp(40px,6vw,88px);letter-spacing:-.04em;text-transform:uppercase;line-height:1;display:flex;align-items:center;gap:30px;padding-right:30px;white-space:nowrap}
+.mq-t .o{color:transparent;-webkit-text-stroke:2px var(--wine)}
+.mq-t .f{color:var(--wine)}
+.mq-t svg{width:.6em;height:.6em;flex:none}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-/* builder */
-.build{background:var(--paper);margin-top:40px}
-.bl{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,80px);padding-bottom:clamp(60px,8vw,110px)}
-.step{border-top:1px solid var(--ink);padding-top:16px;margin-bottom:40px}
-.step-h{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
-.step-h b{font-family:var(--disp);font-style:italic;font-size:30px;color:var(--wine);font-weight:500;line-height:1}
-.step-h span{font-weight:600;font-size:17px}
-.styles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.opt{position:relative;cursor:pointer;display:block}
-.opt input{position:absolute;opacity:0;pointer-events:none}
-.sty-ph{aspect-ratio:3/4;overflow:hidden;background:#e7ded4;outline:1px solid transparent;outline-offset:4px;transition:outline-color .3s}
-.sty-ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .4s}
-.opt:hover .sty-ph img{transform:scale(1.04)}
-.opt input:checked+.sty-ph{outline-color:var(--wine)}
-.opt input:focus-visible+.sty-ph{outline:2px solid var(--wine)}
-.sty-name{font-family:var(--disp);font-size:24px;font-style:italic;margin-top:10px;line-height:1}
-.sty-d{font-size:12px;color:var(--muted);line-height:1.4;margin-top:4px}
-.opt input:checked~.sty-name{color:var(--wine)}
-.sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.chipbox{display:block;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--milk);transition:border-color .25s,background .25s,color .25s}
-.opt:hover .chipbox{border-color:var(--ink)}
-.opt input:checked+.chipbox{background:var(--ink);color:var(--milk);border-color:var(--ink)}
-.opt input:focus-visible+.chipbox{outline:2px solid var(--wine)}
-.chipbox .big{font-family:var(--disp);font-size:34px;line-height:1;font-weight:600}
-.chipbox small{display:block;font-size:12px;opacity:.75;margin:4px 0 8px;line-height:1.3}
-.chipbox b{font-size:15px}
-.adds{display:grid;gap:10px}
-.addrow{display:flex;align-items:center;gap:14px}
-.addrow .chipbox{display:flex;align-items:center;gap:14px;width:100%;padding:12px 16px}
-.tick{width:22px;height:22px;border-radius:6px;border:1px solid currentColor;flex:none;display:grid;place-items:center}
-.tick svg{opacity:0;transition:opacity .2s}
-.opt input:checked+.chipbox .tick svg{opacity:1}
-.addrow .nm{flex:1;font-weight:600;font-size:15px}
-.addrow .nm small{display:inline;margin:0 0 0 6px;font-weight:400}
-.sum{position:sticky;top:90px;align-self:start;background:var(--milk);border:1px solid var(--line)}
-.sum-ph{aspect-ratio:4/3.4;overflow:hidden;position:relative;background:#e7ded4}
-.sum-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .5s}
-.sum-b{padding:22px 24px 24px}
-.sum h3{font-family:var(--disp);font-weight:500;font-size:34px;line-height:1;margin:4px 0 10px}
-.sum h3 em{color:var(--wine)}
-.sum ul{list-style:none;font-size:14px;color:#3d3530;border-top:1px solid var(--line)}
-.sum li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
-.sum-tot{display:flex;justify-content:space-between;align-items:baseline;margin:16px 0 18px}
-.sum-tot span{font-size:13px;color:var(--muted)}
-.sum-tot b{font-family:var(--disp);font-size:44px;font-weight:600;line-height:1}
+/* sections */
+.blk{border-radius:40px;margin:14px 16px 0;padding:72px 0 76px;position:relative}
+.blk>.in{max-width:1300px;margin:0 auto;padding:0 48px}
+.h2{font-family:var(--disp);font-weight:800;font-size:clamp(32px,4.3vw,64px);line-height:1;letter-spacing:-.045em}
+.eyebrow{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:inline-flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor}
+.note{font-size:13px;opacity:.72}
+.sec-hd{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+
+/* CATALOG */
+#bouquets{background:var(--pink)}
+#bouquets .h2 em.s{color:var(--wine2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:44px;padding:0 18px;border-radius:99px;border:1.5px solid var(--ink);font-weight:700;font-size:14.5px;transition:background .25s,color .25s,transform .25s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--off)}
+.cat-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.arrows{display:flex;gap:8px}
+.arr{width:54px;height:54px;border-radius:50%;background:var(--off);display:grid;place-items:center;transition:background .25s,transform .25s}
+.arr:hover{background:var(--wine);color:var(--off);transform:scale(1.06)}
+.arr svg{width:22px;height:22px}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 48px 8px;margin:0 -48px;scroll-padding:0 48px;cursor:grab;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.track.drag{scroll-snap-type:none;cursor:grabbing}
+.track.drag *{pointer-events:none}
+.card{flex:0 0 340px;scroll-snap-align:start;background:var(--off);border-radius:34px;padding:10px 10px 20px;display:flex;flex-direction:column;transition:transform .4s var(--ease)}
+.card:hover{transform:translateY(-6px)}
+.card .ph{aspect-ratio:4/5;border-radius:26px}
+.card .ph img{-webkit-user-drag:none;user-select:none}
+.add{position:absolute;right:14px;bottom:14px;width:58px;height:58px;border-radius:50%;background:var(--wine);color:var(--off);display:grid;place-items:center;transition:transform .35s var(--ease),background .25s;z-index:1}
+.add:hover{transform:rotate(90deg) scale(1.06);background:var(--ink)}
+.add svg{width:26px;height:26px}
+.tag{position:absolute;left:14px;top:14px;background:var(--butter);border-radius:99px;font-size:12px;font-weight:800;padding:6px 12px;z-index:1}
+.card-b{padding:16px 10px 0;display:flex;flex-direction:column;gap:6px;flex:1}
+.card-t{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.card h3{font-family:var(--disp);font-weight:700;font-size:20px;letter-spacing:-.035em;line-height:1.15}
+.price{font-family:var(--disp);font-weight:700;font-size:18px;white-space:nowrap;letter-spacing:-.03em}
+.card p{font-size:14.5px;color:#5b4a50;line-height:1.4}
+.card.hide{display:none}
+.cat-foot{display:flex;justify-content:space-between;gap:16px;margin-top:22px;flex-wrap:wrap;align-items:center}
+
+/* BUILD */
+#build{background:var(--sage)}
+#build .h2 em.s{color:var(--wine)}
+.bld{display:grid;grid-template-columns:1fr 1.55fr;gap:40px;align-items:start}
+.bld-l p.lead2{font-size:17px;margin:18px 0 28px;max-width:420px}
+.sum{background:var(--ink);color:var(--off);border-radius:32px;padding:28px;position:sticky;top:96px}
+.sum small{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.sum .line{font-size:15px;color:#d9cdd0;margin:8px 0 18px;min-height:44px}
+.total{font-family:var(--disp);font-weight:800;font-size:clamp(40px,4vw,58px);letter-spacing:-.05em;line-height:1;margin-bottom:20px;display:flex;align-items:baseline;gap:8px}
+.total span{font-size:.5em}
 .sum .btn{width:100%}
+.steps{display:flex;flex-direction:column;gap:30px}
+.step h3{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:-.01em;margin-bottom:14px;display:flex;gap:12px;align-items:center}
+.step h3 b{width:32px;height:32px;border-radius:50%;background:var(--off);display:grid;place-items:center;font-size:13px}
+.opts{display:grid;gap:12px}
+.o3{grid-template-columns:repeat(3,1fr)}
+.pal{background:var(--off);border-radius:28px;padding:8px 8px 14px;text-align:left;border:2.5px solid transparent;transition:border-color .25s,transform .3s var(--ease)}
+.pal:hover{transform:translateY(-4px)}
+.pal[aria-checked="true"]{border-color:var(--ink)}
+.pal .ph{aspect-ratio:1/1;border-radius:22px}
+.pal strong{display:block;font-family:var(--disp);font-size:16px;letter-spacing:-.03em;margin:12px 8px 6px}
+.dots{display:flex;gap:5px;margin:0 8px}
+.dots i{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(26,20,22,.15)}
+.sz{background:var(--off);border-radius:24px;padding:18px;text-align:left;border:2.5px solid transparent;transition:border-color .25s,transform .3s var(--ease)}
+.sz:hover{transform:translateY(-3px)}
+.sz[aria-checked="true"]{border-color:var(--ink);background:var(--butter)}
+.sz b{font-family:var(--disp);font-size:34px;letter-spacing:-.05em;display:block;line-height:1}
+.sz span{display:block;font-size:13.5px;color:#5b4a50;margin:6px 0 10px}
+.sz em{font-style:normal;font-family:var(--disp);font-weight:700;font-size:16px}
+.tg{display:flex;align-items:center;gap:14px;background:var(--off);border-radius:24px;padding:16px 18px;text-align:left;border:2.5px solid transparent;transition:border-color .25s}
+.tg[aria-pressed="true"]{border-color:var(--ink)}
+.tg .bx{width:26px;height:26px;border-radius:8px;border:2px solid var(--ink);flex:none;display:grid;place-items:center;transition:background .2s}
+.tg[aria-pressed="true"] .bx{background:var(--ink)}
+.tg .bx svg{width:16px;height:16px;color:var(--off);opacity:0}
+.tg[aria-pressed="true"] .bx svg{opacity:1}
+.tg div{flex:1}
+.tg strong{display:block;font-weight:800;font-size:15px}
+.tg small{font-size:13px;color:#5b4a50}
+.tg em{font-style:normal;font-weight:800;white-space:nowrap}
 
-/* subscription */
-.subs{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;align-items:center}
-.subs-ph{grid-column:1/6;position:relative;margin:0}
-.subs-ph .frame{aspect-ratio:4/5;overflow:hidden;background:#e7ded4}
-.subs-ph img{width:100%;height:114%;object-fit:cover;will-change:transform}
-.subs-ph figcaption{font-size:12px;color:var(--muted);padding-top:10px}
-.subs-r{grid-column:7/13}
-.subs-r>p{font-size:17px;color:#3d3530;max-width:520px;margin-bottom:30px}
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.plan{border:1px solid var(--ink);padding:24px 22px 22px;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
-.plan:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(29,25,22,.45)}
-.plan.hl{background:var(--powder);border-color:var(--powder)}
-.plan .kick{margin-bottom:10px}
-.plan h3{font-family:var(--disp);font-weight:500;font-style:italic;font-size:34px;line-height:1}
-.plan .pr{font-family:var(--disp);font-weight:600;font-size:40px;margin:16px 0 0;line-height:1}
-.plan .pr small{font-family:var(--sans);font-size:13px;font-weight:500;color:#3d3530}
-.plan .per{font-size:12px;color:var(--muted);margin:4px 0 14px}
-.plan ul{list-style:none;font-size:14px;margin-bottom:20px;flex:1}
-.plan li{padding:6px 0 6px 18px;position:relative;border-top:1px solid var(--line)}
-.plan li::before{content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--sage)}
-.plan .btn{height:48px;width:100%}
+/* DELIVERY */
+#delivery{background:var(--off);border:1.5px solid var(--line)}
+.dl{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:stretch}
+.dl-ph{position:relative;min-height:560px}
+.dl-ph .ph{position:absolute;inset:0}
+.stk2{position:absolute;right:-14px;bottom:44px;background:var(--sage);border-radius:24px;padding:16px 20px;font-weight:800;font-size:15px;transform:rotate(4deg);transition:transform .5s var(--ease);box-shadow:0 18px 36px -18px rgba(26,20,22,.45);max-width:230px;line-height:1.3;z-index:2}
+.stk2:hover{transform:rotate(-2deg)}
+.stk2 span{display:block;font-family:var(--hand);font-weight:600;font-size:24px;line-height:1;color:var(--wine)}
+#delivery .h2 em.s{color:var(--wine2)}
+.how{display:grid;gap:4px;margin:30px 0 30px;counter-reset:n}
+.how li{list-style:none;display:grid;grid-template-columns:70px 1fr;gap:18px;padding:18px 0;border-top:1.5px solid var(--line);align-items:start}
+.how li::before{counter-increment:n;content:"0" counter(n);font-family:var(--disp);font-weight:800;font-size:34px;letter-spacing:-.05em;color:var(--wine);line-height:1}
+.how strong{display:block;font-weight:800;font-size:17px;margin-bottom:2px}
+.how p{color:#5b4a50;font-size:15px}
+.dl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:var(--pink);border-radius:28px;padding:22px}
+.box.b2{background:var(--butter)}
+.box h4{font-family:var(--disp);font-size:15px;letter-spacing:-.02em;margin-bottom:12px}
+.ints{display:flex;flex-wrap:wrap;gap:6px}
+.ints span{background:var(--off);border-radius:99px;padding:6px 11px;font-size:13px;font-weight:700}
+.dist{list-style:none;font-size:14px}
+.dist li{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed rgba(26,20,22,.2)}
+.dist li:last-child{border:0}
+.dist b{white-space:nowrap}
 
-/* process */
-.proc{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
-.proc-ph{grid-column:1/6;grid-row:1/3;position:relative;margin:0}
-.proc-ph .frame{aspect-ratio:3/4;overflow:hidden;background:#e7ded4}
-.proc-ph img{width:100%;height:100%;object-fit:cover}
-.proc-ph figcaption{font-size:12px;color:var(--muted);padding-top:10px}
-.proc-ph .vcap{left:auto;right:-30px;transform:none}
-.steps{grid-column:7/13;list-style:none;counter-reset:s}
-.steps li{display:grid;grid-template-columns:90px 1fr;gap:10px;padding:24px 0;border-top:1px solid var(--line)}
-.steps li:last-child{border-bottom:1px solid var(--line)}
-.steps .n{font-family:var(--disp);font-style:italic;font-size:62px;line-height:.8;color:var(--wine)}
-.steps h3{font-family:var(--disp);font-weight:600;font-size:27px;line-height:1.05;margin-bottom:6px}
-.steps p{font-size:14.5px;color:#3d3530}
-.quote{grid-column:7/13;margin-top:44px;position:relative}
-.quote blockquote{font-family:var(--disp);font-style:italic;font-size:clamp(26px,2.6vw,38px);line-height:1.15}
-.quote blockquote::before{content:"«";color:var(--wine)}
-.quote blockquote::after{content:"»";color:var(--wine)}
-.quote p{font-size:13px;color:var(--muted);margin-top:12px}
-.quote .tag{display:inline-block;border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:11px;margin-left:8px}
+/* REVIEWS */
+#reviews{background:var(--wine);color:var(--off)}
+.rv-g{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch}
+.quote{background:var(--wine2);border-radius:32px;padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.badge{display:inline-flex;align-self:flex-start;background:var(--butter);color:var(--ink);border-radius:99px;font-size:12px;font-weight:800;padding:6px 12px;letter-spacing:.04em;text-transform:uppercase}
+.quote blockquote{font-family:var(--ser);font-style:italic;font-weight:500;font-size:clamp(28px,3.1vw,46px);line-height:1.1;letter-spacing:-.01em}
+.quote cite{font-style:normal;font-weight:700;font-size:15px;color:var(--pink)}
+.rv-r{display:grid;grid-template-rows:1fr auto;gap:16px}
+.rv-r .ph{min-height:320px}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mini div{background:var(--pink);color:var(--ink);border-radius:28px;padding:20px;font-size:14.5px;line-height:1.4}
+.mini div:nth-child(2){background:var(--butter)}
+.mini b{display:block;font-size:13px;margin-top:10px}
+.mini .badge{background:var(--off);margin-bottom:10px;font-size:10.5px}
+#reviews .h2{margin-bottom:28px}
+#reviews .h2 em.s{color:var(--pink)}
 
-/* faq */
-.faq{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px}
-.faq-side{grid-column:1/5}
-.faq-side p{font-size:15px;color:#3d3530;max-width:320px}
-.faq-list{grid-column:6/13}
-.faq details{border-top:1px solid var(--ink)}
-.faq details:last-child{border-bottom:1px solid var(--ink)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font-family:var(--disp);font-size:clamp(22px,2.1vw,29px);font-weight:500;line-height:1.15}
-.faq summary::-webkit-details-marker{display:none}
-.pm{width:30px;height:30px;flex:none;position:relative;border:1px solid var(--line);border-radius:50%;transition:transform .4s var(--ease),background .3s}
-.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1.5px;background:var(--ink);transform:translate(-50%,-50%)}
-.pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .4s var(--ease)}
-details[open] .pm{background:var(--powder);border-color:var(--powder)}
-details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
-.faq-a{overflow:hidden}
-.faq-a p{padding:0 50px 24px 0;font-size:15px;color:#3d3530;max-width:640px}
+/* SUBSCRIPTION */
+#sub{background:var(--butter)}
+#sub .h2 em.s{color:var(--wine2)}
+.sb{display:grid;grid-template-columns:repeat(2,1fr) .9fr;gap:16px;margin-top:34px}
+.plan{background:var(--off);border-radius:32px;padding:32px;display:flex;flex-direction:column;gap:14px;transition:transform .4s var(--ease)}
+.plan:hover{transform:translateY(-6px)}
+.plan.dark{background:var(--wine);color:var(--off)}
+.plan h3{font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-.04em}
+.plan .pp{font-family:var(--disp);font-weight:800;font-size:46px;letter-spacing:-.05em;line-height:1}
+.plan .pp small{font-size:15px;letter-spacing:-.01em;font-weight:600;font-family:var(--body);opacity:.75}
+.plan ul{list-style:none;display:grid;gap:8px;font-size:15px;margin:4px 0 10px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--wine);flex:none;margin-top:8px}
+.plan.dark li::before{background:var(--pink)}
+.plan .btn{margin-top:auto}
+.plan .hot{align-self:flex-start;background:var(--pink);color:var(--ink);border-radius:99px;padding:5px 12px;font-size:12px;font-weight:800}
+.sb .ph{min-height:380px}
 
-/* contacts */
-.cont{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;padding-bottom:clamp(60px,8vw,110px)}
-.cont h2{grid-column:1/8;font-size:clamp(46px,7vw,112px)}
-.cont-info{grid-column:8/13;align-self:end;display:grid;gap:18px}
-.ci{border-top:1px solid var(--line);padding-top:10px}
-.ci .kick{margin-bottom:4px}
-.ci p{font-size:16px}
-.ci .tel{font-family:var(--disp);font-size:34px;font-weight:600;text-decoration:none;line-height:1.1}
-.msg{display:flex;gap:10px;flex-wrap:wrap}
-.msg .btn{height:48px;padding:0 22px;font-size:14px}
-.foot{border-top:1px solid var(--ink);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:18px;padding-bottom:110px;font-size:12px;color:var(--muted)}
+/* FAQ + contacts */
+.fc{display:grid;grid-template-columns:1.25fr .9fr;gap:16px;margin:14px 16px 0}
+#faq{background:var(--off);border:1.5px solid var(--line);border-radius:40px;padding:56px}
+#faq .h2 em.s{color:var(--wine2)}
+.qa{border-top:1.5px solid var(--line)}
+.qa:last-child{border-bottom:1.5px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 0;text-align:left;font-weight:800;font-size:17px}
+.qa button i{width:38px;height:38px;border-radius:50%;background:var(--pink);flex:none;position:relative;transition:transform .35s var(--ease),background .25s}
+.qa button i::before,.qa button i::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.qa button i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa button[aria-expanded="true"] i{transform:rotate(45deg);background:var(--butter)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.qa .ans>div{overflow:hidden}
+.qa .ans p{padding:0 50px 20px 0;color:#5b4a50}
+.qa.open .ans{grid-template-rows:1fr}
+#contacts{background:var(--ink);color:var(--off);border-radius:40px;padding:56px;display:flex;flex-direction:column;gap:22px}
+#contacts .h2 em.s{color:var(--pink)}
+.ct{display:grid;gap:14px;font-size:15.5px;color:#d9cdd0}
+.ct b{display:block;color:var(--off);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);margin-bottom:2px}
+.tel{font-family:var(--disp);font-weight:800;font-size:clamp(24px,2.3vw,34px);letter-spacing:-.04em;color:var(--off)}
+.msg{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.msg .btn{height:52px;padding:0 22px;font-size:15px}
+.msg .b-line{color:var(--off)}
+footer{padding:28px 32px 120px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#6f5f64;max-width:1392px;margin:0 auto}
 
-/* floating cart */
-.fab{position:fixed;right:24px;bottom:24px;z-index:45;display:flex;align-items:center;gap:12px;height:58px;padding:0 10px 0 22px;border-radius:60px;background:var(--ink);color:var(--milk);font-weight:600;font-size:14px;box-shadow:0 14px 34px -14px rgba(29,25,22,.6);transition:transform .3s var(--ease),background .3s}
-.fab:hover{transform:translateY(-3px);background:#000}
-.fab .s{background:var(--wine);border-radius:40px;padding:10px 16px;white-space:nowrap}
-.fab.bump{animation:bump .5s var(--ease)}
-@keyframes bump{40%{transform:scale(1.07)}}
+/* floating cart + mobile bar */
+.fcart{position:fixed;right:24px;bottom:24px;z-index:45;display:flex;align-items:center;gap:12px;background:var(--wine);color:var(--off);border-radius:99px;padding:10px 22px 10px 10px;font-weight:800;box-shadow:0 20px 40px -16px rgba(92,22,48,.65);transition:transform .35s var(--ease)}
+.fcart:hover{transform:translateY(-3px)}
+.fcart .ic{width:46px;height:46px;border-radius:50%;background:var(--pink);color:var(--ink);display:grid;place-items:center;position:relative}
+.fcart .ic svg{width:22px;height:22px}
+.fcart .ic .cnt{position:absolute;top:-4px;right:-6px;background:var(--butter)}
+.fcart small{display:block;font-size:11.5px;font-weight:600;opacity:.75;line-height:1.1}
+.fcart.bump{animation:bump .5s var(--ease)}
+@keyframes bump{40%{transform:scale(1.08)}}
 .mbar{display:none}
 
 /* toast */
-.toast{position:fixed;left:50%;bottom:96px;z-index:70;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--ink);color:var(--milk);font-size:14px;padding:12px 20px;border-radius:40px;transition:opacity .3s,transform .4s var(--ease);max-width:calc(100vw - 32px);text-align:center}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;z-index:60;background:var(--ink);color:var(--off);border-radius:99px;padding:13px 22px;font-weight:700;font-size:14.5px;transition:.35s var(--ease);pointer-events:none;white-space:nowrap;max-width:calc(100vw - 32px);overflow:hidden;text-overflow:ellipsis}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
-/* drawer */
-.ovl{position:fixed;inset:0;background:rgba(29,25,22,.42);z-index:80;opacity:0;pointer-events:none;transition:opacity .35s}
-.ovl.on{opacity:1;pointer-events:auto}
-.drw{position:fixed;top:0;right:0;bottom:0;width:min(500px,100%);background:var(--milk);z-index:90;transform:translateX(102%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
-.drw.on{transform:none}
-.drw-h{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line)}
-.drw-h h2{font-family:var(--disp);font-weight:500;font-size:34px;line-height:1}
-.drw-h h2 em{color:var(--wine)}
-.x{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .25s}
-.x:hover{background:var(--paper)}
-.drw-b{flex:1;overflow-y:auto;padding:4px 24px 24px;overscroll-behavior:contain}
-.drw-f{border-top:1px solid var(--line);padding:16px 24px 20px;background:var(--milk)}
-.it{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
-.it img{width:64px;height:78px;object-fit:cover;background:#e7ded4}
-.it h4{font-family:var(--disp);font-size:21px;font-weight:600;line-height:1.05}
-.it small{display:block;font-size:12px;color:var(--muted);line-height:1.35;margin-top:2px}
-.it .pr{font-weight:700;font-size:14px;margin-top:4px}
-.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:30px}
-.qty button{width:32px;height:32px;font-size:17px;border-radius:50%}
-.qty button:hover{background:var(--paper)}
-.qty span{min-width:18px;text-align:center;font-size:14px;font-weight:600}
-.empty{text-align:center;padding:60px 10px}
-.empty p{font-family:var(--disp);font-size:30px;font-style:italic;margin-bottom:8px}
-.empty small{display:block;color:var(--muted);margin-bottom:24px}
-.fs{margin-top:26px}
-.fs>.kick{display:block;margin-bottom:10px;color:var(--ink)}
-.cardwrap{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-textarea{width:100%;min-height:116px;resize:none;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px;background:#fff;line-height:1.5}
-textarea:focus,.inp:focus{outline:none;border-color:var(--wine)}
-.pcard{background:#fff8f3;border:1px solid #ead9cf;border-radius:4px;padding:14px 14px 10px;position:relative;box-shadow:0 10px 20px -16px rgba(29,25,22,.5);transform:rotate(1.4deg);display:flex;flex-direction:column;min-height:116px}
-.pcard::before{content:"";position:absolute;top:8px;right:10px;width:24px;height:30px;border:1px solid var(--powder);border-radius:2px}
-.pcard p{font-family:var(--hand);font-size:22px;line-height:1.1;color:var(--wine);flex:1;word-break:break-word;padding-right:26px;white-space:pre-line}
-.pcard p.ph{opacity:.45}
-.pcard span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.cc{font-size:11px;color:var(--muted);margin-top:4px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);border-radius:30px;padding:8px 14px;font-size:13px;font-weight:600;background:#fff;transition:background .2s,color .2s,border-color .2s;line-height:1.2;text-align:left}
-.chip small{display:block;font-weight:400;font-size:11px;opacity:.7}
-.chip:hover:not(:disabled){border-color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--milk);border-color:var(--ink)}
-.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
-.dists{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.dists .chip{border-radius:12px;padding:9px 12px}
-.inp{width:100%;height:50px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:15px;background:#fff}
-.fld{display:grid;gap:10px}
-.err{color:#a3203f;font-size:12px;min-height:0;margin-top:6px}
-.err:empty{display:none}
-.tot{display:grid;gap:4px;font-size:14px;margin-bottom:14px}
-.tot div{display:flex;justify-content:space-between}
-.tot .t{font-weight:700;font-size:17px;padding-top:6px;border-top:1px solid var(--line);margin-top:4px}
-.drw-f .btn{width:100%}
-.legal{font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
-.done{padding:40px 6px;text-align:left}
-.done .kick{color:var(--wine)}
-.done h3{font-family:var(--disp);font-weight:500;font-size:52px;line-height:.95;margin:12px 0 18px}
-.done h3 em{color:var(--wine)}
-.done p{font-size:15px;color:#3d3530;margin-bottom:12px}
-.done .box{border:1px solid var(--line);padding:16px;margin:20px 0;font-size:14px}
-.done .box div{display:flex;justify-content:space-between;gap:12px;padding:4px 0}
-
-/* reveal */
-.js .rv{opacity:0;transform:translateY(20px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.js .rv.in{opacity:1;transform:none}
+/* DRAWER */
+.ovl{position:fixed;inset:0;background:rgba(26,20,22,.45);z-index:70;opacity:0;visibility:hidden;transition:.35s}
+.ovl.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:10px;right:10px;bottom:10px;width:min(480px,calc(100vw - 20px));z-index:80;background:var(--off);border-radius:32px;display:flex;flex-direction:column;transform:translateX(calc(100% + 20px));visibility:hidden;transition:transform .5s var(--ease),visibility .5s;overflow:hidden}
+.drawer.on{transform:none;visibility:visible}
+.dr-h{display:flex;align-items:center;justify-content:space-between;padding:20px 22px 14px}
+.dr-h h2{font-family:var(--disp);font-weight:800;font-size:26px;letter-spacing:-.04em}
+.x{width:44px;height:44px;border-radius:50%;background:var(--pink);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.x:hover{transform:rotate(90deg)}
+.x svg{width:20px;height:20px}
+.dr-b{flex:1;overflow-y:auto;padding:0 22px 20px;overscroll-behavior:contain}
+.dr-s{margin-top:22px}
+.dr-s>h3{font-family:var(--disp);font-size:14px;letter-spacing:-.01em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}
+.dr-s>h3 small{font-family:var(--body);font-weight:600;font-size:12px;opacity:.6}
+.items{display:grid;gap:10px}
+.it{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;background:#fff;border-radius:22px;padding:8px 12px 8px 8px}
+.it img{width:64px;height:64px;border-radius:16px;object-fit:cover}
+.it strong{display:block;font-size:14.5px;line-height:1.25}
+.it small{display:block;font-size:12.5px;color:#7a676d;line-height:1.3}
+.it .pr{font-weight:800;font-size:14px;margin-top:3px}
+.qty{display:flex;align-items:center;gap:4px;background:var(--off);border-radius:99px;padding:3px}
+.qty button{width:30px;height:30px;border-radius:50%;background:#fff;font-weight:800;font-size:17px;line-height:1}
+.qty button:hover{background:var(--pink)}
+.qty span{min-width:18px;text-align:center;font-weight:800;font-size:14px}
+.empty{text-align:center;padding:26px 10px;background:var(--pink);border-radius:26px}
+.empty p{font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.03em;margin-bottom:14px}
+.card-note{display:grid;gap:10px}
+textarea,input[type=text],input[type=tel],select{width:100%;border:1.5px solid var(--line);background:#fff;border-radius:18px;padding:13px 16px;font-size:15px;transition:border-color .2s}
+textarea{resize:none;height:76px}
+textarea:focus,input:focus,select:focus{outline:none;border-color:var(--wine)}
+.pc{background:var(--butter);border-radius:20px;padding:16px 18px;min-height:96px;position:relative;transform:rotate(-1.2deg);box-shadow:0 10px 24px -16px rgba(26,20,22,.5)}
+.pc::before{content:"";position:absolute;right:14px;top:12px;width:26px;height:30px;border:1.5px dashed rgba(92,22,48,.4);border-radius:4px}
+.pc p{font-family:var(--hand);font-size:26px;line-height:1.05;color:var(--wine);white-space:pre-wrap;word-break:break-word;padding-right:36px}
+.pc p.ph0{opacity:.45}
+.pc small{position:absolute;right:16px;bottom:8px;font-size:11px;color:#8a6f60}
+.chs{display:flex;flex-wrap:wrap;gap:6px}
+.ch{height:40px;padding:0 14px;border-radius:99px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:13.5px;transition:.2s}
+.ch:hover:not(:disabled){border-color:var(--ink)}
+.ch[aria-pressed="true"]{background:var(--ink);color:var(--off);border-color:var(--ink)}
+.ch:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lbl{font-size:12.5px;font-weight:700;margin:0 0 6px 4px;display:block}
+.dhint{font-size:12.5px;color:#7a676d;margin-top:6px}
+.dr-f{border-top:1.5px solid var(--line);padding:14px 22px 18px;background:var(--off)}
+.rows{display:grid;gap:3px;font-size:14px;margin-bottom:12px}
+.rows div{display:flex;justify-content:space-between}
+.rows .tt{font-family:var(--disp);font-weight:800;font-size:20px;letter-spacing:-.03em;margin-top:4px}
+.dr-f .btn{width:100%}
+.err{color:#b0123e;font-size:13px;font-weight:700;margin-bottom:8px;min-height:0}
+.done{flex:1;display:none;flex-direction:column;justify-content:center;padding:30px 28px;text-align:left;gap:16px;background:var(--pink)}
+.drawer.ok .done{display:flex}
+.drawer.ok .dr-b,.drawer.ok .dr-f{display:none}
+.done .big{font-family:var(--disp);font-weight:800;font-size:44px;letter-spacing:-.05em;line-height:1}
+.done .big em.s{color:var(--wine2)}
+.done p{font-size:16px}
+.done .rc{background:var(--off);border-radius:24px;padding:18px;font-size:14.5px;display:grid;gap:4px}
+.done .btn{align-self:flex-start}
 
 /* responsive */
-@media (max-width:1100px){
-  .nav{display:none}
-  .hdr-tel{margin-left:auto}
-  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .grid .card:nth-child(even){transform:none}
-  .grid .card:nth-child(3n+2){transform:translateY(48px)}
+@media (max-width:1180px){
+  nav{display:none}
+  .hd{justify-content:space-between}
+  .bld{grid-template-columns:1fr}
+  .sum{position:static}
+  .sb{grid-template-columns:1fr 1fr}
+  .sb .ph{grid-column:1/-1;min-height:280px}
+  .fc{grid-template-columns:1fr}
 }
 @media (max-width:900px){
-  .hdr-in{height:56px}
-  .logo{font-size:23px}
-  .hdr-tel,.hdr-cart{display:none}
-  .hero{display:block;padding-top:16px}
-  .issue{margin-bottom:16px}
-  .issue span:nth-child(2){display:none}
-  .hero h1{font-size:clamp(44px,12.4vw,64px);margin-bottom:14px}
-  .hero h1 .ind{padding-left:.6em}
-  .lead{font-size:15px;margin-bottom:18px}
-  .cta-row{gap:18px}
-  .hero .btn{height:52px;padding:0 24px}
-  .facts{margin-top:20px}
-  .facts li{padding:10px 8px 0 0;font-size:11.5px}
-  .facts li+li{padding-left:10px}
-  .facts b{font-size:22px}
-  .hero-ph{margin-top:30px}
-  .hero-ph .frame{height:auto;min-height:0;aspect-ratio:4/5}
-  .vcap{display:none}
-  .sh{grid-template-columns:1fr}
-  .sh .pg{grid-row:auto;font-size:64px;margin-bottom:-6px}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 14px;padding-bottom:20px}
-  .grid .card:nth-child(n){transform:none}
-  .card h3{font-size:22px}
-  .card p{font-size:12px}
-  .card-f{flex-direction:column;align-items:stretch;gap:8px}
-  .add{justify-content:center}
-  .bl{grid-template-columns:1fr}
-  .styles{gap:10px}
-  .sty-name{font-size:20px}
-  .sty-d{display:none}
-  .sizes{gap:8px}
-  .chipbox{padding:12px}
-  .chipbox .big{font-size:28px}
-  .sum{position:static}
-  .subs,.proc,.faq,.cont{display:block}
-  .subs-ph{margin-bottom:34px}
-  .subs-ph .frame{aspect-ratio:4/3}
-  .plans{grid-template-columns:1fr}
-  .proc-ph{margin-bottom:24px}
-  .proc-ph .frame{aspect-ratio:4/3}
-  .steps li{grid-template-columns:56px 1fr}
-  .steps .n{font-size:46px}
-  .steps h3{font-size:23px}
-  .faq-side{margin-bottom:24px}
-  .faq-a p{padding-right:0}
-  .cont h2{margin-bottom:30px}
-  .fab{display:none}
-  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,240,.97);border-top:1px solid var(--line)}
-  .mbar button{height:50px;border-radius:40px;font-weight:600;font-size:14px}
-  .mb-cart{display:flex;align-items:center;gap:8px;padding:0 16px;border:1px solid var(--ink);white-space:nowrap}
-  .mb-main{flex:1;background:var(--wine);color:#fff}
-  .toast{bottom:86px}
-  .foot{padding-bottom:96px}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .h-r{min-height:520px}
+  .dl{grid-template-columns:1fr;gap:30px}
+  .dl-ph{min-height:420px}
+  .stk2{right:14px}
+  .rv-g{grid-template-columns:1fr}
 }
-@media (max-width:380px){
-  .facts li{font-size:11px}
-  .styles .sty-name{font-size:18px}
+@media (max-width:760px){
+  .wrap{padding:0 10px}
+  .hd{height:62px}
+  .logo{font-size:16px}
+  .hcart{padding:8px 12px}
+  .hcart .lbl-t{display:none}
+  .hero{gap:10px}
+  .h-r{min-height:360px}
+  .h-r .ph,.h-l,.h-r{border-radius:30px}
+  .h-l{padding:30px 22px 26px}
+  .h1{margin:16px 0 16px}
+  .lead{font-size:16px}
+  .h-cta .btn{flex:1}
+  .facts{grid-template-columns:1fr 1fr 1fr;gap:8px;padding-top:24px}
+  .facts div{font-size:12px}
+  .facts b{font-size:17px}
+  .sticker{width:112px;height:112px;top:16px;left:16px}
+  .sticker b{font-size:19px}
+  .sticker small{font-size:9.5px}
+  .sticker i{font-size:9px}
+  .pick{left:10px;right:10px;bottom:10px;padding:10px 10px 10px 16px}
+  .pick strong{font-size:14px}
+  .pick .btn{height:46px;padding:0 16px;font-size:14px}
+  .mq,.blk,.fc{margin-left:10px;margin-right:10px}
+  .mq{border-radius:30px;padding:16px 0}
+  .blk{border-radius:30px;padding:46px 0 50px}
+  .blk>.in{padding:0 18px}
+  .track{padding:4px 18px 8px;margin:0 -18px;scroll-padding:0 18px;gap:10px}
+  .card{flex-basis:80%}
+  .chips{flex-wrap:nowrap;overflow-x:auto;margin:0 -18px;padding:0 18px;scrollbar-width:none;width:calc(100% + 36px)}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;height:40px;padding:0 14px;font-size:14px}
+  .arrows{display:none}
+  .o3{grid-template-columns:repeat(3,1fr);gap:8px}
+  .pal{padding:5px 5px 10px;border-radius:20px}
+  .pal .ph{border-radius:16px}
+  .pal strong{font-size:13px;margin:8px 4px 4px}
+  .dots{margin:0 4px;gap:3px}
+  .dots i{width:12px;height:12px}
+  .sz{padding:12px;border-radius:20px}
+  .sz b{font-size:26px}
+  .sz span{font-size:11.5px}
+  .sz em{font-size:13.5px}
+  .opts.adds{grid-template-columns:1fr}
+  .how li{grid-template-columns:52px 1fr;gap:12px}
+  .how li::before{font-size:26px}
+  .dl-grid{grid-template-columns:1fr}
+  .quote{padding:26px}
+  .mini{grid-template-columns:1fr}
+  .sb{grid-template-columns:1fr}
+  .plan{padding:24px}
+  .plan .pp{font-size:38px}
+  #faq,#contacts{padding:30px 20px;border-radius:30px}
+  .qa button{font-size:16px}
+  .qa .ans p{padding-right:0}
+  .fcart{display:none}
+  .mbar{display:flex;position:fixed;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:45;gap:8px}
+  .mbar .btn{flex:1;height:56px;box-shadow:0 14px 30px -14px rgba(26,20,22,.6)}
+  .mbar .mc{flex:0 0 auto;padding:0 18px;gap:8px}
+  .mbar .mc .cnt{background:var(--butter)}
+  .toast{bottom:84px}
+  .drawer{top:auto;left:0;right:0;bottom:0;width:100%;height:92dvh;max-height:92vh;border-radius:28px 28px 0 0;transform:translateY(105%)}
+  .drawer::before{content:"";position:absolute;top:8px;left:50%;width:44px;height:5px;border-radius:9px;background:rgba(26,20,22,.2);transform:translateX(-50%)}
+  .dr-h{padding:22px 18px 10px}
+  .dr-b{padding:0 18px 18px}
+  .dr-f{padding:12px 18px calc(14px + env(safe-area-inset-bottom))}
+  footer{padding:24px 20px 100px}
 }
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
-  .hero-ph img,.subs-ph img{transform:none!important}
 }
 </style>
 </head>
 <body>
-<div class="concept">Концепт-сайт · студия <b>«Кирилл и Даня»</b> · бренд вымышлен</div>
+<div class="demo">Концепт-сайт · студия «Кирилл и Даня» · <b>бренд вымышлен</b> · цены примерные</div>
 
-<header class="hdr">
-  <div class="hdr-in wrap">
-    <a class="logo" href="#top" aria-label="Пион и полынь — на главную">Пион<i>и</i>полынь</a>
-    <nav class="nav" aria-label="Разделы">
-      <a href="#catalog">Букеты</a><a href="#build">Собрать свой</a><a href="#subs">Подписка</a><a href="#how">Доставка</a><a href="#contacts">Контакты</a>
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="#top" aria-label="Пион и полынь — на главную"><i><svg viewBox="0 0 24 24" fill="#f6c1cc" aria-hidden="true"><circle cx="12" cy="6.5" r="4.5"/><circle cx="6.5" cy="12" r="4.5"/><circle cx="17.5" cy="12" r="4.5"/><circle cx="12" cy="17.5" r="4.5"/><circle cx="12" cy="12" r="2.6" fill="#fbe7a1"/></svg></i>Пион <em>и</em> полынь</a>
+    <nav aria-label="Разделы">
+      <a href="#bouquets">Букеты</a><a href="#build">Собрать свой</a><a href="#delivery">Доставка</a><a href="#sub">Подписка</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a>
     </nav>
-    <a class="hdr-tel" href="tel:+73422000000">+7 (342) 200-00-00</a>
-    <button class="hdr-cart" data-open-cart>Корзина <span class="cnt" data-cnt>0</span></button>
+    <button class="hcart" data-open-cart aria-label="Открыть корзину"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="lbl-t">Корзина</span><span class="cnt" data-count>0</span></button>
   </div>
 </header>
 
 <main id="top">
-<!-- 01 HERO -->
-<section class="hero wrap">
-  <div class="issue kick"><span>Цветочная мастерская · Пермь</span><span>Выпуск зимний · 2026/27</span><span>стр. 01</span></div>
-  <div class="hero-txt">
-    <h1 class="disp"><span>Букеты,</span><span class="ind">которые <em>скажут</em></span><span>за вас</span></h1>
-    <p class="lead">Собираем авторские букеты в день доставки, присылаем фото перед отправкой и привозим по Перми ко времени, которое вы выбрали.</p>
-    <div class="cta-row">
-      <a class="btn" href="#catalog">Выбрать букет <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></a>
-      <a class="lnk" href="#build">Собрать свой</a>
+  <!-- HERO -->
+  <section class="wrap hero" aria-labelledby="h1">
+    <div class="h-l">
+      <span class="kick">Цветочная мастерская · Пермь</span>
+      <h1 class="h1" id="h1">Букеты, на&nbsp;которые <em class="s">оборачиваются</em></h1>
+      <p class="lead">Собираем сочные авторские букеты и&nbsp;привозим в&nbsp;удобный вам интервал. <b>Перед отправкой пришлём фото</b>, открытку подпишем от&nbsp;руки.</p>
+      <div class="h-cta">
+        <a class="btn b-pink" href="#bouquets">Выбрать букет <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn b-line" href="#build">Собрать свой</a>
+      </div>
+      <div class="facts">
+        <div><b>2 часа</b>интервал доставки по&nbsp;Перми</div>
+        <div><b>Фото</b>букета до&nbsp;отправки курьеру</div>
+        <div><b>От руки</b>открытка с&nbsp;вашим текстом</div>
+      </div>
     </div>
-    <p class="cta-note">Букеты от 2 600 ₽ · примерные цены</p>
-    <ul class="facts">
-      <li><b>2 часа</b>интервал доставки по всей Перми — выбираете вы</li>
-      <li><b>Фото</b>букета перед отправкой в Telegram или WhatsApp</li>
-      <li><b>От руки</b>подпишем открытку вашими словами</li>
-    </ul>
-  </div>
-  <figure class="hero-ph">
-    <span class="vcap">Авторская флористика · с 2019</span>
-    <div class="frame"><img id="heroImg" src="https://images.pexels.com/photos/17557218/pexels-photo-17557218.jpeg?auto=compress&cs=tinysrgb&w=1600" srcset="https://images.pexels.com/photos/17557218/pexels-photo-17557218.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/17557218/pexels-photo-17557218.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w" sizes="(max-width:900px) 100vw, 50vw" alt="Розовые пионы в белой вазе у светлой стены" fetchpriority="high" width="1600" height="2000"></div>
-    <figcaption><i>Илл. 01 — пионы, собранные утром для заказа к 12:00</i><span>01</span></figcaption>
-  </figure>
-</section>
-
-<div class="marq" aria-hidden="true"><div class="marq-t">
-  <span>Пионы</span><span>Ранункулюсы</span><span>Эустома</span><span>Серебристая полынь</span><span>Эвкалипт</span><span>Кустовые розы</span><span>Сезонная зелень</span>
-  <span>Пионы</span><span>Ранункулюсы</span><span>Эустома</span><span>Серебристая полынь</span><span>Эвкалипт</span><span>Кустовые розы</span><span>Сезонная зелень</span>
-</div></div>
-
-<!-- 02 CATALOG -->
-<section class="sec wrap" id="catalog">
-  <div class="sh rv"><span class="pg">02</span><div class="kick"><span>Рубрика · Готовые букеты</span><span>стр. 02</span></div><h2 class="disp">Букеты <em>на сегодня</em></h2></div>
-  <div class="cat-bar rv">
-    <div class="tabs" role="tablist" aria-label="Повод">
-      <span class="tab-ind" aria-hidden="true"></span>
-      <button class="tab" role="tab" aria-selected="true" data-f="all">Все</button>
-      <button class="tab" role="tab" aria-selected="false" data-f="love">Любимой</button>
-      <button class="tab" role="tab" aria-selected="false" data-f="mom">Маме</button>
-      <button class="tab" role="tab" aria-selected="false" data-f="just">Просто так</button>
-      <button class="tab" role="tab" aria-selected="false" data-f="work">Коллеге</button>
+    <div class="h-r">
+      <div class="ph"><img src="https://images.pexels.com/photos/6341499/pexels-photo-6341499.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Пышные пионы цвета фуксии крупным планом" fetchpriority="high" width="1600" height="2400"></div>
+      <div class="sticker" aria-label="Букеты от 2 600 рублей, примерные цены"><small>букеты</small><b>от 2 600 ₽</b><i>примерные цены</i></div>
+      <div class="pick">
+        <div><small>Букет недели</small><strong>«Фуксия» · 5 400 ₽</strong></div>
+        <button class="btn b-wine" data-add="b1">В корзину</button>
+      </div>
     </div>
-    <span class="price-note">Примерные цены · состав зависит от сезона</span>
-  </div>
-  <div class="grid" id="grid" aria-live="polite"></div>
-</section>
+  </section>
 
-<!-- 03 BUILDER -->
-<section class="build" id="build">
-  <div class="sec wrap">
-    <div class="sh rv"><span class="pg">03</span><div class="kick"><span>Рубрика · Собрать свой</span><span>стр. 03</span></div><h2 class="disp">Свой букет <em>в три шага</em></h2></div>
-    <form class="bl" id="builder" onsubmit="return false">
-      <div>
-        <div class="step rv">
-          <div class="step-h"><b>i.</b><span>Настроение</span></div>
-          <div class="styles" id="styles"></div>
+  <!-- MARQUEE -->
+  <div class="mq" aria-hidden="true">
+    <div class="mq-t" id="mq"></div>
+  </div>
+
+  <!-- CATALOG -->
+  <section class="blk" id="bouquets" aria-labelledby="cat-h">
+    <div class="in">
+      <div class="sec-hd rv">
+        <div>
+          <div class="eyebrow">Готовые букеты</div>
+          <h2 class="h2" id="cat-h">Выберите <em class="s">свой</em> повод</h2>
         </div>
-        <div class="step rv">
-          <div class="step-h"><b>ii.</b><span>Размер</span></div>
-          <div class="sizes" id="sizes"></div>
+        <p class="note">Состав зависит от сезона — пришлём фото<br>именно вашего букета. Примерные цены.</p>
+      </div>
+      <div class="cat-bar rv">
+        <div class="chips" role="group" aria-label="Повод">
+          <button class="chip" data-f="all" aria-pressed="true">Все</button>
+          <button class="chip" data-f="love" aria-pressed="false">Любимой</button>
+          <button class="chip" data-f="mom" aria-pressed="false">Маме</button>
+          <button class="chip" data-f="just" aria-pressed="false">Просто так</button>
+          <button class="chip" data-f="work" aria-pressed="false">Коллеге</button>
+          <button class="chip" data-f="bd" aria-pressed="false">День рождения</button>
         </div>
-        <div class="step rv">
-          <div class="step-h"><b>iii.</b><span>Добавить</span></div>
-          <div class="adds" id="adds"></div>
+        <div class="arrows">
+          <button class="arr" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+          <button class="arr" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
-      <aside class="sum rv" aria-live="polite">
-        <div class="sum-ph"><img id="sumA" alt="" loading="lazy"><img id="sumB" alt="" loading="lazy" style="opacity:0"></div>
-        <div class="sum-b">
-          <span class="kick">Ваш букет</span>
-          <h3 id="sumTitle">Нежный, <em>M</em></h3>
-          <ul id="sumList"></ul>
-          <div class="sum-tot"><span>примерная цена</span><b id="sumPrice">0 ₽</b></div>
-          <button class="btn" type="button" id="buildAdd">Добавить в корзину</button>
-        </div>
-      </aside>
-    </form>
-  </div>
-</section>
+      <div class="track" id="track" tabindex="0" aria-label="Букеты, листаются вбок"></div>
+      <div class="cat-foot">
+        <p class="note">Нажмите «+», чтобы добавить букет в корзину. Оформление — в одном окне.</p>
+        <a class="btn b-ink" href="#build">Хочу собрать свой</a>
+      </div>
+    </div>
+  </section>
 
-<!-- 04 SUBSCRIPTION -->
-<section class="sec wrap" id="subs">
-  <div class="sh rv"><span class="pg">04</span><div class="kick"><span>Рубрика · Подписка</span><span>стр. 04</span></div><h2 class="disp">Цветы, <em>которые</em> приходят сами</h2></div>
-  <div class="subs">
-    <figure class="subs-ph rv">
-      <div class="frame"><img id="subsImg" src="https://images.pexels.com/photos/13076347/pexels-photo-13076347.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Розовые и белые пионы в крафтовой бумаге" loading="lazy" width="1600" height="2000"></div>
-      <figcaption><i>Илл. 04</i> — так выглядит утро в мастерской перед развозом подписок</figcaption>
-    </figure>
-    <div class="subs-r">
-      <p class="rv">Флорист каждый раз собирает новый букет из того, что сейчас в лучшей форме. Вы выбираете частоту, день и интервал — дальше мы сами. Пауза или перенос — одним сообщением.</p>
-      <div class="plans">
-        <article class="plan rv">
-          <span class="kick">Тариф</span>
+  <!-- BUILD -->
+  <section class="blk" id="build" aria-labelledby="bld-h">
+    <div class="in bld">
+      <div class="bld-l rv">
+        <div class="eyebrow">Три вопроса — и готово</div>
+        <h2 class="h2" id="bld-h">Собрать <em class="s">свой</em> букет</h2>
+        <p class="lead2">Выберите настроение, размер и пару приятных мелочей. Флорист подберёт сезонные цветы и пришлёт фото на согласование.</p>
+        <div class="sum" aria-live="polite">
+          <small>Ваш букет</small>
+          <p class="line" id="b-line">Нежная палитра · M · открытка</p>
+          <div class="total" id="b-total">4 200 <span>₽</span></div>
+          <button class="btn b-pink" id="b-add">В корзину <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="note" style="margin-top:12px">Примерные цены</p>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step rv">
+          <h3><b>1</b>Палитра</h3>
+          <div class="opts o3" role="radiogroup" aria-label="Палитра">
+            <button class="pal" role="radio" data-pal="soft" aria-checked="true"><div class="ph"><img loading="lazy" src="https://images.pexels.com/photos/7693928/pexels-photo-7693928.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Коралловые пионы крупным планом"></div><strong>Нежная</strong><span class="dots"><i style="background:#f6c1cc"></i><i style="background:#f7b49a"></i><i style="background:#fffaf5"></i><i style="background:#b7c7ae"></i></span></button>
+            <button class="pal" role="radio" data-pal="bright" aria-checked="false"><div class="ph"><img loading="lazy" src="https://images.pexels.com/photos/6603242/pexels-photo-6603242.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Малиновая роза, макросъёмка"></div><strong>Яркая</strong><span class="dots"><i style="background:#c2185b"></i><i style="background:#e8455b"></i><i style="background:#f59b3c"></i><i style="background:#5f8a4a"></i></span></button>
+            <button class="pal" role="radio" data-pal="white" aria-checked="false"><div class="ph"><img loading="lazy" src="https://images.pexels.com/photos/306066/pexels-photo-306066.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Букет кремовых роз с зеленью"></div><strong>Белая</strong><span class="dots"><i style="background:#ffffff"></i><i style="background:#f3ead8"></i><i style="background:#dfe8d6"></i><i style="background:#8fa67f"></i></span></button>
+          </div>
+        </div>
+        <div class="step rv">
+          <h3><b>2</b>Размер</h3>
+          <div class="opts o3" role="radiogroup" aria-label="Размер">
+            <button class="sz" role="radio" data-sz="S" aria-checked="false"><b>S</b><span>~ 30 см, 9–11 цветков</span><em>2 900 ₽</em></button>
+            <button class="sz" role="radio" data-sz="M" aria-checked="true"><b>M</b><span>~ 40 см, 15–19 цветков</span><em>4 200 ₽</em></button>
+            <button class="sz" role="radio" data-sz="L" aria-checked="false"><b>L</b><span>~ 55 см, 25–31 цветок</span><em>6 500 ₽</em></button>
+          </div>
+        </div>
+        <div class="step rv">
+          <h3><b>3</b>Добавить</h3>
+          <div class="opts o3 adds">
+            <button class="tg" data-ad="card" aria-pressed="true"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><strong>Открытка</strong><small>подпишем от руки</small></div><em>0 ₽</em></button>
+            <button class="tg" data-ad="vase" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><strong>Ваза</strong><small>стекло, по размеру</small></div><em>+1 200 ₽</em></button>
+            <button class="tg" data-ad="box" aria-pressed="false"><span class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><strong>Шляпная коробка</strong><small>вместо упаковки</small></div><em>+700 ₽</em></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY -->
+  <section class="blk" id="delivery" aria-labelledby="dl-h">
+    <div class="in dl">
+      <div class="dl-ph rv">
+        <div class="ph"><img loading="lazy" src="https://images.pexels.com/photos/4866933/pexels-photo-4866933.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Букет пудровых пионов с лентой на старом стуле у тёплой стены"></div>
+        <div class="stk2"><span>смотрите сами</span>Фото букета — до&nbsp;того, как он уедет к&nbsp;вам</div>
+      </div>
+      <div class="rv">
+        <div class="eyebrow">Доставка по Перми</div>
+        <h2 class="h2" id="dl-h">Привезём <em class="s">ровно</em> к&nbsp;нужному часу</h2>
+        <ol class="how">
+          <li><div><strong>Выбираете букет и интервал</strong><p>Двухчасовые окна с 9 до 23. Сегодня — если до начала интервала больше двух часов.</p></div></li>
+          <li><div><strong>Присылаем фото на согласование</strong><p>В Telegram или WhatsApp. Что-то не так — пересоберём до отправки.</p></div></li>
+          <li><div><strong>Курьер привозит и звонит заранее</strong><p>Можно сюрпризом: получателю не скажем, от кого, пока вы не разрешите.</p></div></li>
+        </ol>
+        <div class="dl-grid">
+          <div class="box">
+            <h4>Интервалы</h4>
+            <div class="ints"><span>9–11</span><span>11–13</span><span>13–15</span><span>15–17</span><span>17–19</span><span>19–21</span><span>21–23</span></div>
+            <p class="note" style="margin-top:12px">Самовывоз из мастерской — бесплатно</p>
+          </div>
+          <div class="box b2">
+            <h4>Районы · примерные цены</h4>
+            <ul class="dist">
+              <li>Ленинский, Свердловский<b>350 ₽</b></li>
+              <li>Дзержинский, Индустриальный<b>450 ₽</b></li>
+              <li>Мотовилихинский<b>450 ₽</b></li>
+              <li>Кировский, Орджоникидзевский<b>650 ₽</b></li>
+              <li>Заказ от 7 000 ₽<b>бесплатно</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="blk" id="reviews" aria-labelledby="rv-h">
+    <div class="in">
+      <h2 class="h2 rv" id="rv-h">Когда цветы <em class="s">попали</em> в&nbsp;точку</h2>
+      <div class="rv-g">
+        <div class="quote rv">
+          <span class="badge">пример отзыва</span>
+          <blockquote>«Заказала маме на юбилей из другого города. Прислали фото, подписали открытку моими словами — мама позвонила и плакала от радости»</blockquote>
+          <cite>Анна, заказ «Мамин сад» · пример</cite>
+        </div>
+        <div class="rv-r rv">
+          <div class="ph"><img loading="lazy" src="https://images.pexels.com/photos/5254867/pexels-photo-5254867.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Смеющаяся девушка с букетом розовых гвоздик на зелёном фоне"></div>
+          <div class="mini">
+            <div><span class="badge">пример отзыва</span>Курьер приехал в начале интервала, букет как на фото.<b>Илья · пример</b></div>
+            <div><span class="badge">пример отзыва</span>Беру подписку в офис — каждую неделю новое настроение.<b>Ольга · пример</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTION -->
+  <section class="blk" id="sub" aria-labelledby="sb-h">
+    <div class="in">
+      <div class="sec-hd rv" style="margin-bottom:0">
+        <div>
+          <div class="eyebrow">Подписка</div>
+          <h2 class="h2" id="sb-h">Цветы <em class="s">по расписанию</em></h2>
+        </div>
+        <p class="note" style="max-width:340px">Домой или в офис. Каждый раз новый сезонный букет. Пауза и отмена — одним сообщением. Примерные цены.</p>
+      </div>
+      <div class="sb">
+        <div class="plan rv">
           <h3>Раз в две недели</h3>
-          <p class="pr">7 400 ₽ <small>/ мес</small></p>
-          <p class="per">2 букета M · 3 700 ₽ за букет · примерная цена</p>
-          <ul><li>Сезонные цветы на выбор флориста</li><li>Фото перед каждой отправкой</li><li>Пауза в любой момент</li></ul>
-          <button class="btn ghost" data-plan="b">Оформить</button>
-        </article>
-        <article class="plan hl rv">
-          <span class="kick">Тариф · чаще выбирают</span>
+          <div class="pp">3 600 ₽ <small>/ доставка</small></div>
+          <ul><li>Букет размера M, сезонный состав</li><li>Доставка включена</li><li>Фото перед каждой отправкой</li></ul>
+          <button class="btn b-ink" data-plan="p2">Оформить</button>
+        </div>
+        <div class="plan dark rv">
+          <span class="hot">Выгоднее</span>
           <h3>Каждую неделю</h3>
-          <p class="pr">13 600 ₽ <small>/ мес</small></p>
-          <p class="per">4 букета M · 3 400 ₽ за букет · примерная цена</p>
-          <ul><li>Всё из тарифа «раз в две недели»</li><li>Один букет в месяц — в подарок по другому адресу</li><li>Подкормка и памятка по уходу</li></ul>
-          <button class="btn" data-plan="w">Оформить</button>
-        </article>
+          <div class="pp">3 200 ₽ <small>/ доставка</small></div>
+          <ul><li>Букет размера M, сезонный состав</li><li>Доставка включена, тот же интервал</li><li>Ваза в подарок с первой доставкой</li></ul>
+          <button class="btn b-pink" data-plan="p1">Оформить</button>
+        </div>
+        <div class="ph rv"><img loading="lazy" src="https://images.pexels.com/photos/13076347/pexels-photo-13076347.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Пионы в крафтовой бумаге, вид сверху"></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 05 HOW -->
-<section class="sec wrap" id="how">
-  <div class="sh rv"><span class="pg">05</span><div class="kick"><span>Рубрика · Как мы работаем</span><span>стр. 05</span></div><h2 class="disp">От ведра <em>до двери</em></h2></div>
-  <div class="proc">
-    <figure class="proc-ph rv">
-      <span class="vcap">Мастерская · утренняя смена</span>
-      <div class="frame"><img src="https://images.pexels.com/photos/6765758/pexels-photo-6765758.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Флорист собирает букет из роз за рабочим столом" loading="lazy" width="1600" height="2000"></div>
-      <figcaption><i>Илл. 05</i> — букет собирают в день доставки, не накануне</figcaption>
-    </figure>
-    <ol class="steps">
-      <li class="rv"><span class="n">01</span><div><h3>Выбираете букет</h3><p>Готовый из каталога или свой — настроение, размер, ваза. Пишете текст открытки.</p></div></li>
-      <li class="rv"><span class="n">02</span><div><h3>Указываете день и интервал</h3><p>Двухчасовые окна с 10:00 до 22:00, сегодня — если до начала окна больше двух часов.</p></div></li>
-      <li class="rv"><span class="n">03</span><div><h3>Получаете фото</h3><p>Перед отправкой присылаем снимок букета в мессенджер. Не нравится — поправим до выезда курьера.</p></div></li>
-      <li class="rv"><span class="n">04</span><div><h3>Курьер привозит</h3><p>В выбранный интервал, с открыткой, подписанной от руки. Сообщим, когда букет вручён.</p></div></li>
-    </ol>
-    <div class="quote rv">
-      <blockquote>Попросила «что-то тихое, для мамы» — прислали фото, я заплакала ещё до доставки.</blockquote>
-      <p>Анна, Мотовилиха <span class="tag">пример отзыва</span></p>
-    </div>
+  <!-- FAQ + CONTACTS -->
+  <div class="fc">
+    <section id="faq" aria-labelledby="faq-h">
+      <h2 class="h2 rv" id="faq-h" style="margin-bottom:24px">Частые <em class="s">вопросы</em></h2>
+      <div class="rv" id="qas"></div>
+    </section>
+    <section id="contacts" aria-labelledby="ct-h">
+      <h2 class="h2" id="ct-h">Заходите <em class="s">в гости</em></h2>
+      <a class="tel" href="tel:+73422000000">+7 (342) 200-00-00</a>
+      <div class="ct">
+        <div><b>Мастерская</b>Пермь, ул. Примерная, 1 — адрес-пример</div>
+        <div><b>Часы</b>Ежедневно 9:00–22:00, доставка до 23:00</div>
+      </div>
+      <div class="msg">
+        <a class="btn b-pink" href="#" data-demo>Telegram</a>
+        <a class="btn b-line" href="#" data-demo>WhatsApp</a>
+      </div>
+    </section>
   </div>
-</section>
-
-<!-- 06 FAQ -->
-<section class="sec wrap" id="faq">
-  <div class="sh rv"><span class="pg">06</span><div class="kick"><span>Рубрика · Вопросы</span><span>стр. 06</span></div><h2 class="disp">Частые <em>вопросы</em></h2></div>
-  <div class="faq">
-    <div class="faq-side rv"><p>Не нашли ответ — напишите в Telegram или WhatsApp, флорист ответит в течение 15 минут в рабочее время.</p></div>
-    <div class="faq-list rv">
-      <details><summary>Как вы присылаете фото букета?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Когда букет готов, флорист фотографирует его при дневном свете и отправляет в мессенджер на ваш номер. Если хочется поправить цвет ленты или добавить зелени — успеем до выезда курьера.</p></div></details>
-      <details><summary>Можно доставить сюрпризом, без имени отправителя?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Да. Курьер не назовёт отправителя, а открытку подпишем так, как вы попросите, — или оставим без подписи.</p></div></details>
-      <details><summary>Что, если получателя не будет дома?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Курьер позвонит и подождёт 15 минут. Дальше договоримся с вами: оставить соседям, у консьержа или привезти повторно в другой интервал.</p></div></details>
-      <details><summary>Сколько простоит букет?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Обычно 5–10 дней — зависит от цветов. Кладём подкормку и короткую памятку: как подрезать стебли и как часто менять воду.</p></div></details>
-      <details><summary>Как работает подписка?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Выбираете частоту, день недели и интервал. Каждый раз — новый сезонный букет размера M. Перенести, поставить на паузу или отменить можно одним сообщением.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<!-- 07 CONTACTS -->
-<section class="sec wrap" id="contacts">
-  <div class="sh rv"><span class="pg">07</span><div class="kick"><span>Рубрика · Контакты</span><span>стр. 07</span></div></div>
-  <div class="cont">
-    <h2 class="disp rv">Заходите <em>за цветами</em> или пишите</h2>
-    <div class="cont-info rv">
-      <div class="ci"><p class="kick">Телефон</p><a class="tel" href="tel:+73422000000">+7 (342) 200-00-00</a></div>
-      <div class="ci"><p class="kick">Мастерская</p><p>Пермь, ул. Примерная, 1 — адрес-пример</p></div>
-      <div class="ci"><p class="kick">Часы</p><p>Мастерская ежедневно 9:00–21:00 · доставка 10:00–22:00</p></div>
-      <div class="msg"><a class="btn ink" href="#" aria-label="Написать в Telegram (пример)">Telegram</a><a class="btn ghost" href="#" aria-label="Написать в WhatsApp (пример)">WhatsApp</a></div>
-    </div>
-  </div>
-  <footer class="foot">
-    <span>© «Пион и полынь», Пермь · концепт-сайт студии «Кирилл и Даня», бренд вымышлен</span>
-    <span>Цены примерные · Фото: Pexels</span>
-  </footer>
-</section>
 </main>
 
-<button class="fab" data-open-cart aria-label="Открыть корзину"><span>Корзина · <span data-cnt>0</span></span><span class="s" data-sum>0 ₽</span></button>
-<div class="mbar">
-  <button class="mb-cart" data-open-cart aria-label="Открыть корзину">Корзина <span class="cnt" data-cnt>0</span></button>
-  <button class="mb-main" id="mbMain">Выбрать букет</button>
-</div>
-<div class="toast" id="toast" role="status"></div>
+<footer>
+  <span>© «Пион и полынь» — вымышленный бренд. Концепт-сайт студии «Кирилл и Даня».</span>
+  <span>Цены примерные · Фото: Pexels</span>
+</footer>
 
+<!-- floating cart -->
+<button class="fcart" data-open-cart aria-label="Открыть корзину">
+  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cnt" data-count>0</span></span>
+  <span><small>Корзина</small><span data-sum>0 ₽</span></span>
+</button>
+<div class="mbar">
+  <a class="btn b-pink" href="#bouquets">Выбрать букет</a>
+  <button class="btn b-wine mc" data-open-cart aria-label="Открыть корзину"><span class="cnt" data-count>0</span><span data-sum>0 ₽</span></button>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- DRAWER -->
 <div class="ovl" id="ovl"></div>
-<aside class="drw" id="drw" role="dialog" aria-modal="true" aria-labelledby="drwTitle" aria-hidden="true">
-  <div class="drw-h"><h2 id="drwTitle">Ваш <em>заказ</em></h2><button class="x" id="drwClose" aria-label="Закрыть корзину"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
-  <div class="drw-b" id="drwBody">
-    <div id="items"></div>
-    <div id="orderForm">
-      <div class="fs">
-        <span class="kick">Открытка — подпишем от руки</span>
-        <div class="cardwrap">
-          <div><textarea id="note" maxlength="140" placeholder="Например: С днём рождения, мама! Ты — самое тёплое, что у меня есть."></textarea><div class="cc"><span id="noteC">0</span>/140</div></div>
-          <div class="pcard" aria-hidden="true"><p id="noteP" class="ph">С днём рождения, мама! Ты — самое тёплое, что у меня есть.</p><span>Пион и полынь</span></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-t">
+  <div class="dr-h"><h2 id="dr-t">Корзина</h2><button class="x" id="dr-x" aria-label="Закрыть"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="dr-b">
+    <div class="items" id="items"></div>
+    <form id="form" novalidate>
+      <div class="dr-s">
+        <h3>Открытка <small>до 160 знаков, бесплатно</small></h3>
+        <div class="card-note">
+          <textarea id="f-card" maxlength="160" placeholder="Например: С днём рождения, мама! Ты самая лучшая"></textarea>
+          <div class="pc" aria-hidden="true"><p id="pc-t" class="ph0">Здесь появится ваш текст — флорист перепишет его от руки</p><small id="pc-n">0/160</small></div>
         </div>
       </div>
-      <div class="fs">
-        <span class="kick">Когда</span>
-        <div class="chips" id="days"></div>
-        <div class="chips" id="slots" style="margin-top:8px"></div>
-        <div class="err" id="eWhen"></div>
+      <div class="dr-s">
+        <h3>Когда</h3>
+        <div class="chs" id="days" role="group" aria-label="День доставки"></div>
+        <div class="chs" id="slots" role="group" aria-label="Интервал" style="margin-top:8px"></div>
       </div>
-      <div class="fs">
-        <span class="kick">Район Перми · примерная цена доставки</span>
-        <div class="dists" id="dists"></div>
-        <div class="err" id="eDist"></div>
+      <div class="dr-s">
+        <h3>Куда</h3>
+        <label class="lbl" for="f-dist">Район Перми</label>
+        <select id="f-dist">
+          <option value="">Выберите район</option>
+          <option value="350">Ленинский — 350 ₽</option>
+          <option value="350">Свердловский — 350 ₽</option>
+          <option value="450">Дзержинский — 450 ₽</option>
+          <option value="450">Индустриальный — 450 ₽</option>
+          <option value="450">Мотовилихинский — 450 ₽</option>
+          <option value="650">Кировский — 650 ₽</option>
+          <option value="650">Орджоникидзевский — 650 ₽</option>
+          <option value="0">Самовывоз из мастерской — 0 ₽</option>
+        </select>
+        <p class="dhint" id="d-hint">Примерные цены. От 7 000 ₽ — доставка бесплатно.</p>
       </div>
-      <div class="fs fld">
-        <span class="kick">Ваши контакты</span>
-        <div><input class="inp" id="name" autocomplete="name" placeholder="Имя"><div class="err" id="eName"></div></div>
-        <div><input class="inp" id="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><div class="err" id="ePhone"></div></div>
-        <p class="cc">Адрес и имя получателя уточним в мессенджере вместе с фото букета.</p>
+      <div class="dr-s">
+        <h3>Контакты <small>адрес уточним в звонке</small></h3>
+        <div class="f2">
+          <div><label class="lbl" for="f-name">Ваше имя</label><input type="text" id="f-name" autocomplete="name" placeholder="Мария"></div>
+          <div><label class="lbl" for="f-tel">Телефон</label><input type="tel" id="f-tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__"></div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
-  <div class="drw-f" id="drwFoot">
-    <div class="tot"><div><span>Букеты</span><span id="tGoods">0 ₽</span></div><div><span>Доставка</span><span id="tDel">выберите район</span></div><div class="t"><span>Итого</span><span id="tAll">0 ₽</span></div></div>
-    <button class="btn" id="submit">Заказать с доставкой</button>
-    <p class="legal">Концепт: заказ никуда не отправляется</p>
+  <div class="dr-f">
+    <div class="rows">
+      <div><span>Букеты</span><span id="r-goods">0 ₽</span></div>
+      <div><span>Доставка</span><span id="r-del">—</span></div>
+      <div class="tt"><span>Итого</span><span id="r-tot">0 ₽</span></div>
+    </div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn b-wine" id="submit" type="submit" form="form">Оформить доставку</button>
+  </div>
+  <div class="done" id="done" aria-live="polite">
+    <div class="big">Готово, <em class="s">спасибо!</em></div>
+    <p>Флорист уже выбирает цветы. Перед отправкой пришлём фото букета — в Telegram или WhatsApp.</p>
+    <div class="rc" id="rc"></div>
+    <p class="note">Это концепт-сайт: заказ никуда не отправлен.</p>
+    <button class="btn b-ink" id="again">Вернуться на сайт</button>
   </div>
 </aside>
 
 <script>
-document.documentElement.classList.add('js');
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const PX=(id,w)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
-const rub=n=>n.toLocaleString('ru-RU')+' ₽';
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const OCC={love:'Любимой',mom:'Маме',just:'Просто так',work:'Коллеге'};
-const BOUQ=[
-  {id:'b1',img:3392982,name:'Первое свидание',comp:'Розовые пионы в белой кальке, лента из шёлка',occ:['love'],price:4900,alt:'Розовые пионы, завёрнутые в белую бумагу'},
-  {id:'b2',img:17501318,name:'Мамин сад',comp:'Пионы двух оттенков, атласная лента, ваза в подарок',occ:['mom'],price:5600,alt:'Букет пионов в стеклянной вазе с розовой лентой'},
-  {id:'b3',img:306066,name:'Сливки',comp:'Кремовые розы, эустома, серебристая полынь',occ:['love','mom'],price:4200,alt:'Букет кремовых роз с зеленью на столе'},
-  {id:'b4',img:4466585,name:'Солнечная сторона',comp:'Хризантемы, альстромерия, немного зелени',occ:['work','just'],price:2900,alt:'Жёлтый букет в стеклянной вазе на столе мастерской'},
-  {id:'b5',img:5996678,name:'Карнавал',comp:'Хризантемы, астры, гербера — всё сочное и громкое',occ:['just','love'],price:3500,alt:'Яркий разноцветный букет крупным планом'},
-  {id:'b6',img:20206456,name:'Пудра',comp:'Белые розы, диантус, кустовая гвоздика',occ:['mom','love'],price:3900,alt:'Букет из белых роз и розовых гвоздик'},
-  {id:'b7',img:17558430,name:'Белый крафт',comp:'Ромашковые хризантемы в крафтовой бумаге',occ:['work','just'],price:2600,alt:'Белые цветы в крафтовой упаковке'},
-  {id:'b8',img:11540349,name:'Прогулка',comp:'Белые розы и зелень в плетёной сумке',occ:['mom','just'],price:4600,alt:'Белые розы в плетёной сумке'}
+(function(){
+'use strict';
+var d=document;d.documentElement.classList.add('js');
+var $=function(s,c){return (c||d).querySelector(s)};
+var $$=function(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))};
+var px=function(id,w){return 'https://images.pexels.com/photos/'+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w='+(w||800)};
+var rub=function(n){return n.toLocaleString('ru-RU').replace(/ |,/g,' ')+' ₽'};
+var ICON_PLUS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+
+/* marquee */
+var flower='<svg viewBox="0 0 24 24" fill="#5c1630" aria-hidden="true"><circle cx="12" cy="6.5" r="4.5"/><circle cx="6.5" cy="12" r="4.5"/><circle cx="17.5" cy="12" r="4.5"/><circle cx="12" cy="17.5" r="4.5"/><circle cx="12" cy="12" r="2.6" fill="#fbe7a1"/></svg>';
+var names=['Пион','Ранункулюс','Эустома','Полынь','Диантус','Тюльпан','Роза','Эвкалипт'];
+var one=names.map(function(n,i){return '<span class="'+(i%2?'f':'o')+'">'+n+flower+'</span>'}).join('');
+$('#mq').innerHTML=one+one;
+
+/* catalog */
+var B=[
+ {id:'b1',img:6341499,n:'Фуксия',c:'Пионы цвета фуксии, малиновые розы, немного зелени',o:['love','bd'],p:5400,t:'Хит',a:'Пионы цвета фуксии крупным планом'},
+ {id:'b2',img:1233442,n:'Розовый шум',c:'25 розовых роз в пудровой бумаге',o:['love','mom'],p:4600,a:'Букет розовых роз в руках'},
+ {id:'b3',img:7693928,n:'Абрикос',c:'Коралловые пионы, ранункулюс, веточки полыни',o:['love','just'],p:4900,t:'Сезон',a:'Коралловые пионы крупным планом'},
+ {id:'b4',img:3392982,n:'Пудра',c:'Розовые пионы в белой кальке',o:['mom','love','work'],p:3900,a:'Розовые пионы в белой бумаге'},
+ {id:'b5',img:20206456,n:'Мамин сад',c:'Кустовые розы, хризантема, эвкалипт',o:['mom','bd','work'],p:4200,a:'Пышный букет из роз и розовых хризантем'},
+ {id:'b6',img:20621379,n:'Тюльпаны-хулиганы',c:'25 тюльпанов: коралл, персик, розовый',o:['just','work','bd'],p:3300,a:'Букет коралловых тюльпанов'},
+ {id:'b7',img:306066,n:'Сливочный',c:'Кремовые розы, эустома, свежая зелень',o:['work','mom','just'],p:3600,a:'Букет кремовых роз с зеленью'},
+ {id:'b8',img:33791908,n:'Большой жест',c:'51 роза в яркой двойной упаковке',o:['love','bd'],p:9900,t:'Вау',a:'Девушка держит огромный букет розовых роз в яркой упаковке'}
 ];
+var byId={};B.forEach(function(b){byId[b.id]=b});
+var track=$('#track');
+track.innerHTML=B.map(function(b){
+  return '<article class="card" data-o="'+b.o.join(' ')+'"><div class="ph">'+(b.t?'<span class="tag">'+b.t+'</span>':'')+
+  '<img loading="lazy" draggable="false" src="'+px(b.img)+'" alt="'+b.a+'"><button class="add" data-add="'+b.id+'" aria-label="Добавить «'+b.n+'» в корзину">'+ICON_PLUS+'</button></div>'+
+  '<div class="card-b"><div class="card-t"><h3>«'+b.n+'»</h3><span class="price">'+rub(b.p)+'</span></div><p>'+b.c+'</p></div></article>';
+}).join('');
 
-/* ---------- catalog ---------- */
-const grid=$('#grid');let filter='all';
-function renderGrid(){
-  const list=BOUQ.filter(b=>filter==='all'||b.occ.includes(filter));
-  grid.innerHTML=list.map((b,i)=>`<article class="card" style="--d:${i*70}ms">
-    <figure class="card-ph"><img src="${PX(b.img,800)}" alt="${b.alt}" loading="lazy" width="800" height="1000"><figcaption>${b.occ.map(o=>OCC[o]).join(' · ')}</figcaption></figure>
-    <span class="card-n">№ ${String(BOUQ.indexOf(b)+1).padStart(2,'0')}</span>
-    <h3>«${b.name}»</h3><p>${b.comp}</p>
-    <div class="card-f"><b>${rub(b.price)}</b><button class="add" data-id="${b.id}">В корзину</button></div>
-  </article>`).join('');
+$$('.chip').forEach(function(ch){ch.addEventListener('click',function(){
+  $$('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===ch?'true':'false')});
+  var f=ch.dataset.f;
+  $$('.card',track).forEach(function(c){c.classList.toggle('hide',f!=='all'&&c.dataset.o.split(' ').indexOf(f)<0)});
+  track.scrollTo({left:0,behavior:'smooth'});
+})});
+$$('.arr').forEach(function(a){a.addEventListener('click',function(){
+  var c=$('.card:not(.hide)',track);var w=c?c.getBoundingClientRect().width+16:360;
+  track.scrollBy({left:w*Number(a.dataset.dir),behavior:'smooth'});
+})});
+/* drag to scroll (mouse) */
+(function(){
+  var down=false,moved=false,sx=0,sl=0;
+  track.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||e.button!==0)return;if(e.target.closest('button'))return;down=true;moved=false;sx=e.clientX;sl=track.scrollLeft});
+  window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(!moved&&Math.abs(dx)>5){moved=true;track.classList.add('drag')}if(moved)track.scrollLeft=sl-dx});
+  window.addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){var w=track.scrollLeft;track.classList.remove('drag');track.scrollLeft=w}});
+})();
+
+/* cart state */
+var cart=[];
+function add(item){
+  var ex=cart.filter(function(x){return x.k===item.k})[0];
+  if(ex)ex.q++;else cart.push({k:item.k,n:item.n,img:item.img,p:item.p,m:item.m,q:1});
+  render();toast('«'+item.n.replace(/[«»]/g,'')+'» — в корзине');
+  $$('.fcart').forEach(function(f){f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump')});
 }
-renderGrid();
-const ind=$('.tab-ind');
-function moveInd(){const a=$('.tab[aria-selected="true"]');ind.style.width=a.offsetWidth+'px';ind.style.transform=`translateX(${a.offsetLeft}px)`}
-$$('.tab').forEach(t=>t.addEventListener('click',()=>{
-  if(t.dataset.f===filter)return;
-  $$('.tab').forEach(x=>x.setAttribute('aria-selected',x===t));
-  filter=t.dataset.f;moveInd();
-  grid.classList.add('swap');
-  setTimeout(()=>{renderGrid();grid.classList.remove('swap')},RM?0:200);
-}));
-addEventListener('resize',moveInd);
-document.fonts&&document.fonts.ready.then(moveInd);moveInd();
-grid.addEventListener('click',e=>{
-  const b=e.target.closest('.add');if(!b)return;
-  const it=BOUQ.find(x=>x.id===b.dataset.id);
-  addItem({key:it.id,name:'«'+it.name+'»',img:it.img,price:it.price,meta:it.comp});
-  b.classList.add('ok');b.textContent='Добавлено';
-  setTimeout(()=>{b.classList.remove('ok');b.textContent='В корзину'},1600);
+d.addEventListener('click',function(e){
+  var a=e.target.closest('[data-add]');
+  if(a){var b=byId[a.dataset.add];add({k:b.id,n:'«'+b.n+'»',img:b.img,p:b.p,m:b.c});}
+  var o=e.target.closest('[data-open-cart]');if(o)openCart();
+  var dm=e.target.closest('[data-demo]');if(dm){e.preventDefault();toast('Демо: в реальном сайте откроется мессенджер');}
 });
 
-/* ---------- builder ---------- */
-const STY={tender:{n:'Нежный',img:7693928,d:'Пионы, пудровые розы, кремовая эустома'},bright:{n:'Яркий',img:5996678,d:'Хризантемы, астры, гербера — смело и сочно'},mono:{n:'Монохром',img:306066,d:'Белое и зелёное: розы, полынь, эвкалипт'}};
-const SIZE={S:{p:2500,d:'9–11 стеблей, ~30 см'},M:{p:3900,d:'15–19 стеблей, ~40 см'},L:{p:5900,d:'25–31 стебель, ~50 см'}};
-const ADDS={card:{n:'Открытка от руки',p:0,on:true},vase:{n:'Стеклянная ваза',p:900},sage:{n:'Веточки полыни',p:300}};
-const tickSvg='<svg width="12" height="10" viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5l3.5 3.5L11 1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';
-$('#styles').innerHTML=Object.entries(STY).map(([k,s],i)=>`<label class="opt"><input type="radio" name="sty" value="${k}" ${i?'':'checked'}><div class="sty-ph"><img src="${PX(s.img,800)}" alt="${s.n} букет" loading="lazy" width="800" height="1066"></div><div class="sty-name">${s.n}</div><div class="sty-d">${s.d}</div></label>`).join('');
-$('#sizes').innerHTML=Object.entries(SIZE).map(([k,s])=>`<label class="opt"><input type="radio" name="size" value="${k}" ${k==='M'?'checked':''}><span class="chipbox"><span class="big">${k}</span><small>${s.d}</small><b>${rub(s.p)}</b></span></label>`).join('');
-$('#adds').innerHTML=Object.entries(ADDS).map(([k,a])=>`<label class="opt addrow"><input type="checkbox" name="add" value="${k}" ${a.on?'checked':''}><span class="chipbox"><span class="tick">${tickSvg}</span><span class="nm">${a.n}</span><b>${a.p?'+ '+rub(a.p):'бесплатно'}</b></span></label>`).join('');
-const bf=$('#builder');let curImg=null,front=$('#sumA'),back=$('#sumB');
-function bState(){const f=new FormData(bf);return{s:f.get('sty'),z:f.get('size'),a:f.getAll('add')}}
-function bUpdate(){
-  const {s,z,a}=bState(),st=STY[s],price=SIZE[z].p+a.reduce((t,k)=>t+ADDS[k].p,0);
-  $('#sumTitle').innerHTML=`${st.n}, <em>${z}</em>`;
-  $('#sumList').innerHTML=`<li><span>${st.d}</span></li><li><span>Размер ${z} · ${SIZE[z].d}</span><span>${rub(SIZE[z].p)}</span></li>`+a.map(k=>`<li><span>${ADDS[k].n}</span><span>${ADDS[k].p?rub(ADDS[k].p):'0 ₽'}</span></li>`).join('');
-  $('#sumPrice').textContent=rub(price);
-  if(curImg!==st.img){
-    curImg=st.img;back.src=PX(st.img,800);back.alt=st.n+' букет';
-    back.style.opacity=1;front.style.opacity=0;[front,back]=[back,front];
-  }
-  return {st,z,a,price,s};
+/* builder */
+var PAL={soft:{n:'Нежная',img:7693928},bright:{n:'Яркая',img:6603242},white:{n:'Белая',img:306066}};
+var SZ={S:2900,M:4200,L:6500};
+var AD={card:{n:'открытка',p:0},vase:{n:'ваза',p:1200},box:{n:'шляпная коробка',p:700}};
+var st={pal:'soft',sz:'M',ad:{card:true,vase:false,box:false}};
+function bTotal(){var t=SZ[st.sz];Object.keys(st.ad).forEach(function(k){if(st.ad[k])t+=AD[k].p});return t}
+function bLine(){var a=Object.keys(st.ad).filter(function(k){return st.ad[k]}).map(function(k){return AD[k].n});return PAL[st.pal].n+' палитра · '+st.sz+(a.length?' · '+a.join(', '):'')}
+function bRender(){
+  $('#b-line').textContent=bLine();
+  $('#b-total').innerHTML=rub(bTotal()).replace(' ₽','')+' <span>₽</span>';
+  $('#b-add').firstChild.nodeValue='В корзину · '+rub(bTotal())+' ';
 }
-bf.addEventListener('change',bUpdate);bUpdate();
-$('#buildAdd').addEventListener('click',()=>{
-  const {st,z,a,price,s}=bUpdate();
-  addItem({key:'own-'+s+z+a.join(''),name:'Свой букет: '+st.n.toLowerCase()+', '+z,img:st.img,price,meta:a.length?a.map(k=>ADDS[k].n).join(', '):'без дополнений'});
+function radio(sel,attr,key){$$(sel).forEach(function(b){b.addEventListener('click',function(){
+  st[key]=b.dataset[attr];$$(sel).forEach(function(x){x.setAttribute('aria-checked',x===b?'true':'false')});bRender();
+})})}
+radio('[data-pal]','pal','pal');radio('[data-sz]','sz','sz');
+$$('[data-ad]').forEach(function(b){b.addEventListener('click',function(){
+  var k=b.dataset.ad;st.ad[k]=!st.ad[k];b.setAttribute('aria-pressed',String(st.ad[k]));bRender();
+})});
+$('#b-add').addEventListener('click',function(){
+  var k='own-'+st.pal+st.sz+Object.keys(st.ad).filter(function(x){return st.ad[x]}).join('');
+  add({k:k,n:'Свой букет '+st.sz,img:PAL[st.pal].img,p:bTotal(),m:bLine()});
 });
+bRender();
 
-/* ---------- subscription ---------- */
-const PLANS={w:{name:'Подписка «Каждую неделю»',price:13600,meta:'4 букета M в месяц'},b:{name:'Подписка «Раз в две недели»',price:7400,meta:'2 букета M в месяц'}};
-$$('[data-plan]').forEach(b=>b.addEventListener('click',()=>{const p=PLANS[b.dataset.plan];addItem({key:'sub-'+b.dataset.plan,img:13076347,...p});openCart()}));
+/* subscription */
+var PLANS={p1:{n:'Подписка: каждую неделю',p:3200,m:'Первая доставка, дальше — по расписанию'},p2:{n:'Подписка: раз в две недели',p:3600,m:'Первая доставка, дальше — по расписанию'}};
+$$('[data-plan]').forEach(function(b){b.addEventListener('click',function(){
+  var p=PLANS[b.dataset.plan];add({k:'sub-'+b.dataset.plan,n:p.n,img:13076347,p:p.p,m:p.m});openCart();
+})});
 
-/* ---------- cart ---------- */
-let cart=[],dist=null,day=null,slot=null;
-const DIST=[['Ленинский',300],['Свердловский',350],['Дзержинский',350],['Индустриальный',400],['Мотовилихинский',400],['Орджоникидзевский',600],['Кировский',700]];
-const toastEl=$('#toast');let tt;
-function toast(t){toastEl.textContent=t;toastEl.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('on'),2200)}
-function addItem(it){
-  const ex=cart.find(c=>c.key===it.key);ex?ex.qty++:cart.push({...it,qty:1});
-  renderCart();toast(it.name+' — в корзине');
-  const f=$('.fab');f.classList.remove('bump');void f.offsetWidth;f.classList.add('bump');
-}
-const goods=()=>cart.reduce((t,c)=>t+c.price*c.qty,0);
-function renderCart(){
-  const n=cart.reduce((t,c)=>t+c.qty,0),g=goods();
-  $$('[data-cnt]').forEach(e=>e.textContent=n);
-  $$('[data-sum]').forEach(e=>e.textContent=rub(g));
-  $('#mbMain').textContent=n?'Оформить · '+rub(g):'Выбрать букет';
-  $('#items').innerHTML=n?cart.map((c,i)=>`<div class="it"><img src="${PX(c.img,800)}" alt=""><div><h4>${c.name}</h4><small>${c.meta}</small><div class="pr">${rub(c.price*c.qty)}</div></div><div class="qty"><button data-q="-1" data-i="${i}" aria-label="Меньше">−</button><span>${c.qty}</span><button data-q="1" data-i="${i}" aria-label="Больше">+</button></div></div>`).join('')
-    :`<div class="empty"><p>Пока пусто</p><small>Выберите готовый букет или соберите свой</small><button class="btn" data-goto="#catalog">Смотреть букеты</button></div>`;
-  $('#orderForm').hidden=!n;$('#drwFoot').hidden=!n;
-  $('#tGoods').textContent=rub(g);
-  $('#tDel').textContent=dist?rub(dist[1]):'выберите район';
-  $('#tAll').textContent=rub(g+(dist?dist[1]:0));
-  $('#submit').textContent='Заказать с доставкой · '+rub(g+(dist?dist[1]:0));
-}
-$('#items').addEventListener('click',e=>{
-  const q=e.target.closest('[data-q]');
-  if(q){const c=cart[+q.dataset.i];c.qty+=+q.dataset.q;if(c.qty<1)cart.splice(+q.dataset.i,1);renderCart();return}
-  const g=e.target.closest('[data-goto]');if(g){closeCart();$(g.dataset.goto).scrollIntoView({behavior:RM?'auto':'smooth'})}
-});
+/* FAQ */
+var QA=[
+ ['Можно ли заказать на сегодня?','Да, если до начала выбранного интервала больше двух часов. Поздние заказы принимаем до 20:00.'],
+ ['Букет будет как на фото?','Составы сезонные, поэтому цветы могут немного отличаться. Перед отправкой присылаем фото — можно попросить заменить что-то.'],
+ ['Как долго простоит букет?','В среднем 5–7 дней. В каждом заказе — карточка с уходом и подкормка для воды.'],
+ ['Можно сохранить анонимность?','Конечно. Курьер не назовёт отправителя, а открытку можно не подписывать.'],
+ ['Как оплатить?','Картой или по ссылке после согласования фото букета. Для юрлиц — по счёту (в концепте не подключено).']
+];
+$('#qas').innerHTML=QA.map(function(q,i){return '<div class="qa"><button aria-expanded="false" aria-controls="qa'+i+'">'+q[0]+'<i aria-hidden="true"></i></button><div class="ans" id="qa'+i+'"><div><p>'+q[1]+'</p></div></div></div>'}).join('');
+$$('.qa button').forEach(function(b){b.addEventListener('click',function(){
+  var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(o));b.parentNode.classList.toggle('open',o);
+})});
 
 /* drawer */
-const drw=$('#drw'),ovl=$('#ovl');let lastFocus=null;
-function openCart(){lastFocus=document.activeElement;showForm();drw.classList.add('on');ovl.classList.add('on');drw.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>$('#drwClose').focus(),60)}
-function closeCart(){drw.classList.remove('on');ovl.classList.remove('on');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';lastFocus&&lastFocus.focus&&lastFocus.focus()}
-$$('[data-open-cart]').forEach(b=>b.addEventListener('click',openCart));
-$('#drwClose').addEventListener('click',closeCart);ovl.addEventListener('click',closeCart);
-addEventListener('keydown',e=>{if(e.key==='Escape'&&drw.classList.contains('on'))closeCart()});
-$('#mbMain').addEventListener('click',()=>cart.length?openCart():$('#catalog').scrollIntoView({behavior:RM?'auto':'smooth'}));
+var dr=$('#drawer'),ovl=$('#ovl'),lastFocus=null;
+function openCart(){lastFocus=d.activeElement;dr.classList.add('on');ovl.classList.add('on');d.body.style.overflow='hidden';setTimeout(function(){$('#dr-x').focus()},60)}
+function closeCart(){dr.classList.remove('on');ovl.classList.remove('on');d.body.style.overflow='';if(dr.classList.contains('ok')){dr.classList.remove('ok')}if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+$('#dr-x').addEventListener('click',closeCart);ovl.addEventListener('click',closeCart);
+d.addEventListener('keydown',function(e){if(e.key==='Escape'&&dr.classList.contains('on'))closeCart()});
 
-/* card note */
-const note=$('#note'),noteP=$('#noteP'),PH=noteP.textContent;
-note.addEventListener('input',()=>{const v=note.value.trim();noteP.textContent=v||PH;noteP.classList.toggle('ph',!v);$('#noteC').textContent=note.value.length});
-
-/* date + slots */
-const WD=['вс','пн','вт','ср','чт','пт','сб'],MON=['янв','фев','мар','апр','мая','июн','июл','авг','сен','окт','ноя','дек'];
-const SL=[10,12,14,16,18,20],now=new Date();
-const slotOK=(d,h)=>d>0||h*60>=now.getHours()*60+now.getMinutes()+120;
-function chipsDays(){
-  $('#days').innerHTML=[...Array(6)].map((_,i)=>{const d=new Date(now);d.setDate(now.getDate()+i);
-    const t=i===0?'Сегодня':i===1?'Завтра':WD[d.getDay()]+', '+d.getDate();
-    const dis=i===0&&!SL.some(h=>slotOK(0,h));
-    return `<button class="chip" data-d="${i}" aria-pressed="${i===day}" ${dis?'disabled':''}>${t}<small>${d.getDate()} ${MON[d.getMonth()]}</small></button>`}).join('');
-  $('#slots').innerHTML=SL.map(h=>`<button class="chip" data-s="${h}" aria-pressed="${h===slot}" ${slotOK(day,h)?'':'disabled'}>${h}:00–${h+2}:00</button>`).join('');
+function goods(){return cart.reduce(function(s,x){return s+x.p*x.q},0)}
+function count(){return cart.reduce(function(s,x){return s+x.q},0)}
+var distSel=$('#f-dist');
+function delivery(){if(distSel.value==='')return null;var v=Number(distSel.value);return goods()>=7000?0:v}
+function render(){
+  var g=goods(),n=count();
+  $$('[data-count]').forEach(function(e){e.textContent=n});
+  $$('[data-sum]').forEach(function(e){e.textContent=rub(g)});
+  var box=$('#items');
+  if(!cart.length){box.innerHTML='<div class="empty"><p>Пока пусто — но это ненадолго</p><a class="btn b-wine" href="#bouquets" id="go-cat">Выбрать букет</a></div>';}
+  else box.innerHTML=cart.map(function(x,i){return '<div class="it"><img src="'+px(x.img,240)+'" alt=""><div><strong>'+x.n+'</strong><small>'+x.m+'</small><div class="pr">'+rub(x.p*x.q)+'</div></div><div class="qty"><button type="button" data-q="'+i+'" data-d="-1" aria-label="Меньше">−</button><span>'+x.q+'</span><button type="button" data-q="'+i+'" data-d="1" aria-label="Больше">+</button></div></div>'}).join('');
+  var dv=delivery();
+  $('#r-goods').textContent=rub(g);
+  $('#r-del').textContent=dv===null?'выберите район':(dv===0?'бесплатно':rub(dv));
+  $('#r-tot').textContent=rub(g+(dv||0));
+  $('#submit').textContent=cart.length?'Оформить доставку · '+rub(g+(dv||0)):'Оформить доставку';
 }
-day=SL.some(h=>slotOK(0,h))?0:1;slot=SL.find(h=>slotOK(day,h));chipsDays();
-$('#days').addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(!b||b.disabled)return;day=+b.dataset.d;if(!slotOK(day,slot))slot=SL.find(h=>slotOK(day,h));chipsDays()});
-$('#slots').addEventListener('click',e=>{const b=e.target.closest('[data-s]');if(!b||b.disabled)return;slot=+b.dataset.s;chipsDays();$('#eWhen').textContent=''});
-$('#dists').innerHTML=DIST.map((d,i)=>`<button class="chip" data-di="${i}" aria-pressed="false">${d[0]}<small>доставка ${rub(d[1])}</small></button>`).join('');
-$('#dists').addEventListener('click',e=>{const b=e.target.closest('[data-di]');if(!b)return;dist=DIST[+b.dataset.di];$$('#dists .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));$('#eDist').textContent='';renderCart()});
+$('#items').addEventListener('click',function(e){
+  var b=e.target.closest('[data-q]');
+  if(b){var i=Number(b.dataset.q);cart[i].q+=Number(b.dataset.d);if(cart[i].q<1)cart.splice(i,1);render();return}
+  if(e.target.closest('#go-cat'))closeCart();
+});
+distSel.addEventListener('change',function(){render();$('#d-hint').textContent=goods()>=7000&&distSel.value!==''?'Заказ от 7 000 ₽ — доставим бесплатно.':'Примерные цены. От 7 000 ₽ — доставка бесплатно.'});
+
+/* card preview */
+var ta=$('#f-card'),pct=$('#pc-t');
+ta.addEventListener('input',function(){
+  var v=ta.value.trim();pct.textContent=v||'Здесь появится ваш текст — флорист перепишет его от руки';pct.classList.toggle('ph0',!v);$('#pc-n').textContent=ta.value.length+'/160';
+});
+
+/* days + slots */
+var MON=['янв.','февр.','марта','апр.','мая','июня','июля','авг.','сент.','окт.','нояб.','дек.'];
+var SL=[9,11,13,15,17,19,21],day=0,slot=null;
+$('#days').innerHTML=['Сегодня','Завтра','Послезавтра'].map(function(t,i){var x=new Date();x.setDate(x.getDate()+i);return '<button type="button" class="ch" data-day="'+i+'" aria-pressed="'+(i===0)+'">'+t+', '+x.getDate()+' '+MON[x.getMonth()]+'</button>'}).join('');
+function slots(){
+  var h=new Date().getHours()+new Date().getMinutes()/60;
+  $('#slots').innerHTML=SL.map(function(s){var dis=day===0&&s<h+2;if(dis&&slot===s)slot=null;return '<button type="button" class="ch" data-slot="'+s+'" aria-pressed="'+(slot===s)+'"'+(dis?' disabled':'')+'>'+s+':00–'+(s+2)+':00</button>'}).join('');
+}
+var allPast=SL.every(function(s){return s<new Date().getHours()+new Date().getMinutes()/60+2});
+if(allPast){day=1;$$('[data-day]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.day==='1'))});}
+slots();
+$('#days').addEventListener('click',function(e){var b=e.target.closest('[data-day]');if(!b)return;day=Number(b.dataset.day);$$('[data-day]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});slots()});
+$('#slots').addEventListener('click',function(e){var b=e.target.closest('[data-slot]');if(!b||b.disabled)return;slot=Number(b.dataset.slot);$$('[data-slot]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))})});
 
 /* phone mask */
-const ph=$('#phone');
-ph.addEventListener('input',()=>{let d=ph.value.replace(/\D/g,'');if(d[0]==='8')d='7'+d.slice(1);if(d&&d[0]!=='7')d='7'+d;d=d.slice(0,11);
-  let o=d?'+7':'';if(d.length>1)o+=' ('+d.slice(1,4);if(d.length>=4)o+=')';if(d.length>4)o+=' '+d.slice(4,7);if(d.length>7)o+='-'+d.slice(7,9);if(d.length>9)o+='-'+d.slice(9,11);ph.value=o});
+var tel=$('#f-tel');
+function mask(v){var g=v.replace(/\D/g,'');if(!g)return '';if(g[0]==='8')g='7'+g.slice(1);if(g[0]!=='7')g='7'+g;g=g.slice(0,11);
+  var r='+7';if(g.length>1)r+=' ('+g.slice(1,4);if(g.length>=4)r+=')';if(g.length>4)r+=' '+g.slice(4,7);if(g.length>7)r+='-'+g.slice(7,9);if(g.length>9)r+='-'+g.slice(9,11);return r}
+tel.addEventListener('input',function(e){if(e.inputType&&e.inputType.indexOf('delete')===0)return;tel.value=mask(tel.value)});
+tel.addEventListener('focus',function(){if(!tel.value)tel.value='+7 '});
+tel.addEventListener('blur',function(){if(tel.value.replace(/\D/g,'').length<=1)tel.value=''});
 
 /* submit */
-$('#submit').addEventListener('click',()=>{
-  let ok=true;const nm=$('#name').value.trim(),digits=ph.value.replace(/\D/g,'');
-  const set=(id,m)=>{$(id).textContent=m;if(m)ok=false};
-  set('#eWhen',slot==null?'Выберите интервал доставки':'');
-  set('#eDist',dist?'':'Выберите район — от него зависит цена доставки');
-  set('#eName',nm.length<2?'Как к вам обращаться?':'');
-  set('#ePhone',digits.length<11?'Нужен номер, чтобы прислать фото букета':'');
-  if(!ok){const f=$('.err:not(:empty)');f&&f.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});return}
-  const d=new Date(now);d.setDate(now.getDate()+day);
-  const g=goods(),total=g+dist[1],no='ПП-'+String(Date.now()).slice(-5);
-  $('#drwBody').insertAdjacentHTML('beforeend',`<div class="done" id="done"><span class="kick">Заказ ${no} принят</span><h3>Спасибо, <em>${nm.replace(/[<>&"]/g,'')}</em></h3>
-    <p>Флорист начнёт собирать букет в день доставки и пришлёт фото на ${ph.value} перед отправкой.</p>
-    <div class="box"><div><span>Когда</span><b>${d.getDate()} ${MON[d.getMonth()]}, ${slot}:00–${slot+2}:00</b></div><div><span>Район</span><b>${dist[0]}</b></div><div><span>Позиций</span><b>${cart.reduce((t,c)=>t+c.qty,0)}</b></div><div><span>Итого</span><b>${rub(total)}</b></div></div>
-    <p class="cc">Это концепт-сайт: заказ никуда не отправлен.</p><button class="btn ink" id="doneBtn" style="margin-top:14px">Вернуться к букетам</button></div>`);
-  $('#items').hidden=true;$('#orderForm').hidden=true;$('#drwFoot').hidden=true;$('#drwBody').scrollTop=0;
-  cart=[];dist=null;note.value='';note.dispatchEvent(new Event('input'));$('#name').value='';ph.value='';
-  $$('#dists .chip').forEach(c=>c.setAttribute('aria-pressed','false'));renderCart();
-  $('#items').hidden=true;$('#orderForm').hidden=true;$('#drwFoot').hidden=true;
-  $('#doneBtn').addEventListener('click',closeCart);
+$('#form').addEventListener('submit',function(e){
+  e.preventDefault();var err=$('#err'),nm=$('#f-name').value.trim(),ph=tel.value.replace(/\D/g,'');
+  var msg=!cart.length?'Добавьте хотя бы один букет':slot===null?'Выберите интервал доставки':distSel.value===''?'Выберите район или самовывоз':nm.length<2?'Как к вам обращаться?':ph.length!==11?'Проверьте номер телефона':'';
+  err.textContent=msg;if(msg)return;
+  var dv=delivery(),dd=$('[data-day][aria-pressed="true"]').textContent;
+  $('#rc').innerHTML='<div><b>Заказ (демо):</b> ПП-'+Math.floor(1000+Math.random()*9000)+'</div><div>'+count()+' шт. · итого '+rub(goods()+(dv||0))+'</div><div>'+dd+', '+slot+':00–'+(slot+2)+':00</div><div>'+distSel.options[distSel.selectedIndex].text.split(' — ')[0]+'</div>';
+  dr.classList.add('ok');$('#again').focus();
 });
-function showForm(){const d=$('#done');if(d)d.remove();$('#items').hidden=false;renderCart()}
+$('#again').addEventListener('click',function(){
+  cart=[];slot=null;$('#form').reset();ta.dispatchEvent(new Event('input'));slots();render();closeCart();
+});
 
-/* reveal + parallax */
-if('IntersectionObserver' in window&&!RM){
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
-  $$('.rv').forEach(el=>io.observe(el));
-}else $$('.rv').forEach(el=>el.classList.add('in'));
-if(!RM){
-  const hi=$('#heroImg'),si=$('#subsImg');let tk=false;
-  const par=()=>{tk=false;const y=scrollY;
-    if(y<innerHeight*1.2)hi.style.transform=`translateY(${-y*0.07}px)`;
-    const r=si.parentNode.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){const p=(r.top+r.height/2-innerHeight/2)/innerHeight;si.style.transform=`translateY(${Math.min(0,Math.max(-12,-6-p*5))}%)`}};
-  addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(par)}},{passive:true});par();
-}
+/* toast */
+var tt;function toast(t){var el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){el.classList.remove('on')},2200)}
+
+/* reveal */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  $$('.rv').forEach(function(el){io.observe(el)});
+}else $$('.rv').forEach(function(el){el.classList.add('in')});
+
+render();
+})();
 </script>
 </body>
 </html>
