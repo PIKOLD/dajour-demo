@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Глянец — детейлинг-студия в Перми · концепт-сайт</title>
+<meta name="description" content="Концепт: детейлинг-студия «Глянец» в Перми. Полировка, керамика, PPF, химчистка салона. Бренд вымышлен.">
+<meta name="theme-color" content="#0b0d10">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Manrope:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>document.documentElement.className='js'</script>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<style>
+:root{--bg:#0b0d10;--panel:#14181d;--panel2:#1a2027;--tx:#e8edf2;--mut:#8c98a6;--ac:#3df5c8;--am:#ffb547;--line:rgba(232,237,242,.12);--fd:'Unbounded','Russo One',sans-serif;--fb:'Manrope',system-ui,sans-serif;--fm:'JetBrains Mono',ui-monospace,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:76px;background:var(--bg)}
+body{color:var(--tx);font:400 16px/1.6 var(--fb);overflow-x:clip;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 520px at 85% -5%,rgba(61,245,200,.08),transparent 60%),radial-gradient(700px 500px at -5% 40%,rgba(80,120,255,.06),transparent 60%),linear-gradient(rgba(232,237,242,.03) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(232,237,242,.03) 1px,transparent 1px) 0 0/56px 56px}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{list-style:none}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+.mono{font-family:var(--fm)}
+.demo{font:500 10.5px/1.3 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--mut);text-align:center;padding:8px 12px;border-bottom:1px solid var(--line);background:#07090b}
+.hd{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(11,13,16,.74);border-bottom:1px solid var(--line)}
+.hd::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:var(--sp,0%);background:linear-gradient(90deg,transparent,var(--ac))}
+.hd .wrap{display:flex;align-items:center;gap:26px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font:800 17px/1 var(--fd);letter-spacing:.04em}
+.logo i{font:400 10px/1.2 var(--fm);color:var(--mut);letter-spacing:.08em;text-transform:uppercase;font-style:normal;border-left:1px solid var(--line);padding-left:10px}
+.hd nav{display:flex;gap:22px;margin-left:auto;font:500 13px var(--fb);color:var(--mut)}
+.hd nav a:hover{color:var(--ac)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;background:var(--ac);color:#031410;font:700 12px/1 var(--fd);letter-spacing:.04em;text-transform:uppercase;clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);transition:filter .25s,transform .15s;overflow:hidden;will-change:transform}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.7) 50%,transparent 65%);transform:translateX(-120%);transition:transform .7s}
+.btn:hover::after{transform:translateX(120%)}.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(232,237,242,.09);color:var(--tx)}.btn.ghost:hover{background:rgba(61,245,200,.16)}
+.btn.sm{padding:12px 18px;font-size:11px}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.hd .btn{margin-left:0}
+.tag{font:500 11px/1 var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
+h1,h2,h3{font-family:var(--fd);font-weight:600;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(23px,3.2vw,44px)}
+.sec{padding:clamp(64px,9vw,120px) 0;position:relative}
+.sh{max-width:760px;margin-bottom:40px}.sh h2{margin:14px 0 14px}.sh p{color:var(--mut);font-size:17px}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+/* hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.streaks{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.streaks i{position:absolute;top:-30%;width:1px;height:160%;background:linear-gradient(transparent,var(--ac),transparent);transform:rotate(16deg);opacity:0;animation:streak 8s linear infinite}
+.streaks i:nth-child(1){left:12%}.streaks i:nth-child(2){left:46%;animation-delay:2.6s;animation-duration:10s}.streaks i:nth-child(3){left:78%;animation-delay:5s;animation-duration:9s}
+@keyframes streak{0%{opacity:0;translate:-120px 0}10%{opacity:.55}30%{opacity:0;translate:260px 0}100%{opacity:0;translate:260px 0}}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);grid-template-areas:"copy stage" "facts stage";gap:28px 36px;padding:48px 0 56px;align-items:center;position:relative}
+.copy{grid-area:copy;align-self:end}
+.eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}.eyebrow::before{content:"";width:34px;height:1px;background:var(--ac)}
+h1{font-size:clamp(26px,3.5vw,52px);font-weight:600;margin-bottom:22px}
+h1 em{font-style:normal;color:var(--ac)}
+.lead{font-size:clamp(16px,1.35vw,19px);color:#b6c0cb;max-width:560px;margin-bottom:30px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.facts{grid-area:facts;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);align-self:start}
+.facts li{background:rgba(20,24,29,.85);padding:16px 14px;font-size:13px;line-height:1.4;color:#c4cdd7}
+.facts b{display:block;font:500 10px/1 var(--fm);letter-spacing:.14em;color:var(--ac);margin-bottom:8px}
+.stage{--paint:#1c4fd6;grid-area:stage;align-self:stretch;position:relative;min-height:clamp(330px,41vw,620px);background:radial-gradient(60% 55% at 50% 62%,rgba(61,245,200,.12),transparent 70%),linear-gradient(180deg,rgba(20,24,29,.6),rgba(11,13,16,.2));border:1px solid var(--line);overflow:hidden;touch-action:pan-y}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 3px);mix-blend-mode:screen}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 1s;cursor:grab;touch-action:pan-y}
+.stage canvas:active{cursor:grabbing}
+.stage.gl canvas{opacity:1}.stage.gl .fb{display:none}
+.fb{position:absolute;inset:8% 4% 18%;width:92%;height:74%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.6))}
+.br{position:absolute;width:18px;height:18px;border:1px solid var(--ac);z-index:2;pointer-events:none}
+.br.a{top:10px;left:10px;border-right:0;border-bottom:0}.br.b{top:10px;right:10px;border-left:0;border-bottom:0}.br.c{bottom:10px;left:10px;border-right:0;border-top:0}.br.d{bottom:10px;right:10px;border-left:0;border-top:0}
+.ro{position:absolute;top:18px;left:22px;font:400 10.5px/1.7 var(--fm);color:var(--mut);letter-spacing:.08em;text-transform:uppercase;z-index:2;pointer-events:none}.ro b{color:var(--ac);font-weight:500}
+.hint{position:absolute;right:22px;top:18px;font:400 10.5px var(--fm);color:var(--mut);letter-spacing:.08em;text-transform:uppercase;z-index:2;pointer-events:none}
+.sws{position:absolute;left:22px;bottom:20px;display:flex;align-items:center;gap:10px;z-index:3}
+.sws span{font:400 10.5px var(--fm);letter-spacing:.08em;color:var(--mut);text-transform:uppercase;margin-right:4px}
+.sw{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.7),transparent 38%),var(--c);border:2px solid transparent;outline:1px solid var(--line);outline-offset:2px;transition:transform .2s}
+.sw:hover{transform:scale(1.15)}.sw[aria-pressed=true]{outline:2px solid var(--ac);outline-offset:3px}
+/* marquee */
+.mq{border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:#090b0e;padding:14px 0;font:500 12px var(--fm);letter-spacing:.16em;color:var(--mut)}
+.mq div{display:inline-block;animation:mq 38s linear infinite}.mq span{margin:0 26px}.mq span::before{content:"◆";color:var(--ac);margin-right:26px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* compare */
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{padding:11px 20px;font:500 12px var(--fm);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);color:var(--mut);transition:.2s}
+.tabs button[aria-selected=true]{color:#031410;background:var(--ac);border-color:var(--ac)}
+.cmp{position:relative;aspect-ratio:16/8;overflow:hidden;border:1px solid var(--line);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize;background:#000;--p:50%}
+.cl{position:absolute;inset:0}.cl svg{width:100%;height:100%;display:block}
+.cl.before{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.lb{position:absolute;top:14px;font:500 11px var(--fm);letter-spacing:.16em;padding:7px 10px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);z-index:3;pointer-events:none}
+.lb.l{left:14px;color:var(--am)}.lb.r{right:14px;color:var(--ac)}
+.grip{position:absolute;top:0;bottom:0;left:var(--p);width:2px;margin-left:-1px;background:var(--ac);z-index:4;box-shadow:0 0 18px var(--ac);outline:none}
+.grip::after{content:"‹ ›";position:absolute;top:50%;left:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--ac);color:#031410;display:grid;place-items:center;font:800 16px var(--fd);letter-spacing:2px;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.grip:focus-visible::after{outline:2px solid #fff;outline-offset:3px}
+.note{font:400 12px var(--fm);color:var(--mut);margin-top:12px}
+/* calc */
+.calc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:start}
+.rc{background:var(--panel);border:1px solid var(--line);padding:24px;position:sticky;top:84px}
+.rc h3{font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;display:flex;justify-content:space-between;gap:10px}
+.rc li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font:400 12.5px/1.4 var(--fm);color:#b6c0cb}
+.rc li span:last-child{color:var(--am);white-space:nowrap}.rc .em{color:var(--mut)}
+.tot{margin-top:18px;font:400 11px var(--fm);letter-spacing:.1em;color:var(--mut);text-transform:uppercase}
+.tot b{display:block;font:600 clamp(20px,2.2vw,28px)/1.2 var(--fd);color:var(--am);letter-spacing:0;margin-top:6px;text-transform:none}
+.qz{background:var(--panel);border:1px solid var(--line);padding:clamp(20px,3vw,36px);min-height:460px;position:relative}
+.pg{height:3px;background:var(--line);margin:10px 0 28px}.pg i{display:block;height:100%;width:0;background:var(--ac);box-shadow:0 0 12px var(--ac);transition:width .5s}
+.qs{font:500 11px var(--fm);letter-spacing:.14em;color:var(--mut);display:flex;justify-content:space-between}
+.qz h3{font-size:clamp(19px,2vw,26px);margin-bottom:22px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{text-align:left;padding:16px 18px;background:var(--panel2);border:1px solid var(--line);transition:.2s;display:block;width:100%}
+.opt b{display:block;font:600 14px/1.3 var(--fb)}.opt small{display:block;color:var(--mut);font-size:12.5px;margin-top:3px}
+.opt:hover{border-color:rgba(61,245,200,.5);transform:translateY(-2px)}
+.opt[aria-pressed=true]{border-color:var(--ac);background:rgba(61,245,200,.09);box-shadow:inset 0 0 0 1px var(--ac)}
+.qa{display:flex;justify-content:space-between;gap:10px;margin-top:26px;align-items:center}
+.qa .lnk{color:var(--mut);font:500 12px var(--fm);letter-spacing:.08em;text-transform:uppercase;padding:10px 0}
+.stp{animation:stp .45s both}@keyframes stp{from{opacity:0;transform:translateX(24px)}}
+.res .pk{font:600 clamp(24px,3vw,38px)/1.1 var(--fd);margin:10px 0 6px}
+.res .pr{font:700 clamp(22px,3vw,34px)/1.2 var(--fd);color:var(--am);margin:20px 0 4px}
+.res .tm{font:500 13px var(--fm);color:var(--ac)}
+.res p.d{font:400 12px/1.5 var(--fm);color:var(--mut);margin:12px 0 22px}
+.res ul{margin:14px 0}.res li{padding:8px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px;font-size:14px}.res li::before{content:"▸";color:var(--ac)}
+/* services */
+.sg{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{--mx:50%;--my:50%;position:relative;background:var(--panel);border:1px solid var(--line);padding:26px;overflow:hidden;display:flex;flex-direction:column;gap:10px;min-height:250px;transition:border-color .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx) var(--my),rgba(61,245,200,.14),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:rgba(61,245,200,.5)}.card:hover::before{opacity:1}
+.card .scan{position:absolute;left:0;right:0;top:-30%;height:30%;background:linear-gradient(transparent,rgba(61,245,200,.16),transparent);pointer-events:none;opacity:0}
+.card:hover .scan{opacity:1;animation:scan 1.1s linear infinite}@keyframes scan{to{top:110%}}
+.card .code{font:400 10.5px var(--fm);letter-spacing:.14em;color:var(--mut);display:flex;justify-content:space-between}.card .code b{color:var(--ac);font-weight:500}
+.card h3{position:relative;font-size:clamp(19px,1.8vw,24px);width:fit-content}
+.card:hover h3{animation:gl .45s steps(2) 1}
+@keyframes gl{0%{text-shadow:2px 0 var(--ac),-2px 0 #ff4d6d;transform:translateX(1px)}50%{text-shadow:-3px 0 var(--ac),3px 0 #ff4d6d;transform:translateX(-2px) skewX(-6deg)}100%{text-shadow:none;transform:none}}
+.card p{color:#aab5c1;font-size:14.5px;flex:1}
+.card .ft{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:8px}
+.price{font:700 20px/1.1 var(--fd);color:var(--am)}.price small{display:block;font:400 10.5px var(--fm);color:var(--mut);letter-spacing:.06em;margin-bottom:6px;text-transform:uppercase}
+.card .lnk{font:500 12px var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--ac);padding:8px 0}
+.card .lnk:hover{text-decoration:underline}
+.card .ic{width:44px;height:44px;color:var(--ac)}
+.c1{grid-column:span 7}.c2{grid-column:span 5}.c3,.c4,.c5{grid-column:span 4}.c6,.c7{grid-column:span 6}
+.c1{background:linear-gradient(135deg,#14181d 40%,#0f2a27)}
+/* process */
+.tl{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding-top:44px;--prog:0}
+.tl::before{content:"";position:absolute;left:0;right:0;top:12px;height:2px;background:var(--line)}
+.tl::after{content:"";position:absolute;left:0;top:12px;height:2px;width:calc(var(--prog)*100%);background:var(--ac);box-shadow:0 0 14px var(--ac)}
+.st{position:relative;opacity:.45;transition:opacity .5s}.st.on{opacity:1}
+.st::before{content:"";position:absolute;top:-39px;left:0;width:14px;height:14px;background:var(--bg);border:2px solid var(--line);transform:rotate(45deg);transition:.4s;z-index:1}
+.st.on::before{border-color:var(--ac);background:var(--ac);box-shadow:0 0 14px var(--ac)}
+.st .n{font:500 11px var(--fm);color:var(--ac);letter-spacing:.14em}
+.st h3{font-size:16px;margin:8px 0 10px;line-height:1.25}.st p{font-size:14px;color:#a3aeba}
+/* why */
+.why{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px}
+.why .l{position:sticky;top:96px;align-self:start}
+.cnt{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:30px}
+.cnt div{background:var(--panel);padding:18px 14px}.cnt .num{font:700 clamp(28px,3.2vw,42px)/1 var(--fd);color:var(--ac);display:block}
+.cnt span.t{font:400 11px/1.4 var(--fm);color:var(--mut);letter-spacing:.06em;text-transform:uppercase;display:block;margin-top:8px}
+.wl li{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:26px 0;border-top:1px solid var(--line)}
+.wl li:last-child{border-bottom:1px solid var(--line)}
+.wl .k{font:600 34px/1 var(--fd);color:transparent;-webkit-text-stroke:1px var(--ac)}
+.wl h3{font-size:19px;margin-bottom:8px}.wl p{color:#a3aeba;font-size:15px}
+/* reviews faq */
+.rvw{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.rv-c{background:var(--panel);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:14px;position:relative}
+.rv-c .stars{color:var(--am);letter-spacing:3px;font-size:14px}
+.rv-c .ex{position:absolute;top:14px;right:14px;font:500 9.5px var(--fm);letter-spacing:.12em;color:var(--am);border:1px solid rgba(255,181,71,.4);padding:4px 7px;text-transform:uppercase}
+.rv-c p{font-size:15px;color:#c4cdd7;flex:1}.rv-c .au{font:400 11.5px var(--fm);color:var(--mut)}
+.ymap{border:1px dashed var(--line);padding:14px 18px;font:400 12.5px var(--fm);color:var(--mut);margin-bottom:16px;display:flex;gap:10px;align-items:center}
+.ymap::before{content:"●";color:var(--ac)}
+.fq{max-width:900px;margin-top:70px}
+details{border-top:1px solid var(--line)}details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:20px;font:600 clamp(15px,1.6vw,19px)/1.3 var(--fd)}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";color:var(--ac);font:400 28px/1 var(--fm);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 24px;color:#a9b4c0;max-width:720px;animation:stp .4s both}
+/* book */
+.bk{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:start}
+.form{background:var(--panel);border:1px solid var(--line);padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
+.fld{display:flex;flex-direction:column;gap:7px;position:relative}.fld.w{grid-column:1/-1}
+.fld label{font:500 10.5px var(--fm);letter-spacing:.14em;color:var(--mut);text-transform:uppercase}
+.fld input,.fld select,.fld textarea{width:100%;background:#0d1014;border:1px solid var(--line);color:var(--tx);font:500 15px var(--fb);padding:14px 14px;outline:none;transition:.2s;border-radius:0;color-scheme:dark}
+.fld textarea{min-height:92px;resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(61,245,200,.12)}
+.fld .er{font:400 11.5px var(--fm);color:#ff7a8a;min-height:0;display:none}.fld.bad .er{display:block}.fld.bad input,.fld.bad select{border-color:#ff7a8a}
+.chip{font:500 11px var(--fm);color:var(--ac);display:none;letter-spacing:.06em}.chip.on{display:block}
+.sm-n{grid-column:1/-1;font:400 11.5px/1.5 var(--fm);color:var(--mut)}
+.form .btn{grid-column:1/-1;padding:20px}
+.ok{display:none;text-align:center;padding:30px 10px}.ok.on{display:block;animation:stp .6s both}
+.ok svg{width:96px;height:96px;margin-bottom:18px}.ok circle,.ok path{stroke:var(--ac);fill:none;stroke-width:3;stroke-dasharray:300;stroke-dashoffset:300;animation:dr 1s .1s forwards}.ok path{animation-delay:.6s}@keyframes dr{to{stroke-dashoffset:0}}
+.ok h3{font-size:24px;margin-bottom:12px}.ok p{color:#aab5c1;max-width:420px;margin:0 auto 10px}.ok .sum{font:400 12.5px/1.6 var(--fm);color:var(--mut);margin:16px auto;max-width:440px;text-align:left;background:#0d1014;padding:14px;border:1px solid var(--line)}
+/* contacts */
+.fcta{text-align:center;padding:clamp(70px,10vw,130px) 0;position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.fcta h2{font-size:clamp(24px,4.2vw,58px);max-width:1000px;margin:18px auto 30px}
+.fcta .cta{justify-content:center}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:60px 0;border-top:1px solid var(--line)}
+.ct dl{display:grid;grid-template-columns:130px 1fr;gap:14px 16px;font-size:15px}.ct dt{font:500 10.5px var(--fm);letter-spacing:.14em;color:var(--mut);text-transform:uppercase;padding-top:4px}
+.soc{display:flex;gap:10px;margin-top:22px}.soc a{width:46px;height:46px;border:1px solid var(--line);display:grid;place-items:center;transition:.2s;color:var(--tx)}.soc a:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-3px)}
+.soc svg{width:21px;height:21px}
+.map{border:1px solid var(--line);background:#0d1014;min-height:260px}.map svg{width:100%;height:100%;display:block}
+footer{border-top:1px solid var(--line);padding:26px 0 30px;font:400 11.5px/1.6 var(--fm);color:var(--mut);background:#07090b}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.stk{display:none}
+@media(max-width:1000px){
+ .hero-in{grid-template-columns:1fr;grid-template-areas:"copy" "stage" "facts";gap:26px;padding-top:34px}
+ .copy{align-self:start}.hd nav{display:none}.hd .btn{margin-left:auto}
+ .calc,.why,.bk,.ct{grid-template-columns:1fr}.rc{position:static;order:2}.why .l{position:static}
+ .tl{grid-template-columns:1fr;padding:0 0 0 38px;gap:26px}.tl::before,.tl::after{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}.tl::after{height:calc(var(--prog)*100%)}
+ .st::before{left:-39px;top:2px}
+ .c1,.c2,.c3,.c4,.c5,.c6,.c7{grid-column:span 6}.rvw{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+ body{padding-bottom:76px}
+ .wrap{width:min(100% - 32px,1240px)}.logo i,.hd .btn{display:none}
+ .hd .wrap{height:56px}
+ .facts{grid-template-columns:1fr}.facts li{display:flex;gap:12px;align-items:baseline}.facts b{margin:0;min-width:34px}
+ .opts{grid-template-columns:1fr}.form{grid-template-columns:1fr}
+ .c1,.c2,.c3,.c4,.c5,.c6,.c7{grid-column:1/-1;min-height:0}
+ .cmp{aspect-ratio:4/3.3}.hint{display:none}.btn{padding:17px 22px}
+ .cta .btn{flex:1 1 100%}.wl li{grid-template-columns:52px 1fr}.wl .k{font-size:26px}
+ .ct dl{grid-template-columns:1fr;gap:4px}.ct dt{padding-top:12px}.cnt .num{font-size:26px}
+ .sws{left:14px;bottom:14px;gap:8px}.sws span{display:none}.stage{min-height:340px}.ro{left:16px;top:14px}
+ .stk{display:flex;position:fixed;z-index:60;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));padding:18px;font-size:12px;box-shadow:0 10px 40px rgba(0,0,0,.6);transition:transform .3s}
+ .stk.hide{transform:translateY(140%)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}.streaks,.mq div{display:none}}
+</style>
+</head>
+<body id="top">
+<div class="demo">Концепт-сайт · студия «Кирилл и Даня» · бренд вымышлен</div>
+<header class="hd"><div class="wrap">
+ <a class="logo" href="#top" aria-label="Глянец — на главную"><svg width="30" height="30" viewBox="0 0 30 30"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8edf2"/><stop offset="1" stop-color="#3df5c8"/></linearGradient></defs><path d="M15 1 29 15 15 29 1 15Z" fill="none" stroke="url(#lg1)" stroke-width="2"/><path d="M8 17c4-7 9-9 14-8-3 1-6 4-8 9z" fill="url(#lg1)"/></svg>ГЛЯНЕЦ<i>детейлинг · Пермь</i></a>
+ <nav><a href="#services">Услуги</a><a href="#compare">До и после</a><a href="#calc">Расчёт</a><a href="#process">Процесс</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+ <a class="btn sm mag" href="#book">Записаться</a>
+</div></header>
+
+<section class="hero">
+ <div class="streaks"><i></i><i></i><i></i></div>
+ <div class="wrap hero-in">
+  <div class="copy">
+   <div class="eyebrow tag">Детейлинг-студия · Пермь</div>
+   <h1>Вернём машине <em>глубину цвета</em> и защитим её на годы</h1>
+   <p class="lead">Полировка, керамика, защитная плёнка и химчистка салона в боксе со студийным светом. Гарантию и сроки фиксируем в договоре.</p>
+   <div class="cta"><a class="btn mag" href="#book">Записаться на осмотр</a><a class="btn ghost mag" href="#calc">Рассчитать стоимость</a></div>
+  </div>
+  <div class="stage" id="stage">
+   <svg class="fb" viewBox="0 0 880 340" aria-hidden="true"><defs><linearGradient id="fbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".45"/></linearGradient></defs>
+    <ellipse cx="450" cy="318" rx="380" ry="16" fill="#000" opacity=".5"/>
+    <path d="M50 250V212c0-22 26-32 90-40l150-12C336 108 392 80 470 78l92 2c58 8 98 52 134 78l86 12c40 8 66 30 66 60v20z" style="fill:var(--paint)"/>
+    <path d="M50 250V212c0-22 26-32 90-40l150-12C336 108 392 80 470 78l92 2c58 8 98 52 134 78l86 12c40 8 66 30 66 60v20z" fill="url(#fbg)"/>
+    <path d="M312 160c34-40 86-62 160-64l84 2c40 6 70 34 100 62z" fill="#0a1017" stroke="#2c3844"/>
+    <circle cx="240" cy="258" r="70" fill="#07090b"/><circle cx="690" cy="258" r="70" fill="#07090b"/>
+    <g><circle cx="240" cy="262" r="56" fill="#15181c"/><circle cx="240" cy="262" r="36" fill="#cfd8e0"/><circle cx="240" cy="262" r="14" fill="#2b323a"/></g>
+    <g><circle cx="690" cy="262" r="56" fill="#15181c"/><circle cx="690" cy="262" r="36" fill="#cfd8e0"/><circle cx="690" cy="262" r="14" fill="#2b323a"/></g>
+    <rect x="838" y="196" width="22" height="9" rx="3" fill="#bffcec"/><rect x="42" y="200" width="16" height="10" rx="3" fill="#ff3b4e"/>
+   </svg>
+   <canvas id="gl" aria-label="3D-модель спортивного автомобиля: можно повернуть мышью или пальцем"></canvas>
+   <i class="br a"></i><i class="br b"></i><i class="br c"></i><i class="br d"></i>
+   <div class="ro">ЦВЕТ ЛКП: <b id="cn">Кобальт</b><br>УГОЛ ОБЗОРА: <b id="ang">35°</b></div>
+   <div class="hint">↔ потяните, чтобы повернуть</div>
+   <div class="sws"><span>Цвет</span>
+    <button class="sw" style="--c:#1c4fd6" data-c="#1c4fd6" data-n="Кобальт" aria-label="Кобальт" aria-pressed="true"></button>
+    <button class="sw" style="--c:#b3122a" data-c="#b3122a" data-n="Рубин" aria-label="Рубин" aria-pressed="false"></button>
+    <button class="sw" style="--c:#e6eaee" data-c="#e6eaee" data-n="Перламутр" aria-label="Перламутр" aria-pressed="false"></button>
+    <button class="sw" style="--c:#2b3037" data-c="#2b3037" data-n="Графит" aria-label="Графит" aria-pressed="false"></button>
+    <button class="sw" style="--c:#0f8a63" data-c="#0f8a63" data-n="Изумруд" aria-label="Изумруд" aria-pressed="false"></button>
+   </div>
+  </div>
+  <ul class="facts">
+   <li><b>01</b>Бокс со студийным светом — дефекты видно сразу</li>
+   <li><b>02</b>Работаем по записи — машина не ждёт в очереди</li>
+   <li><b>03</b>Осмотр и подбор — до начала работ</li>
+  </ul>
+ </div>
+</section>
+<div class="mq" aria-hidden="true"><div><span>Полировка кузова</span><span>Керамика</span><span>Защитная плёнка PPF</span><span>Химчистка салона</span><span>Реставрация фар</span><span>Антидождь</span><span>Мойка-детейлинг</span><span>Полировка кузова</span><span>Керамика</span><span>Защитная плёнка PPF</span><span>Химчистка салона</span><span>Реставрация фар</span><span>Антидождь</span><span>Мойка-детейлинг</span></div></div>
+
+<section class="sec" id="compare"><div class="wrap">
+ <div class="sh rv"><span class="tag">01 / До и после</span><h2>Разница видна, когда включается свет</h2><p>Потяните ползунок. Слева — потускневший лак с «паутинкой», справа — глубокий цвет после полировки.</p></div>
+ <div class="tabs rv" role="tablist"><button role="tab" aria-selected="true" data-k="body">Кузов</button><button role="tab" aria-selected="false" data-k="lamp">Фары</button><button role="tab" aria-selected="false" data-k="seat">Салон</button></div>
+ <div class="cmp rv" id="cmp"><div class="cl after"></div><div class="cl before"></div><span class="lb l">ДО</span><span class="lb r">ПОСЛЕ</span><div class="grip" id="grip" role="slider" tabindex="0" aria-label="Сравнение до и после" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></div></div>
+ <p class="note">// Иллюстрация, нарисованная кодом — не фото реальных работ. Результат зависит от состояния лака и определяется на осмотре.</p>
+</div></section>
+
+<section class="sec" id="calc" style="padding-top:20px"><div class="wrap">
+ <div class="sh rv"><span class="tag">02 / Расчёт</span><h2>Узнайте примерную стоимость за минуту</h2><p>Четыре вопроса — и вы увидите, что подойдёт вашей машине, во сколько это примерно обойдётся и сколько она проведёт в боксе.</p></div>
+ <div class="calc">
+  <aside class="rc rv"><h3><span>Ваш расчёт</span><span class="mono" style="color:var(--ac)">LIVE</span></h3><ul id="rcl"></ul><div class="tot">Примерно<b id="rct">—</b></div></aside>
+  <div class="qz rv" id="qz"></div>
+ </div>
+</div></section>
+
+<section class="sec" id="services" style="padding-top:20px"><div class="wrap">
+ <div class="sh rv"><span class="tag">03 / Услуги</span><h2>Что делаем и сколько это стоит</h2><p>Примерные цены для седана. Для кроссоверов и больших машин считаем отдельно — точная цена после осмотра.</p></div>
+ <div class="sg">
+  <article class="card c1 rv"><i class="scan"></i><div class="code"><span>SRV-01</span><b>КЕРАМИКА</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 4c8 9 14 14 14 22a14 14 0 0 1-28 0C8 18 14 13 22 4z"/><path d="M15 27c1 4 4 7 8 7" opacity=".6"/></svg><h3>Керамическое покрытие</h3><p>Подготовка лака, полировка и нанесение керамики: гидрофобный глянец, который проще мыть. Срок службы зависит от состава и ухода — подбираем на осмотре.</p><div class="ft"><div class="price"><small>примерная цена</small>от 28 000 ₽</div><button class="lnk" data-svc="Керамическое покрытие">Записаться →</button></div></article>
+  <article class="card c2 rv" style="--d:.08s"><i class="scan"></i><div class="code"><span>SRV-02</span><b>ПОЛИРОВКА</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="22" cy="22" r="14"/><path d="M12 16c4-5 11-6 16-3M30 28c-4 5-11 6-16 3" opacity=".6"/><path d="M36 6l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/></svg><h3>Полировка кузова</h3><p>Убираем «паутинку» и мелкие царапины, возвращаем зеркальный блеск лаку.</p><div class="ft"><div class="price"><small>примерная цена</small>от 18 000 ₽</div><button class="lnk" data-svc="Полировка кузова">Записаться →</button></div></article>
+  <article class="card c3 rv"><i class="scan"></i><div class="code"><span>SRV-03</span><b>PPF</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 4 7 10v11c0 9 6 15 15 19 9-4 15-10 15-19V10z"/><path d="m15 22 5 5 9-10" opacity=".7"/></svg><h3>Защитная плёнка</h3><p>Прозрачная плёнка на зоны риска: капот, бампер, зеркала, пороги.</p><div class="ft"><div class="price"><small>примерная цена</small>от 45 000 ₽</div><button class="lnk" data-svc="Защитная плёнка (PPF)">Записаться →</button></div></article>
+  <article class="card c4 rv" style="--d:.08s"><i class="scan"></i><div class="code"><span>SRV-04</span><b>САЛОН</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 6h8c2 0 3 2 3 4l1 14H10zM8 24h24l4 12H6z"/><path d="M33 8v6M30 11h6" opacity=".7"/></svg><h3>Химчистка салона</h3><p>Сиденья, потолок, ковры, пластик. Деликатно к коже и ткани.</p><div class="ft"><div class="price"><small>примерная цена</small>от 12 000 ₽</div><button class="lnk" data-svc="Химчистка салона">Записаться →</button></div></article>
+  <article class="card c5 rv" style="--d:.16s"><i class="scan"></i><div class="code"><span>SRV-05</span><b>МОЙКА</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 28 10 18h24l4 10zM12 32v4M32 32v4"/><path d="M14 8c2 3 2 5 0 7M22 6c2 3 2 5 0 7M30 8c2 3 2 5 0 7" opacity=".6"/></svg><h3>Мойка-детейлинг</h3><p>Бесконтактная и ручная мойка, очистка от битума и металлической пыли.</p><div class="ft"><div class="price"><small>примерная цена</small>от 4 500 ₽</div><button class="lnk" data-svc="Мойка-детейлинг и подготовка">Записаться →</button></div></article>
+  <article class="card c6 rv"><i class="scan"></i><div class="code"><span>SRV-06</span><b>ФАРЫ</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 24c0-8 8-14 22-12 6 1 8 6 6 11-2 6-14 9-22 7-4-1-6-3-6-6z"/><path d="M4 14l5 2M3 22h5M4 30l5-2" opacity=".6"/></svg><h3>Реставрация фар</h3><p>Возвращаем прозрачность потускневшим и пожелтевшим фарам и защищаем поверхность.</p><div class="ft"><div class="price"><small>примерная цена</small>от 4 500 ₽</div><button class="lnk" data-svc="Реставрация фар">Записаться →</button></div></article>
+  <article class="card c7 rv" style="--d:.08s"><i class="scan"></i><div class="code"><span>SRV-07</span><b>АНТИДОЖДЬ</b></div><svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 10h32v18H6zM14 34l-2 6M22 34l-2 6M30 34l-2 6" /><path d="M12 20c4-4 8 4 12 0s8 4 12 0" opacity=".6"/></svg><h3>Антидождь</h3><p>Гидрофобное покрытие стёкол: капли скатываются, обзор в дождь лучше.</p><div class="ft"><div class="price"><small>примерная цена</small>от 2 500 ₽</div><button class="lnk" data-svc="Антидождь">Записаться →</button></div></article>
+ </div>
+ <p class="note">// Все цены примерные. Окончательную стоимость называем после осмотра, до начала работ.</p>
+</div></section>
+
+<section class="sec" id="process"><div class="wrap">
+ <div class="sh rv"><span class="tag">04 / Как это работает</span><h2>Пять этапов от ключей до выдачи</h2></div>
+ <div class="tl" id="tl">
+  <div class="st"><div class="n">ЭТАП 01</div><h3>Приёмка и осмотр</h3><p>Осматриваем кузов под светом, фиксируем состояние, обсуждаем задачу. Цену и сроки называем до начала работ.</p></div>
+  <div class="st"><div class="n">ЭТАП 02</div><h3>Мойка и подготовка</h3><p>Бережная мойка, очистка лака от загрязнений, защита пластика и уплотнителей.</p></div>
+  <div class="st"><div class="n">ЭТАП 03</div><h3>Работы</h3><p>Полировка, керамика, плёнка или салон — строго по согласованному плану.</p></div>
+  <div class="st"><div class="n">ЭТАП 04</div><h3>Контроль под светом</h3><p>Проверяем каждую панель при разном освещении и делаем фотоотчёт.</p></div>
+  <div class="st"><div class="n">ЭТАП 05</div><h3>Выдача</h3><p>Показываем результат, рассказываем про уход. Гарантию и сроки фиксируем в договоре.</p></div>
+ </div>
+</div></section>
+
+<section class="sec" id="why" style="padding-top:20px"><div class="wrap why">
+ <div class="l rv"><span class="tag">05 / Почему мы</span><h2 style="margin:14px 0">Работаем так, чтобы результат можно было проверить</h2><p style="color:var(--mut)">Мы не обещаем «чудо-составов». Показываем, что делаем, чем и зачем.</p>
+  <div class="cnt"><div><span class="num" data-n="7">0</span><span class="t">направлений работ</span></div><div><span class="num" data-n="5">0</span><span class="t">этапов процесса</span></div><div><span class="num" data-n="3">0</span><span class="t">точки фотоотчёта</span></div></div></div>
+ <ul class="wl">
+  <li class="rv"><span class="k">01</span><div><h3>Материалы под задачу</h3><p>Подбираем составы и расходники под ваш лак и ваши условия эксплуатации — а не «один состав для всех».</p></div></li>
+  <li class="rv"><span class="k">02</span><div><h3>Свет в боксе</h3><p>Студийное освещение показывает голограммы, следы полировки и огрехи, которые не видны на улице. Контроль идёт именно под ним.</p></div></li>
+  <li class="rv"><span class="k">03</span><div><h3>Фотоотчёт</h3><p>Снимаем состояние при приёмке, процесс и результат при выдаче. Вы видите, что изменилось.</p></div></li>
+  <li class="rv"><span class="k">04</span><div><h3>Договор</h3><p>Перечень работ, цену, сроки и условия гарантии записываем в договор — до начала работ.</p></div></li>
+ </ul>
+</div></section>
+
+<section class="sec" id="faq" style="padding-top:20px"><div class="wrap">
+ <div class="sh rv"><span class="tag">06 / Отзывы</span><h2>Что говорят клиенты</h2></div>
+ <div class="ymap rv">Здесь будут отзывы с Яндекс Карт. Ниже — примеры оформления, не реальные люди.</div>
+ <div class="rvw">
+  <div class="rv-c rv"><span class="ex">пример отзыва</span><span class="stars">★★★★★</span><p>Показали на осмотре, что можно исправить полировкой, а где лучше не трогать. Цена совпала с названной до работ.</p><span class="au">// Автор примера · кроссовер</span></div>
+  <div class="rv-c rv" style="--d:.08s"><span class="ex">пример отзыва</span><span class="stars">★★★★★</span><p>Принесли фотоотчёт: было и стало. Салон после химчистки перестал пахнуть прошлым хозяином.</p><span class="au">// Автор примера · седан</span></div>
+  <div class="rv-c rv" style="--d:.16s"><span class="ex">пример отзыва</span><span class="stars">★★★★★</span><p>Объяснили, чем керамика отличается от плёнки, и не стали продавать лишнее. Договор подписали заранее.</p><span class="au">// Автор примера · внедорожник</span></div>
+ </div>
+ <div class="fq rv"><span class="tag">07 / Вопросы</span><h2 style="margin:14px 0 26px">Частые вопросы</h2>
+  <details><summary>Сколько держится керамика?</summary><p>Зависит от состава покрытия, состояния лака и ухода за машиной. Поэтому не называем одну цифру для всех: подбираем состав на осмотре, а условия гарантии фиксируем в договоре.</p></details>
+  <details><summary>Можно ли делать работы зимой?</summary><p>Работы проходят в закрытом боксе, поэтому сезон не помеха. Для некоторых составов и плёнки нужны определённые температура и время на выдержку — на осмотре заранее назовём реальные сроки.</p></details>
+  <details><summary>Нужна ли полировка перед керамикой или плёнкой?</summary><p>Чаще всего да: покрытие закрепляет то состояние лака, которое под ним. Если лак в хорошем состоянии, обойдёмся лёгкой подготовкой. Решаем после осмотра.</p></details>
+  <details><summary>Убирает ли полировка все царапины?</summary><p>Не всегда. Мелкие царапины и «паутинку» убираем, глубокие могут остаться или потребовать другого решения. Скажем честно на осмотре, чего ждать.</p></details>
+  <details><summary>Точная ли цена в калькуляторе?</summary><p>Нет, это примерный расчёт: цена зависит от размера машины и состояния лака. Точную называем после осмотра, до начала работ.</p></details>
+  <details><summary>Как записаться?</summary><p>Оставьте заявку в форме ниже — администратор свяжется с вами в рабочее время, и вы договоритесь об удобной дате для осмотра.</p></details>
+ </div>
+</div></section>
+
+<section class="sec" id="book" style="padding-top:20px"><div class="wrap bk">
+ <div class="sh rv" style="margin:0"><span class="tag">08 / Запись</span><h2>Запишитесь на осмотр</h2><p>Оставьте контакты и выберите дату. На осмотре покажем состояние машины, предложим решения и назовём точную цену — до начала работ.</p><p class="note" style="margin-top:22px">// Демо-форма: данные никуда не отправляются.</p></div>
+ <div class="rv" style="--d:.1s">
+  <form class="form" id="form" novalidate>
+   <div class="fld"><label for="fn">Имя</label><input id="fn" name="n" autocomplete="name" placeholder="Как к вам обращаться"><span class="er">Укажите имя</span></div>
+   <div class="fld"><label for="fp">Телефон</label><input id="fp" name="p" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><span class="er">Введите телефон полностью</span></div>
+   <div class="fld"><label for="fc">Марка и модель</label><input id="fc" name="c" placeholder="Например, Kia Sportage"><span class="er">Укажите автомобиль</span></div>
+   <div class="fld"><label for="fd">Желаемая дата</label><input id="fd" name="d" type="date"></div>
+   <div class="fld w"><label for="fs">Услуга</label><select id="fs" name="s"><option>Подобрать на осмотре</option><option>Комплекс по расчёту</option><option>Мойка-детейлинг и подготовка</option><option>Полировка кузова</option><option>Керамическое покрытие</option><option>Защитная плёнка (PPF)</option><option>Химчистка салона</option><option>Реставрация фар</option><option>Антидождь</option></select><span class="chip" id="chip">✓ подставлено из вашего выбора</span></div>
+   <div class="fld w"><label for="fm">Комментарий</label><textarea id="fm" name="m" placeholder="Что беспокоит, какие пожелания"></textarea></div>
+   <button class="btn mag" type="submit">Записаться на осмотр</button>
+   <p class="sm-n">Нажимая кнопку, вы соглашаетесь на обработку данных (в демо — условно). Администратор свяжется с вами в рабочее время.</p>
+  </form>
+  <div class="ok form" id="ok" style="display:none" aria-live="polite"></div>
+ </div>
+</div></section>
+
+<section class="fcta"><div class="streaks"><i></i><i></i><i></i></div><div class="wrap">
+ <span class="tag">Готовы?</span>
+ <h2 class="rv">Привезите машину — покажем, что с ней можно сделать</h2>
+ <div class="cta"><a class="btn mag" href="#book">Записаться на осмотр</a><a class="btn ghost mag" href="#calc">Рассчитать стоимость</a></div>
+</div></section>
+
+<section id="contacts"><div class="wrap ct">
+ <div class="rv"><span class="tag">Контакты</span><h2 style="margin:14px 0 26px">Приезжайте</h2>
+  <dl><dt>Адрес</dt><dd>г. Пермь, ул. Примерная, 1 <span style="color:var(--mut)">(адрес — пример)</span></dd><dt>Часы</dt><dd>Пн–Сб 10:00–20:00 по записи <span style="color:var(--mut)">(пример)</span></dd><dt>Телефон</dt><dd><a href="tel:+73422000000" style="color:var(--ac)">+7 (342) 200-00-00</a> <span style="color:var(--mut)">(пример)</span></dd></dl>
+  <div class="soc"><a href="#" data-demo aria-label="Telegram (демо)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 4 3 11l5 2 2 6 3-4 5 4z"/><path d="m8 13 9-6"/></svg></a><a href="#" data-demo aria-label="WhatsApp (демо)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.3-4A8 8 0 1 1 8 19z"/><path d="M9 9c0 3 3 6 6 6l1-2-2-1-1 .6c-1-.5-1.6-1.2-2-2l.6-1-1-2z"/></svg></a><a href="tel:+73422000000" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a></div></div>
+ <div class="map rv" style="--d:.1s"><svg viewBox="0 0 520 300" preserveAspectRatio="xMidYMid slice" aria-label="Схема проезда (пример)"><defs><pattern id="mg" width="26" height="26" patternUnits="userSpaceOnUse"><path d="M26 0H0V26" fill="none" stroke="#1c232b"/></pattern></defs><rect width="520" height="300" fill="url(#mg)"/><path d="M0 220 180 190 300 120 520 90M120 0 170 300M330 0 300 300M0 70 520 150" stroke="#2a343e" stroke-width="10" fill="none"/><path d="M0 220 180 190 300 120 520 90" stroke="#3df5c8" stroke-width="2" fill="none" stroke-dasharray="6 8" opacity=".7"/><g transform="translate(300 120)"><circle r="22" fill="#3df5c8" opacity=".15"><animate attributeName="r" values="12;30;12" dur="3s" repeatCount="indefinite"/></circle><path d="M0-18c8 0 12 6 12 12 0 8-12 22-12 22S-12 2-12-6c0-6 4-12 12-12z" fill="#3df5c8"/><circle cy="-6" r="4" fill="#0b0d10"/></g><text x="14" y="288" fill="#8c98a6" font-family="monospace" font-size="11">СХЕМА-ПРИМЕР · не реальный адрес</text></svg></div>
+</div></section>
+
+<footer><div class="wrap"><span>Концепт-сайт · студия «Кирилл и Даня» · бренд вымышлен</span><span>Все цены, адрес, телефон и отзывы — примеры. Данные форм никуда не отправляются.</span></div></footer>
+<a class="btn stk mag" id="stk" href="#book">Записаться на осмотр</a>
+
+<script>
+(()=>{
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const rub=n=>n.toLocaleString('ru-RU')+' ₽';
+const stage=$('#stage');
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -5% 0px'});
+$$('.rv').forEach(el=>rm?el.classList.add('in'):io.observe(el));
+/* counters */
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,n=+el.dataset.n;if(rm){el.textContent=n;return}let t0=null;const f=t=>{if(t0===null)t0=t;const p=Math.min(1,(t-t0)/1300);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+$$('.num').forEach(el=>co.observe(el));
+/* magnetic + spotlight */
+if(fine&&!rm){$$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.28}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')})}
+if(fine)$$('.card').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}));
+/* scroll */
+const tl=$('#tl'),hd=$('.hd'),stk=$('#stk');
+function onScroll(){const h=document.documentElement;hd.style.setProperty('--sp',(scrollY/Math.max(1,h.scrollHeight-innerHeight)*100)+'%');
+ const r=tl.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.72-r.top)/r.height));tl.style.setProperty('--prog',p.toFixed(3));
+ $$('.st',tl).forEach((s,i)=>s.classList.toggle('on',p>=(i+.15)/5));
+ const b=$('#book').getBoundingClientRect();stk.classList.toggle('hide',b.top<innerHeight*.7&&b.bottom>0)}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+/* paint */
+$$('.sw').forEach(b=>b.addEventListener('click',()=>{$$('.sw').forEach(x=>x.setAttribute('aria-pressed',x===b));stage.style.setProperty('--paint',b.dataset.c);$('#cn').textContent=b.dataset.n;dispatchEvent(new CustomEvent('paint',{detail:b.dataset.c}))}));
+setTimeout(()=>{if(!stage.classList.contains('gl'))stage.classList.add('nogl')},6000);
+/* compare */
+function rng(s){return()=>(s=s*16807%2147483647)/2147483647}
+function scene(k,a){
+ const u=k+(a?'A':'B'),r=rng(k.length*97+(a?1:7));let h='';
+ if(k==='body'){
+  const c=a?['#040b26','#2260f0','#050a22']:['#262d4a','#4c5c90','#2a3152'];
+  h=`<defs><linearGradient id="g${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset=".5" stop-color="${c[1]}"/><stop offset="1" stop-color="${c[2]}"/></linearGradient><linearGradient id="w${u}"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity="${a?.9:.22}"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><filter id="b${u}"><feGaussianBlur stdDeviation="${a?1.2:16}"/></filter><filter id="n${u}"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 -.1"/></filter></defs><rect width="800" height="400" fill="url(#g${u})"/><g filter="url(#b${u})"><path d="M-40 60 L840 14 L840 84 L-40 150Z" fill="url(#w${u})"/><path d="M-40 236 L840 182 L840 202 L-40 266Z" fill="url(#w${u})" opacity=".7"/><ellipse cx="610" cy="330" rx="160" ry="24" fill="#fff" opacity="${a?.35:.07}"/></g>`;
+  if(a)h+=`<path d="M-40 118 L840 70" stroke="#fff" stroke-width="1.5" opacity=".6"/>`;
+  else{h+='<g fill="none">';for(let i=0;i<320;i++){const s=6+r()*34;h+=`<path d="M${(r()*800)|0} ${(r()*400)|0}a${s|0} ${s|0} 0 0 1 ${(s*1.7)|0} ${(s*.4)|0}" stroke="#fff" stroke-opacity="${(.05+r()*.28).toFixed(2)}" stroke-width="${(.4+r()).toFixed(1)}"/>`}h+=`</g><rect width="800" height="400" filter="url(#n${u})" opacity=".35"/><rect width="800" height="400" fill="#b9c0d8" opacity=".12"/>`}
+ }else if(k==='lamp'){
+  const lens='M110 262C140 112 420 72 690 142c45 12 58 85 10 122C560 336 250 346 150 306c-25-10-42-26-40-44z';
+  h=`<defs><radialGradient id="r${u}" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#9ff7e3"/><stop offset="1" stop-color="#10201f"/></radialGradient><linearGradient id="bg${u}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101a38"/><stop offset="1" stop-color="#05070c"/></linearGradient><clipPath id="c${u}"><path d="${lens}"/></clipPath><filter id="f${u}"><feGaussianBlur stdDeviation="6"/></filter><filter id="n${u}"><feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="3" seed="9"/><feColorMatrix values="0 0 0 0 .85 0 0 0 0 .62 0 0 0 0 .2 0 0 0 1.4 -.4"/></filter></defs><rect width="800" height="400" fill="url(#bg${u})"/><path d="${lens}" fill="#070a0e" stroke="#2c3844" stroke-width="3"/><g clip-path="url(#c${u})" opacity="${a?1:.55}"><circle cx="270" cy="232" r="82" fill="url(#r${u})" opacity=".85"/><circle cx="270" cy="232" r="34" fill="#fff"/><circle cx="470" cy="226" r="54" fill="url(#r${u})" opacity=".7"/><path d="M360 168C500 150 600 168 680 198" stroke="#d7fff6" stroke-width="12" stroke-linecap="round" fill="none"/>${a?`<path d="M360 168C500 150 600 168 680 198" stroke="#3df5c8" stroke-width="24" stroke-linecap="round" fill="none" filter="url(#f${u})" opacity=".7"/><path d="M140 160 700 230" stroke="#fff" stroke-opacity=".22" stroke-width="30"/>`:''}</g>`;
+  if(!a)h+=`<g clip-path="url(#c${u})"><rect width="800" height="400" fill="#b88a2a" opacity=".55"/><rect width="800" height="400" filter="url(#n${u})" opacity=".8"/><rect width="800" height="400" fill="#6b5320" opacity=".25"/></g>`;
+ }else{
+  h=`<defs><linearGradient id="l${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a?'#5a3b27':'#3b2d24'}"/><stop offset="1" stop-color="${a?'#24160f':'#241c17'}"/></linearGradient><pattern id="p${u}" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0H64M0 0V64" stroke="#000" stroke-opacity=".5" stroke-width="2"/><path d="M0 3H64M3 0V64" stroke="${a?'#e9cfae':'#8b7d6e'}" stroke-opacity=".5" stroke-dasharray="5 4"/></pattern><filter id="b${u}"><feGaussianBlur stdDeviation="${a?18:9}"/></filter></defs><rect width="800" height="400" fill="#0a0b0d"/><rect x="60" y="30" width="680" height="340" rx="46" fill="url(#l${u})"/><rect x="60" y="30" width="680" height="340" rx="46" fill="url(#p${u})"/>`;
+  if(a)h+=`<path d="M120 60 360 30 320 370 100 340z" fill="#fff" opacity=".14" filter="url(#b${u})"/><path d="M520 40 600 40 520 360 450 360z" fill="#fff" opacity=".09" filter="url(#b${u})"/>`;
+  else{for(let i=0;i<10;i++)h+=`<ellipse cx="${(100+r()*600)|0}" cy="${(60+r()*280)|0}" rx="${(18+r()*50)|0}" ry="${(10+r()*30)|0}" fill="${i%3?'#000':'#9a8a70'}" opacity="${(.25+r()*.25).toFixed(2)}" filter="url(#b${u})"/>`;h+='<rect x="60" y="30" width="680" height="340" rx="46" fill="#9a9488" opacity=".22"/>'}
+ }
+ return `<svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${h}</svg>`}
+const cmp=$('#cmp'),grip=$('#grip');let pos=50;
+function setP(v){pos=Math.max(2,Math.min(98,v));cmp.style.setProperty('--p',pos+'%');grip.setAttribute('aria-valuenow',Math.round(pos))}
+const fromE=e=>{const r=cmp.getBoundingClientRect();setP((e.clientX-r.left)/r.width*100)};
+cmp.addEventListener('pointerdown',e=>{try{cmp.setPointerCapture(e.pointerId)}catch(_){}cmp.dataset.d=1;fromE(e)});
+cmp.addEventListener('pointermove',e=>{if(cmp.dataset.d)fromE(e)});
+['pointerup','pointercancel'].forEach(t=>cmp.addEventListener(t,()=>{delete cmp.dataset.d}));
+grip.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){setP(pos-4);e.preventDefault()}if(e.key==='ArrowRight'){setP(pos+4);e.preventDefault()}});
+function setTab(k){$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));$('.cl.after',cmp).innerHTML=scene(k,1);$('.cl.before',cmp).innerHTML=scene(k,0)}
+$$('.tabs button').forEach(b=>b.addEventListener('click',()=>{setTab(b.dataset.k);setP(50)}));
+setTab('body');
+let intro=false;new IntersectionObserver((es,o)=>{if(es[0].isIntersecting&&!intro){intro=true;o.disconnect();if(rm)return;const t0=performance.now();const f=t=>{const p=Math.min(1,(t-t0)/2200);if(!cmp.dataset.d)setP(50+Math.sin(p*Math.PI*2)*(1-p)*34);if(p<1&&!cmp.dataset.d)requestAnimationFrame(f)};requestAnimationFrame(f)}},{threshold:.5}).observe(cmp);
+/* prefill */
+const fs=$('#fs'),fm=$('#fm'),chip=$('#chip');
+function prefill(svc,note){if(svc){const o=[...fs.options].find(x=>x.text===svc);if(o)fs.value=o.value;chip.classList.add('on')}if(note!=null)fm.value=note;$('#book').scrollIntoView({behavior:rm?'auto':'smooth'});setTimeout(()=>$('#fn').focus({preventScroll:true}),700)}
+$$('[data-svc]').forEach(b=>b.addEventListener('click',()=>prefill(b.dataset.svc,null)));
+fs.addEventListener('change',()=>chip.classList.remove('on'));
+$$('[data-demo]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+/* quiz */
+const CLS=[{n:'Седан / хэтчбек',d:'компактный и средний класс',v:1},{n:'Кроссовер',d:'выше кузов, больше панелей',v:1.15},{n:'Внедорожник',d:'крупный кузов',v:1.3},{n:'Минивэн',d:'длинный кузов, много стекла',v:1.35}];
+const ST=[{n:'Почти новое',d:'блеск есть, нужна защита',v:.6},{n:'Обычное',d:'мелкие царапины и «паутинка»',v:1},{n:'Потускнело',d:'выцвело, много микроцарапин',v:1.35},{n:'Есть глубокие царапины',d:'заметные повреждения лака',v:1.7}];
+const SV=[{id:'wash',n:'Мойка-детейлинг и подготовка',p:4500,d:.5},{id:'polish',n:'Полировка кузова',p:18000,d:1.5},{id:'int',n:'Химчистка салона',p:12000,d:1},{id:'lamp',n:'Реставрация фар',p:4500,d:.5},{id:'rain',n:'Антидождь на стёкла',p:2500,d:.2}];
+const PR=[{n:'Пока не нужна',d:'без защитного покрытия',p:0,t:0},{n:'На сезон',d:'защитный состав',p:5000,t:.3,l:'Защитный состав (на сезон)',k:'Свежий блеск'},{n:'На 1–2 года',d:'керамическое покрытие',p:28000,t:1.5,l:'Керамическое покрытие',k:'Керамика'},{n:'Как можно дольше',d:'керамика + PPF по зонам риска',p:73000,t:3,l:'Керамика + PPF по зонам риска',k:'Максимум'}];
+const S={cls:null,st:null,sv:new Set(),pr:null};let step=0;
+const qz=$('#qz');
+function calc(){const c=S.cls!=null?CLS[S.cls].v:1,st=S.st!=null?ST[S.st].v:1,items=[];let days=0;
+ SV.forEach((s,i)=>{if(S.sv.has(i)){let p=s.p*c;if(s.id==='polish')p*=st;items.push([s.n,p]);days+=s.d}});
+ if(S.pr!=null&&PR[S.pr].p){const q=PR[S.pr];items.push([q.l,q.p*c]);days+=q.t}
+ const sum=items.reduce((a,b)=>a+b[1],0),rd=x=>Math.round(x/500)*500,dlo=Math.max(1,Math.round(days));
+ return{items,sum,lo:rd(sum*.9),hi:rd(sum*1.25),dlo,dhi:Math.max(dlo,Math.ceil(days*1.4))}}
+const dw=n=>n%10===1&&n%100!==11?'день':(n%10>1&&n%10<5&&(n%100<10||n%100>20))?'дня':'дней';
+const tm=c=>c.dlo===c.dhi?`${c.dhi} ${dw(c.dhi)}`:`${c.dlo}–${c.dhi} ${dw(c.dhi)}`;
+function pack(){const q=S.pr!=null?PR[S.pr]:null;if(q&&q.k)return q.k;return'Точечный уход'}
+function receipt(){const c=calc(),ul=$('#rcl');let h=`<li><span>Класс</span><span>${S.cls!=null?CLS[S.cls].n:'—'}</span></li><li><span>ЛКП</span><span>${S.st!=null?ST[S.st].n:'—'}</span></li>`;
+ h+=c.items.length?c.items.map(i=>`<li><span>${i[0]}</span><span>~${rub(Math.round(i[1]/100)*100)}</span></li>`).join(''):'<li class="em"><span>Услуги пока не выбраны</span><span></span></li>';
+ ul.innerHTML=h;$('#rct').textContent=c.sum?`от ${rub(c.lo)} до ${rub(c.hi)}`:'—'}
+function opts(list,key,multi){return `<div class="opts">${list.map((o,i)=>`<button type="button" class="opt" data-i="${i}" aria-pressed="${multi?S.sv.has(i):S[key]===i}"><b>${o.n}</b>${o.d?`<small>${o.d}</small>`:''}${o.p&&multi?`<small class="mono" style="color:var(--am)">от ${rub(o.p)}</small>`:''}</button>`).join('')}</div>`}
+const QS=[{t:'Какой у вас автомобиль?',k:'cls',l:CLS},{t:'В каком состоянии лак?',k:'st',l:ST},{t:'Что нужно сделать?',k:'sv',l:SV,m:1,h:'Можно выбрать несколько'},{t:'Какой срок защиты хотите?',k:'pr',l:PR,h:'Это пожелание: реальный срок зависит от состава и ухода, подбираем на осмотре'}];
+function render(){
+ if(step>=QS.length){const c=calc();
+  if(!c.items.length){qz.innerHTML=`<div class="qs"><span>ШАГ 4 / 4</span></div><div class="pg"><i style="width:100%"></i></div><div class="stp"><h3>Выберите хотя бы одну услугу или защиту</h3><div class="qa"><button class="lnk" data-a="back">← К выбору</button></div></div>`;qz.querySelector('[data-a=back]').onclick=()=>{step=2;render()};receipt();return}
+  const nm=pack();
+  qz.innerHTML=`<div class="qs"><span>ГОТОВО</span><span>${CLS[S.cls].n.toUpperCase()}</span></div><div class="pg"><i style="width:100%"></i></div><div class="res stp"><span class="tag">Вам подойдёт</span><div class="pk">«${nm}»</div><ul>${c.items.map(i=>`<li>${i[0]}</li>`).join('')}</ul><div class="pr">от ${rub(c.lo)} до ${rub(c.hi)}</div><div class="tm">В боксе: примерно ${tm(c)}</div><p class="d">// Примерный расчёт, точная цена и сроки — после осмотра. Для глубоких царапин возможны другие решения.</p><div class="cta"><button class="btn mag" data-a="go">Записаться на осмотр</button><button class="btn ghost" data-a="re">Пройти заново</button></div></div>`;
+  qz.querySelector('[data-a=go]').onclick=()=>{const note=`Расчёт на сайте: ${CLS[S.cls].n}, лак: ${ST[S.st].n.toLowerCase()}. Пакет «${nm}»: ${c.items.map(i=>i[0]).join('; ')}. Примерно от ${rub(c.lo)} до ${rub(c.hi)}, в боксе ~${tm(c)}.`;prefill(c.items.length>1?'Комплекс по расчёту':c.items[0][0].indexOf('Керамика')===0?'Керамическое покрытие':(SV.find(s=>s.n===c.items[0][0])||{n:'Подобрать на осмотре'}).n,note)};
+  qz.querySelector('[data-a=re]').onclick=()=>{S.cls=S.st=S.pr=null;S.sv.clear();step=0;render()};receipt();return}
+ const q=QS[step];
+ qz.innerHTML=`<div class="qs"><span>ШАГ ${step+1} / 4</span><span>${q.h&&q.m?'можно несколько':''}</span></div><div class="pg"><i style="width:${(step+1)*25}%"></i></div><div class="stp"><h3>${q.t}</h3>${opts(q.l,q.k,q.m)}${q.h&&!q.m?`<p class="note">// ${q.h}</p>`:''}<div class="qa"><button class="lnk" data-a="back" ${step?'':'style="visibility:hidden"'}>← Назад</button>${q.m?'<button class="btn sm" data-a="next">Далее</button>':''}</div></div>`;
+ $$('.opt',qz).forEach(b=>b.addEventListener('click',()=>{const i=+b.dataset.i;if(q.m){S.sv.has(i)?S.sv.delete(i):S.sv.add(i);b.setAttribute('aria-pressed',S.sv.has(i));receipt()}else{S[q.k]=i;$$('.opt',qz).forEach(x=>x.setAttribute('aria-pressed',x===b));receipt();setTimeout(()=>{step++;render()},rm?0:260)}}));
+ qz.querySelector('[data-a=back]').onclick=()=>{step=Math.max(0,step-1);render()};
+ const nx=qz.querySelector('[data-a=next]');if(nx)nx.onclick=()=>{step++;render()};
+ receipt()}
+render();
+/* form */
+const fp=$('#fp');
+const fmt=v=>{let d=v.replace(/\D/g,'');if(d[0]==='8'||d[0]==='7')d=d.slice(1);d=d.slice(0,10);let o=d.length?'+7 ('+d.slice(0,3):'';if(d.length>=3)o+=')';if(d.length>3)o+=' '+d.slice(3,6);if(d.length>6)o+='-'+d.slice(6,8);if(d.length>8)o+='-'+d.slice(8,10);return o};
+fp.addEventListener('input',()=>{fp.value=fmt(fp.value)});
+const dt=$('#fd'),td=new Date();dt.min=td.toISOString().slice(0,10);
+const bad=(el,f)=>el.closest('.fld').classList.toggle('bad',f);
+$('#form').addEventListener('submit',e=>{e.preventDefault();const n=$('#fn'),c=$('#fc');
+ const v1=n.value.trim().length>=2,v2=fp.value.replace(/\D/g,'').length===11,v3=c.value.trim().length>=2;
+ bad(n,!v1);bad(fp,!v2);bad(c,!v3);if(!(v1&&v2&&v3)){($$('.fld.bad input')[0]||n).focus();return}
+ const ok=$('#ok');$('#form').style.display='none';ok.style.display='block';ok.classList.add('on');
+ const esc=s=>s.replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+ ok.innerHTML=`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44"/><path d="M30 52l14 14 27-30"/></svg><h3>Заявка принята, ${esc(n.value.trim())}</h3><p>Администратор свяжется с вами в рабочее время, чтобы подтвердить дату осмотра.</p><div class="sum">Авто: ${esc(c.value.trim())}<br>Услуга: ${esc(fs.value)}<br>Дата: ${dt.value||'обсудим по телефону'}${fm.value?'<br>Комментарий: '+esc(fm.value.slice(0,220)):''}</div><p class="note">// Демо: данные никуда не отправлены.</p><button class="btn ghost" id="again" style="margin-top:14px">Новая заявка</button>`;
+ $('#again').onclick=()=>{ok.style.display='none';ok.classList.remove('on');$('#form').style.display='';$('#form').reset();chip.classList.remove('on')}});
+['fn','fp','fc'].forEach(id=>$('#'+id).addEventListener('input',e=>bad(e.target,false)));
+})();
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import * as BGU from 'three/addons/utils/BufferGeometryUtils.js';
+const stage=document.getElementById('stage'),cv=document.getElementById('gl'),angEl=document.getElementById('ang');
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function init(){
+ const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+ if(!renderer.getContext())throw new Error('no gl');
+ renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+ renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;
+ const scene=new THREE.Scene();
+ const pm=new THREE.PMREMGenerator(renderer);
+ scene.environment=pm.fromScene(new RoomEnvironment(),0.04).texture;
+ const cam=new THREE.PerspectiveCamera(32,1,.1,60);
+ const key=new THREE.DirectionalLight(0xffffff,1.5);key.position.set(4,6,3);scene.add(key);
+ const rimL=new THREE.DirectionalLight(0x6fb8ff,1.1);rimL.position.set(-5,3,-4);scene.add(rimL);
+ const paint=new THREE.MeshPhysicalMaterial({color:'#1c4fd6',metalness:.55,roughness:.28,clearcoat:1,clearcoatRoughness:.04,envMapIntensity:1.3});
+ const glass=new THREE.MeshPhysicalMaterial({color:0x04070a,metalness:1,roughness:.05,clearcoat:1,envMapIntensity:1.6});
+ const tireM=new THREE.MeshStandardMaterial({color:0x101113,roughness:.85});
+ const chrome=new THREE.MeshStandardMaterial({color:0xdde4ea,metalness:1,roughness:.18,envMapIntensity:1.4});
+ const dark=new THREE.MeshStandardMaterial({color:0x08090b,roughness:.9});
+ const lightM=new THREE.MeshBasicMaterial({color:0xcffff4});
+ const tailM=new THREE.MeshBasicMaterial({color:0xff2b44});
+ /* body profile (side view, x = length, y = height) */
+ const sh=new THREE.Shape();
+ sh.moveTo(-2.2,.3);sh.lineTo(-1.85,.3);
+ sh.bezierCurveTo(-1.85,.95,-.85,.95,-.85,.3);sh.lineTo(.85,.3);
+ sh.bezierCurveTo(.85,.95,1.85,.95,1.85,.3);sh.lineTo(2.15,.3);
+ sh.bezierCurveTo(2.25,.4,2.27,.55,2.2,.65);
+ sh.bezierCurveTo(2.1,.78,1.9,.82,1.6,.86);sh.lineTo(.95,1.0);
+ sh.bezierCurveTo(.7,1.1,.55,1.3,.3,1.4);
+ sh.bezierCurveTo(.1,1.46,-.7,1.46,-.95,1.4);
+ sh.bezierCurveTo(-1.3,1.3,-1.45,1.1,-1.7,1.0);sh.lineTo(-2.1,.97);
+ sh.bezierCurveTo(-2.25,.92,-2.3,.8,-2.25,.6);sh.lineTo(-2.2,.3);
+ function taper(g){const p=g.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i);const k=1-.2*Math.pow(Math.min(1,Math.abs(x)/2.35),2.2)-.22*Math.max(0,Math.min(1,(y-.95)/.55));p.setZ(i,p.getZ(i)*k)}p.needsUpdate=true}
+ let bg=new THREE.ExtrudeGeometry(sh,{depth:1.7,bevelEnabled:true,bevelThickness:.14,bevelSize:.12,bevelSegments:5,curveSegments:18,steps:1});
+ bg.translate(0,0,-.85);taper(bg);
+ try{bg=BGU.toCreaseNormals?BGU.toCreaseNormals(bg,Math.PI/3.2):(bg=BGU.mergeVertices(bg.deleteAttribute('normal')||bg),bg.computeVertexNormals(),bg)}catch(e){bg.computeVertexNormals()}
+ const car=new THREE.Group();
+ car.add(new THREE.Mesh(bg,paint));
+ const gs=new THREE.Shape();
+ gs.moveTo(.9,1.03);gs.bezierCurveTo(.7,1.1,.55,1.28,.32,1.35);gs.bezierCurveTo(.1,1.4,-.7,1.4,-.92,1.34);gs.bezierCurveTo(-1.2,1.25,-1.35,1.1,-1.5,1.03);gs.closePath();
+ const gg=new THREE.ExtrudeGeometry(gs,{depth:2.1,bevelEnabled:false,curveSegments:14});gg.translate(0,0,-1.05);taper(gg);gg.computeVertexNormals();
+ const gm=new THREE.Mesh(gg,glass);car.add(gm);
+ const under=new THREE.Mesh(new THREE.BoxGeometry(3.6,.28,1.4),dark);under.position.set(0,.34,0);car.add(under);
+ [-1.35,1.35].forEach(x=>{const l=new THREE.Mesh(new THREE.BoxGeometry(1.05,.62,1.4),dark);l.position.set(x,.55,0);car.add(l)});
+ function wheel(x,zs){const g=new THREE.Group();
+  const t=new THREE.Mesh(new THREE.CylinderGeometry(.38,.38,.3,40),tireM);t.rotation.x=Math.PI/2;g.add(t);
+  const d=new THREE.Mesh(new THREE.CylinderGeometry(.27,.27,.32,32),dark);d.rotation.x=Math.PI/2;g.add(d);
+  const rimR=new THREE.Mesh(new THREE.TorusGeometry(.27,.025,10,36),chrome);rimR.position.z=.16;g.add(rimR);
+  for(let i=0;i<5;i++){const s=new THREE.Mesh(new THREE.BoxGeometry(.07,.25,.03),chrome);s.geometry.translate(0,.13,0);s.position.z=.165;s.rotation.z=i*Math.PI*2/5;g.add(s)}
+  const hub=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.04,16),chrome);hub.rotation.x=Math.PI/2;hub.position.z=.17;g.add(hub);
+  g.position.set(x,.38,zs*.74);if(zs<0)g.rotation.y=Math.PI;car.add(g)}
+ [-1.35,1.35].forEach(x=>[-1,1].forEach(z=>wheel(x,z)));
+ [-1,1].forEach(z=>{const m=new THREE.Mesh(new THREE.BoxGeometry(.2,.1,.14),paint);m.position.set(.82,1.06,z*.97);car.add(m);
+  const hl=new THREE.Mesh(new THREE.BoxGeometry(.05,.07,.42),lightM);hl.position.set(2.3,.62,z*.5);car.add(hl)});
+ const tl=new THREE.Mesh(new THREE.BoxGeometry(.04,.06,1.3),tailM);tl.position.set(-2.33,.78,0);car.add(tl);
+ const rig=new THREE.Group();rig.add(car);
+ const mir=car.clone();mir.scale.y=-1;rig.add(mir);
+ scene.add(rig);
+ /* floor */
+ const fc=document.createElement('canvas');fc.width=fc.height=256;const fx=fc.getContext('2d');const gr=fx.createRadialGradient(128,128,8,128,128,128);
+ gr.addColorStop(0,'rgba(11,13,16,.8)');gr.addColorStop(.7,'rgba(11,13,16,.55)');gr.addColorStop(1,'rgba(11,13,16,0)');fx.fillStyle=gr;fx.fillRect(0,0,256,256);
+ const floor=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(fc),transparent:true,depthWrite:false}));
+ floor.rotation.x=-Math.PI/2;floor.position.y=.002;scene.add(floor);
+ [[3.3,.5],[4.7,.2]].forEach(([r,o])=>{const m=new THREE.Mesh(new THREE.RingGeometry(r,r+.035,128),new THREE.MeshBasicMaterial({color:0x3df5c8,transparent:true,opacity:o,side:THREE.DoubleSide,blending:THREE.AdditiveBlending,depthWrite:false}));m.rotation.x=-Math.PI/2;m.position.y=.006;scene.add(m)});
+ /* polish sweep */
+ const sc=document.createElement('canvas');sc.width=64;sc.height=128;const sx=sc.getContext('2d');const sg=sx.createLinearGradient(0,0,0,128);
+ sg.addColorStop(0,'rgba(61,245,200,0)');sg.addColorStop(.5,'rgba(120,255,225,.9)');sg.addColorStop(1,'rgba(61,245,200,0)');sx.fillStyle=sg;sx.fillRect(0,0,64,128);
+ const sweepM=new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sc),transparent:true,opacity:.35,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide});
+ const sweep=new THREE.Mesh(new THREE.PlaneGeometry(2.4,1.7),sweepM);sweep.rotation.y=Math.PI/2;sweep.position.y=.85;rig.add(sweep);
+ const pl=new THREE.PointLight(0x3df5c8,5,0,2);pl.position.set(0,1.8,1.6);rig.add(pl);
+ /* sizing */
+ let R=9;
+ function resize(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();R=8.6*Math.max(1,1.55/cam.aspect)}
+ new ResizeObserver(resize).observe(stage);resize();
+ /* interaction */
+ let drag=false,lx=0,vel=0,ang=.7,base=.7+Math.PI,camA=.5,camH=2,visible=true,raf=0,last=performance.now(),acc=0;
+ cv.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;vel=0;try{cv.setPointerCapture(e.pointerId)}catch(_){}});
+ cv.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lx;lx=e.clientX;base+=dx*.009;vel=dx*.009});
+ ['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>{drag=false}));
+ addEventListener('paint',e=>paint.color.set(e.detail));
+ const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+ function tick(now){raf=0;if(!visible||document.hidden)return;
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(!drag){base+=vel;vel*=.94}
+  ang=base+(rm?0:Math.sin(now*.00045)*.6);
+  rig.rotation.y=ang;
+  const sp=Math.min(1,Math.max(0,scrollY/(stage.offsetHeight+260)));
+  camA+=((.45+sp*1.2)-camA)*.08;camH+=((2.1+sp*2.4)-camH)*.08;
+  cam.position.set(Math.sin(camA)*R,camH,Math.cos(camA)*R);cam.lookAt(0,.7,0);
+  const u=rm?.5:((now/1000)%5)/5;sweep.position.x=-2.8+5.6*ease(u);pl.position.x=sweep.position.x;
+  const pulse=Math.sin(Math.PI*u);sweepM.opacity=.08+.32*pulse;pl.intensity=1+5*pulse;
+  acc+=dt;if(acc>.12){acc=0;angEl.textContent=Math.round((((ang%(Math.PI*2))+Math.PI*2)%(Math.PI*2))*57.2958)+'°'}
+  renderer.render(scene,cam);raf=requestAnimationFrame(tick)}
+ function start(){if(!raf){last=performance.now();raf=requestAnimationFrame(tick)}}
+ new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)start()}).observe(stage);
+ document.addEventListener('visibilitychange',start);
+ renderer.render(scene,cam);stage.classList.add('gl');start();
+}
+try{init()}catch(e){console.warn('3D недоступно, показана заглушка',e);stage.classList.add('nogl')}
+</script>
+</body>
+</html>
