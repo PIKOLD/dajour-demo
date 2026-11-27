@@ -247,7 +247,7 @@ const BOT = (() => {
 .vsw span{padding:0 10px 0 12px;opacity:.55;letter-spacing:.12em;text-transform:uppercase;font-size:10px}
 .vsw a{padding:9px 13px;border-radius:99px;color:#fff;text-decoration:none}
 .vsw a:hover{background:rgba(255,255,255,.12)}.vsw a[aria-current]{background:#fff;color:#111}
-@media(max-width:640px){.vsw{bottom:88px}.vsw span{display:none}.vsw a{padding:8px 10px}}`;
+@media(max-width:640px){.vsw{position:relative;left:auto;bottom:auto;transform:none;margin:18px auto 96px;width:max-content}.vsw span{display:none}.vsw a{padding:8px 10px}}`;
   document.head.append(s);
 })();
 

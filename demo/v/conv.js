@@ -85,6 +85,8 @@
   .cv-rev,.cv-steps{grid-template-columns:1fr}
   .cv-frame{height:480px}
   .cv-final .cv-acts .cv-btn{flex:1 1 100%}
+  .cv-final h2{font-size:clamp(30px,9vw,56px);overflow-wrap:anywhere}
+  .cv-score>b{font-size:clamp(64px,20vw,110px)}
   .cv-bar{display:flex;gap:6px;position:fixed;left:8px;right:8px;bottom:8px;z-index:998;padding:6px;border-radius:20px;background:rgba(20,18,16,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 10px 30px rgba(0,0,0,.3);transform:translateY(130%);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
   .cv-bar.on{transform:none}
   .cv-b1{flex:1;display:flex;align-items:center;justify-content:center;height:48px;border-radius:15px;background:var(--cv-bar,var(--cv-acc,#fff));color:var(--cv-bar-ink,var(--cv-acc-ink,#111));font:800 14px var(--cv-sans,system-ui);text-decoration:none}
