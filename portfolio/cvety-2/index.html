@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ваша цветочная — доставка цветов по Перми · концепт</title>
+<meta name="description" content="Концепт-сайт цветочной студии: доставка по Перми в выбранный интервал, фото перед отправкой, открытка от руки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=Caveat:wght@500;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{--bg:#f3f0eb;--tile:#fff;--ink:#15130f;--mute:#6f6a62;--line:#e6e1d9;--acc:#ff6b5e;--acc2:#ffe3df;--sage:#e7eddf;--sand:#f6ead8;--lav:#ece8f4;--r:28px;--g:12px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:500 16px/1.5 Manrope,system-ui,sans-serif;overflow-x:clip}
+img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,.disp{font-family:Onest,Manrope,sans-serif;letter-spacing:-.035em;line-height:1.02;font-weight:750}
+.wrap{max-width:1320px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:10px}
+
+/* note + header */
+.note{background:var(--ink);color:#f3f0eb;font-size:13px;text-align:center;padding:8px 16px}
+.note b{color:var(--acc);font-weight:700}
+header{position:sticky;top:0;z-index:40;background:rgba(243,240,235,.72);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);border-bottom:1px solid rgba(21,19,15,.06)}
+.hd{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font:800 20px/1 Onest,sans-serif;letter-spacing:-.04em;display:flex;align-items:center;gap:8px}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--acc);display:block}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{padding:8px 14px;border-radius:99px;font-weight:600;font-size:15px;transition:background .2s}
+.nav a:hover{background:rgba(21,19,15,.06)}
+.hcart{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:99px;font-weight:700;font-size:14px}
+.hcart span{background:var(--acc);border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;padding:0 6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:52px;padding:0 26px;border-radius:99px;background:var(--ink);color:#fff;font-weight:700;transition:transform .15s var(--ease),background .2s,box-shadow .2s}
+.btn:hover{background:#2a2620;box-shadow:0 8px 24px -10px rgba(21,19,15,.5)}
+.btn:active,.plus:active,.chip:active,.qty button:active{transform:scale(.95)}
+.btn.acc{background:var(--acc)}
+.btn.acc:hover{background:#f25a4d}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.full{width:100%}
+.plus{width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-size:24px;line-height:1;display:grid;place-items:center;transition:transform .15s,background .2s;flex:none}
+.plus:hover{background:var(--acc)}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(232px,auto);gap:var(--g);padding:16px 0 12px}
+.t{background:var(--tile);border-radius:var(--r);padding:26px;position:relative;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);isolation:isolate}
+.t:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(21,19,15,.35)}
+.t .ph{position:absolute;inset:0;z-index:-1}
+.t .ph img,.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.t:hover .ph img,.card:hover .ph img{transform:scale(1.04)}
+.lbl{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.lbl.dark{background:var(--ink);color:#fff}
+.hero{grid-column:span 2;grid-row:span 2;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;min-height:540px;padding:34px}
+.hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,19,15,0) 35%,rgba(21,19,15,.68))}
+.hero .lbl{position:absolute;top:24px;left:24px;color:var(--ink)}
+.hero h1{font-size:clamp(40px,5vw,72px);max-width:11ch;margin-bottom:14px}
+.hero p{max-width:40ch;opacity:.9;margin-bottom:24px}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.day{grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between;padding:20px}
+.day .bot{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:14px 14px 14px 18px;display:flex;align-items:center;gap:10px}
+.day .bot div{flex:1;min-width:0}
+.day .bot b{display:block;font:700 17px/1.2 Onest,sans-serif;letter-spacing:-.02em}
+.day .bot small{color:var(--mute);font-size:14px}
+.facts{background:var(--acc2);display:flex;flex-direction:column;gap:14px;justify-content:center}
+.facts div{display:flex;align-items:baseline;gap:10px}
+.facts b{font:800 30px/1 Onest,sans-serif;letter-spacing:-.04em;color:var(--acc);min-width:62px}
+.facts span{font-weight:600;font-size:15px;line-height:1.25}
+.hours{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.hours .big{font:800 clamp(34px,3.4vw,48px)/1 Onest,sans-serif;letter-spacing:-.045em}
+.hours .dot{width:10px;height:10px;border-radius:50%;background:#7ee08a;box-shadow:0 0 0 6px rgba(126,224,138,.18);display:inline-block;margin-right:8px}
+.hours p{opacity:.7;font-size:14px}
+.build{grid-column:span 2;background:var(--sage);display:flex;justify-content:space-between;gap:20px;align-items:center}
+.build h3,.deliv h3{font-size:30px;margin-bottom:8px}
+.build p,.deliv p{color:var(--mute);font-size:15px;max-width:30ch;margin-bottom:16px}
+.sw{display:flex}
+.sw img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid var(--sage);margin-left:-18px;transition:transform .35s var(--ease)}
+.sw img:first-child{margin-left:0}
+.build:hover .sw img:nth-child(1){transform:translateX(-6px) rotate(-6deg)}
+.build:hover .sw img:nth-child(3){transform:translateX(6px) rotate(6deg)}
+.deliv{grid-column:span 2;background:var(--sand);display:flex;justify-content:space-between;gap:20px;align-items:center}
+.deliv .price{font:800 clamp(44px,5vw,68px)/1 Onest,sans-serif;letter-spacing:-.05em;white-space:nowrap}
+.deliv .price small{display:block;font:600 14px Manrope,sans-serif;letter-spacing:0;color:var(--mute);margin-bottom:6px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills span{font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;background:rgba(255,255,255,.7)}
+
+/* sections */
+section{padding:72px 0 0}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.sh h2{font-size:clamp(34px,4.4vw,56px)}
+.sh p{color:var(--mute);max-width:44ch}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:42px;padding:0 18px;border-radius:99px;background:#fff;font-weight:600;font-size:15px;border:1px solid var(--line);transition:background .2s,color .2s,border-color .2s,transform .15s;white-space:nowrap}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.sm{height:34px;padding:0 13px;font-size:14px}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.card{background:#fff;border-radius:var(--r);padding:10px 10px 18px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease),opacity .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(21,19,15,.35)}
+.card .ph{aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;background:var(--line)}
+.card .ph .lbl{position:absolute;top:12px;left:12px}
+.card .in{padding:16px 10px 0;display:flex;flex-direction:column;gap:12px;flex:1}
+.card .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.card h3{font-size:21px;letter-spacing:-.025em;font-weight:700}
+.card .pr{font:750 21px Onest,sans-serif;letter-spacing:-.03em;white-space:nowrap}
+.card .desc{color:var(--mute);font-size:14px;margin-top:-6px}
+.card .act{display:flex;gap:8px;align-items:center;margin-top:auto}
+.sizes{display:flex;gap:4px;background:var(--bg);border-radius:99px;padding:4px}
+.sizes button{width:38px;height:36px;border-radius:99px;font-weight:700;font-size:14px;transition:background .2s,color .2s}
+.sizes button.on{background:#fff;box-shadow:0 2px 8px -3px rgba(21,19,15,.25)}
+.card .btn{height:44px;padding:0 18px;flex:1;font-size:15px}
+.card.hide{display:none}
+.hint{font-size:13px;color:var(--mute);margin-top:14px}
+
+/* builder */
+.bld{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--g)}
+.bld .t{padding:30px}
+.bld .vis{min-height:520px;padding:0;background:var(--sage)}
+.bld .vis .ph img{transition:opacity .4s,transform .7s var(--ease)}
+.bld .vis .cap{position:absolute;left:20px;bottom:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.step{margin-bottom:26px}
+.step h4{font:700 14px Manrope,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:12px}
+.pal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pal button{border-radius:20px;overflow:hidden;border:2px solid transparent;transition:border-color .2s,transform .2s;text-align:left;background:var(--bg)}
+.pal button img{aspect-ratio:1;object-fit:cover;width:100%}
+.pal button span{display:block;padding:8px 10px;font-weight:700;font-size:14px}
+.pal button.on{border-color:var(--ink)}
+.pal button:hover{transform:translateY(-2px)}
+.adds{display:flex;flex-direction:column;gap:8px}
+.adds label{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;background:var(--bg);cursor:pointer;font-weight:600;transition:background .2s}
+.adds label:has(input:checked){background:var(--acc2)}
+.adds input{accent-color:var(--acc);width:18px;height:18px}
+.adds em{margin-left:auto;font-style:normal;color:var(--mute)}
+.total{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:20px;border-top:1px solid var(--line)}
+.total b{font:800 36px/1 Onest,sans-serif;letter-spacing:-.04em;display:block}
+.total small{color:var(--mute);font-size:13px}
+
+/* faq / contacts */
+.duo{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--g)}
+.duo .t{padding:30px}
+details{border-bottom:1px solid var(--line)}
+details:last-child{border:0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font:700 18px/1.3 Onest,sans-serif;letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;line-height:.8;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mute);padding:0 0 18px;max-width:60ch}
+.ct{background:var(--ink);color:#fff;display:flex;flex-direction:column;gap:22px}
+.ct h2{font-size:40px}
+.ct dl{display:grid;gap:14px}
+.ct dt{font-size:13px;opacity:.55}
+.ct dd{font:700 20px Onest,sans-serif;letter-spacing:-.02em}
+.ct .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+footer{padding:56px 0 120px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+footer a{text-decoration:underline}
+
+/* floating cart */
+.fab{position:fixed;right:24px;bottom:24px;z-index:45;display:flex;align-items:center;gap:10px;height:56px;padding:0 22px;border-radius:99px;background:var(--ink);color:#fff;font-weight:700;box-shadow:0 18px 40px -16px rgba(21,19,15,.6);transition:transform .35s var(--ease),opacity .3s}
+.fab.off{transform:translateY(120%);opacity:0;pointer-events:none}
+.fab i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
+.fab.bump{animation:bump .4s var(--ease)}
+@keyframes bump{40%{transform:scale(1.07)}}
+
+/* drawer */
+.ov{position:fixed;inset:0;background:rgba(21,19,15,.4);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:10px;right:10px;bottom:10px;width:min(480px,calc(100% - 20px));background:#fff;border-radius:28px;z-index:61;display:flex;flex-direction:column;transform:translateX(110%);transition:transform .45s var(--ease)}
+.dr.on{transform:none}
+.dr .dh{display:flex;justify-content:space-between;align-items:center;padding:22px 24px 14px}
+.dr .dh h3{font-size:28px}
+.x{width:40px;height:40px;border-radius:50%;background:var(--bg);font-size:20px}
+.db{overflow-y:auto;padding:0 24px 20px;flex:1;overscroll-behavior:contain}
+.df{padding:16px 24px 22px;border-top:1px solid var(--line)}
+.it{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.it img{width:60px;height:72px;border-radius:14px;object-fit:cover;flex:none}
+.it .n{flex:1;min-width:0}
+.it .n b{display:block;font-weight:700;line-height:1.25}
+.it .n small{color:var(--mute)}
+.qty{display:flex;align-items:center;gap:4px;background:var(--bg);border-radius:99px;padding:3px}
+.qty button{width:30px;height:30px;border-radius:50%;background:#fff;font-weight:700;transition:transform .15s}
+.qty span{min-width:20px;text-align:center;font-weight:700}
+.empty{padding:40px 0;text-align:center;color:var(--mute)}
+.fld{margin-top:20px}
+.fld>label,.fld>.l{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.inp{width:100%;height:50px;border-radius:14px;border:1px solid var(--line);background:var(--bg);padding:0 14px;transition:border-color .2s,background .2s}
+.inp:focus{outline:0;border-color:var(--ink);background:#fff}
+textarea.inp{height:76px;padding:12px 14px;resize:none}
+.inp.err{border-color:var(--acc);background:#fff5f4}
+.card-pv{margin-top:10px;background:#fbf7ef;border-radius:16px;padding:18px 20px;font:500 26px/1.15 Caveat,cursive;color:#2b3a67;min-height:76px;transform:rotate(-1deg);box-shadow:0 6px 18px -12px rgba(21,19,15,.4);border:1px solid #efe6d4;word-wrap:break-word}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.sum{display:flex;justify-content:space-between;font-size:14px;color:var(--mute);margin-bottom:4px}
+.sum.big{font:800 24px Onest,sans-serif;color:var(--ink);letter-spacing:-.03em;margin:8px 0 14px}
+.ok{text-align:center;padding:40px 10px}
+.ok .c{width:76px;height:76px;border-radius:50%;background:var(--acc2);color:var(--acc);display:grid;place-items:center;font-size:36px;margin:0 auto 18px}
+.ok h3{font-size:30px;margin-bottom:10px}
+.ok p{color:var(--mute);margin-bottom:6px}
+.ok .num{font:800 22px Onest,sans-serif;color:var(--ink);letter-spacing:-.02em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero{grid-column:span 2;grid-row:auto;min-height:520px}
+  .day{grid-row:span 2}
+  .build,.deliv{grid-column:span 2}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bld,.duo{grid-template-columns:minmax(0,1fr)}
+  .bld .vis{min-height:420px}
+}
+@media (max-width:640px){
+  :root{--r:24px;--g:10px}
+  .wrap{padding:0 12px}
+  .nav,.hcart{display:none}
+  .hd{height:56px}
+  .bento{grid-auto-rows:minmax(180px,auto);grid-auto-flow:dense;padding-top:12px}
+  .hero{min-height:500px;padding:24px}
+  .hero .btn{flex:1}
+  .t{padding:20px}
+  .day{padding:10px}
+  .day .bot{flex-direction:column;align-items:stretch;padding:12px;gap:8px}
+  .day .bot .plus{align-self:flex-end;margin-top:-34px}
+  .facts{grid-column:span 2;flex-direction:row;justify-content:space-between}
+  .facts div{flex-direction:column;gap:6px}
+  .facts b{font-size:26px;min-width:0}
+  .facts span{font-size:13px}
+  .build,.deliv{flex-direction:column;align-items:flex-start}
+  .sw img{width:76px;height:76px}
+  section{padding-top:56px}
+  .grid{grid-template-columns:minmax(0,1fr)}
+  .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -12px;padding:0 12px;width:calc(100% + 24px)}
+  .chips::-webkit-scrollbar{display:none}
+  .bld .t,.duo .t{padding:22px}
+  .total b{font-size:30px}
+  .fab{left:10px;right:10px;bottom:10px;justify-content:space-between;height:58px}
+  .dr{top:auto;left:0;right:0;bottom:0;width:100%;max-height:92vh;max-height:92dvh;border-radius:28px 28px 0 0;transform:translateY(105%)}
+  .dr::before{content:"";width:44px;height:5px;border-radius:9px;background:var(--line);margin:10px auto 0}
+  .dr .dh{padding:12px 18px 10px}
+  .db{padding:0 18px 16px}
+  .df{padding:14px 18px calc(16px + env(safe-area-inset-bottom))}
+  footer{padding-bottom:100px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="note">Концепт-сайт · студия «Кирилл и Даня» · <b>здесь будет ваш бренд</b></div>
+<header><div class="wrap hd">
+  <a class="logo" href="#top"><i></i>Ваша цветочная</a>
+  <nav class="nav"><a href="#catalog">Каталог</a><a href="#build">Собрать свой</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
+  <button class="hcart" data-open>Корзина <span data-count>0</span></button>
+</div></header>
+
+<main id="top">
+<div class="wrap">
+  <div class="bento">
+    <div class="t hero">
+      <div class="ph"><img src="https://images.pexels.com/photos/4866933/pexels-photo-4866933.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Букет свежих цветов" fetchpriority="high"></div>
+      <span class="lbl">Доставка по Перми</span>
+      <h1>Букет к двери — в ваш час</h1>
+      <p>Собираем в день заказа, присылаем фото до отправки и подписываем открытку от руки.</p>
+      <div class="row"><a class="btn acc" href="#catalog">Выбрать букет</a><a class="btn light" href="#build">Собрать свой</a></div>
+    </div>
+    <div class="t day">
+      <div class="ph"><img src="https://images.pexels.com/photos/3392982/pexels-photo-3392982.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Розовые пионы в белой бумаге" loading="lazy"></div>
+      <span class="lbl dark" style="align-self:flex-start">Букет дня</span>
+      <div class="bot"><div><b>Пионы в белой бумаге</b><small>от 4 600 ₽</small></div><button class="plus" data-add="peony" aria-label="Добавить букет дня в корзину">+</button></div>
+    </div>
+    <div class="t facts">
+      <div><b>2 ч</b><span>интервал доставки на выбор</span></div>
+      <div><b>фото</b><span>букета перед отправкой</span></div>
+      <div><b>от руки</b><span>открытка с вашим текстом</span></div>
+    </div>
+    <div class="t hours">
+      <span class="lbl" style="align-self:flex-start;background:rgba(255,255,255,.12);color:#fff"><span class="dot"></span>Принимаем заказы</span>
+      <div><div class="big">9:00–21:00</div><p>Каждый день, без выходных</p></div>
+    </div>
+    <a class="t build" href="#build">
+      <div><h3>Собрать свой</h3><p>Палитра, размер и добавки — сумма видна сразу.</p><span class="btn" style="height:44px">Открыть конструктор</span></div>
+      <div class="sw">
+        <img src="https://images.pexels.com/photos/6603242/pexels-photo-6603242.jpeg?auto=compress&cs=tinysrgb&w=300" alt="" loading="lazy">
+        <img src="https://images.pexels.com/photos/13076347/pexels-photo-13076347.jpeg?auto=compress&cs=tinysrgb&w=300" alt="" loading="lazy">
+        <img src="https://images.pexels.com/photos/17501318/pexels-photo-17501318.jpeg?auto=compress&cs=tinysrgb&w=300" alt="" loading="lazy">
+      </div>
+    </a>
+    <div class="t deliv">
+      <div><h3>Доставка</h3><p>Во все 7 районов Перми, в интервал, который вы выбрали.</p>
+        <div class="pills"><span>Ленинский</span><span>Свердловский</span><span>Дзержинский</span><span>Индустриальный</span><span>Мотовилихинский</span><span>Кировский</span><span>Орджоникидзевский</span></div></div>
+      <div class="price"><small>стоимость</small>от 350 ₽</div>
+    </div>
+  </div>
+</div>
+
+<section id="catalog"><div class="wrap">
+  <div class="sh rv"><h2>Каталог</h2>
+    <div class="chips" id="occ">
+      <button class="chip on" data-occ="all">Все</button><button class="chip" data-occ="love">Любимой</button><button class="chip" data-occ="mom">Маме</button><button class="chip" data-occ="just">Просто так</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="hint">Цены примерные: состав зависит от сезона и наличия, финальную сумму подтвердим при звонке.</p>
+</div></section>
+
+<section id="build"><div class="wrap">
+  <div class="sh rv"><h2>Собрать свой</h2><p>Выберите настроение по фото — флорист соберёт букет в этой гамме из свежих цветов дня.</p></div>
+  <div class="bld">
+    <div class="t vis rv">
+      <div class="ph"><img id="bImg" src="https://images.pexels.com/photos/6603242/pexels-photo-6603242.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Пример палитры букета" loading="lazy"></div>
+      <div class="cap"><span class="lbl" id="bCap">Розовая · размер M</span></div>
+    </div>
+    <div class="t rv">
+      <div class="step"><h4>1 · Палитра</h4><div class="pal" id="pal"></div></div>
+      <div class="step"><h4>2 · Размер</h4><div class="chips" id="bSize"></div></div>
+      <div class="step"><h4>3 · Добавить</h4><div class="adds" id="adds"></div></div>
+      <div class="total"><div><small>Итого, примерно</small><b id="bTotal">0 ₽</b></div><button class="btn acc" id="bAdd">В корзину</button></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="duo">
+    <div class="t rv">
+      <div class="sh" style="margin-bottom:8px"><h2>Вопросы</h2></div>
+      <details open><summary>Как работает доставка в интервал?</summary><p>Вы выбираете двухчасовое окно с 9:00 до 21:00, курьер приезжает в него и звонит получателю заранее.</p></details>
+      <details><summary>Покажете букет до отправки?</summary><p>Да. Пришлём фото в мессенджер — если что-то хочется поправить, поправим до выезда курьера.</p></details>
+      <details><summary>Кто пишет открытку?</summary><p>Флорист переписывает ваш текст от руки на плотную открытку. Это бесплатно и для любого букета.</p></details>
+      <details><summary>Почему цены «примерные»?</summary><p>Состав меняется по сезону и поставкам. Мы держим размер и настроение букета, а точную сумму подтверждаем до оплаты.</p></details>
+    </div>
+    <div class="t ct rv" id="contacts">
+      <h2>Контакты</h2>
+      <dl><div><dt>Телефон</dt><dd>+7 (000) 000-00-00</dd></div><div><dt>Адрес мастерской</dt><dd>Пермь, адрес вашей студии</dd></div><div><dt>Часы</dt><dd>Ежедневно 9:00–21:00</dd></div></dl>
+      <div class="row"><a class="btn acc" href="#catalog">Выбрать букет</a><button class="btn light" data-open>Корзина</button></div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© Ваша цветочная · концепт-сайт студии «Кирилл и Даня»</span><span>Фото: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a></span></div></footer>
+
+<button class="fab off" id="fab" data-open><span>Корзина · <b data-count>0</b></span><i></i><span data-total>0 ₽</span></button>
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr" role="dialog" aria-modal="true" aria-label="Корзина">
+  <div class="dh"><h3 id="drT">Корзина</h3><button class="x" id="close" aria-label="Закрыть">✕</button></div>
+  <div class="db" id="db"></div>
+  <div class="df" id="df"></div>
+</aside>
+
+<script>
+(function(){
+var P='https://images.pexels.com/photos/',img=function(id,w){return P+id+'/pexels-photo-'+id+'.jpeg?auto=compress&cs=tinysrgb&w='+(w||800)};
+var M=[.7,1,1.4];
+var items=[
+ {id:'roses',n:'Розовые розы',d:'Пышный букет нежно-розовых роз',p:img(1233442),b:4200,o:['love']},
+ {id:'peony',n:'Пионы в белой бумаге',d:'Розовые пионы в белой упаковке',p:img(3392982),b:4600,o:['mom','love']},
+ {id:'mix',n:'Розы и альстромерии',d:'Яркий сборный букет',p:img(20206456),b:3500,o:['just','mom']},
+ {id:'tulip',n:'Тюльпаны',d:'Весенний букет тюльпанов',p:img(20621379),b:2800,o:['mom','just']},
+ {id:'white',n:'Белые розы и ранункулюсы',d:'Светлый, спокойный, торжественный',p:img(306066),b:5200,o:['love']},
+ {id:'green',n:'Бело-зелёный',d:'Белые цветы и много зелени',p:img(17557218),b:3900,o:['just','mom']}
+];
+var S=['S','M','L'];
+var fmt=function(n){return Math.round(n).toLocaleString('ru-RU').replace(/,/g,' ')+' ₽'};
+var price=function(b,i){return Math.round(b*M[i]/100)*100};
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var esc=function(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+
+/* catalog */
+var grid=$('#grid');
+grid.innerHTML=items.map(function(x){return '<article class="card rv" data-o="'+x.o.join(' ')+'" data-id="'+x.id+'"><div class="ph"><img src="'+x.p+'" alt="'+esc(x.n)+'" loading="lazy"></div><div class="in"><div class="top"><h3>'+x.n+'</h3><span class="pr">'+fmt(price(x.b,1))+'</span></div><p class="desc">'+x.d+'</p><div class="act"><div class="sizes">'+S.map(function(s,i){return '<button data-s="'+i+'"'+(i==1?' class="on"':'')+' aria-label="Размер '+s+'">'+s+'</button>'}).join('')+'</div><button class="btn" data-cadd>В корзину</button></div></div></article>'}).join('');
+grid.addEventListener('click',function(e){
+  var c=e.target.closest('.card');if(!c)return;var x=items.filter(function(i){return i.id==c.dataset.id})[0];
+  var sb=e.target.closest('[data-s]');
+  if(sb){$$('[data-s]',c).forEach(function(b){b.classList.toggle('on',b==sb)});$('.pr',c).textContent=fmt(price(x.b,+sb.dataset.s));return}
+  if(e.target.closest('[data-cadd]')){var si=+$('[data-s].on',c).dataset.s;add({key:x.id+si,n:x.n+' · '+S[si],p:x.p,price:price(x.b,si)});}
+});
+$('#occ').addEventListener('click',function(e){var b=e.target.closest('[data-occ]');if(!b)return;
+  $$('#occ .chip').forEach(function(c){c.classList.toggle('on',c==b)});
+  $$('.card').forEach(function(c){c.classList.toggle('hide',b.dataset.occ!='all'&&c.dataset.o.indexOf(b.dataset.occ)<0)});
+});
+$('[data-add="peony"]').addEventListener('click',function(){var x=items[1];add({key:'peony1',n:x.n+' · M',p:x.p,price:price(x.b,1)})});
+
+/* builder */
+var pals=[{id:6603242,n:'Розовая'},{id:13076347,n:'Яркая'},{id:17501318,n:'Нежная'}];
+var bS=[{n:'S · 15 стеблей',v:2500},{n:'M · 25 стеблей',v:3600},{n:'L · 41 стебель',v:5200}];
+var bA=[{n:'Стеклянная ваза',v:900},{n:'Коробка конфет',v:650},{n:'Шляпная коробка вместо бумаги',v:500}];
+var st={pal:0,size:1};
+$('#pal').innerHTML=pals.map(function(p,i){return '<button data-p="'+i+'"'+(i?'':' class="on"')+'><img src="'+img(p.id,400)+'" alt="'+p.n+' — пример сочетания" loading="lazy"><span>'+p.n+'</span></button>'}).join('');
+$('#bSize').innerHTML=bS.map(function(s,i){return '<button class="chip'+(i==1?' on':'')+'" data-bs="'+i+'">'+s.n+'</button>'}).join('');
+$('#adds').innerHTML=bA.map(function(a,i){return '<label><input type="checkbox" data-a="'+i+'">'+a.n+'<em>+'+fmt(a.v)+'</em></label>'}).join('')+'<label style="cursor:default"><input type="checkbox" checked disabled>Открытка от руки<em>бесплатно</em></label>';
+function bTotal(){var t=bS[st.size].v;$$('[data-a]').forEach(function(c){if(c.checked)t+=bA[+c.dataset.a].v});return t}
+function bUpd(){$('#bTotal').textContent=fmt(bTotal());$('#bCap').textContent=pals[st.pal].n+' · размер '+S[st.size]}
+$('#pal').addEventListener('click',function(e){var b=e.target.closest('[data-p]');if(!b)return;st.pal=+b.dataset.p;$$('#pal button').forEach(function(x){x.classList.toggle('on',x==b)});
+  var im=$('#bImg');im.style.opacity=0;setTimeout(function(){im.src=img(pals[st.pal].id,1600);im.style.opacity=1},200);bUpd()});
+$('#bSize').addEventListener('click',function(e){var b=e.target.closest('[data-bs]');if(!b)return;st.size=+b.dataset.bs;$$('#bSize .chip').forEach(function(x){x.classList.toggle('on',x==b)});bUpd()});
+$('#adds').addEventListener('change',bUpd);
+$('#bAdd').addEventListener('click',function(){var ad=$$('[data-a]').filter(function(c){return c.checked}).map(function(c){return bA[+c.dataset.a].n.toLowerCase()});
+  add({key:'b'+Date.now(),n:'Свой букет · '+pals[st.pal].n+' · '+S[st.size]+(ad.length?' + '+ad.join(', '):''),p:img(pals[st.pal].id,200),price:bTotal()})});
+bUpd();
+
+/* cart */
+var cart=[],form={text:'',date:0,slot:-1,dist:'',name:'',phone:''},done=null;
+var dists=[['Ленинский',350],['Свердловский',350],['Дзержинский',450],['Мотовилихинский',450],['Индустриальный',450],['Кировский',550],['Орджоникидзевский',550]];
+var slots=['9–11','11–13','13–15','15–17','17–19','19–21'];
+var dr=$('#dr'),ov=$('#ov'),fab=$('#fab'),db=$('#db'),df=$('#df');
+function sub(){return cart.reduce(function(s,i){return s+i.price*i.q},0)}
+function cnt(){return cart.reduce(function(s,i){return s+i.q},0)}
+function fee(){var d=dists.filter(function(x){return x[0]==form.dist})[0];return d?d[1]:0}
+function add(it){var e=cart.filter(function(i){return i.key==it.key})[0];if(e)e.q++;else{it.q=1;cart.push(it)}done=null;sync();fab.classList.remove('bump');void fab.offsetWidth;fab.classList.add('bump')}
+function sync(){$$('[data-count]').forEach(function(e){e.textContent=cnt()});$$('[data-total]').forEach(function(e){e.textContent=fmt(sub())});fab.classList.toggle('off',!cnt()||dr.classList.contains('on'));if(dr.classList.contains('on'))render()}
+function dates(){var r=[],d=new Date(),w=['вс','пн','вт','ср','чт','пт','сб'];for(var i=0;i<5;i++){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()+i);r.push(i==0?'Сегодня':i==1?'Завтра':w[x.getDay()]+', '+x.getDate()+'.'+String(x.getMonth()+1).padStart(2,'0'))}return r}
+function render(){
+  if(done){$('#drT').textContent='Готово';db.innerHTML='<div class="ok"><div class="c">✓</div><h3>Заказ принят</h3><p>Номер заказа</p><p class="num">№ '+done+'</p><p style="margin-top:14px">Перезвоним в течение 15 минут, чтобы подтвердить состав и сумму. Фото букета пришлём перед отправкой.</p></div>';df.innerHTML='<button class="btn full" id="again">Продолжить выбирать</button>';return}
+  $('#drT').textContent='Корзина';
+  if(!cart.length){db.innerHTML='<div class="empty">Пока пусто.<br>Загляните в каталог — там красиво.</div>';df.innerHTML='<a class="btn full" href="#catalog" id="goCat">В каталог</a>';return}
+  var h=cart.map(function(i,k){return '<div class="it"><img src="'+i.p+'" alt=""><div class="n"><b>'+esc(i.n)+'</b><small>'+fmt(i.price)+'</small></div><div class="qty"><button data-q="-1" data-k="'+k+'" aria-label="Меньше">−</button><span>'+i.q+'</span><button data-q="1" data-k="'+k+'" aria-label="Больше">+</button></div></div>'}).join('');
+  h+='<div class="fld"><label for="fText">Текст открытки</label><textarea class="inp" id="fText" maxlength="140" placeholder="Например: С днём рождения, мам! Люблю тебя">'+esc(form.text)+'</textarea><div class="card-pv" id="pv"></div></div>';
+  h+='<div class="fld"><span class="l">Дата</span><div class="chips">'+dates().map(function(d,i){return '<button class="chip sm'+(form.date==i?' on':'')+'" data-date="'+i+'">'+d+'</button>'}).join('')+'</div></div>';
+  var hr=new Date().getHours();
+  h+='<div class="fld"><span class="l">Интервал</span><div class="chips" id="slots">'+slots.map(function(s,i){var dis=form.date==0&&parseInt(s,10)<hr+2;return '<button class="chip sm'+(form.slot==i?' on':'')+'" data-slot="'+i+'"'+(dis?' disabled style="opacity:.35;pointer-events:none"':'')+'>'+s+'</button>'}).join('')+'</div></div>';
+  h+='<div class="fld"><label for="fDist">Район</label><select class="inp" id="fDist"><option value="">Выберите район</option>'+dists.map(function(d){return '<option'+(form.dist==d[0]?' selected':'')+' value="'+d[0]+'">'+d[0]+' — '+fmt(d[1])+'</option>'}).join('')+'</select></div>';
+  h+='<div class="fld two"><div><label for="fName" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Ваше имя</label><input class="inp" id="fName" autocomplete="name" value="'+esc(form.name)+'"></div><div><label for="fPhone" style="display:block;font-weight:700;font-size:14px;margin-bottom:8px">Телефон</label><input class="inp" id="fPhone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" value="'+esc(form.phone)+'"></div></div>';
+  db.innerHTML=h;pv();foot();
+}
+function foot(){df.innerHTML='<div class="sum"><span>Букеты</span><span>'+fmt(sub())+'</span></div><div class="sum"><span>Доставка</span><span>'+(form.dist?fmt(fee()):'выберите район')+'</span></div><div class="sum big"><span>Итого</span><span>'+fmt(sub()+fee())+'</span></div><button class="btn acc full" id="order">Оформить заказ</button>'}
+function pv(){var p=$('#pv');if(p)p.textContent=form.text||'Здесь появится ваш текст — флорист перепишет его от руки'}
+function mask(v){var d=v.replace(/\D/g,'');if(d[0]=='8')d='7'+d.slice(1);if(d&&d[0]!='7')d='7'+d;d=d.slice(0,11);if(!d)return'';var r='+7';if(d.length>1)r+=' ('+d.slice(1,4);if(d.length>=4)r+=')';if(d.length>4)r+=' '+d.slice(4,7);if(d.length>7)r+='-'+d.slice(7,9);if(d.length>9)r+='-'+d.slice(9,11);return r}
+db.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  if(b.dataset.q){var i=cart[+b.dataset.k];i.q+=+b.dataset.q;if(i.q<1)cart.splice(+b.dataset.k,1);sync();return}
+  if(b.dataset.date){form.date=+b.dataset.date;form.slot=-1;render();return}
+  if(b.dataset.slot){form.slot=+b.dataset.slot;$$('#slots .chip').forEach(function(c){c.classList.toggle('on',c==b)})}
+});
+db.addEventListener('input',function(e){var t=e.target;t.classList.remove('err');
+  if(t.id=='fText'){form.text=t.value;pv()}
+  if(t.id=='fName')form.name=t.value;
+  if(t.id=='fPhone'){t.value=mask(t.value);form.phone=t.value}
+});
+db.addEventListener('change',function(e){if(e.target.id=='fDist'){form.dist=e.target.value;e.target.classList.remove('err');foot()}});
+df.addEventListener('click',function(e){var b=e.target.closest('button,a');if(!b)return;
+  if(b.id=='goCat'||b.id=='again'){if(b.id=='again'){done=null}close();if(b.id=='again')location.hash='#catalog';return}
+  if(b.id=='order'){var bad=null;
+    if(form.slot<0){var sl=$('#slots');sl.style.outline='2px solid var(--acc)';sl.style.borderRadius='14px';setTimeout(function(){sl.style.outline=''},1400);bad=bad||sl}
+    if(!form.dist){$('#fDist').classList.add('err');bad=bad||$('#fDist')}
+    if(form.name.trim().length<2){$('#fName').classList.add('err');bad=bad||$('#fName')}
+    if(form.phone.replace(/\D/g,'').length<11){$('#fPhone').classList.add('err');bad=bad||$('#fPhone')}
+    if(bad){bad.scrollIntoView({block:'center',behavior:'smooth'});return}
+    done=String(Date.now()).slice(-6).replace(/^(\d{3})/,'$1-');cart=[];form={text:'',date:0,slot:-1,dist:'',name:'',phone:''};sync();render();db.scrollTop=0}
+});
+var last=null;
+function open(){last=document.activeElement;render();dr.classList.add('on');ov.classList.add('on');fab.classList.add('off');document.body.style.overflow='hidden';setTimeout(function(){$('#close').focus()},50)}
+function close(){dr.classList.remove('on');ov.classList.remove('on');document.body.style.overflow='';sync();if(last&&last.focus)last.focus()}
+$$('[data-open]').forEach(function(b){b.addEventListener('click',open)});
+$('#close').addEventListener('click',close);ov.addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key=='Escape'&&dr.classList.contains('on'))close()});
+
+/* reveal */
+var rv=$$('.rv');
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  rv.forEach(function(el,i){el.style.transitionDelay=(i%3)*70+'ms';io.observe(el)});
+}else rv.forEach(function(el){el.classList.add('in')});
+sync();
+})();
+</script>
+</body>
+</html>
