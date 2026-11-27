@@ -142,6 +142,10 @@ function snow(canvas, n = 70) {
 }
 
 /* ---------- ИИ-администратор (демо-сценарии, ответы по настоящему прайсу) ---------- */
+/* адрес облачной функции ИИ-администратора (Yandex Cloud Functions). Пусто — чат отвечает заготовками */
+let AI_URL = window.DJ_AI_URL || '';
+try { AI_URL = AI_URL || localStorage.getItem('dj_ai') || ''; } catch (e) {}
+
 const BOT = (() => {
   const chat = $('.chat'), box = $('.msgs', chat), inp = $('input', chat);
   let started = false, flow = null;
@@ -162,10 +166,34 @@ const BOT = (() => {
   };
   const priceList = r => `<div class="pl">${r.map(x => `<div><span>${x.n}</span><b>${price(x.p)}</b></div>`).join('')}</div>`;
 
+  /* настоящий ИИ-администратор: облачная функция Yandex Cloud (ключ хранится там, не на сайте) */
+  const hist = [];
+  const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const linkify = s => esc(s).replace(/https?:\/\/[^\s)]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${/arnica/.test(u) ? 'онлайн-запись' : /t\.me/.test(u) ? 'Telegram-бот' : /wa\.me/.test(u) ? 'WhatsApp' : /yandex/.test(u) ? 'карта' : u.replace(/^https?:\/\//, '')}</a>`).replace(/sertifikaty\.html/g, '<a href="sertifikaty.html">конструктор сертификатов</a>').replace(/\n/g, '<br>');
+  async function ai(text) {
+    if (!AI_URL) return false;
+    hist.push({ role: 'user', text });
+    const t = add('m b typing', '<i></i><i></i><i></i>');
+    try {
+      const ctl = new AbortController(); setTimeout(() => ctl.abort(), 25000);
+      const r = await fetch(AI_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ messages: hist.slice(-10) }), signal: ctl.signal });
+      const d = await r.json();
+      if (!d.reply) throw new Error('empty');
+      hist.push({ role: 'assistant', text: d.reply });
+      const act = d.intent === 'book' ? `<div class="acts"><a href="${SALON.book}" target="_blank" rel="noopener">Записаться онлайн →</a><a href="https://t.me/D_ajour_bot" target="_blank" rel="noopener">Записаться в Telegram</a></div>`
+        : d.intent === 'gift' ? '<div class="acts"><a href="sertifikaty.html">Собрать сертификат →</a></div>'
+        : d.intent === 'human' ? `<div class="acts"><a href="tel:${SALON.phone.replace(/[^+\d]/g, '')}">Позвонить</a><a href="${(SALON.messengers.find(m => m.k === 'wa') || {}).url}" target="_blank" rel="noopener">WhatsApp</a></div>` : '';
+      t.className = 'm b'; t.innerHTML = linkify(d.reply) + act; scroll();
+      if (d.intent === 'pm') setTimeout(perm, 700);
+      return true;
+    } catch (e) { hist.pop(); t.remove(); return false; }
+  }
+
   async function handle(text) {
     user(text);
     const t = text.toLowerCase();
     if (flow) return flow(text);
+    if (await ai(text)) return;
     if (/запис/.test(t)) return say('С удовольствием запишу. На какую услугу?', SALON.services.slice(0, 7).map(s => s.n));
     if (/перманент|татуаж|пудров/.test(t) && !/цен/.test(t)) return perm();
     const svc = SALON.services.find(s => s.n === text);

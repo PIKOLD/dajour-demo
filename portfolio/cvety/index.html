@@ -9,12 +9,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.pexels.com">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap&subset=cyrillic" rel="stylesheet">
 <style>
 :root{
   --pink:#f6c1cc;--wine:#5c1630;--sage:#b7c7ae;--butter:#fbe7a1;--off:#fffaf5;--ink:#1a1416;
   --wine2:#7a2244;--line:rgba(26,20,22,.12);
-  --disp:"Unbounded",system-ui,sans-serif;--ser:"Cormorant Garamond",Georgia,serif;--body:"Manrope",system-ui,sans-serif;--hand:"Caveat",cursive;
+  --disp:"Onest",system-ui,sans-serif;--ser:"Cormorant Garamond",Georgia,serif;--body:"Manrope",system-ui,sans-serif;--hand:"Caveat",cursive;
   --r:36px;--ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -72,7 +72,7 @@ nav a:hover{background:var(--pink)}
 .h-l::after{content:"";position:absolute;right:-120px;bottom:-140px;width:380px;height:380px;border-radius:50%;background:var(--wine2);opacity:.55}
 .kick{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
 .kick::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--pink)}
-.h1{font-family:var(--disp);font-weight:800;font-size:clamp(36px,5.5vw,86px);line-height:.98;letter-spacing:-.045em;margin:26px 0 24px;position:relative;z-index:1}
+.h1{font-family:var(--disp);font-weight:800;font-size:clamp(40px,6vw,104px);line-height:.95;letter-spacing:-.05em;margin:26px 0 24px;position:relative;z-index:1}
 .h1 em.s{color:var(--pink);font-size:1.2em;display:inline-block;padding-right:.08em}
 .lead{font-size:18px;max-width:520px;color:#f4dde3;position:relative;z-index:1}
 .lead b{color:var(--off)}
@@ -433,6 +433,9 @@ textarea:focus,input:focus,select:focus{outline:none;border-color:var(--wine)}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
 }
+.hero.wrap{max-width:none;margin:0 16px;padding:0}
+.wrap.hd{max-width:none;padding:0 32px}
+@media(min-width:1500px){.h-l{padding:64px 72px 48px}.lead{font-size:20px;max-width:600px}}
 </style>
 </head>
 <body>
